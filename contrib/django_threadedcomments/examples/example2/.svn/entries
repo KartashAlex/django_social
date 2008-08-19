@@ -1,0 +1,55 @@
+8
+
+dir
+108
+http://django-threadedcomments.googlecode.com/svn/trunk/examples/example2
+http://django-threadedcomments.googlecode.com/svn
+
+
+
+2008-01-30T19:16:27.265627Z
+65
+floguy
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+60388069-7741-0410-adde-d57be00c0a97
+
+exampleblog
+dir
+
+__init__.py
+file
+
+
+
+
+2008-05-27T17:21:14.000000Z
+d41d8cd98f00b204e9800998ecf8427e
+2008-01-30T06:53:44.081843Z
+63
+floguy
+
+urls.py
+file
+
+
+
+
+2008-05-27T17:21:14.000000Z
+a0e80485d795bb06c805ed22eb4a1dd8
+2008-01-30T06:53:44.081843Z
+63
+floguy
+

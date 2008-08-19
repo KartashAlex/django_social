@@ -1,0 +1,1 @@
+{% load i18n %}{% blocktrans with site.domain as domain and token.activation_key as token %}http://{{ domain }}/accounts/activate/{{ token }}/{% endblocktrans %}

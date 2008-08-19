@@ -1,0 +1,58 @@
+8
+
+dir
+77
+http://deseb.googlecode.com/svn/trunk/src/deseb
+http://deseb.googlecode.com/svn
+
+
+
+2008-02-10T22:49:05.713481Z
+77
+burchik
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+64090aca-0e3b-0410-bb36-b14c205f76dc
+
+__init__.py
+file
+
+
+
+
+2008-05-29T08:17:33.000000Z
+dad5f94c10e4e9c94753400724ca8493
+2008-02-10T22:49:05.713481Z
+77
+burchik
+
+backends
+dir
+
+schema_evolution.py
+file
+
+
+
+
+2008-05-29T08:17:33.000000Z
+0bc591d8adf4ca7b199ee532a0c985eb
+2008-02-10T22:49:05.713481Z
+77
+burchik
+
+management
+dir
+

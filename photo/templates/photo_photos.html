@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+            {% block head %}
+        <link rel="stylesheet" href="/i/css/thickbox.css" type="text/css" />
+        <script src="/i/js/jquery.js" type="text/javascript" />
+        <script src="/i/js/thickbox-compressed.js" type="text/javascript" />
+            {% endblock head %}
+            {% block content %}
+                <ul>
+                {% load thumbnail %}
+                {% for photo in object_list %}
+                    <li>
+                        <a href="{% thumbnail photo.image 800x800 %}" class="thickbox" rel="album">
+                            <img src="{% thumbnail photo.image 200x200 %}"/>
+                            {{ photo.title }}
+                        </a>
+                    </li>
+                {% endfor %}
+                </ul>
+                {% ifequal album.user.pk request.user.user.pk %}
+                <form action="{% url create_photo album.user.pk,album.pk %}" method="post" enctype="multipart/form-data">
+                    {{ form.as_p }}
+                    <input type="submit"/>
+                </form>
+                {% endifequal %}
+            {% endblock content %}

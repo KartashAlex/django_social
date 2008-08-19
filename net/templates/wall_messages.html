@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+            {% block content %}
+                <ul>
+                {% for msg in object_list %}
+                    <li>
+                        {{ msg.sent|date:"d.m.Y" }}
+                        {% ifequal msg.from_user user.user %}
+                            {{ msg.get_address.username }}
+                        {% else %}
+                            {{ msg.from_user.username }}
+                        {% endifequal %} 
+                        <h1>{{ msg.subject }}</h1>
+                        {{ msg.body }}
+                    </li>
+                {% endfor %}
+                </ul>
+            {% endblock content %}

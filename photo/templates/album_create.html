@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+            {% block content %}
+                <form action="{% url create_album %}">
+                    {{ form.as_p }}
+                    <input type="submit"/>
+                </form>
+            {% endblock content %}

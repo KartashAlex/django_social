@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load i18n interests %}
+    {% block content %}
+        <h1><a href="{% url user_profile profile.username %}">{{ profile.username }}</a></h1>
+        <form action="." method="post">
+            {{ form.as_p }}
+            <input type="submit" value="{% trans "save" %}"/>
+        </form>
+        <div class="clear"></div>
+    {% endblock content %}
+  

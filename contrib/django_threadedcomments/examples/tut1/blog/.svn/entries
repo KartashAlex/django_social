@@ -1,0 +1,67 @@
+8
+
+dir
+108
+http://django-threadedcomments.googlecode.com/svn/trunk/examples/tut1/blog
+http://django-threadedcomments.googlecode.com/svn
+
+
+
+2008-02-24T08:21:08.398843Z
+78
+floguy
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+60388069-7741-0410-adde-d57be00c0a97
+
+views.py
+file
+
+
+
+
+2008-05-27T17:21:13.000000Z
+a2e0f54eecea423ecd2b6a2bf66d515d
+2008-02-24T08:21:08.398843Z
+78
+floguy
+
+__init__.py
+file
+
+
+
+
+2008-05-27T17:21:13.000000Z
+d41d8cd98f00b204e9800998ecf8427e
+2008-01-20T02:18:26.740655Z
+31
+floguy
+
+models.py
+file
+
+
+
+
+2008-05-27T17:21:13.000000Z
+d34a1719ad7b4bc5f885043d83555c7b
+2008-01-20T02:18:26.740655Z
+31
+floguy
+
+templates
+dir
+

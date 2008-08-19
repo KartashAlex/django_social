@@ -1,0 +1,51 @@
+      .b-footer {
+            width: 100%;
+            bottom: 0;
+            border-top: solid 2px #e2e2e2;
+            padding: 20px 0;
+            margin-top: 20px;
+            float: left; display: inline;
+            margin-top: 20px;
+            font-size: 0.9em;
+left:0;
+            
+        }
+        .b-copy {
+            margin-left: 28px;
+            float: left; display: inline;
+            width: 33%;
+            
+        }
+    
+        .copy-link {
+            float: left; display: inline;
+            clear: both;
+            background: url('../images/pro_logo.png') top left no-repeat;
+
+            padding: 3px 0 5px 40px;
+        }
+        .license {
+            float: left; display: inline;
+            clear: both;
+            width: 100%;
+        }
+        .copy-link a {
+   
+        }
+        .b-orange, .b-lime, .b-counters {
+            float: left; display: inline;
+        }
+        .b-orange {
+            width: 22%;
+            
+            background: url('../images/orange_logo.png') top left no-repeat;
+        }
+        .b-lime {
+            width: 22%;
+            
+            background: url('../images/lime_logo.png') top left no-repeat;
+        }
+          .b-lime div, .b-orange div {
+              float: left; display: inline;
+              margin-left: 90px;
+          }

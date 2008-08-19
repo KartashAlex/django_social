@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+            {% block content %}
+                <table class="b-personal-info">
+                    <tr>
+                        <td class="b-userpic">
+                            {% load thumbnail i18n %} {% if profile.avatar %} <img src="{% thumbnail profile.avatar 270x270 %}" /> {% endif %}
+                        </td>
+                        <td>
+                            <a class="edit-profile-btn" id="edit-profile-btn" href="{% url edit_user_profile %}" name="edit-profile-btn">Редактировать</a>
+                            <div class="h-userinfo">
+                                <h2 class="username">
+                                    {{ profile.first_name }} {{ profile.last_name }}
+                                </h2>
+                                <div style="width: 50%; float: left">
+                                    {% if profile.birthdate %}
+                                    <div class="b-date-and-place">
+                                        <a href="#">{{ profile.birthdate|date:"d.m.Y" }}</a><br />
+                                        {% endif %} {% if profile.city %} <a href="#">{{ profile.city }}</a> {% endif %} {% if profile.country %} , <a href="#">{{ profile.country }}</a>
+                                    </div>{% endif %}
+                                    <div class="b-education-info">
+                                        {% if profile.university %} <a href="#">{{ profile.university }}</a> {% endif %}
+                                    </div>
+                                    <div class="b-career-info">
+                                        
+                                         {% if profile.places.all %}
+                                            <div class="b-career-info">
+                                            Места: 
+                                            <ul> 
+                                            {% for place in profile.places.all %}
+                                                <li>
+                                                    {{ place.type }} <a href="/search/?places__name={{ place.name|urlencode }}">{{ place.name }}</a>
+                                                    с: {{ place.from_date|date:"m.Y" }} по: {{ place.to_date|date:"m.Y" }} 
+                                                </li>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>{% if profile.interest %}
+                                    <div class="b-career-info">
+                                        Интересы: {% for interest in profile.get_interests %} <a href="/search/?interest={{ interest|urlencode }}">{{ interest }}</a>{% if not forloop.last %}, {% endif %} {% endfor %}
+                                    </div>{% endif %}
+                                </div>{% if profile.interest %}
+                                <div class="b-career-info">
+                                    Школы: {% for school in profile.get_schools %} <a href="/search/?schools__title={{ school.title|urlencode }}">{{ school.title }}</a> с: {{ school.from_date|date:"m.Y" }} по: {{ school.to_date|date:"m.Y" }} {% if not forloop.last %}<br />
+                                    {% endif %} {% endfor %}
+                                </div></div>{% endif %}
+                                <div style="width: 50%; float: left">
+                                    {% if profile.get_contacts.phone %}
+                                    <div class="b-phone-num">
+                                        Телефон: <span class="bigger">{{ profile.get_contacts.phone }}</span>
+                                    </div>{% endif %}
+                                    <div class="b-im-accounts">
+                                        {% if profile.get_contacts.icq %}
+                                        ICQ: <a href="#">{{ profile.get_contacts.icq }}</a><br />
+                                        {% endif %} 
+                                        {% if profile.get_contacts.jabber %} Jabber: <a href="#">{{ profile.get_contacts.jabber }}</a>{% endif %}
+                                        {% if profile.get_contacts.msn %} Msn: <a href="#">{{ profile.get_contacts.msn }}</a>{% endif %}
+                                    </div>
+                                    
+                                </div>
+                                
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <h1>{% trans "Wall" %}</h1>
+                <a href="{% url create_pm "user",profile.id %}">{% trans "Leave a message" %}</a>
+                <ul>
+                {% for msg in profile.get_messages %}
+                    <li>
+                        {{ msg.sent|date:"d.m.Y" }}
+                        {% ifequal msg.from_user user.user %}
+                            {{ msg.get_address.username }}
+                        {% else %}
+                            {{ msg.from_user.username }}
+                        {% endifequal %} 
+                        <h2>{{ msg.subject }}</h2>
+                        {{ msg.body }}
+                    </li>
+                {% endfor %}
+                </ul>
+                
+                <h1>{% trans "Albums" %}</h1>
+                <form action="{% url photo.views.create_album %}" method="post">
+                    <input type="text" name="title" />
+                    <input type="submit" />
+                </form>
+                <ul>
+                {% for album in profile.albums.all %}
+                    <li>
+                        <a href="{% url photos profile.pk,album.pk %}">{{ album.title }}</a>
+                    </li>
+                {% endfor %}
+                </ul>
+            {% endblock content %}

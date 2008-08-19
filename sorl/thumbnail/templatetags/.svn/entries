@@ -1,0 +1,53 @@
+8
+
+dir
+2176
+svn://75.125.143.66/curtisbrown/trunk/curtisbrown/sorl/thumbnail/templatetags
+svn://75.125.143.66
+
+
+
+2008-02-22T00:44:08.421138Z
+1835
+ruk
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+d6689590-524b-dc11-b8a1-00132006e388
+
+__init__.py
+file
+
+
+
+
+2008-02-29T15:32:20.000000Z
+d41d8cd98f00b204e9800998ecf8427e
+2008-02-22T00:44:08.421138Z
+1835
+ruk
+
+thumbnail.py
+file
+
+
+
+
+2008-02-29T15:32:20.000000Z
+6f4302511f38ec4dd3dd97c5ffbe82f0
+2008-02-22T00:44:08.421138Z
+1835
+ruk
+has-props
+

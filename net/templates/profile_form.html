@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    <html>
+<head>
+    <title>Регистрация</title>
+     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="/i/css/base.css" />
+        <link rel="stylesheet" href="/i/css/head.css" />
+    <link rel="stylesheet" href="/i/css/registration.css" />
+        <link rel="stylesheet" href="/i/css/footer.css" />
+      
+</head>
+<body>
+  
+    <div class="b-page-container">
+  
+   <div class="b-head">
+       <div class="b-menu">
+           <a href="#">Люди</a>
+           <a href="#">Группы</a>
+           <a href="#">RTTV</a>
+    </div>
+    </div>
+      <div class="b-min-height">&nbsp;</div>
+     <div class="b-content-container">
+    
+    <div class="h-registration">
+        <div class="b-signup">
+   
+            <form method="post" enctype="multipart/form-data">
+                <h2>Заполните ваш профиль</h2>
+                <p class="notify">Пожалуйста, указывайте реальные данные, чтобы вас могли найти друзья и знакомые</p>
+                <div class="b-fields-group main-fields">
+                    {{ form.as_fs }}
+                </div>
+                <div class="b-fields-group main-fields">
+                    {{ places_forms.as_fs }}
+                </div>
+                <input type="submit" value="Создать профиль" class="signup-btn"/>
+ 
+            </form>
+        </div>
+    </div>
+  </div>
+  <div class="b-footer">
+
+</div>
+      </div>
+    </body>
+    </html>

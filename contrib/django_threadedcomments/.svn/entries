@@ -1,0 +1,115 @@
+8
+
+dir
+108
+http://django-threadedcomments.googlecode.com/svn/trunk
+http://django-threadedcomments.googlecode.com/svn
+
+
+
+2008-05-19T23:03:25.066890Z
+108
+floguy
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+60388069-7741-0410-adde-d57be00c0a97
+
+LICENSE.txt
+file
+
+
+
+
+2008-05-27T17:21:14.000000Z
+9155b6986738d7374af4411ac3a6a06c
+2008-01-18T09:43:03.369094Z
+29
+floguy
+
+tests
+dir
+
+promotional
+dir
+
+INSTALL.txt
+file
+
+
+
+
+2008-05-27T17:21:14.000000Z
+99bbaf4dba8c3b19af589bad782b353b
+2008-01-23T08:04:44.467003Z
+58
+floguy
+
+CHANGELOG.txt
+file
+
+
+
+
+2008-05-27T17:21:14.000000Z
+c67e0518b9724e60f331d0cd735b3f53
+2008-03-08T00:36:47.185939Z
+93
+floguy
+
+threadedcomments
+dir
+
+setup.py
+file
+
+
+
+
+2008-05-27T17:21:14.000000Z
+e9141da957460c46a37c0693cead50b4
+2008-03-08T00:36:47.185939Z
+93
+floguy
+
+docs
+dir
+
+README.txt
+file
+
+
+
+
+2008-05-27T17:21:14.000000Z
+0b9ffc38b2fcba4f4e2ee8dd6fb2bb63
+2008-01-23T08:04:44.467003Z
+58
+floguy
+
+CONTRIBUTORS.txt
+file
+
+
+
+
+2008-05-27T17:21:14.000000Z
+02a2f5bac741710bccdd59e98a1e09a5
+2008-04-25T07:23:54.838894Z
+104
+floguy
+
+examples
+dir
+

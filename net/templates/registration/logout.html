@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    <html>
+<head>
+    <title>Регистрация</title>
+     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="/i/css/base.css" />
+        <link rel="stylesheet" href="/i/css/head.css" />
+    <link rel="stylesheet" href="/i/css/registration.css" />
+</head>
+<body>
+  
+    <div class="b-page-container">
+  
+   <div class="b-head">
+       <div class="b-menu">
+           <a href="#">Люди</a>
+           <a href="#">Группы</a>
+           <a href="#">RTTV</a>
+    </div>
+    </div>
+      <div class="b-min-height">&nbsp;</div>
+     <div class="b-content-container">
+    
+    <div class="h-registration">
+        <div class="b-registration">
+            
+            <div class="b-registration-info">
+                <h2>RTTV Social это новая социальная сеть где вы можете</h2>
+                <ul>
+                <li>&mdash;&nbsp;Общаться с друзьями</li>
+                <li>&mdash;&nbsp;Находить своих старых знакомых, одноклассников, коллег</li>
+                <li>&mdash;&nbsp;Загружать, показывать и комментровать фотографии</li>
+                <li>&mdash;&nbsp;Вести дневник</li>
+                <li>&mdash;&nbsp;Размещать обьявления</li>
+                </ul>
+                <form class="b-signup-form" action="{% url registration_register %}" method="post">
+                <h3 class="header">Зарегистрироваться:</h3>
+                <fieldset>{{ form.as_p }}</fieldset>
+                 <input type="submit" value="Зарегистрироваться" class="signin-btn"/>
+                <p class="notation">Мы бережно храним ваш email в соответствии с &laquo;<a href="#">Условиями о хранении персональной информации</a>&raquo;</p>
+                </form>
+            </div>
+            <form class="b-registration-form" action="{% url auth_login %}" method="post">
+                <h2>Уже зарегистрированы?</h2>
+                <fieldset><label for="username">E-mail</label><input name="username" id="username" /></fieldset>
+                <fieldset><label for="password">Пароль</label><input name="password" id="password" /></fieldset>
+                <input type="submit" value="войти" class="signup-btn"/>
+            </form>
+        </div>
+    </div>
+  </div>
+
+      </div>
+    </body>
+    </html>

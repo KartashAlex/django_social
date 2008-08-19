@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load i18n interests %}
+    {% block content %}
+        <ul>
+        {% for user in object_list %}
+            <li><a href="{% url user_profile user.pk %}">{{ user.username }}</a></li>
+        {% endfor %}
+        </ul>
+        <div class="clear"></div>
+    {% endblock content %}
+  

@@ -1,0 +1,80 @@
+8
+
+dir
+24
+http://django-sphinx.googlecode.com/svn/trunk/sphinxtest
+http://django-sphinx.googlecode.com/svn
+
+
+
+2008-04-04T20:40:09.664906Z
+5
+dcramer
+has-props
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+4d12d2f4-9239-0410-9032-d5b1562e1c11
+
+manage.py
+file
+
+
+
+
+2008-05-27T17:29:14.000000Z
+436d756648d7f458aaa9c72570634e59
+2008-04-04T20:40:09.664906Z
+5
+dcramer
+has-props
+
+tests
+dir
+
+__init__.py
+file
+
+
+
+
+2008-05-27T17:29:14.000000Z
+d41d8cd98f00b204e9800998ecf8427e
+2008-04-04T20:40:09.664906Z
+5
+dcramer
+
+settings.py
+file
+
+
+
+
+2008-05-27T17:29:14.000000Z
+d2ea4b3365a9ba1128fed0a377b75035
+2008-04-04T20:40:09.664906Z
+5
+dcramer
+
+urls.py
+file
+
+
+
+
+2008-05-27T17:29:14.000000Z
+ed4ff163eb3641bea32259139ddcc4e1
+2008-04-04T20:40:09.664906Z
+5
+dcramer
+
