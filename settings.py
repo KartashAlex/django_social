@@ -98,9 +98,12 @@ INSTALLED_APPS = (
     'sorl.thumbnail',
 ) + OUR_APPS
 
-EMAIL_HOST = 'gmail.com'
-EMAIL_HOST_USER = 'ikenovodvorsky'
-EMAIL_HOST_PASSWORD = 'beta19ira'
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
 LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/me/'
 ACCOUNT_ACTIVATION_DAYS = 14
