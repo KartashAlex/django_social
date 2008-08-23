@@ -99,8 +99,8 @@ INSTALLED_APPS = (
 ) + OUR_APPS
 
 EMAIL_HOST = 'gmail.com'
-EMAIL_HOST_USER = ''
-EMAIL_HOST_PASSWORD = ''
+EMAIL_HOST_USER = 'ikenovodvorsky'
+EMAIL_HOST_PASSWORD = 'beta19ira'
 LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/me/'
 ACCOUNT_ACTIVATION_DAYS = 14
