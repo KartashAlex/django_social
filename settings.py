@@ -73,6 +73,9 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 )
 
 OUR_APPS = (
+    'django.contrib.sites',
+    'django.contrib.flatpages',
+
     'net',
     'places',
     'photo',
@@ -83,8 +86,6 @@ INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
-    'django.contrib.sites',
-    'django.contrib.flatpages',
     'django.contrib.admin',
     
     'django_authopenid',
