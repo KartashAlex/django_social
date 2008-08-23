@@ -1,0 +1,1239 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-08-23 19:18+0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/forms.py:67
+#: contrib/django-authopenid-0.9.4/django_authopenid/views.py:104
+#: django_authopenid/forms.py:67 django_authopenid/views.py:104
+msgid "i-names are not supported"
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/forms.py:75
+#: contrib/django-authopenid-0.9.4/django_authopenid/forms.py:137
+#: django_authopenid/forms.py:75 django_authopenid/forms.py:137
+#, python-format
+msgid "next url \"%s\" is invalid"
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/forms.py:103
+#: contrib/django-authopenid-0.9.4/django_authopenid/forms.py:160
+#: contrib/django-authopenid-0.9.4/django_authopenid/forms.py:201
+#: django_authopenid/forms.py:103 django_authopenid/forms.py:160
+#: django_authopenid/forms.py:201
+msgid ""
+"Usernames can only contain                     letters, numbers and "
+"underscores"
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/forms.py:110
+#: django_authopenid/forms.py:110
+msgid ""
+"This username don't exist                     in database. Please choose "
+"another."
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/forms.py:123
+#: contrib/django-authopenid-0.9.4/django_authopenid/forms.py:221
+#: django_authopenid/forms.py:123 django_authopenid/forms.py:221
+msgid ""
+"Please enter a correct                     username and password. Note that "
+"both fields are                     case-sensitive."
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/forms.py:127
+#: contrib/django-authopenid-0.9.4/django_authopenid/forms.py:225
+#: django_authopenid/forms.py:127 django_authopenid/forms.py:225
+msgid "This account is inactive."
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/forms.py:168
+#: django_authopenid/forms.py:168
+msgid "This username is already                 taken. Please choose another."
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/forms.py:178
+#: django_authopenid/forms.py:178
+msgid ""
+"This email is already                 registered in our database. Please "
+"choose another."
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/forms.py:208
+#: django_authopenid/forms.py:208
+msgid ""
+"This username don't exist.                         Please choose another."
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/forms.py:312
+#: django_authopenid/forms.py:312
+msgid ""
+"Old password is wrong.                     Please enter a valid password."
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/forms.py:324
+#: django_authopenid/forms.py:324
+msgid "new passwords do not match each other"
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/forms.py:398
+#: django_authopenid/forms.py:398
+msgid "Incorrect username."
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/urls.py:7
+#: contrib/django-authopenid-0.9.4/django_authopenid/urls.py:9
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/settings.py:32
+msgid "signin/"
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/urls.py:8
+msgid "signout/"
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/urls.py:9
+msgid "complete/"
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/urls.py:11
+msgid "register/"
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/urls.py:12
+msgid "signup/"
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/urls.py:13
+msgid "sendpw/"
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/urls.py:14
+#: contrib/django-authopenid-0.9.4/django_authopenid/urls.py:19
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/settings.html:35
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/settings.html:35
+#: django_authopenid/templates/authopenid/settings.html:35
+msgid "password/"
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/urls.py:14
+msgid "confirm/"
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/urls.py:20
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/settings.html:37
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/settings.html:37
+#: django_authopenid/templates/authopenid/settings.html:37
+msgid "email/"
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/urls.py:21
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/settings.html:40
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/settings.html:40
+#: django_authopenid/templates/authopenid/settings.html:40
+msgid "openid/"
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/urls.py:22
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/settings.html:44
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/settings.html:44
+#: django_authopenid/templates/authopenid/settings.html:44
+msgid "delete/"
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/views.py:110
+#: django_authopenid/views.py:110
+#, python-format
+msgid "The OpenID %s was invalid"
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/views.py:408
+#: django_authopenid/views.py:408
+msgid "Welcome"
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/views.py:494
+#: django_authopenid/views.py:494
+msgid "Password changed."
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/views.py:526
+#: django_authopenid/views.py:526
+msgid "Email changed."
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/views.py:557
+#: contrib/django-authopenid-0.9.4/django_authopenid/views.py:711
+#: django_authopenid/views.py:557 django_authopenid/views.py:711
+msgid "No openid % associated in our database"
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/views.py:561
+#: contrib/django-authopenid-0.9.4/django_authopenid/views.py:718
+#: django_authopenid/views.py:561 django_authopenid/views.py:718
+#, python-format
+msgid "The openid %s isn't associated to current logged user"
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/views.py:569
+#: django_authopenid/views.py:569
+msgid "Email Changed."
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/views.py:645
+#: django_authopenid/views.py:645
+msgid "This openid is already associated with another account."
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/views.py:650
+#: django_authopenid/views.py:650
+#, python-format
+msgid "Openid %s associated with your account."
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/views.py:721
+#: django_authopenid/views.py:721
+msgid "Account deleted."
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/views.py:761
+#: django_authopenid/views.py:761
+msgid "Request for a new password"
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/views.py:774
+#: django_authopenid/views.py:774
+msgid "A new password has been sent to your email"
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/views.py:804
+#: django_authopenid/views.py:804
+#, python-format
+msgid ""
+"Can not change password. Confirmation key '%s'                isn't "
+"registered."
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/views.py:813
+#: django_authopenid/views.py:813
+msgid ""
+"Can not change password. User don't exist anymore                 in our "
+"database."
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/views.py:822
+#: django_authopenid/views.py:822
+#, python-format
+msgid "Password changed for %s. You could now sign-in"
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/changeemail.html:8
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/changeemail.html:8
+#: django_authopenid/templates/authopenid/changeemail.html:8
+msgid "Account: change email"
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/changeemail.html:10
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/changeemail.html:10
+#: django_authopenid/templates/authopenid/changeemail.html:10
+msgid ""
+"This is where you can change the email address associated with your account. "
+"Please keep this email address up to date so we can send you a password-"
+"reset email if you request one."
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/changeemail.html:12
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/changeopenid.html:9
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/changepw.html:15
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/complete.html:26
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/complete.html:36
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/delete.html:10
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/delete.html:20
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/sendpw.html:11
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/signin.html:16
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/signup.html:15
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/changeemail.html:12
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/changeopenid.html:9
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/changepw.html:15
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/complete.html:26
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/complete.html:36
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/delete.html:10
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/delete.html:20
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/sendpw.html:11
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/signin.html:16
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/signup.html:15
+#: django_authopenid/templates/authopenid/changeemail.html:12
+#: django_authopenid/templates/authopenid/changeopenid.html:9
+#: django_authopenid/templates/authopenid/changepw.html:15
+#: django_authopenid/templates/authopenid/complete.html:26
+#: django_authopenid/templates/authopenid/complete.html:36
+#: django_authopenid/templates/authopenid/delete.html:10
+#: django_authopenid/templates/authopenid/delete.html:20
+#: django_authopenid/templates/authopenid/sendpw.html:11
+#: django_authopenid/templates/authopenid/signin.html:16
+#: django_authopenid/templates/authopenid/signup.html:15
+msgid "Please correct errors below:"
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/changeemail.html:29
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/complete.html:52
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/changeemail.html:29
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/complete.html:52
+#: django_authopenid/templates/authopenid/changeemail.html:29
+#: django_authopenid/templates/authopenid/complete.html:52
+msgid "Email"
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/changeemail.html:30
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/complete.html:68
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/signin.html:32
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/changeemail.html:30
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/complete.html:68
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/signin.html:32
+#: django_authopenid/templates/authopenid/changeemail.html:30
+#: django_authopenid/templates/authopenid/complete.html:68
+#: django_authopenid/templates/authopenid/signin.html:32
+msgid "Password"
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/changeemail.html:32
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/changeemail.html:32
+#: django_authopenid/templates/authopenid/changeemail.html:32
+msgid "Change email"
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/changeopenid.html:5
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/changeopenid.html:5
+#: django_authopenid/templates/authopenid/changeopenid.html:5
+msgid "Account: change openid url"
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/changeopenid.html:7
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/changeopenid.html:7
+#: django_authopenid/templates/authopenid/changeopenid.html:7
+msgid ""
+"This is where you can change your openid url used to connect to "
+"friendsnippets. Make sure you remember it!"
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/changeopenid.html:24
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/changeopenid.html:24
+#: django_authopenid/templates/authopenid/changeopenid.html:24
+msgid "OpenID url:"
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/changeopenid.html:25
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/changeopenid.html:25
+#: django_authopenid/templates/authopenid/changeopenid.html:25
+msgid "Change openid"
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/changepw.html:11
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/changepw.html:11
+#: django_authopenid/templates/authopenid/changepw.html:11
+msgid "Account: change password"
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/changepw.html:13
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/changepw.html:13
+#: django_authopenid/templates/authopenid/changepw.html:13
+msgid "This is where you can change your password. Make sure you remember it!"
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/changepw.html:23
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/changepw.html:23
+#: django_authopenid/templates/authopenid/changepw.html:23
+msgid "Old password"
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/changepw.html:24
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/changepw.html:24
+#: django_authopenid/templates/authopenid/changepw.html:24
+msgid "New password"
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/changepw.html:25
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/changepw.html:25
+#: django_authopenid/templates/authopenid/changepw.html:25
+msgid "New password again"
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/changepw.html:26
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/changepw.html:26
+#: django_authopenid/templates/authopenid/changepw.html:26
+#: django_dbsettings/templates/dbsettings/app_settings.html:7
+#: django_dbsettings/templates/dbsettings/site_settings.html:7
+msgid "Change password"
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/complete.html:12
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/complete.html:12
+#: django_authopenid/templates/authopenid/complete.html:12
+msgid "Your OpenID is verified! "
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/complete.html:13
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/complete.html:13
+#: django_authopenid/templates/authopenid/complete.html:13
+msgid ""
+"\n"
+"\t<p>Your OpenID can now be associated with a new or existing membership. "
+"You can change the association later in your preferences</p>\n"
+"\t"
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/complete.html:17
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/complete.html:17
+#: django_authopenid/templates/authopenid/complete.html:17
+msgid "Associate your OpenID"
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/complete.html:18
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/complete.html:18
+#: django_authopenid/templates/authopenid/complete.html:18
+msgid ""
+"\n"
+"\t<p>If you're joining <strong>Sitename</strong>, associate your OpenID with "
+"a new account. If you're already a member, associate with your existing "
+"account.</p>\n"
+"\t"
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/complete.html:50
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/complete.html:50
+#: django_authopenid/templates/authopenid/complete.html:50
+msgid "A new account"
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/complete.html:51
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/complete.html:67
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/complete.html:51
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/complete.html:67
+#: django_authopenid/templates/authopenid/complete.html:51
+#: django_authopenid/templates/authopenid/complete.html:67
+msgid "Screen name"
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/complete.html:66
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/complete.html:66
+#: django_authopenid/templates/authopenid/complete.html:66
+msgid "An exisiting account"
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/delete.html:6
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/delete.html:6
+#: django_authopenid/templates/authopenid/delete.html:6
+msgid "Account: delete account"
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/delete.html:8
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/delete.html:8
+#: django_authopenid/templates/authopenid/delete.html:8
+msgid ""
+"Note: After deleting your account, anyone will be able to register this "
+"username."
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/delete.html:12
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/delete.html:12
+#: django_authopenid/templates/authopenid/delete.html:12
+msgid "Check confirm box, if you want delete your account."
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/delete.html:15
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/delete.html:15
+#: django_authopenid/templates/authopenid/delete.html:15
+msgid "Password:"
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/delete.html:27
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/delete.html:27
+#: django_authopenid/templates/authopenid/delete.html:27
+msgid "I am sure I want to delete my account."
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/delete.html:28
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/delete.html:28
+#: django_authopenid/templates/authopenid/delete.html:28
+msgid "Password/ OpenID URL"
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/delete.html:28
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/delete.html:28
+#: django_authopenid/templates/authopenid/delete.html:28
+msgid "(required for your security)"
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/delete.html:30
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/delete.html:30
+#: django_authopenid/templates/authopenid/delete.html:30
+msgid "delete account forever"
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/sendpw.html:7
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/sendpw.html:7
+#: django_authopenid/templates/authopenid/sendpw.html:7
+msgid "Account: Send a new password"
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/sendpw.html:9
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/sendpw.html:9
+#: django_authopenid/templates/authopenid/sendpw.html:9
+msgid ""
+"Lost your password ? Here you can ask to reset your password. Enter the "
+"username you use  and you will get a confirm mail with your new password. "
+"This new password will be activated only after you clicked on the link you "
+"will find in the email"
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/sendpw.html:24
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/sendpw.html:24
+#: django_authopenid/templates/authopenid/sendpw.html:24
+msgid "Username"
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/sendpw.html:26
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/sendpw.html:26
+#: django_authopenid/templates/authopenid/sendpw.html:26
+msgid "Send new password"
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/settings.html:22
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/settings.html:22
+#: django_authopenid/templates/authopenid/settings.html:22
+msgid "Settings"
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/settings.html:23
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/settings.html:23
+#: django_authopenid/templates/authopenid/settings.html:23
+msgid ""
+"\n"
+"    <p>This is where you can make changes to your account.</p>\n"
+"\n"
+"    "
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/settings.html:33
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/settings.html:33
+#: django_authopenid/templates/authopenid/settings.html:33
+msgid "Account"
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/settings.html:35
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/settings.html:35
+#: django_authopenid/templates/authopenid/settings.html:35
+msgid "change password"
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/settings.html:36
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/settings.html:36
+#: django_authopenid/templates/authopenid/settings.html:36
+msgid "Give your  account a new password."
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/settings.html:37
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/settings.html:37
+#: django_authopenid/templates/authopenid/settings.html:37
+msgid "change email"
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/settings.html:38
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/settings.html:38
+#: django_authopenid/templates/authopenid/settings.html:38
+msgid "Add or update the email address associated with your account."
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/settings.html:40
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/settings.html:40
+#: django_authopenid/templates/authopenid/settings.html:40
+msgid "change openid url"
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/settings.html:41
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/settings.html:41
+#: django_authopenid/templates/authopenid/settings.html:41
+msgid "Change openid associated to your account"
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/settings.html:44
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/settings.html:44
+#: django_authopenid/templates/authopenid/settings.html:44
+msgid "delete account"
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/settings.html:45
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/settings.html:45
+#: django_authopenid/templates/authopenid/settings.html:45
+msgid "Erase your username and all your data from website"
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/signin.html:30
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/signin.html:30
+#: django_authopenid/templates/authopenid/signin.html:30
+msgid "Sign In Using Your Account ID"
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/signin.html:31
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/signin.html:31
+#: django_authopenid/templates/authopenid/signin.html:31
+msgid "Username:"
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/signin.html:33
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/signin.html:33
+#: django_authopenid/templates/authopenid/signin.html:33
+msgid "Sign in"
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/signin.html:34
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/signin.html:34
+#: django_authopenid/templates/authopenid/signin.html:34
+msgid "Lost your password ?"
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/signin.html:42
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/signin.html:42
+#: django_authopenid/templates/authopenid/signin.html:42
+msgid "Sign In Using Your OpenID"
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/signin.html:43
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/signin.html:43
+#: django_authopenid/templates/authopenid/signin.html:43
+msgid "OpenId URL :"
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/signin.html:44
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/signup.html:42
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/signin.html:44
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/signup.html:42
+#: django_authopenid/templates/authopenid/signin.html:44
+#: django_authopenid/templates/authopenid/signup.html:42
+msgid "Sign in with OPENID"
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/signup.html:7
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/signup.html:7
+#: django_authopenid/templates/authopenid/signup.html:7
+msgid ""
+"\n"
+"    <h1>Join</h1>\n"
+"    <p>There are two ways to join: with an email + screen name, or with "
+"OpenID.<br />Enter information only for the type of sign up you want to do.</"
+"p>\n"
+"    "
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/signup.html:13
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/signup.html:13
+#: django_authopenid/templates/authopenid/signup.html:13
+msgid "Regular Signup"
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/signup.html:29
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/signup.html:29
+#: django_authopenid/templates/authopenid/signup.html:29
+msgid "Choose a Screen Name:"
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/signup.html:31
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/signup.html:31
+#: django_authopenid/templates/authopenid/signup.html:31
+msgid "Enter Your Email Address:"
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/signup.html:32
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/signup.html:32
+#: django_authopenid/templates/authopenid/signup.html:32
+msgid "Choose a Password:"
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/signup.html:33
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/signup.html:33
+#: django_authopenid/templates/authopenid/signup.html:33
+msgid "Confirm Your Password:"
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/signup.html:35
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/signup.html:35
+#: django_authopenid/templates/authopenid/signup.html:35
+msgid "JOIN FREE"
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/signup.html:39
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/signup.html:39
+#: django_authopenid/templates/authopenid/signup.html:39
+msgid "OpenID Signup"
+msgstr ""
+
+#: contrib/django-authopenid-0.9.4/djauthaupenid_example/settings.py:32
+msgid "account/"
+msgstr ""
+
+#: contrib/django_threadedcomments/threadedcomments/forms.py:17
+#: contrib/django_threadedcomments/threadedcomments/forms.py:36
+#: contrib/django_threadedcomments/threadedcomments/models.py:162
+#: contrib/django_threadedcomments/threadedcomments/models.py:278
+#: django_threadedcomments/forms.py:17 django_threadedcomments/forms.py:36
+#: django_threadedcomments/models.py:162 django_threadedcomments/models.py:278
+msgid "comment"
+msgstr ""
+
+#: contrib/django_threadedcomments/threadedcomments/models.py:20
+#: django_threadedcomments/models.py:20
+msgid "markdown"
+msgstr ""
+
+#: contrib/django_threadedcomments/threadedcomments/models.py:21
+#: django_threadedcomments/models.py:21
+msgid "textile"
+msgstr ""
+
+#: contrib/django_threadedcomments/threadedcomments/models.py:22
+#: django_threadedcomments/models.py:22
+msgid "restructuredtext"
+msgstr ""
+
+#: contrib/django_threadedcomments/threadedcomments/models.py:24
+#: django_threadedcomments/models.py:24
+msgid "plaintext"
+msgstr ""
+
+#: contrib/django_threadedcomments/threadedcomments/models.py:147
+#: contrib/django_threadedcomments/threadedcomments/models.py:261
+#: django_threadedcomments/models.py:147 django_threadedcomments/models.py:261
+#: wall/models.py:18
+msgid "object ID"
+msgstr ""
+
+#: contrib/django_threadedcomments/threadedcomments/models.py:157
+#: contrib/django_threadedcomments/threadedcomments/models.py:273
+#: django_threadedcomments/models.py:157 django_threadedcomments/models.py:273
+msgid "date/time submitted"
+msgstr ""
+
+#: contrib/django_threadedcomments/threadedcomments/models.py:158
+#: contrib/django_threadedcomments/threadedcomments/models.py:274
+#: django_threadedcomments/models.py:158 django_threadedcomments/models.py:274
+msgid "date/time modified"
+msgstr ""
+
+#: contrib/django_threadedcomments/threadedcomments/models.py:159
+#: contrib/django_threadedcomments/threadedcomments/models.py:275
+#: django_threadedcomments/models.py:159 django_threadedcomments/models.py:275
+msgid "date/time approved"
+msgstr ""
+
+#: contrib/django_threadedcomments/threadedcomments/models.py:166
+#: contrib/django_threadedcomments/threadedcomments/models.py:282
+#: django_threadedcomments/models.py:166 django_threadedcomments/models.py:282
+msgid "is public"
+msgstr ""
+
+#: contrib/django_threadedcomments/threadedcomments/models.py:167
+#: contrib/django_threadedcomments/threadedcomments/models.py:283
+#: django_threadedcomments/models.py:167 django_threadedcomments/models.py:283
+msgid "is approved"
+msgstr ""
+
+#: contrib/django_threadedcomments/threadedcomments/models.py:170
+#: contrib/django_threadedcomments/threadedcomments/models.py:286
+#: django_threadedcomments/models.py:170 django_threadedcomments/models.py:286
+msgid "IP address"
+msgstr ""
+
+#: contrib/django_threadedcomments/threadedcomments/models.py:228
+#: django_threadedcomments/models.py:228
+msgid "Threaded Comment"
+msgstr ""
+
+#: contrib/django_threadedcomments/threadedcomments/models.py:229
+#: django_threadedcomments/models.py:229
+msgid "Threaded Comments"
+msgstr ""
+
+#: contrib/django_threadedcomments/threadedcomments/models.py:268
+#: contrib/tagging-trunk/tagging/models.py:464 django_tagging/models.py:464
+#: django_threadedcomments/models.py:268
+msgid "name"
+msgstr ""
+
+#: contrib/django_threadedcomments/threadedcomments/models.py:269
+#: django_threadedcomments/models.py:269
+msgid "site"
+msgstr ""
+
+#: contrib/django_threadedcomments/threadedcomments/models.py:270
+#: django_threadedcomments/models.py:270
+msgid "e-mail address"
+msgstr ""
+
+#: contrib/django_threadedcomments/threadedcomments/models.py:346
+#: django_threadedcomments/models.py:346
+msgid "Free Threaded Comment"
+msgstr ""
+
+#: contrib/django_threadedcomments/threadedcomments/models.py:347
+#: django_threadedcomments/models.py:347
+msgid "Free Threaded Comments"
+msgstr ""
+
+#: contrib/registration/forms.py:38 django_registration/forms.py:119
+msgid "username"
+msgstr ""
+
+#: contrib/registration/forms.py:41 django_registration/forms.py:29
+#: django_registration/forms.py:122
+msgid "email address"
+msgstr ""
+
+#: contrib/registration/forms.py:43 django_registration/forms.py:51
+#: django_registration/forms.py:124
+msgid "password"
+msgstr ""
+
+#: contrib/registration/forms.py:45 django_registration/forms.py:53
+#: django_registration/forms.py:126
+msgid "password (again)"
+msgstr ""
+
+#: contrib/registration/forms.py:54 django_registration/forms.py:65
+#: django_registration/forms.py:135
+msgid "Usernames can only contain letters, numbers and underscores"
+msgstr ""
+
+#: contrib/registration/forms.py:59 django_registration/forms.py:70
+#: django_registration/forms.py:140
+msgid "This username is already taken. Please choose another."
+msgstr ""
+
+#: contrib/registration/forms.py:71 django_registration/forms.py:82
+#: django_registration/forms.py:152
+msgid "You must type the same password each time"
+msgstr ""
+
+#: contrib/registration/forms.py:100 django_registration/forms.py:181
+msgid "I have read and agree to the Terms of Service"
+msgstr ""
+
+#: contrib/registration/forms.py:109 django_registration/forms.py:190
+msgid "You must agree to the terms to register"
+msgstr ""
+
+#: contrib/registration/forms.py:128 django_registration/forms.py:43
+#: django_registration/forms.py:209
+msgid ""
+"This email address is already in use. Please supply a different email "
+"address."
+msgstr ""
+
+#: contrib/registration/forms.py:153 django_registration/forms.py:234
+msgid ""
+"Registration using free email addresses is prohibited. Please supply a "
+"different email address."
+msgstr ""
+
+#: contrib/registration/models.py:188 django_registration/models.py:257
+msgid "user"
+msgstr ""
+
+#: contrib/registration/models.py:189 django_registration/models.py:55
+#: django_registration/models.py:258
+msgid "activation key"
+msgstr ""
+
+#: contrib/registration/models.py:194 django_registration/models.py:61
+#: django_registration/models.py:263
+msgid "registration profile"
+msgstr ""
+
+#: contrib/registration/models.py:195 django_registration/models.py:62
+#: django_registration/models.py:264
+msgid "registration profiles"
+msgstr ""
+
+#: contrib/tagging-trunk/tagging/__init__.py:22 django_tagging/__init__.py:22
+#, python-format
+msgid "The model %s has already been registered."
+msgstr ""
+
+#: contrib/tagging-trunk/tagging/fields.py:72 django_tagging/fields.py:72
+#, python-format
+msgid "%s can only be set on instances."
+msgstr ""
+
+#: contrib/tagging-trunk/tagging/forms.py:22
+#: contrib/tagging-trunk/tagging/validators.py:19 django_tagging/forms.py:22
+#: django_tagging/validators.py:19
+#, python-format
+msgid "Each tag may be no more than %s characters long."
+msgstr ""
+
+#: contrib/tagging-trunk/tagging/models.py:62 django_tagging/models.py:62
+#, python-format
+msgid "No tags were given: \"%s\"."
+msgstr ""
+
+#: contrib/tagging-trunk/tagging/models.py:64 django_tagging/models.py:64
+#, python-format
+msgid "Multiple tags were given: \"%s\"."
+msgstr ""
+
+#: contrib/tagging-trunk/tagging/models.py:470
+#: contrib/tagging-trunk/tagging/models.py:483 django_tagging/models.py:470
+#: django_tagging/models.py:483
+msgid "tag"
+msgstr ""
+
+#: contrib/tagging-trunk/tagging/models.py:471 django_tagging/models.py:471
+msgid "tags"
+msgstr ""
+
+#: contrib/tagging-trunk/tagging/models.py:484 django_tagging/models.py:484
+msgid "content type"
+msgstr ""
+
+#: contrib/tagging-trunk/tagging/models.py:485 django_tagging/models.py:485
+msgid "object id"
+msgstr ""
+
+#: contrib/tagging-trunk/tagging/models.py:493 django_tagging/models.py:493
+msgid "tagged item"
+msgstr ""
+
+#: contrib/tagging-trunk/tagging/models.py:494 django_tagging/models.py:494
+msgid "tagged items"
+msgstr ""
+
+#: contrib/tagging-trunk/tagging/utils.py:187 django_tagging/utils.py:187
+msgid ""
+"If a list or tuple of tags is provided, they must all be tag names, Tag "
+"objects or Tag ids."
+msgstr ""
+
+#: contrib/tagging-trunk/tagging/utils.py:189 django_tagging/utils.py:189
+msgid "The tag input given was invalid."
+msgstr ""
+
+#: contrib/tagging-trunk/tagging/utils.py:234 django_tagging/utils.py:234
+#, python-format
+msgid "Invalid distribution algorithm specified: %s."
+msgstr ""
+
+#: contrib/tagging-trunk/tagging/validators.py:27
+#: django_tagging/validators.py:27
+msgid "Multiple tags were given."
+msgstr ""
+
+#: contrib/tagging-trunk/tagging/validators.py:30
+#: django_tagging/validators.py:30
+#, python-format
+msgid "A tag may be no more than %s characters long."
+msgstr ""
+
+#: contrib/tagging-trunk/tagging/views.py:33 django_tagging/views.py:33
+msgid "tagged_object_list must be called with a queryset or a model."
+msgstr ""
+
+#: contrib/tagging-trunk/tagging/views.py:39 django_tagging/views.py:39
+msgid "tagged_object_list must be called with a tag."
+msgstr ""
+
+#: contrib/tagging-trunk/tagging/views.py:43 django_tagging/views.py:43
+#, python-format
+msgid "No Tag found matching \"%s\"."
+msgstr ""
+
+#: contrib/tagging-trunk/tagging/templatetags/tagging_tags.py:19
+#: django_tagging/templatetags/tagging_tags.py:19
+#, python-format
+msgid "tags_for_model tag was given an invalid model: %s"
+msgstr ""
+
+#: contrib/tagging-trunk/tagging/templatetags/tagging_tags.py:32
+#: django_tagging/templatetags/tagging_tags.py:32
+#, python-format
+msgid "tag_cloud_for_model tag was given an invalid model: %s"
+msgstr ""
+
+#: contrib/tagging-trunk/tagging/templatetags/tagging_tags.py:56
+#: django_tagging/templatetags/tagging_tags.py:56
+#, python-format
+msgid "tagged_objects tag was given an invalid model: %s"
+msgstr ""
+
+#: contrib/tagging-trunk/tagging/templatetags/tagging_tags.py:89
+#: django_tagging/templatetags/tagging_tags.py:89
+#, python-format
+msgid "%s tag requires either three or five arguments"
+msgstr ""
+
+#: contrib/tagging-trunk/tagging/templatetags/tagging_tags.py:91
+#: contrib/tagging-trunk/tagging/templatetags/tagging_tags.py:143
+#: contrib/tagging-trunk/tagging/templatetags/tagging_tags.py:198
+#: django_tagging/templatetags/tagging_tags.py:91
+#: django_tagging/templatetags/tagging_tags.py:143
+#: django_tagging/templatetags/tagging_tags.py:198
+#, python-format
+msgid "second argument to %s tag must be 'as'"
+msgstr ""
+
+#: contrib/tagging-trunk/tagging/templatetags/tagging_tags.py:94
+#: contrib/tagging-trunk/tagging/templatetags/tagging_tags.py:147
+#: django_tagging/templatetags/tagging_tags.py:94
+#: django_tagging/templatetags/tagging_tags.py:147
+#, python-format
+msgid "if given, fourth argument to %s tag must be 'with'"
+msgstr ""
+
+#: contrib/tagging-trunk/tagging/templatetags/tagging_tags.py:96
+#: django_tagging/templatetags/tagging_tags.py:96
+#, python-format
+msgid "if given, fifth argument to %s tag must be 'counts'"
+msgstr ""
+
+#: contrib/tagging-trunk/tagging/templatetags/tagging_tags.py:141
+#: django_tagging/templatetags/tagging_tags.py:141
+#, python-format
+msgid "%s tag requires either three or between five and seven arguments"
+msgstr ""
+
+#: contrib/tagging-trunk/tagging/templatetags/tagging_tags.py:155
+#: django_tagging/templatetags/tagging_tags.py:155
+#, python-format
+msgid "%(tag)s tag's '%(option)s' option was not a valid integer: '%(value)s'"
+msgstr ""
+
+#: contrib/tagging-trunk/tagging/templatetags/tagging_tags.py:164
+#: django_tagging/templatetags/tagging_tags.py:164
+#, python-format
+msgid "%(tag)s tag's '%(option)s' option was not a valid choice: '%(value)s'"
+msgstr ""
+
+#: contrib/tagging-trunk/tagging/templatetags/tagging_tags.py:170
+#: django_tagging/templatetags/tagging_tags.py:170
+#, python-format
+msgid "%(tag)s tag was given an invalid option: '%(option)s'"
+msgstr ""
+
+#: contrib/tagging-trunk/tagging/templatetags/tagging_tags.py:175
+#: django_tagging/templatetags/tagging_tags.py:175
+#, python-format
+msgid "%(tag)s tag was given a badly formatted option: '%(option)s'"
+msgstr ""
+
+#: contrib/tagging-trunk/tagging/templatetags/tagging_tags.py:196
+#: django_tagging/templatetags/tagging_tags.py:196
+#, python-format
+msgid "%s tag requires exactly three arguments"
+msgstr ""
+
+#: contrib/tagging-trunk/tagging/templatetags/tagging_tags.py:221
+#: django_tagging/templatetags/tagging_tags.py:221
+#, python-format
+msgid "%s tag requires exactly five arguments"
+msgstr ""
+
+#: contrib/tagging-trunk/tagging/templatetags/tagging_tags.py:223
+#: django_tagging/templatetags/tagging_tags.py:223
+#, python-format
+msgid "second argument to %s tag must be 'in'"
+msgstr ""
+
+#: contrib/tagging-trunk/tagging/templatetags/tagging_tags.py:225
+#: django_tagging/templatetags/tagging_tags.py:225
+#, python-format
+msgid "fourth argument to %s tag must be 'as'"
+msgstr ""
+
+#: django_dbsettings/templates/dbsettings/app_settings.html:7
+#: django_dbsettings/templates/dbsettings/site_settings.html:7
+msgid "Documentation"
+msgstr ""
+
+#: django_dbsettings/templates/dbsettings/app_settings.html:7
+#: django_dbsettings/templates/dbsettings/site_settings.html:7
+msgid "Log out"
+msgstr ""
+
+#: django_dbsettings/templates/dbsettings/app_settings.html:10
+#: django_dbsettings/templates/dbsettings/site_settings.html:10
+msgid "Home"
+msgstr ""
+
+#: django_dbsettings/templates/dbsettings/app_settings.html:11
+#: django_dbsettings/templates/dbsettings/site_settings.html:11
+msgid "Edit Settings"
+msgstr ""
+
+#: django_dbsettings/templates/dbsettings/app_settings.html:18
+#: django_dbsettings/templates/dbsettings/site_settings.html:18
+msgid "Please correct the error below."
+msgid_plural "Please correct the errors below."
+msgstr[0] ""
+msgstr[1] ""
+
+#: django_dbsettings/templates/dbsettings/app_settings.html:26
+#, python-format
+msgid "Settings included in the %(name)s class."
+msgstr ""
+
+#: django_dbsettings/templates/dbsettings/app_settings.html:27
+#: django_dbsettings/templates/dbsettings/site_settings.html:27
+#: django_dbsettings/templates/dbsettings/site_settings.html:32
+#, python-format
+msgid "%(name)s"
+msgstr ""
+
+#: django_dbsettings/templates/dbsettings/app_settings.html:50
+#: django_dbsettings/templates/dbsettings/site_settings.html:65
+msgid "You don't have permission to edit values."
+msgstr ""
+
+#: django_dbsettings/templates/dbsettings/site_settings.html:26
+#, python-format
+msgid "Models available in the %(name)s application."
+msgstr ""
+
+#: net/forms.py:84
+msgid "Password must be longer than 6 letters"
+msgstr ""
+
+#: net/forms.py:85
+msgid "Passwords do not match"
+msgstr ""
+
+#: net/models.py:11
+msgid "Interest"
+msgstr ""
+
+#: net/models.py:12
+msgid "Writer"
+msgstr ""
+
+#: net/models.py:13
+msgid "Site"
+msgstr ""
+
+#: net/models.py:14
+msgid "Other favorite"
+msgstr ""
+
+#: net/models.py:31
+msgid "Male"
+msgstr "Мужской"
+
+#: net/models.py:32
+msgid "Female"
+msgstr "Женский"
+
+#: net/models.py:51
+msgid "Avatar"
+msgstr "Аватар"
+
+#: net/models.py:52
+msgid "Country"
+msgstr "Страна"
+
+#: net/models.py:53
+msgid "City"
+msgstr "Город"
+
+#: net/models.py:54
+msgid "Birthdate"
+msgstr "Дата рождения"
+
+#: net/models.py:55
+msgid "Gender"
+msgstr "Пол"
+
+#: net/models.py:56
+msgid "About me"
+msgstr "Обо мне"
+
+#: net/models.py:60
+msgid "Other contacts"
+msgstr ""
+
+#: net/models.py:64
+msgid "Favorite interests"
+msgstr "Интересы"
+
+#: net/models.py:65
+msgid "Favorite writers"
+msgstr "Любимые писатели"
+
+#: net/models.py:66
+msgid "Favorite sites"
+msgstr "Любимые сайты"
+
+#: net/models.py:67
+msgid "Other favorites"
+msgstr "Чем еще интересуетесь?"
+
+#: net/templates/base.html:7
+msgid "RT TV"
+msgstr ""
+
+#: net/templates/edit_profile.html:7
+msgid "Save"
+msgstr "Сохранить"
+
+#: net/templates/index.html:4
+msgid "News"
+msgstr "Новости"
+
+#: net/templates/profile_t.html:64
+msgid "Wall"
+msgstr "Стена"
+
+#: net/templates/profile_t.html:65
+msgid "Leave a message"
+msgstr "Оставьте сообщение"
+
+#: net/templates/profile_t.html:81
+msgid "Albums"
+msgstr "Альбомы"
+
+#: net/templates/register.html:52 net/templates/registration/login.html:36
+#: net/templates/registration/register.html:51
+#: net/templates/registration/registration_form.html:52
+msgid "Recover password"
+msgstr "Восстановить пароль"
+
+#: wall/models.py:8
+msgid "From"
+msgstr "От"
+
+#: wall/models.py:10
+msgid "Subject"
+msgstr "Тема"
+
+#: wall/models.py:11
+msgid "Body"
+msgstr "Сообщение"
+
+#: wall/models.py:13
+msgid "Private"
+msgstr ""
+
+#: wall/models.py:14
+msgid "Sent time"
+msgstr "Время отправки"
+
+#: wall/models.py:16
+msgid "Parent"
+msgstr ""
