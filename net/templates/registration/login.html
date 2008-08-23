@@ -1,28 +1,6 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+{% extends "base.html" %}
 {% load i18n %}
-<html>
-<head>
-    <title>Регистрация</title>
-     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link rel="stylesheet" href="/i/css/base.css" />
-        <link rel="stylesheet" href="/i/css/head.css" />
-    <link rel="stylesheet" href="/i/css/registration.css" />
-</head>
-<body>
-  
-    <div class="b-page-container">
-  
-   <div class="b-head">
-       <div class="b-menu">
-           <a href="#">Люди</a>
-           <a href="#">Группы</a>
-           <a href="#">RTTV</a>
-    </div>
-    </div>
-      <div class="b-min-height">&nbsp;</div>
-     <div class="b-content-container">
-    
+            {% block content %}
     <div class="h-registration">
         <div class="b-registration">
             <form class="b-registration-form" action="{% url auth_login %}" method="post">
@@ -36,8 +14,4 @@
             <p><a href="{% url auth_password_reset %}">{% trans "Recover password" %}</a></p>
         </div>
     </div>
-  </div>
-
-      </div>
-    </body>
-    </html>
+ {% endblock content %}

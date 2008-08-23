@@ -1,4 +1,4 @@
-# -*- coding: utf8 -*-
+# -*- coding: UTF-8 -*-
 
 from django.db import models
 from django.contrib.auth.models import User as DjangoUser
@@ -12,11 +12,6 @@ USERDATA_TYPES = (
     ('writer', _('Writer')),
     ('site', _('Site')),
     ('private', _('Other favorite')),
-    
-    ('school', _('School')),
-    ('university', _('University')),
-    ('work', _('Workplace')),
-    ('professional', _('Professional data')),
 )
 
 class UserData(models.Model):
@@ -33,8 +28,8 @@ class UserData(models.Model):
         return u'%s %s' % (self.type, self.title)
 
 GENDER_CHOICES = (
-    ('male', _(u'Male')),
-    ('female', _(u'Female')),
+    ('male', _('Male')),
+    ('female', _('Female')),
 )
 
 TAG_FIELDS = ['writer', 'site', 'private', 'school', 'university', 'work', 'professional']
@@ -53,12 +48,11 @@ class User(DjangoUser):
     
     # Common information
     
-    avatar = models.ImageField(_(u'Аватар'), upload_to='avatars/%Y/%m/', blank=True, null=True)
-    country = models.ForeignKey(Country, verbose_name=_(u'Страна'), blank=True, null=True)
-    city = models.ForeignKey(City, verbose_name=_(u'Город проживания'), blank=True, null=True)
-    birthdate = models.DateField(_(u'Дата рождения'), blank=True, null=True)
-    gender = models.CharField(_(u'Пол'), max_length=10, choices=GENDER_CHOICES, blank=True, null=True)
-    politics = models.TextField(_('Political position'), blank=True, default='')
+    avatar = models.ImageField(_('Avatar'), upload_to='avatars/%Y/%m/', blank=True, null=True)
+    country = models.ForeignKey(Country, verbose_name=_('Country'), blank=True, null=True)
+    city = models.ForeignKey(City, verbose_name=_('City'), blank=True, null=True)
+    birthdate = models.DateField(_('Birthdate'), blank=True, null=True)
+    gender = models.CharField(_('Gender'), max_length=10, choices=GENDER_CHOICES, blank=True, null=True)
     about = models.TextField(_('About me'), blank=True, default='')
 
     # Contacts
@@ -74,11 +68,6 @@ class User(DjangoUser):
 
     # Work info
     
-    school = models.CharField(_('My school'), max_length=200, blank=True, default='')
-    university = models.CharField(_('My university'), max_length=200, blank=True, default='')
-    work = models.CharField(_('My working place'), max_length=200, blank=True, default='')
-    professional = models.CharField(_('Other professional data'), max_length=200, blank=True, default='')
-
     user_data = models.ManyToManyField(UserData, blank=True, null=True, editable=False)
 
     objects = UserManager()

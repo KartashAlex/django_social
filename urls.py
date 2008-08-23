@@ -10,7 +10,7 @@ for app in settings.OUR_APPS:
         
 urlpatterns = patterns('',
     ('^admin/(.*)', admin.site.root),
-    
+    (r'^i18n/', include('django.conf.urls.i18n')),
     (r'^accounts/', include('django_registration.urls')),
     (r'^msg/', include('wall.urls')),
     
