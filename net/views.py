@@ -1,4 +1,4 @@
-# -*- coding: utf8 -*-
+# -*- coding: UTF-8 -*-
 
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.decorators import login_required
@@ -55,7 +55,7 @@ def edit_profile(request):
         form = ProfileForm(instance=request.user.user)
         places_forms = PlacesFormset(initial=get_dict(request.user.user.places.all()))
         
-    return render_to_response('profile_form.html', {
+    return render_to_response('edit_profile.html', {
         'form': form,
         'places_forms': places_forms,
         'profile': request.user.user,
@@ -70,7 +70,7 @@ def edit_interests(request):
     else:
         form = InterestsForm(instance=request.user.user)
         
-    return render_to_response('profile_form.html', {
+    return render_to_response('edit_profile.html', {
         'form': form,
         'profile': request.user.user,
     }, context_instance=RequestContext(request))
