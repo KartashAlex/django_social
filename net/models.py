@@ -32,7 +32,7 @@ GENDER_CHOICES = (
     ('female', _('Female')),
 )
 
-TAG_FIELDS = ['writer', 'site', 'private', 'school', 'university', 'work', 'professional']
+TAG_FIELDS = ['writer', 'site', 'private', ]
 DATA_FIELDS = {
     'contacts': ['phone', 'icq', 'skype', 'jabber', 'msn'],
 }
