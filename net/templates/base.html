@@ -23,11 +23,9 @@
                 </div>
 				<form action="/i18n/setlang/" method="post">
 				<input name="next" type="hidden" value="/" />
-				<select name="language">
-					<option value="ru">RU</option>
-					<option value="en">EN</option>
-					<option value="ar">AR</option>
-				</select>
+				{% for lang in LANGUAGES %}
+					<option value="{{ lang.0 }}">{{ lang.1 }}</option>
+				{% endfor %}
 				<input type="submit" value="Go" />
 				</form>
             </div>

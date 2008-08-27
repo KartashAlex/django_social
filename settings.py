@@ -68,7 +68,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.debug",
     "django.core.context_processors.i18n",
     "django.core.context_processors.media",
-
+  	"django.middleware.locale.LocaleMiddleware",
     "context_processors.common",
 )
 
@@ -95,10 +95,17 @@ INSTALLED_APPS = (
     'django_threadedcomments',
     'django_registration',
     'django_dbsettings',
-
+	'django_evolution',
     'sorl.thumbnail',
 ) + OUR_APPS
 
+ugettext = lambda s: s
+
+LANGUAGES = (
+    ('ru', ugettext('Russian')),
+    ('en', ugettext('English')),
+    ('ar', ugettext('Arabic')),
+)
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
