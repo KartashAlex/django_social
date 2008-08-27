@@ -99,9 +99,6 @@ class User(DjangoUser):
     def get_contacts(self):
         return self.get_data('contacts')
         
-    def get_schools(self):
-        return self.schools.all()
-        
     def get_interests(self):
         return [interest.strip() for interest in self.interest.split(',')]
 
