@@ -53,6 +53,8 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.middleware.doc.XViewMiddleware',
+
+  	"django.middleware.locale.LocaleMiddleware",
 )
 
 ROOT_URLCONF = 'urls'
@@ -68,7 +70,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.debug",
     "django.core.context_processors.i18n",
     "django.core.context_processors.media",
-  	"django.middleware.locale.LocaleMiddleware",
+
     "context_processors.common",
 )
 
@@ -95,7 +97,7 @@ INSTALLED_APPS = (
     'django_threadedcomments',
     'django_registration',
     'django_dbsettings',
-	'django_evolution',
+
     'sorl.thumbnail',
 ) + OUR_APPS
 
