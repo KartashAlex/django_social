@@ -81,7 +81,7 @@
                 <h1 class="header">{% trans "Albums" %}</h1>
                 <form action="{% url photo.views.create_album %}" method="post">
                     <input type="text" name="title" />
-                    <input type="submit" />
+                    <input type="submit" value="{% trans "create album" %}"/>
                 </form>
                 
                 {% for album in profile.albums.all %}

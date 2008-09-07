@@ -147,3 +147,10 @@ table td {
 #wrote-message label {
 	display: none;
 }
+
+#album {
+	display: none;
+}
+#add-photos-form {
+	display: none;
+}
