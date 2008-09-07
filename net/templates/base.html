@@ -22,15 +22,14 @@
                     <a href="/me/">Люди</a> <a href="#">Группы</a> <a href="#">RTTV</a>
                 </div>
 				<form class="b-setlang" action="/i18n/setlang/" method="post">
-				<input name="next" type="hidden" value="/" />
-				<select>
-				{% for lang in LANGUAGES %}
-					<option value="{{ lang.0 }}">
-						{{ lang.1 }}
-					</option>
-				{% endfor %}
-				</select>
-				<input type="submit" value="Go" />
+                    <select name="language">
+                    {% for lang in settings.LANGUAGES %}
+                        <option value="{{ lang.0 }}" {% ifequal request.session.django_language lang.0 %} selected {% endifequal %}>
+                            {{ lang.1 }}
+                        </option>
+                    {% endfor %}
+                    </select>
+                    <input type="submit" value="Go" />
 				</form>
             </div>
             <div class="b-min-height">
