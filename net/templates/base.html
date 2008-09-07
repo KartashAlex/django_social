@@ -14,7 +14,8 @@
         <link rel="stylesheet" href="/i/css/personal_info.css" type="text/css" />
 		<script type="text/javascript" src="/i/js/jquery.min.js"></script>
 		<script type="text/javascript" src="/i/js/jquery-ui.min.js"></script>
-
+		  {% block head %}        
+	        {% endblock head %}
 		<script type="text/javascript">
 			$(function(){$('.b-wall a').click(function(){
 					var _t = this;
@@ -31,10 +32,25 @@
 				}
 				return false;
 			});
+			$('.b-albums a').click(function(){
+					var _t = this;
+					
+				if (!$('.b-wall #wrote-message').is(':visible')){
+					
+					$('.b-wall #wrote-message').load($(_t).attr('href'), function(){
+						$(this).slideDown();
+					
+					});
+				} else {
+					$('.b-wall #wrote-message').slideUp()
+				
+				}
+				return false;
+			});
 		});
+		 
 		</script>
-        {% block head %}        
-        {% endblock head %}        
+              
     </head>
     <body>
         <div class="b-page-container">
