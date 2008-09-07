@@ -42,22 +42,17 @@ def get_dict(qs):
     return result
     
 def edit_profile(request):
-    PlacesFormset = formset_factory(PlaceForm, formset=FieldsetFormSet)
     if request.POST:
         form = ProfileForm(data=request.POST, files=request.FILES, instance=request.user.user)
-        places_forms = PlacesFormset(data=request.POST, initial=get_dict(request.user.user.places.all()))
-        if places_forms.is_valid() and form.is_valid():
+        if form.is_valid():
             form.save()
-            for iform in places_forms.forms:
-                iform.save(request.user.user)
             return HttpResponseRedirect('/me/')
     else:
         form = ProfileForm(instance=request.user.user)
-        places_forms = PlacesFormset(initial=get_dict(request.user.user.places.all()))
+     
         
     return render_to_response('edit_profile.html', {
         'form': form,
-        'places_forms': places_forms,
         'profile': request.user.user,
     }, context_instance=RequestContext(request))
 

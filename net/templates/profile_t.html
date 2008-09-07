@@ -61,8 +61,9 @@
                         </td>
                     </tr>
                 </table>
+				<div class="b-wall b-block">
                 <h1>{% trans "Wall" %}</h1>
-                <a href="{% url create_pm "user",profile.id %}">{% trans "Leave a message" %}</a>
+                	<a href="{% url create_pm "user",profile.id %}">{% trans "Leave a message" %}</a>
                 <ul>
                 {% for msg in profile.get_messages %}
                     <li>
@@ -77,7 +78,8 @@
                     </li>
                 {% endfor %}
                 </ul>
-                
+                </div>
+				<div class="b-albums b-block">
                 <h1>{% trans "Albums" %}</h1>
                 <form action="{% url photo.views.create_album %}" method="post">
                     <input type="text" name="title" />
@@ -90,4 +92,5 @@
                     </li>
                 {% endfor %}
                 </ul>
+				</div>
             {% endblock content %}

@@ -21,11 +21,15 @@
                 <div class="b-menu">
                     <a href="/me/">Люди</a> <a href="#">Группы</a> <a href="#">RTTV</a>
                 </div>
-				<form action="/i18n/setlang/" method="post">
+				<form class="b-setlang" action="/i18n/setlang/" method="post">
 				<input name="next" type="hidden" value="/" />
+				<select>
 				{% for lang in LANGUAGES %}
-					<option value="{{ lang.0 }}">{{ lang.1 }}</option>
+					<option value="{{ lang.0 }}">
+						{{ lang.1 }}
+					</option>
 				{% endfor %}
+				</select>
 				<input type="submit" value="Go" />
 				</form>
             </div>
