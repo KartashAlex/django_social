@@ -103,6 +103,7 @@ INSTALLED_APPS = (
 
 ugettext = lambda s: s
 
+LANGUAGE_CODE = 'Ru-ru';
 LANGUAGES = (
     ('ru', ugettext('Russian')),
     ('en', ugettext('English')),

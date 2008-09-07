@@ -6,7 +6,7 @@ from models import Message
 class MessageForm(forms.ModelForm):
     class Meta:
         model = Message
-        fields = ['subject', 'body', 'parent', 'private', 'content_type', 'object_id']
+        fields = ['body', 'parent', 'private', 'content_type', 'object_id']
         
     def __init__(self, initials, *args, **kwargs):
         super(MessageForm, self).__init__(*args, **kwargs)

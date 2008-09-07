@@ -62,34 +62,31 @@
                     </tr>
                 </table>
 				<div class="b-wall b-block">
-                <h1>{% trans "Wall" %}</h1>
+                <h1 class="header">{% trans "Wall" %}</h1>
                 	<a href="{% url create_pm "user",profile.id %}">{% trans "Leave a message" %}</a>
-                <ul>
+                <div id="wrote-message">&nbsp;</div>
                 {% for msg in profile.get_messages %}
-                    <li>
-                        {{ msg.sent|date:"d.m.Y" }}
-                        {% ifequal msg.from_user user.user %}
-                            {{ msg.get_address.username }}
-                        {% else %}
-                            {{ msg.from_user.username }}
-                        {% endifequal %} 
-                        <h2>{{ msg.subject }}</h2>
+                    <div class="b-message">
+         
+                        {{ msg.from_user.username }}:
+                        <p>
                         {{ msg.body }}
-                    </li>
+						</p>
+                    </div>
                 {% endfor %}
                 </ul>
                 </div>
 				<div class="b-albums b-block">
-                <h1>{% trans "Albums" %}</h1>
+                <h1 class="header">{% trans "Albums" %}</h1>
                 <form action="{% url photo.views.create_album %}" method="post">
                     <input type="text" name="title" />
                     <input type="submit" />
                 </form>
-                <ul>
+                
                 {% for album in profile.albums.all %}
-                    <li>
-                        <a href="{% url photos profile.pk,album.pk %}">{{ album.title }}</a>
-                    </li>
+                    <div>
+                        <a href="{% url photos profile.pk,album.pk %}">f{{ album.get_random_image }}</a>
+                    </div>
                 {% endfor %}
                 </ul>
 				</div>

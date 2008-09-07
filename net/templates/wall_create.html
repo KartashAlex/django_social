@@ -1,7 +1,6 @@
-{% extends "base.html" %}
-            {% block content %}
-                <form action="." method="post">
+{% load i18n %}
+                <form action="/msg/user/3/new/" method="post">
                     {{ form.as_p }}
-                    <input type="submit"/>
+                    <input type="submit" value="{% trans "send" %}"/>
                 </form>
-            {% endblock content %}
+   
