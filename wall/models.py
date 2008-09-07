@@ -7,7 +7,6 @@ from net.models import User
 class Message(models.Model):
     from_user = models.ForeignKey(User, related_name='messages', verbose_name=_('From'))
     
-    subject = models.CharField(_('Subject'), max_length=255)
     body = models.TextField(_('Body'))
     
     private = models.BooleanField(_('Private'), default=False)

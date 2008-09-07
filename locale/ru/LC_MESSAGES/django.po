@@ -1228,7 +1228,7 @@ msgstr "Сообщение"
 
 #: wall/models.py:13
 msgid "Private"
-msgstr ""
+msgstr "Личное"
 
 #: wall/models.py:14
 msgid "Sent time"

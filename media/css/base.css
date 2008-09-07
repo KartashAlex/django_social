@@ -90,3 +90,60 @@ table td {
 .bigger {
   font-size: 1.1em; 
 }
+.b-recover-password {
+	float: left;
+	margin: 22px 0 0 35px;
+}
+.b-block {
+	margin-left: 20px;
+	float: left;
+}
+.b-block .header {
+	font-size: 1.5em;
+}
+
+.b-wall {
+	width: 60%;
+	height: 200px;
+	margin-left: 20px;
+	float: left;
+}
+.b-block .b-message {
+	margin-top: 5px;
+	margin-bottom: 15px;
+}
+.b-wall .b-message p {
+	margin-top: 5px;
+	margin-bottom: 10px;
+}
+.b-albums {
+	width: 60%;
+	float: left;
+
+}
+.b-wall {
+	overflow: hidden;
+}
+.b-wall #wrote-message {
+	display: none;
+	
+}
+
+#wrote-message textarea {
+	width: 300px;
+	margin-top: 10px;
+	
+	height: 100px;
+}
+
+#wrote-message input {
+	border: solid 1px #333;
+	background: #efefef;
+	margin-top: 7px;
+	cursor: pointer;
+	width: 75px;
+}
+
+#wrote-message label {
+	display: none;
+}

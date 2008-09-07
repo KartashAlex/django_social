@@ -69,7 +69,7 @@ def create_pm(request, type, id):
         form = MessageForm(data=request.POST, initials=data)
         if form.is_valid():
             form.save(request.user.user)
-            return HttpResponseRedirect('/msg/outbox/')
+            return HttpResponseRedirect('/users/' + id)
     else:
         form = MessageForm(initials=data)
     return {

@@ -9,7 +9,6 @@
 }
 .b-menu {
     margin-left: 320px;
-    float: left;
 }
 .b-menu a {
     color: #fff;
@@ -17,4 +16,7 @@
     line-height: 2;
     padding-right: 30px;
     
+}
+.b-setlang {
+	width: 150px; float: right; margin-top: -25px;
 }
