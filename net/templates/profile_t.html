@@ -61,21 +61,7 @@
                         </td>
                     </tr>
                 </table>
-				<div class="b-messages b-block">
-                <h1 class="header">{% trans "Messages" %}</h1>
-                	<a href="{% url create_pm "user",profile.id %}">{% trans "Leave a message" %}</a>
-                <div id="wrote-message">&nbsp;</div>
-                {% for msg in profile.get_messages %}
-                    <div class="b-message">
-         
-                        {{ msg.from_user.username }}:
-                        <p>
-                        {{ msg.body }}
-						</p>
-                    </div>
-                {% endfor %}
-                </ul>
-                </div>
+				
 				<div class="b-wall b-block">
                 <h1 class="header">{% trans "Wall" %}</h1>
                 	<a href="{% url create_pm "user",profile.id %}">{% trans "Leave a message" %}</a>
@@ -100,11 +86,11 @@
                 
                 {% for album in profile.albums.all %}
                     <div>
-                        <a href="{% url photos profile.pk,album.pk %}">{{ album.get_random_image }}</a>
+                        <a href="{% url photos profile.pk,album.pk %}">{{ album.get_random_image }}ff</a>
                     </div>
                 {% endfor %}
 
-               	<div id="b-album">
+               	<div id="album">
 					&nbsp;
 				</div>
             {% endblock content %}
