@@ -1,14 +1,15 @@
 .b-head {
-background: url('/i/img/head_bg.gif') repeat-x;
-height: 130px;
-display: block;
-width: 100%;
-position: relative;
-overflow: hidden;
-height: 40px;
+    background: url('/i/img/head_bg.gif') repeat-x;
+    height: 130px;
+    display: block;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    height: 40px;
 }
 .b-menu {
     margin-left: 320px;
+    float: left;
 }
 .b-menu a {
     color: #fff;
