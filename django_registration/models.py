@@ -52,7 +52,7 @@ class TokenManager(models.Manager):
 
 class Token(models.Model):
     email = models.EmailField()
-    activation_key = models.CharField(_('activation key'), max_length=40)
+    activation_key = models.CharField(_('activation key'), maxlength=40)
     date = models.DateTimeField(auto_now_add=True)
     
     objects = TokenManager()
@@ -255,7 +255,7 @@ class RegistrationProfile(models.Model):
     
     """
     user = models.ForeignKey(User, unique=True, verbose_name=_('user'))
-    activation_key = models.CharField(_('activation key'), max_length=40)
+    activation_key = models.CharField(_('activation key'), maxlength=40)
     
     objects = RegistrationManager()
     

@@ -265,7 +265,7 @@ Example
 The following example will assume that a "BlogPost" model exists::
 
     class BlogPost(models.Model):
-        title = models.CharField(max_length=128)
+        title = models.CharField(maxlength=128)
         body = models.TextField()
         allows_comments = models.BooleanField(default = True)
 
@@ -717,7 +717,7 @@ General
     moderation of comments on one or more of your models.
 
 :``DEFAULT_MAX_COMMENT_LENGTH = 1000``:
-    The default max_length that the comment forms should validate against
+    The default maxlength that the comment forms should validate against
     if an override isn't specified in per-model moderation.  If this isn't
     specified, then a default DEFAULT_MAX_COMMENT_LENGTH of 1000 is used.
 

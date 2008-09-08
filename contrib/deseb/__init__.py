@@ -49,7 +49,7 @@ def add_aka_support():
                     self.aka = (self.aka,)
                 del kwargs['aka']
             if version == 'trunk' and kwargs.has_key('maxlength'):
-                kwargs['max_length'] = kwargs['maxlength']
+                kwargs['maxlength'] = kwargs['maxlength']
                 del kwargs['maxlength']
             func(self, *args, **kwargs)
         return inner

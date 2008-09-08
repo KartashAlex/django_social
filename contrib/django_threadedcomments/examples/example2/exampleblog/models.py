@@ -2,7 +2,7 @@ from django.db import models
 from datetime import datetime
 
 class BlogPost(models.Model):
-    title = models.CharField(max_length=128)
+    title = models.CharField(maxlength=128)
     slug = models.SlugField(prepopulate_from=('title',))
     body = models.TextField()
     published = models.BooleanField(default=True)

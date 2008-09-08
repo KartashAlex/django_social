@@ -10,9 +10,9 @@ __all__ = ['Nonce', 'Association', 'UserAssociation',
 
 class Nonce(models.Model):
     """ openid nonce """
-    server_url = models.CharField(max_length=255)
+    server_url = models.CharField(maxlength=255)
     timestamp = models.IntegerField()
-    salt = models.CharField(max_length=40)
+    salt = models.CharField(maxlength=40)
     
     def __unicode__(self):
         return u"Nonce: %s" % self.id
@@ -20,12 +20,12 @@ class Nonce(models.Model):
     
 class Association(models.Model):
     """ association openid url and lifetime """
-    server_url = models.TextField(max_length=2047)
-    handle = models.CharField(max_length=255)
-    secret = models.TextField(max_length=255) # Stored base64 encoded
+    server_url = models.TextField(maxlength=2047)
+    handle = models.CharField(maxlength=255)
+    secret = models.TextField(maxlength=255) # Stored base64 encoded
     issued = models.IntegerField()
     lifetime = models.IntegerField()
-    assoc_type = models.TextField(max_length=64)
+    assoc_type = models.TextField(maxlength=64)
     
     def __unicode__(self):
         return u"Association: %s, %s" % (self.server_url, self.handle)
@@ -34,7 +34,7 @@ class UserAssociation(models.Model):
     """ 
     model to manage association between openid and user 
     """
-    openid_url = models.CharField(blank=False, max_length=255)
+    openid_url = models.CharField(blank=False, maxlength=255)
     user = models.ForeignKey(User, unique=True)
     
     def __unicode__(self):
@@ -66,8 +66,8 @@ class UserPasswordQueue(models.Model):
     model for new password queue.
     """
     user = models.ForeignKey(User, unique=True)
-    new_password = models.CharField(max_length=30)
-    confirm_key = models.CharField(max_length=40)
+    new_password = models.CharField(maxlength=30)
+    confirm_key = models.CharField(maxlength=40)
 
     objects = UserPasswordQueueManager()
 

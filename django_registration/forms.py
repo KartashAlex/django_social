@@ -114,7 +114,7 @@ class RegistrationForm(forms.Form):
     ``RegistrationProfile.objects.create_inactive_user()``.
     
     """
-    username = forms.CharField(max_length=30,
+    username = forms.CharField(maxlength=30,
                                widget=forms.TextInput(attrs=attrs_dict),
                                label=_(u'username'))
     email = forms.EmailField(widget=forms.TextInput(attrs=dict(attrs_dict,

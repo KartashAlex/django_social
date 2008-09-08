@@ -15,8 +15,8 @@ USERDATA_TYPES = (
 )
 
 class UserData(models.Model):
-    type = models.CharField(max_length=15, choices=USERDATA_TYPES)
-    title = models.CharField(max_length=511)
+    type = models.CharField(maxlength=15, choices=USERDATA_TYPES)
+    title = models.CharField(maxlength=511)
     
     class Meta:
         ordering=['title']
@@ -52,7 +52,7 @@ class User(DjangoUser):
     country = models.ForeignKey(Country, verbose_name=_('Country'), blank=True, null=True)
     city = models.ForeignKey(City, verbose_name=_('City'), blank=True, null=True)
     birthdate = models.DateField(_('Birthdate'), blank=True, null=True)
-    gender = models.CharField(_('Gender'), max_length=10, choices=GENDER_CHOICES, blank=True, null=True)
+    gender = models.CharField(_('Gender'), maxlength=10, choices=GENDER_CHOICES, blank=True, null=True)
     about = models.TextField(_('About me'), blank=True, default='')
 
     # Contacts
@@ -110,14 +110,8 @@ class User(DjangoUser):
         user_ct = ContentType.objects.get_for_model(User)
         return Message.objects.filter(from_user=self)|Message.objects.filter(content_type=user_ct, object_id=self.pk)
         
-    def get_private_messages(self):
-        return self.get_messages().filter(private=True)
-        
-    def get_public_messages(self):
-        return self.get_messages().filter(private=True)
-        
 class PlaceType(models.Model):
-    name = models.CharField(max_length=255)
+    name = models.CharField(maxlength=255)
      
     def __unicode__(self):
         return self.name
@@ -126,7 +120,7 @@ class Place(models.Model):
     user = models.ForeignKey(User, related_name='places')
     type = models.ForeignKey(PlaceType)
     
-    name = models.CharField(max_length=255)
+    name = models.CharField(maxlength=255)
     city = models.ForeignKey(City, blank=True, null=True)
     address = models.TextField(blank=True, null=True)
     map_link = models.URLField(blank=True, null=True)

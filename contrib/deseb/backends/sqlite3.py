@@ -192,7 +192,7 @@ class DatabaseIntrospection:
             'foreign_key': False,
             'unique': False,
             'allow_null': False,
-            'max_length': None
+            'maxlength': None
         }
         
         for row in cursor.fetchall():
@@ -203,7 +203,7 @@ class DatabaseIntrospection:
                 # maxlength check goes here
                 dict['coltype'] = col_type
                 if row[2][0:7]=='varchar':
-                    dict['max_length'] = row[2][8:len(row[2])-1]
+                    dict['maxlength'] = row[2][8:len(row[2])-1]
                 # f_default flag check goes here
                 dict['allow_null'] = (row[3]==0)
                 

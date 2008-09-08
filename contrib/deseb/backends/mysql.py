@@ -198,7 +198,7 @@ class DatabaseIntrospection:
             'foreign_key': False,
             'unique': False,
             'allow_null': False,
-            'max_length': None
+            'maxlength': None
         }
         for row in cursor.fetchall():
             if row[0] == column_name:
@@ -206,11 +206,11 @@ class DatabaseIntrospection:
                 # maxlength check goes here
                 dict['coltype'] = row[1]
                 if row[1][0:7]=='varchar':
-                    dict['max_length'] = row[1][8:len(row[1])-1]
+                    dict['maxlength'] = row[1][8:len(row[1])-1]
                 elif row[1]=='text':
-                    dict['max_length'] = 65534
+                    dict['maxlength'] = 65534
                 elif row[1]=='longtext':
-                    dict['max_length'] = 100000000
+                    dict['maxlength'] = 100000000
                 
                 # f_default flag check goes here
                 if row[2]=='YES': dict['allow_null'] = True

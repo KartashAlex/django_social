@@ -198,7 +198,7 @@ class DatabaseIntrospection:
             'foreign_key': False,
             'unique': False,
 #DEFAULT    'default': '',
-            'max_length': '',
+            'maxlength': '',
             'allow_null': False,
         }
         cursor.execute("""
@@ -210,7 +210,7 @@ class DatabaseIntrospection:
         row = cursor.fetchone()
         # maxlength check goes here
         if row[0] != None:
-            dict['max_length'] = str(row[0])
+            dict['maxlength'] = str(row[0])
         # null flag check goes here
         if row[1] == 'YES':
             dict['allow_null'] = True 
@@ -218,7 +218,7 @@ class DatabaseIntrospection:
         if row[3] == 'character varying':
             dict['coltype'] = 'varchar'
         elif row[3]=='text':
-            dict['max_length'] = 64000
+            dict['maxlength'] = 64000
             dict['coltype'] = 'text'
         else:
             dict['coltype'] = row[3]
@@ -263,7 +263,7 @@ class DatabaseIntrospection:
             'foreign_key': False,
             'unique': False,
             'allow_null': False,
-            'max_length': None
+            'maxlength': None
         }
     
         for row in cursor.fetchall():
@@ -272,10 +272,10 @@ class DatabaseIntrospection:
                 dict['allow_null'] = not row[3]
                 dict['coltype'] = row[1]
                 if row[1][0:17]=='character varying':
-                    dict['max_length'] = str(row[1][18:len(row[1])-1])
+                    dict['maxlength'] = str(row[1][18:len(row[1])-1])
                     dict['coltype'] = 'varchar'
                 elif row[1][0:4]=='text':
-                    dict['max_length'] = 1000000000
+                    dict['maxlength'] = 1000000000
                 # null flag check goes here
                 
         # pk, fk and unique checks go here
