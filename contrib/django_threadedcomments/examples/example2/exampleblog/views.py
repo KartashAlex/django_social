@@ -50,8 +50,8 @@ def latest_post(request):
 #latest_post = login_required(latest_post)
 
 class RegistrationForm(forms.Form):
-    username = forms.CharField(min_length = 3, maxlength = 128)
-    password = forms.CharField(min_length = 4, maxlength = 128);
+    username = forms.CharField(min_length = 3, max_length = 128)
+    password = forms.CharField(min_length = 4, max_length = 128);
 
 def register(request):
     form = RegistrationForm(request.POST or None)

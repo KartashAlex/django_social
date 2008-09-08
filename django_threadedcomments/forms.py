@@ -15,7 +15,7 @@ class ThreadedCommentForm(forms.ModelForm):
 
     comment = forms.CharField(
         label = _('comment'),
-        maxlength = DEFAULT_MAX_COMMENT_LENGTH,
+        max_length = DEFAULT_MAX_COMMENT_LENGTH,
         widget = forms.Textarea
     )
 
@@ -34,7 +34,7 @@ class FreeThreadedCommentForm(forms.ModelForm):
 
     comment = forms.CharField(
         label = _('comment'),
-        maxlength = DEFAULT_MAX_COMMENT_LENGTH,
+        max_length = DEFAULT_MAX_COMMENT_LENGTH,
         widget = forms.Textarea
     )
 

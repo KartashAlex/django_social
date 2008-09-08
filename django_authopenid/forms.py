@@ -52,9 +52,9 @@ __all__ = ['OpenidSigninForm', 'OpenidAuthForm', 'OpenidVerifyForm',
 
 class OpenidSigninForm(forms.Form):
     """ signin form """
-    openid_url = forms.CharField(maxlength=255, 
+    openid_url = forms.CharField(max_length=255, 
             widget=forms.widgets.TextInput(attrs={'class': 'required openid'}))
-    next = forms.CharField(maxlength=255, widget=forms.HiddenInput(), 
+    next = forms.CharField(max_length=255, widget=forms.HiddenInput(), 
             required=False)
 
     def clean_openid_url(self):
@@ -82,11 +82,11 @@ username_re = re.compile(r'^\w+$')
 
 class OpenidAuthForm(forms.Form):
     """ legacy account signin form """
-    next = forms.CharField(maxlength=255, widget=forms.HiddenInput(), 
+    next = forms.CharField(max_length=255, widget=forms.HiddenInput(), 
             required=False)
-    username = forms.CharField(maxlength=30,  
+    username = forms.CharField(max_length=30,  
             widget=forms.widgets.TextInput(attrs=attrs_dict))
-    password = forms.CharField(maxlength=128, 
+    password = forms.CharField(max_length=128, 
             widget=forms.widgets.PasswordInput(attrs=attrs_dict))
        
     def __init__(self, data=None, files=None, auto_id='id_%s',
@@ -146,12 +146,12 @@ class OpenidAuthForm(forms.Form):
 
 class OpenidRegisterForm(forms.Form):
     """ openid signin form """
-    next = forms.CharField(maxlength=255, widget=forms.HiddenInput(), 
+    next = forms.CharField(max_length=255, widget=forms.HiddenInput(), 
             required=False)
-    username = forms.CharField(maxlength=30, 
+    username = forms.CharField(max_length=30, 
             widget=forms.widgets.TextInput(attrs=attrs_dict))
     email = forms.EmailField(widget=forms.TextInput(attrs=dict(attrs_dict, 
-        maxlength=200)), label=u'Email address')
+        max_length=200)), label=u'Email address')
     
     def clean_username(self):
         """ test if username is valid and exist in database """
@@ -181,11 +181,11 @@ class OpenidRegisterForm(forms.Form):
     
 class OpenidVerifyForm(forms.Form):
     """ openid verify form (associate an openid with an account) """
-    next = forms.CharField(maxlength=255, widget = forms.HiddenInput(), 
+    next = forms.CharField(max_length=255, widget = forms.HiddenInput(), 
             required=False)
-    username = forms.CharField(maxlength=30, 
+    username = forms.CharField(max_length=30, 
             widget=forms.widgets.TextInput(attrs=attrs_dict))
-    password = forms.CharField(maxlength=128, 
+    password = forms.CharField(max_length=128, 
             widget=forms.widgets.PasswordInput(attrs=attrs_dict))
     
     def __init__(self, data=None, files=None, auto_id='id_%s',
@@ -236,13 +236,13 @@ username_re = re.compile(r'^\w+$')
 class RegistrationForm(forms.Form):
     """ legacy registration form """
 
-    next = forms.CharField(maxlength=255, widget=forms.HiddenInput(), 
+    next = forms.CharField(max_length=255, widget=forms.HiddenInput(), 
             required=False)
-    username = forms.CharField(maxlength=30,
+    username = forms.CharField(max_length=30,
             widget=forms.TextInput(attrs=attrs_dict),
             label=u'Username')
     email = forms.EmailField(widget=forms.TextInput(attrs=dict(attrs_dict,
-            maxlength=200)), label=u'Email address')
+            max_length=200)), label=u'Email address')
     password1 = forms.CharField(widget=forms.PasswordInput(attrs=attrs_dict),
             label=u'Password')
     password2 = forms.CharField(widget=forms.PasswordInput(attrs=attrs_dict),
@@ -327,7 +327,7 @@ class ChangepwForm(forms.Form):
 class ChangeemailForm(forms.Form):
     """ change email form """
     email = forms.EmailField(widget=forms.TextInput(attrs=dict(attrs_dict, 
-        maxlength=200)), label=u'Email address')
+        max_length=200)), label=u'Email address')
     password = forms.CharField(widget=forms.PasswordInput(attrs=attrs_dict))
 
     def __init__(self, data=None, files=None, auto_id='id_%s', prefix=None, \
@@ -348,7 +348,7 @@ class ChangeemailForm(forms.Form):
                 
 class ChangeopenidForm(forms.Form):
     """ change openid form """
-    openid_url = forms.CharField(maxlength=255,
+    openid_url = forms.CharField(max_length=255,
             widget=forms.TextInput(attrs={'class': "required" }))
 
     def __init__(self, data=None, user=None, *args, **kwargs):
@@ -378,7 +378,7 @@ class DeleteForm(forms.Form):
 
 class EmailPasswordForm(forms.Form):
     """ send new password form """
-    username = forms.CharField(maxlength=30,
+    username = forms.CharField(max_length=30,
             widget=forms.TextInput(attrs={'class': "required" }))
 
     def __init__(self, data=None, files=None, auto_id='id_%s', prefix=None, 

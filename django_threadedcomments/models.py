@@ -265,7 +265,7 @@ class FreeThreadedComment(models.Model):
     parent = models.ForeignKey('self', null = True, blank=True, default = None, related_name='children')
     
     # User-Replacement Fields
-    name = models.CharField(_('name'), maxlength = 128)
+    name = models.CharField(_('name'), max_length = 128)
     website = models.URLField(_('site'), blank = True)
     email = models.EmailField(_('e-mail address'), blank = True)
     
@@ -364,6 +364,6 @@ class TestModel(models.Model):
     This model is simply used by this application's test suite as a model to 
     which to attach comments.
     """
-    name = models.CharField(maxlength=5)
+    name = models.CharField(max_length=5)
     is_public = models.BooleanField(default=True)
     date = models.DateTimeField(default=datetime.now)

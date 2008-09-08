@@ -198,7 +198,7 @@ class DatabaseIntrospection:
             'foreign_key': False,
             'unique': False,
 #DEFAULT    'default': '',
-            'maxlength': '',
+            'max_length': '',
             'allow_null': False,
         }
         cursor.execute("""
@@ -208,9 +208,9 @@ class DatabaseIntrospection:
             AND table_schema != 'pg_catalog' AND table_schema != 'information_schema'   
             """, [table_name,column_name])
         row = cursor.fetchone()
-        # maxlength check goes here
+        # max_length check goes here
         if row[0] != None:
-            dict['maxlength'] = str(row[0])
+            dict['max_length'] = str(row[0])
         # null flag check goes here
         if row[1] == 'YES':
             dict['allow_null'] = True 
@@ -218,7 +218,7 @@ class DatabaseIntrospection:
         if row[3] == 'character varying':
             dict['coltype'] = 'varchar'
         elif row[3]=='text':
-            dict['maxlength'] = 64000
+            dict['max_length'] = 64000
             dict['coltype'] = 'text'
         else:
             dict['coltype'] = row[3]
@@ -263,19 +263,19 @@ class DatabaseIntrospection:
             'foreign_key': False,
             'unique': False,
             'allow_null': False,
-            'maxlength': None
+            'max_length': None
         }
     
         for row in cursor.fetchall():
             if row[0] == column_name:
-        # maxlength check goes here
+        # max_length check goes here
                 dict['allow_null'] = not row[3]
                 dict['coltype'] = row[1]
                 if row[1][0:17]=='character varying':
-                    dict['maxlength'] = str(row[1][18:len(row[1])-1])
+                    dict['max_length'] = str(row[1][18:len(row[1])-1])
                     dict['coltype'] = 'varchar'
                 elif row[1][0:4]=='text':
-                    dict['maxlength'] = 1000000000
+                    dict['max_length'] = 1000000000
                 # null flag check goes here
                 
         # pk, fk and unique checks go here
