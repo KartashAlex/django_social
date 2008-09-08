@@ -93,12 +93,16 @@
                 <h1 class="header">{% trans "Albums" %}</h1>
                 <form action="{% url photo.views.create_album %}" method="post">
                     <input type="text" name="title" />
-                    <input type="submit" />
+                    <input type="submit" value="{% trans "create album" %}"/>
                 </form>
                 
                 {% for album in profile.albums.all %}
                     <div>
+<<<<<<< HEAD:net/templates/profile_t.html
                         <a href="{% url photos profile.pk,album.pk %}"><img src="{% thumbnail album.random_img.image 100x100 %}"/></a>
+=======
+                        <a href="{% url photos profile.pk,album.pk %}">{{ album.get_random_image.url }}ff</a>
+>>>>>>> 0538efc4af74ee5f2b340592181eb6b1c7a22d84:net/templates/profile_t.html
                     </div>
                 {% endfor %}
 

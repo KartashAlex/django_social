@@ -13,7 +13,6 @@
         <link rel="stylesheet" href="/i/css/footer.css" type="text/css" />
         <link rel="stylesheet" href="/i/css/personal_info.css" type="text/css" />
         <link rel="stylesheet" href="/i/css/thickbox.css" type="text/css" />
-
 		<script type="text/javascript" src="/i/js/jquery.min.js"></script>
 		<script type="text/javascript" src="/i/js/jquery-ui.min.js"></script>
 		        <script src="/i/js/thickbox-compressed.js" type="text/javascript"></script>
@@ -30,11 +29,12 @@
 					
 					});
 				} else {
-					$('.b-wall #wrote-message').slideUp()
+					$('.b-wall #wrote-message').slideUp();
 				
 				}
 				return false;
 			});
+	
 			$('.b-albums a').click(function(){
 					var _t = this;
 					
@@ -42,13 +42,19 @@
 					
 					$('.b-albums #album').load($(_t).attr('href'), function(){
 						$(this).slideDown();
+								$('#add-photos-btn').click(function(){
+									$('#add-photos-form').slideToggle();
+								});
+								
 					});
 				} else {
 					$('.b-albums #album').slideUp();
 				}
 				return false;
 			});
+		
 		});
+	
 		 
 		</script>
               
