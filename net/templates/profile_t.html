@@ -86,7 +86,7 @@
                 
                 {% for album in profile.albums.all %}
                     <div>
-                        <a href="{% url photos profile.pk,album.pk %}">{{ album.get_random_image }}ff</a>
+                        <a href="{% url photos profile.pk,album.pk %}">{{ album.get_random_image.url }}ff</a>
                     </div>
                 {% endfor %}
 
