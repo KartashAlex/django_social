@@ -52,7 +52,7 @@ def create_album(request):
         form = AlbumForm(data=request.POST)
         if form.is_valid():
             album = form.save(request.user.user)
-            return HttpResponseRedirect(reverse('photos', args=[album.user.pk, album.pk]))
+            return HttpResponseRedirect('/me')
     else:
         form = AlbumForm()
     return {
@@ -67,7 +67,7 @@ def create_photo(request, user_id, album_id):
         form = PhotoForm(data=request.POST, files=request.FILES, album=album)
         if form.is_valid():
             album = form.save().album
-            return HttpResponseRedirect(reverse('photos', args=[album.user.pk, album.pk]))
+            return HttpResponseRedirect('/me')
     else:
         form = PhotoForm()
     return {

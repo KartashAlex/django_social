@@ -109,7 +109,7 @@
                 
                 {% for album in profile.albums.all %}
                     <div>
-                        <a href="{% url photos profile.pk,album.pk %}"><img src="{% thumbnail album.random_img.image 100x100 %}"/></a
+                        <a href="{% url photos profile.pk,album.pk %}">{% if album.random_img %}<img src="{% thumbnail album.random_img.image 100x100 %}"/>{% else %}{{ album.title }}{% endif %}</a
                     </div>
                 {% endfor %}
 				<div class="b-album-photos" id="album">
