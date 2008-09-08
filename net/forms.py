@@ -95,13 +95,7 @@ class ProfileForm(DataFieldsForm):
         
 class InterestsForm(DataFieldsForm):
     data_fields = None
-    list_fields = {
-        'school': {
-            'title': forms.CharField(),
-            'from_date': forms.DateTimeField(widget=SelectDateWidget(years=range(year, year-100, -1))),
-            'to_date': forms.DateTimeField(widget=SelectDateWidget(years=range(year, year-100, -1))),
-        },
-    }
+
 
     class Meta:
         model = User
@@ -111,10 +105,9 @@ class InterestsForm(DataFieldsForm):
         super(InterestsForm, self).__init__(*args, **kwargs)
         
         for field in self.list_fields.keys():
-            if field != 'school':
-                values = self.instance.get_data(field)
-            else:
-                values = self.instance.get_schools()
+           
+            values = self.instance.get_data(field)
+
             idx = 0
             for value in values:
                 for subfield in self.list_fields[field].keys():

@@ -4,6 +4,9 @@
            
                
                 {% load thumbnail %}
+				 	<div class="b-photos-list">
+
+				
                 {% for photo in object_list %}
                 
                         <a href="{% thumbnail photo.image 800x800 %}" class="thickbox" rel="album">
@@ -12,14 +15,15 @@
                         </a>
                
                 {% endfor %}
-            
+            	
+					</div>
                 {% ifequal album.user.pk request.user.user.pk %}
 				<span id="add-photos-btn">Add photos to album</span>
-				<div class="b-add-photos" id="add-photos-form">
-                <form action="{% url create_photo album.user.pk,album.pk %}" method="post" enctype="multipart/form-data">
-                    {{ form.as_p }}
-                    <input type="submit"/>
-                </form>
-				</div>
+					<div class="b-add-photos" id="add-photos-form">
+	                <form action="{% url create_photo album.user.pk,album.pk %}" method="post" enctype="multipart/form-data">
+	                    {{ form.as_p }}
+	                    <input type="submit"/>
+	                </form>
+					</div>
                 {% endifequal %}
       

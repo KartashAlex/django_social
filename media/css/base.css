@@ -154,3 +154,30 @@ table td {
 #add-photos-form {
 	display: none;
 }
+.b-album-photos {
+	height: 170px;
+
+
+}
+.b-photos-list {
+	position: relative;
+	height: 140px;
+}
+.b-add-photos {
+	display: block;
+
+	width: 300px;
+	background: #efefef;
+	position: absolute;
+	padding: 5px;
+}
+.b-add-photos p {
+	margin: 5px 0 5px 0;
+}
+.b-add-photos p label {
+
+	display: block;
+}
+#create-album {
+	display: none;
+}

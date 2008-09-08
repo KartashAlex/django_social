@@ -49,11 +49,7 @@
                                     <div class="b-career-info">
                                         Интересы: {% for interest in profile.get_interests %} <a href="/search/?interest={{ interest|urlencode }}">{{ interest }}</a>{% if not forloop.last %}, {% endif %} {% endfor %}
                                     </div>{% endif %}
-                                </div>{% if profile.interest %}
-                                <div class="b-career-info">
-                                    Школы: {% for school in profile.get_schools %} <a href="/search/?schools__title={{ school.title|urlencode }}">{{ school.title }}</a> с: {{ school.from_date|date:"m.Y" }} по: {{ school.to_date|date:"m.Y" }} {% if not forloop.last %}<br />
-                                    {% endif %} {% endfor %}
-                                </div></div>{% endif %}
+                                </div></div>
                                 <div style="width: 50%; float: left">
                                     {% if profile.get_contacts.phone %}
                                     <div class="b-phone-num">
@@ -89,21 +85,41 @@
                 {% endfor %}
                 </ul>
                 </div>
+					<div class="b-messages b-block">
+	                <h1 class="header">{% trans "Messages" %}</h1>
+	                	<a href="{% url create_pm "user",profile.id %}">{% trans "Leave a message" %}</a>
+	                <div id="wrote-message">&nbsp;</div>
+
+	                {% for msg in profile.get_private_messages %}
+	                    <div class="b-message">
+
+	                        {{ msg.from_user.username }}:
+	                        <p>
+	                        {{ msg.body }}
+							</p>
+	                    </div>
+	                {% endfor %}
+
+	                </ul>
+	                </div>
+	
 				<div class="b-albums b-block">
                 <h1 class="header">{% trans "Albums" %}</h1>
-                <form action="{% url photo.views.create_album %}" method="post">
-                    <input type="text" name="title" />
-                    <input type="submit" value="{% trans "create album" %}"/>
-                </form>
+      			 
                 
                 {% for album in profile.albums.all %}
                     <div>
-                        <a href="{% url photos profile.pk,album.pk %}"><img src="{% thumbnail album.random_img.image 100x100 %}"/></a>
-
+                        <a href="{% url photos profile.pk,album.pk %}"><img src="{% thumbnail album.random_img.image 100x100 %}"/></a
                     </div>
                 {% endfor %}
-
-               	<div id="album">
-					&nbsp;
+				<div class="b-album-photos" id="album">
+              		&nbsp;
 				</div>
+					<span id="create-album-btn">{% trans "Create Album" %}</span>
+					<div class="b-add-photos" id="create-album" >
+				    <form action="{% url photo.views.create_album %}" method="post">
+				                   <input type="text" name="title" />
+				                  <input type="submit" value="{% trans "create album" %}"/>
+				               </form>
+					</div>
             {% endblock content %}

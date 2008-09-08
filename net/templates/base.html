@@ -34,6 +34,21 @@
 				}
 				return false;
 			});
+			$('.b-messages a').click(function(){
+					var _t = this;
+					
+				if (!$('.b-messages #wrote-message').is(':visible')){
+					
+					$('.b-messages #wrote-message').load($(_t).attr('href'), function(){
+						$(this).slideDown();
+					
+					});
+				} else {
+					$('.b-messages #wrote-message').slideUp();
+				
+				}
+				return false;
+			});
 	
 			$('.b-albums a').click(function(){
 					var _t = this;
@@ -52,9 +67,12 @@
 				}
 				return false;
 			});
+			$('#create-album-btn').click(function(){
+				$('#create-album').slideToggle();
+			});
 		
 		});
-	
+		
 		 
 		</script>
               
