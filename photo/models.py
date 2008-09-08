@@ -9,9 +9,9 @@ class Album(models.Model):
     class Admin:
         pass
 	
-	def get_random_image(self):
-		images = self.image_set.all().order_by('?')
-		return images[0]
+    def random_img(self):
+        images = self.photos.all().order_by('?')
+        return images[0]
     
     def __unicode__(self):
         return self.title

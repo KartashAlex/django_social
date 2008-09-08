@@ -1,9 +1,10 @@
 {% extends "base.html" %}
+{% load thumbnail i18n %}
             {% block content %}
                 <table class="b-personal-info">
                     <tr>
                         <td class="b-userpic">
-                            {% load thumbnail i18n %} {% if profile.avatar %} <img src="{% thumbnail profile.avatar 270x270 %}" /> {% endif %}
+                            {% if profile.avatar %} <img src="{% thumbnail profile.avatar 270x270 %}" /> {% endif %}
                         </td>
                         <td>
                             <a class="edit-profile-btn" id="edit-profile-btn" href="{% url edit_user_profile %}" name="edit-profile-btn">Редактировать</a>
@@ -24,14 +25,25 @@
                                         
                                          {% if profile.places.all %}
                                             <div class="b-career-info">
-                                            Места: 
+                                            {% trans "Places" %}
+                                            {% ifequal profile request.user.user %}
+                                                <a href="{% url add_user_place %}">{% trans "add" %}</a>
+                                            {% endifequal %}
+                                            : 
                                             <ul> 
                                             {% for place in profile.places.all %}
                                                 <li>
                                                     {{ place.type }} <a href="/search/?places__name={{ place.name|urlencode }}">{{ place.name }}</a>
                                                     с: {{ place.from_date|date:"m.Y" }} по: {{ place.to_date|date:"m.Y" }} 
+                                                    {% ifequal profile request.user.user %}
+                                                        <a href="{% url edit_user_place place.pk %}">{% trans "edit" %}</a>
+                                                    {% endifequal %}
                                                 </li>
                                             {% endfor %}
+                                        {% else %}
+                                            {% ifequal profile request.user.user %}
+                                                <a href="{% url add_user_place %}">{% trans "add place" %}</a>
+                                            {% endifequal %}
                                         {% endif %}
                                     </div>{% if profile.interest %}
                                     <div class="b-career-info">
@@ -86,7 +98,7 @@
                 
                 {% for album in profile.albums.all %}
                     <div>
-                        <a href="{% url photos profile.pk,album.pk %}">{{ album.get_random_image }}ff</a>
+                        <a href="{% url photos profile.pk,album.pk %}"><img src="{% thumbnail album.random_img.image 100x100 %}"/></a>
                     </div>
                 {% endfor %}
 
