@@ -1,6 +1,6 @@
 # -*- coding: UTF-8 -*-
 
-from django import newforms as forms
+from django import forms
 from django.forms.extras.widgets import SelectDateWidget
 from django.utils.translation import ugettext_lazy as _
 from django.utils.safestring import mark_safe
@@ -95,7 +95,13 @@ class ProfileForm(DataFieldsForm):
         
 class InterestsForm(DataFieldsForm):
     data_fields = None
-
+    list_fields = {
+        'school': {
+            'title': forms.CharField(),
+            'from_date': forms.DateTimeField(widget=SelectDateWidget(years=range(year, year-100, -1))),
+            'to_date': forms.DateTimeField(widget=SelectDateWidget(years=range(year, year-100, -1))),
+        },
+    }
 
     class Meta:
         model = User
@@ -105,8 +111,8 @@ class InterestsForm(DataFieldsForm):
         super(InterestsForm, self).__init__(*args, **kwargs)
         
         for field in self.list_fields.keys():
-           
-            values = self.instance.get_data(field)
+            if field != 'school':
+                values = self.instance.get_data(field)
 
             idx = 0
             for value in values:

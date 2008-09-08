@@ -1,7 +1,7 @@
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.core.urlresolvers import reverse
-from django import newforms as forms
+from django import forms
 from django.http import Http404, HttpResponse
 from django.contrib.auth.decorators import login_required
 from exampleblog.models import BlogPost
