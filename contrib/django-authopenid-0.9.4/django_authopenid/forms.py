@@ -30,7 +30,7 @@
 # THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
-from django import newforms as forms
+from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 from django.utils.translation import ugettext as _
@@ -151,7 +151,7 @@ class OpenidRegisterForm(forms.Form):
     username = forms.CharField(max_length=30, 
             widget=forms.widgets.TextInput(attrs=attrs_dict))
     email = forms.EmailField(widget=forms.TextInput(attrs=dict(attrs_dict, 
-        maxlength=200)), label=u'Email address')
+        max_length=200)), label=u'Email address')
     
     def clean_username(self):
         """ test if username is valid and exist in database """
@@ -242,7 +242,7 @@ class RegistrationForm(forms.Form):
             widget=forms.TextInput(attrs=attrs_dict),
             label=u'Username')
     email = forms.EmailField(widget=forms.TextInput(attrs=dict(attrs_dict,
-            maxlength=200)), label=u'Email address')
+            max_length=200)), label=u'Email address')
     password1 = forms.CharField(widget=forms.PasswordInput(attrs=attrs_dict),
             label=u'Password')
     password2 = forms.CharField(widget=forms.PasswordInput(attrs=attrs_dict),
@@ -327,7 +327,7 @@ class ChangepwForm(forms.Form):
 class ChangeemailForm(forms.Form):
     """ change email form """
     email = forms.EmailField(widget=forms.TextInput(attrs=dict(attrs_dict, 
-        maxlength=200)), label=u'Email address')
+        max_length=200)), label=u'Email address')
     password = forms.CharField(widget=forms.PasswordInput(attrs=attrs_dict))
 
     def __init__(self, data=None, files=None, auto_id='id_%s', prefix=None, \

@@ -4,7 +4,7 @@ Forms and validation code for user registration.
 """
 
 
-from django import newforms as forms
+from django import forms
 from django.core.validators import alnum_re
 from django.utils.translation import ugettext as _
 from django.contrib.auth.models import User
@@ -25,7 +25,7 @@ class TokenFormUniqueEmail(forms.Form):
     Form for registering a new user account.
     """
     email = forms.EmailField(widget=forms.TextInput(attrs=dict(attrs_dict,
-                                                               maxlength=75)),
+                                                               max_length=75)),
                              label=_(u'email address'))
 
     def clean_email(self):
@@ -118,7 +118,7 @@ class RegistrationForm(forms.Form):
                                widget=forms.TextInput(attrs=attrs_dict),
                                label=_(u'username'))
     email = forms.EmailField(widget=forms.TextInput(attrs=dict(attrs_dict,
-                                                               maxlength=75)),
+                                                               max_length=75)),
                              label=_(u'email address'))
     password1 = forms.CharField(widget=forms.PasswordInput(attrs=attrs_dict, render_value=False),
                                 label=_(u'password'))

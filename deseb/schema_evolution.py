@@ -199,10 +199,10 @@ def get_field_type(f):
 
 def compare_field_length(f, column_flags):
     from django.db.models.fields import CharField, SlugField, AutoField
-    f_maxlength = str(getattr(f, 'maxlength', getattr(f, 'max_length', '')))
-    db_maxlength = str(column_flags.get('max_length', 64000))
-    return( not f.primary_key and isinstance(f, CharField) and db_maxlength!= f_maxlength) or \
-          ( not f.primary_key and isinstance(f, SlugField) and db_maxlength!= f_maxlength)
+    f_max_length = str(getattr(f, 'max_length', getattr(f, 'max_length', '')))
+    db_max_length = str(column_flags.get('max_length', 64000))
+    return( not f.primary_key and isinstance(f, CharField) and db_max_length!= f_max_length) or \
+          ( not f.primary_key and isinstance(f, SlugField) and db_max_length!= f_max_length)
 
 def get_sql_evolution_check_for_changed_field_flags(klass, old_table_name, style):
     ops, introspection = get_operations_and_introspection_classes(style)
@@ -249,7 +249,7 @@ def get_sql_evolution_check_for_changed_field_flags(klass, old_table_name, style
                 correct_seq_name = klass._meta.db_table+"_"+cf+'_seq'
                 update_sequences = column_flags['sequence'] != correct_seq_name
             #if DEBUG and update_length: 
-            #    print f_col_type, column_flags['coltype'], column_flags['maxlength']
+            #    print f_col_type, column_flags['coltype'], column_flags['max_length']
             if update_type or update_null or update_length or update_unique or update_primary or update_sequences:
                 #print "cf, f.default, column_flags['default']", cf, f.default, column_flags['default'], f.default.__class__
                 f_default = get_field_default(f)

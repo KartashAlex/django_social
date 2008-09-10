@@ -208,7 +208,7 @@ class DatabaseIntrospection:
             AND table_schema != 'pg_catalog' AND table_schema != 'information_schema'   
             """, [table_name,column_name])
         row = cursor.fetchone()
-        # maxlength check goes here
+        # max_length check goes here
         if row[0] != None:
             dict['max_length'] = str(row[0])
         # null flag check goes here
@@ -268,7 +268,7 @@ class DatabaseIntrospection:
     
         for row in cursor.fetchall():
             if row[0] == column_name:
-        # maxlength check goes here
+        # max_length check goes here
                 dict['allow_null'] = not row[3]
                 dict['coltype'] = row[1]
                 if row[1][0:17]=='character varying':

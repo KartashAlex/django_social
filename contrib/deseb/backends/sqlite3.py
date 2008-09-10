@@ -200,7 +200,7 @@ class DatabaseIntrospection:
             if row[1] == column_name:
                 col_type = row[2]
     
-                # maxlength check goes here
+                # max_length check goes here
                 dict['coltype'] = col_type
                 if row[2][0:7]=='varchar':
                     dict['max_length'] = row[2][8:len(row[2])-1]

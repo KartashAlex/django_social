@@ -203,7 +203,7 @@ class DatabaseIntrospection:
         for row in cursor.fetchall():
             if row[0] == column_name:
     
-                # maxlength check goes here
+                # max_length check goes here
                 dict['coltype'] = row[1]
                 if row[1][0:7]=='varchar':
                     dict['max_length'] = row[1][8:len(row[1])-1]

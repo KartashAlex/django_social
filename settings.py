@@ -1,6 +1,5 @@
 # Django settings for rttv project.
 
-import deseb
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -94,10 +93,10 @@ INSTALLED_APPS = (
     'django_authopenid',
     'django_registration',
     'django_sphinx',
-    'django_tagging',
+    'tagging',
     'django_threadedcomments',
     'django_registration',
-    'django_dbsettings',
+    'dbsettings',
 
     'sorl.thumbnail',
 ) + OUR_APPS

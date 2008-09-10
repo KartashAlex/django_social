@@ -110,12 +110,6 @@ class User(DjangoUser):
         user_ct = ContentType.objects.get_for_model(User)
         return Message.objects.filter(from_user=self)|Message.objects.filter(content_type=user_ct, object_id=self.pk)
         
-    def get_private_messages(self):
-        return self.get_messages().filter(private=True)
-        
-    def get_public_messages(self):
-        return self.get_messages().filter(private=True)
-        
 class PlaceType(models.Model):
     name = models.CharField(max_length=255)
      
