@@ -5,7 +5,7 @@ from django.db.models import get_model
 from django.contrib.auth.decorators import login_required
 from decorators import render_to
 
-from models import Message, User
+from models import Message, User, Post
 
 def messages(request, type, id=None):
     messages = Message.objects.all()
@@ -75,3 +75,26 @@ def create_pm(request, type, id):
     return {
         'form': form,
     }
+
+def blog(request, username):
+    user = get_object_or_404(User, username=username)
+    kwargs = {
+        'queryset': Post.objects.all(author=user),
+        'object_id': id,
+        'template_name': 'blog_posts.html',
+        'extra_context': {
+        },
+    }
+    return list_detail.object_detail(request, **kwargs)
+
+def post(request, username, id):
+    user = get_object_or_404(User, username=username)
+    kwargs = {
+        'queryset': Post.objects.all(author=user),
+        'object_id': id,
+        'template_name': 'blog_post.html',
+        'extra_context': {
+        },
+    }
+    return list_detail.object_detail(request, **kwargs)
+

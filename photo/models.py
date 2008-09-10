@@ -18,6 +18,10 @@ class Album(models.Model):
     
     def __unicode__(self):
         return self.title
+        
+    def get_absolute_url(self):
+        from django.core.urlresolvers import reverse
+        return reverse('photos', args=[self.user.pk, self.pk])
 
 class Photo(models.Model):
     album = models.ForeignKey(Album, related_name='photos')
@@ -30,3 +34,7 @@ class Photo(models.Model):
     
     def __unicode__(self):
         return self.title
+        
+    def get_absolute_url(self):
+        from django.core.urlresolvers import reverse
+        return reverse('photo', args=[self.album.user.pk, self.album.pk, self.pk])

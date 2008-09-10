@@ -34,7 +34,6 @@ def photos(request, user_id, album_id):
     return list_detail.object_list(request, **kwargs)
 
 def photo(request, user_id, album_id, photo_id):
-    username = username.replace('*', '@')
     kwargs = {
         'queryset': Photo.objects.filter(album__user__pk=user_id, album__id=album_id),
         'object_id': photo_id,
