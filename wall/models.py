@@ -18,3 +18,16 @@ class Message(models.Model):
 
     def get_address(self):
         return self.content_type.get_object_for_this_type(pk=self.object_id)
+
+class AdCategory(models.Model):
+    name = models.CharField(_('Name'), max_length=255)
+
+class Post(models.Model):
+    subject = models.CharField(_('Subject'), max_length=255, blank=True, null=True)
+    body = models.TextField(_('Body'))
+    
+    is_ad = models.BooleanField(_('Is advertisement?'), default=False)
+    ad_cat = models.ForeignKey(AdCategory, verbose_name=_('Category'), blank=True, null=True)
+    
+    author = models.ForeignKey(User, related_name='posts', verbose_name=_('Author'))
+    added = models.DateTimeField(auto_now_add=True, null=True)

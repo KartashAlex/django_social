@@ -72,6 +72,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.media",
 
     "context_processors.common",
+    "context_processors.widgets",
 )
 
 OUR_APPS = (
