@@ -69,57 +69,90 @@
                         </td>
                     </tr>
                 </table>
-				
-				<div class="b-wall b-block">
-                <h1 class="header">{% trans "Wall" %}</h1>
-                	<a href="{% url create_pm "user",profile.id %}">{% trans "Leave a message" %}</a>
-                <div id="wrote-message">&nbsp;</div>
-                {% for msg in profile.get_public_messages %}
-                    <div class="b-message">
-         
-                        {{ msg.from_user.username }}:
-                        <p>
-                        {{ msg.body }}
-						</p>
-                    </div>
-                {% endfor %}
-                </ul>
-                </div>
-					<div class="b-messages b-block">
-	                <h1 class="header">{% trans "Messages" %}</h1>
-	                	<a href="{% url create_pm "user",profile.id %}">{% trans "Leave a message" %}</a>
-	                <div id="wrote-message">&nbsp;</div>
-
-	                {% for msg in profile.get_private_messages %}
-	                    <div class="b-message">
-
-	                        {{ msg.from_user.username }}:
-	                        <p>
-	                        {{ msg.body }}
-							</p>
-	                    </div>
-	                {% endfor %}
-
-	                </ul>
-	                </div>
-	
-				<div class="b-albums b-block">
-                <h1 class="header">{% trans "Albums" %}</h1>
-      			 
-                
-                {% for album in profile.albums.all %}
-                    <div>
-                        <a href="{% url photos profile.pk,album.pk %}">{% if album.random_img %}<img src="{% thumbnail album.random_img.image 100x100 %}"/>{% else %}{{ album.title }}{% endif %}</a
-                    </div>
-                {% endfor %}
-				<div class="b-album-photos" id="album">
-              		&nbsp;
+				<div class="b-block b-wall">
+					<h1>Стена</h1>
+					<ul>
+						<li>Слышишь меня -- стенка клевая</li>
+						<li>Молодец бля</li>
+						<li>Ебануццо бля какая клевая стенка тут у нас нарисовалась</li>
+					</ul>
+					<!-- if is_admin-->
+						<a href="#">Написать</a>
+					<!-- endif -->
+					<a href="#">Еще 12 сообщений</a>
+					
 				</div>
-					<span id="create-album-btn">{% trans "Create Album" %}</span>
-					<div class="b-add-photos" id="create-album" >
-				    <form action="{% url photo.views.create_album %}" method="post">
-				                   <input type="text" name="title" />
-				                  <input type="submit" value="{% trans "create album" %}"/>
-				               </form>
+				<div class="b-block b-album">
+					<h1>Фотографии</h1>
+					<div>
+						<div><img src="#" style="display:block; background: #000; width: 200; height: 150px" /></div>
+						<div><img src="" style="display:block; background: #000; width: 200; height: 150px" /></div>
+						<div><img src="" style="display:block; background: #000; width: 200; height: 150px" /></div>
+						<div><img src="" style="display:block; background: #000; width: 200; height: 150px" /></div>
 					</div>
+					<a href="#">Еще фотографий: 120, альбомов: 3</a>
+				</div>
+				<div class="b-block b-blog">
+					<h1>Дневник</h1>
+					<div><h2>Траляляля</h2>						
+						<p>Так бывает что странно делать дневники удачно...</p>
+					</div>	
+					<div><h2>Траляляля</h2>						
+						<p>Так бывает что странно делать дневники удачно...</p>
+					</div>	
+					<!-- if is_admin-->
+						<a href="#">Написать</a>
+					<!-- endif -->
+					<a href="#">Еще записей: 12</a>
+					
+				</div>
+				
+				<!--	  {# if widgets.wall #} 
+			                <div class="widget">
+			                    <h1>{# trans "Wall" #}</h1>
+			                    <ul>
+			                        {# for msg in widgets.wall #}
+			                        <li>
+			                            <a href="{% url message msg.pk %}">{{ msg.subject|default:"No subject" }}</a>
+			                        </li>
+			                        {# endfor #}
+			                    </ul>
+			                </div>
+			                {# endif #}
+			                {# if widgets.photos #}
+			                <div class="widget">
+			                    <h1>{# trans "Photos" #}</h1>
+			                    <ul>
+			                        {# for photo in widgets.photos #}
+			                        <li>
+			                            <a href="{{ photo.get_absolute_url }}"><img src="{% thumbnail photo.image 100x100 %}"</a>
+			                        </li>
+			                        {# endfor #}
+			                    </ul>
+			                </div>
+			                {# endif #}
+			                {# if widgets.blog.posts #}
+			                <div class="widget">
+			                    <h1>{# trans "Blog posts" #}</h1>
+			                    <ul>
+			                        {# for post in widgets.blog.posts #}
+			                        <li>
+			                            <a href="{% url post post.user.username,post.pk %}">{{ post.subject|default:"No subject" }}</a>
+			                        </li>
+			                        {# endfor #}
+			                    </ul>
+			                </div>
+			                {# endif #}
+			                {# if widgets.blog.ads #}
+			                <div class="widget">
+			                    <h1>{# trans "Ads" #}</h1>
+			                    <ul>
+			                        {# for ad in widgets.blog.ads #}
+			                        <li>
+			                            <a href="{% url post ad.user.username,ad.pk %}">{{ ad.subject|default:"No subject" }}({{ ad.ad_cat.name }})</a>
+			                        </li>
+			                        {# endfor #}
+			                    </ul>
+			                </div>
+			                {# endif #} -->
             {% endblock content %}
