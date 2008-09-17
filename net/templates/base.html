@@ -98,54 +98,7 @@
                 &nbsp;
             </div>
             <div class="b-content-container">
-                {% if widgets.wall %}
-                <div class="widget">
-                    <h1>{% trans "Wall" %}</h1>
-                    <ul>
-                        {% for msg in widgets.wall %}
-                        <li>
-                            <a href="{% url message msg.pk %}">{{ msg.subject|default:"No subject" }}</a>
-                        </li>
-                        {% endfor %}
-                    </ul>
-                </div>
-                {% endif %}
-                {% if widgets.photos %}
-                <div class="widget">
-                    <h1>{% trans "Photos" %}</h1>
-                    <ul>
-                        {% for photo in widgets.photos %}
-                        <li>
-                            <a href="{{ photo.get_absolute_url }}"><img src="{% thumbnail photo.image 100x100 %}"</a>
-                        </li>
-                        {% endfor %}
-                    </ul>
-                </div>
-                {% endif %}
-                {% if widgets.blog.posts %}
-                <div class="widget">
-                    <h1>{% trans "Blog posts" %}</h1>
-                    <ul>
-                        {% for post in widgets.blog.posts %}
-                        <li>
-                            <a href="{% url post post.user.username,post.pk %}">{{ post.subject|default:"No subject" }}</a>
-                        </li>
-                        {% endfor %}
-                    </ul>
-                </div>
-                {% endif %}
-                {% if widgets.blog.ads %}
-                <div class="widget">
-                    <h1>{% trans "Ads" %}</h1>
-                    <ul>
-                        {% for ad in widgets.blog.ads %}
-                        <li>
-                            <a href="{% url post ad.user.username,ad.pk %}">{{ ad.subject|default:"No subject" }}({{ ad.ad_cat.name }})</a>
-                        </li>
-                        {% endfor %}
-                    </ul>
-                </div>
-                {% endif %}
+           
             {% block content %}
              
             {% endblock content %}
