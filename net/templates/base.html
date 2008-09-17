@@ -19,58 +19,22 @@
 		  {% block head %}        
 	        {% endblock head %}
 		<script type="text/javascript">
-			$(function(){$('.b-wall a').click(function(){
-					var _t = this;
-					
-				if (!$('.b-wall #wrote-message').is(':visible')){
-					
-					$('.b-wall #wrote-message').load($(_t).attr('href'), function(){
-						$(this).slideDown();
-					
-					});
-				} else {
-					$('.b-wall #wrote-message').slideUp();
+			$(function(){
+				$('#wrote-message-btn').click(function(){
+					console.log('aaa');
 				
-				}
-				return false;
-			});
-			$('.b-messages a').click(function(){
-					var _t = this;
-					
-				if (!$('.b-messages #wrote-message').is(':visible')){
-					
-					$('.b-messages #wrote-message').load($(_t).attr('href'), function(){
-						$(this).slideDown();
-					
-					});
+				var _t = this;	
+				$('.b-wall #wrote-message').slideToggle();
+				if($('#wrote-message').is(':visible')){
+					$(_t).html('убрать');
 				} else {
-					$('.b-messages #wrote-message').slideUp();
+						$(_t).html('написать');
+				}
 				
-				}
-				return false;
-			});
-	
-			$('.b-albums a').click(function(){
-					var _t = this;
-					
-				if (!$('.b-albums #album').is(':visible')){
-					
-					$('.b-albums #album').load($(_t).attr('href'), function(){
-						$(this).slideDown();
-								$('#add-photos-btn').click(function(){
-									$('#add-photos-form').slideToggle();
-								});
-								
-					});
-				} else {
-					$('.b-albums #album').slideUp();
-				}
-				return false;
-			});
-			$('#create-album-btn').click(function(){
-				$('#create-album').slideToggle();
-			});
-		
+					return false;
+				});
+
+
 		});
 		
 		 

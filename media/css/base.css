@@ -107,7 +107,7 @@ table td {
 
 .b-wall {
 	width: 40%;
-	height: 300px;
+
 	margin-left: 20px;
 	float: left;
 }
@@ -140,17 +140,11 @@ table td {
 .b-wall {
 	overflow: hidden;
 }
-.b-wall #wrote-message {
+#wrote-message {
 	display: none;
 	
 }
 
-#wrote-message textarea {
-	width: 300px;
-	margin-top: 10px;
-	
-	height: 100px;
-}
 
 #wrote-message input {
 	border: solid 1px #333;
@@ -206,4 +200,14 @@ table td {
 	overflow: hidden;
 	width: 990px;
 	
+}
+.b-wall-msg-form { 
+
+}
+.b-wall-msg-form textarea {
+	width: 95%;
+
+	margin-top: 10px;
+	
+	height: 80px;
 }
