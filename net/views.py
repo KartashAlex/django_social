@@ -14,10 +14,12 @@ from net.models import User, Place, TAG_FIELDS
 from net.forms import ProfileForm, InterestsForm, PlaceForm, FieldsetFormSet
 
 def profile(request, id):
+    from context_processors import widgets
     user = get_object_or_404(User, pk=id)
     
     return render_to_response('profile_t.html', {
         'profile': user,
+        'widgets': widgets(request, user),
     }, context_instance=RequestContext(request))
 
 @login_required

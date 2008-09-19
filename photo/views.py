@@ -5,7 +5,7 @@ from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404
 
-from forms import AlbumForm, PhotoForm
+from forms import AlbumForm, PhotoFormSet
 from models import Album, Photo
 
 def albums(request, user_id):
@@ -45,31 +45,23 @@ def photo(request, user_id, album_id, photo_id):
     return list_detail.object_detail(request, **kwargs)
 
 @login_required
-@render_to('album_create.html')
-def create_album(request):
-    if request.POST:
-        form = AlbumForm(data=request.POST)
-        if form.is_valid():
-            album = form.save(request.user.user)
-            return HttpResponseRedirect('/photos/1/1/add')
-    else:
-        form = AlbumForm()
-    return {
-        'form': form,
-    }
-    
-
-@login_required
 @render_to('photo_create.html')
-def create_photo(request, user_id, album_id):
-    #album = get_object_or_404(Album, pk=album_id, user__pk=user_id)
+def create_photo(request):
     if request.POST:
-        form = PhotoForm(data=request.POST, files=request.FILES, album=album)
-        if form.is_valid():
-            album = form.save().album
+        album_form = AlbumForm(album_id=request.REQUEST.get('album_id'), user=request.user.user, data=request.POST)
+        album_form.is_valid()
+        album = album_form.save()
+            
+        photo_formset = PhotoFormSet(album, request.POST, request.FILES)
+        if album and photo_formset.is_valid():
+            for form in photo_formset.forms:
+                if form.is_valid():
+                    form.save()
             return HttpResponseRedirect('/me')
     else:
-        form = PhotoForm()
+        album_form = AlbumForm(album_id=request.REQUEST.get('album_id'), user=request.user.user)
+        photo_formset = PhotoFormSet()
     return {
-        'form': form,
+        'album_form': album_form,
+        'photo_forms': photo_formset,
     }

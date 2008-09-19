@@ -11,11 +11,11 @@ def common(request):
         }
 
 
-def widgets(request):
+def widgets(request, user=None):
     from django.db.models import ObjectDoesNotExist
     from photo.models import Photo
     try:
-        user = request.user.user
+        user = user or request.user.user
         return {
                 'widgets': {
                     'wall': user.get_messages()[:3],

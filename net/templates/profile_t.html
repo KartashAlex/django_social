@@ -1,74 +1,7 @@
 {% extends "base.html" %}
 {% load thumbnail i18n %}
             {% block content %}
-                <table class="b-personal-info">
-                    <tr>
-                        <td class="b-userpic">
-                            {% if profile.avatar %} <img src="{% thumbnail profile.avatar 270x270 %}" /> {% endif %}
-                        </td>
-                        <td>
-                            <a class="edit-profile-btn" id="edit-profile-btn" href="{% url edit_user_profile %}" name="edit-profile-btn">Редактировать</a>
-                            <div class="h-userinfo">
-                                <h2 class="username">
-                                    {{ profile.first_name }} {{ profile.last_name }}
-                                </h2>
-                                <div style="width: 50%; float: left">
-                                    {% if profile.birthdate %}
-                                    <div class="b-date-and-place">
-                                        <a href="#">{{ profile.birthdate|date:"d.m.Y" }}</a><br />
-                                        {% endif %} {% if profile.city %} <a href="#">{{ profile.city }}</a> {% endif %} {% if profile.country %} , <a href="#">{{ profile.country }}</a>
-                                    </div>{% endif %}
-                                    <div class="b-education-info">
-                                        {% if profile.university %} <a href="#">{{ profile.university }}</a> {% endif %}
-                                    </div>
-                                    <div class="b-career-info">
-                                        
-                                         {% if profile.places.all %}
-                                            <div class="b-career-info">
-                                            {% trans "Places" %}
-                                            {% ifequal profile request.user.user %}
-                                                <a href="{% url add_user_place %}">{% trans "add" %}</a>
-                                            {% endifequal %}
-                                            : 
-                                            <ul> 
-                                            {% for place in profile.places.all %}
-                                                <li>
-                                                    {{ place.type }} <a href="/search/?places__name={{ place.name|urlencode }}">{{ place.name }}</a>
-                                                    с: {{ place.from_date|date:"m.Y" }} по: {{ place.to_date|date:"m.Y" }} 
-                                                    {% ifequal profile request.user.user %}
-                                                        <a href="{% url edit_user_place place.pk %}">{% trans "edit" %}</a>
-                                                    {% endifequal %}
-                                                </li>
-                                            {% endfor %}
-                                        {% else %}
-                                            {% ifequal profile request.user.user %}
-                                                <a href="{% url add_user_place %}">Добавить место{# trans "add place" #}</a>
-                                            {% endifequal %}
-                                        {% endif %}
-                                    </div>{% if profile.interest %}
-                                    <div class="b-career-info">
-                                        Интересы: {% for interest in profile.get_interests %} <a href="/search/?interest={{ interest|urlencode }}">{{ interest }}</a>{% if not forloop.last %}, {% endif %} {% endfor %}
-                                    </div>{% endif %}
-                                </div></div>
-                                <div style="width: 50%; float: left">
-                                    {% if profile.get_contacts.phone %}
-                                    <div class="b-phone-num">
-                                        Телефон: <span class="bigger">{{ profile.get_contacts.phone }}</span>
-                                    </div>{% endif %}
-                                    <div class="b-im-accounts">
-                                        {% if profile.get_contacts.icq %}
-                                        ICQ: <a href="#">{{ profile.get_contacts.icq }}</a><br />
-                                        {% endif %} 
-                                        {% if profile.get_contacts.jabber %} Jabber: <a href="#">{{ profile.get_contacts.jabber }}</a>{% endif %}
-                                        {% if profile.get_contacts.msn %} Msn: <a href="#">{{ profile.get_contacts.msn }}</a>{% endif %}
-                                    </div>
-                                    
-                                </div>
-                                
-                            </div>
-                        </td>
-                    </tr>
-                </table>
+                {% include "profile_include.html" %}
 				<div class="b-block b-wall">
 					<h1>Стена</h1>
 				
@@ -94,15 +27,16 @@
 					
 				</div>
 				<div class="b-block b-photos">
-					<h1>Фотографии</h1>
+					<h1>{% trans "Фотографии" %}</h1>
 					<div class="b-albums">
-						<a class="b-photo" href="/albums"><img src="/i/albums/1.jpg" style="display:block; background: #000; width: 150px; height: 100px" /></a>
-						<a class="b-photo" href="/"><img src="/i/albums/2.jpg" style="display:block; background: #000; width: 150px; height: 100px" /></a>
-						<a class="b-photo" href="/"><img src="/i/albums/3.jpg" style="display:block; background: #000; width: 150px; height: 100px" /></a>
-				
+					{% for photo in widgets.photos %}
+						<a class="b-photo" href="{% url photos profile.pk,photo.album.pk %}">
+						    <img src="{% thumbnail photo.image 150x100 crop,detail,upscale %}" style="display:block; background: #000; width: 150px; height: 100px" />
+                        </a>
+                    {% endfor %}				
 					</div>
 					<div class="b-do-bar">
-					<a href="#">Остальные фотографии</a>
+					<a href="{% url albums profile.pk %}">Остальные фотографии</a>
 					</div>
 				</div>
 				<div class="b-block b-blog">
