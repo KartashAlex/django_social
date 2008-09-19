@@ -1,2 +1,7 @@
+django/*
+django.tar.gz*
+media/albums/*
+rttv.db
+*.py~
+*.html~
 *.pyc
-settings_local.py

@@ -1,107 +1,0 @@
-9
-
-dir
-9076
-http://code.djangoproject.com/svn/django/trunk/django
-http://code.djangoproject.com/svn
-
-
-
-2008-09-18T17:10:16.645229Z
-9070
-kmtracey
-has-props
-
-svn:special svn:externals svn:needs-lock
-
-
-
-
-
-
-
-
-
-
-
-bcc190cf-cafb-0310-a4f2-bffc1f526a37
-
-test
-dir
-
-http
-dir
-
-db
-dir
-
-conf
-dir
-
-__init__.py
-file
-
-
-
-
-2008-09-19T23:02:56.000000Z
-efe89bcca4734792cf6ef42fa3643915
-2008-09-16T06:05:53.193495Z
-9049
-adrian
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-311
-
-forms
-dir
-
-core
-dir
-
-templatetags
-dir
-
-views
-dir
-
-shortcuts
-dir
-
-dispatch
-dir
-
-contrib
-dir
-
-utils
-dir
-
-bin
-dir
-
-template
-dir
-
-middleware
-dir
-
