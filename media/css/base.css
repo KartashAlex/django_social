@@ -12,6 +12,9 @@ font-family: Georgia;
 font-weight: normal;
 }
 
+a img {
+	border: 0;
+}
 h2 {
     font-size: 1.9em;
 }
@@ -136,6 +139,7 @@ table td {
 }
 .b-photos .b-photo {
 	margin: 10px 0 0 0;
+	display: block;
 }
 .b-wall {
 	overflow: hidden;
@@ -210,4 +214,8 @@ table td {
 	margin-top: 10px;
 	
 	height: 80px;
+}
+.b-do-bar {
+	display: block;
+	margin-top: 10px;
 }

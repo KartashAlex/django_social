@@ -42,7 +42,7 @@
                                             {% endfor %}
                                         {% else %}
                                             {% ifequal profile request.user.user %}
-                                                <a href="{% url add_user_place %}">{% trans "add place" %}</a>
+                                                <a href="{% url add_user_place %}">Добавить место{# trans "add place" #}</a>
                                             {% endifequal %}
                                         {% endif %}
                                     </div>{% if profile.interest %}
@@ -85,21 +85,25 @@
 								
 							</form>
 						</div>
+						<div class="b-do-bar">
 						<a href="#" style="margin-right: 50px;" id="wrote-message-btn">Написать</a>
 						
 				
 					<a href="#">Еще 12 сообщений</a>
+					</div>
 					
 				</div>
 				<div class="b-block b-photos">
 					<h1>Фотографии</h1>
 					<div class="b-albums">
-						<div class="b-photo"><img src="#" style="display:block; background: #000; width: 150px; height: 100px" /></div>
-						<div class="b-photo"><img src="" style="display:block; background: #000; width: 150px; height: 100px" /></div>
-						<div class="b-photo"><img src="" style="display:block; background: #000; width: 150px; height: 100px" /></div>
+						<a class="b-photo" href="/albums"><img src="/i/albums/1.jpg" style="display:block; background: #000; width: 150px; height: 100px" /></a>
+						<a class="b-photo" href="/"><img src="/i/albums/2.jpg" style="display:block; background: #000; width: 150px; height: 100px" /></a>
+						<a class="b-photo" href="/"><img src="/i/albums/3.jpg" style="display:block; background: #000; width: 150px; height: 100px" /></a>
 				
 					</div>
+					<div class="b-do-bar">
 					<a href="#">Остальные фотографии</a>
+					</div>
 				</div>
 				<div class="b-block b-blog">
 					<h1>Дневник</h1>
@@ -108,12 +112,12 @@
 					</div>	
 					<div class="b-post"><h2>Траляляля</h2>						
 						<p>Так бывает что странно делать дневники удачно...</p>
-					</div>	
-					<!-- if is_admin-->
-						<a href="#">Написать</a>
-					<!-- endif -->
+					</div>	<div class="b-do-bar">
+				
+						<a href="#" style="margin-right: 50px">Написать</a>
+			
 					<a href="#">Еще записей: 12</a>
-					
+					</div>
 				</div>
 		
 				

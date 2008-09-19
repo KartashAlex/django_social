@@ -1,12 +1,15 @@
 import os.path
 
 from django.conf import settings
+from django.shortcuts import get_object_or_404
+from net.models import User
 
 def common(request):
     return {
         'request': request,
         'settings': settings,
         }
+
 
 def widgets(request):
     from django.db.models import ObjectDoesNotExist

@@ -51,17 +51,18 @@ def create_album(request):
         form = AlbumForm(data=request.POST)
         if form.is_valid():
             album = form.save(request.user.user)
-            return HttpResponseRedirect('/me')
+            return HttpResponseRedirect('/photos/1/1/add')
     else:
         form = AlbumForm()
     return {
         'form': form,
     }
+    
 
 @login_required
 @render_to('photo_create.html')
 def create_photo(request, user_id, album_id):
-    album = get_object_or_404(Album, pk=album_id, user__pk=user_id)
+    #album = get_object_or_404(Album, pk=album_id, user__pk=user_id)
     if request.POST:
         form = PhotoForm(data=request.POST, files=request.FILES, album=album)
         if form.is_valid():
