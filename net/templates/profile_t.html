@@ -127,7 +127,7 @@
 			                    <ul>
 			                        {# for msg in widgets.wall #}
 			                        <li>
-			                            <a href="{% url message msg.pk %}">{{ msg.subject|default:"No subject" }}</a>
+			                            <a href="{# url message msg.pk #}">{# msg.subject|default:"No subject" #}</a>
 			                        </li>
 			                        {# endfor #}
 			                    </ul>
