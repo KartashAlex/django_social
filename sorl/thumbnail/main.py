@@ -1,16 +1,19 @@
-import os
+import os, types
+
 from django.conf import settings
 from django.utils.encoding import iri_to_uri
 from base import Thumbnail
 from utils import get_thumbnail_setting
 
-
 class DjangoThumbnail(Thumbnail):
     def __init__(self, relative_source, requested_size, opts=None,
                  quality=None, basedir=None, subdir=None, prefix=None,
                  relative_dest=None):
+        if not isinstance(relative_source, types.StringTypes):
+            relative_source = relative_source.field.generate_filename(relative_source.instance, relative_source._name)
+                     
         # Set the absolute filename for the source file
-        source = self._absolute_path(unicode(relative_source))
+        source = self._absolute_path(relative_source)
 
         quality = get_thumbnail_setting('QUALITY', quality)
         imagemagick_path = get_thumbnail_setting('CONVERT')
@@ -48,7 +51,7 @@ class DjangoThumbnail(Thumbnail):
         basedir = get_thumbnail_setting('BASEDIR', basedir)
         subdir = get_thumbnail_setting('SUBDIR', subdir)
         prefix = get_thumbnail_setting('PREFIX', prefix)
-        path, filename = os.path.split(unicode(relative_source))
+        path, filename = os.path.split(relative_source)
         basename, ext = os.path.splitext(filename)
         name = '%s%s' % (basename, ext.replace(".", "_"))
         size = '%sx%s' % self.requested_size
