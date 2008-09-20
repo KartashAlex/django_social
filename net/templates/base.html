@@ -59,6 +59,13 @@
                 &nbsp;
             </div>
             <div class="b-content-container">
+            {% block profile %}
+                {% if request.user.is_authenticated %}
+                    {% with request.user.user as profile %}
+                        {% include "profile_include.html" %}
+                    {% endwith %}
+                {% endif %}
+            {% endblock profile %}
            
             {% block content %}
              

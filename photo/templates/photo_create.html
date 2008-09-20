@@ -1,9 +1,6 @@
 {% extends "base.html" %}
 {% load i18n thumbnail %}
             {% block content %}
-                {% with request.user.user as profile %}
-                    {% include "profile_include.html" %}
-                {% endwith %}
                 <div class="h-registration">
                         <div class="b-signup">
                             <h1>{% trans "Добавить фотографии" %}</h1>

@@ -5,13 +5,13 @@ Forms and validation code for user registration.
 
 
 from django import forms
-from django.core.validators import alnum_re
 from django.utils.translation import ugettext as _
 from django.contrib.auth.models import User
 
 from django_registration.models import RegistrationProfile, Token
 from net.models import User as OurUser
 
+import re
 
 # I put this on all required fields, because it's easier to pick up
 # on them with CSS or JavaScript if they have a class of "required"
@@ -19,6 +19,7 @@ from net.models import User as OurUser
 # lands in trunk, this will no longer be necessary.
 attrs_dict = { 'class': 'required' }
 
+alnum_re = re.compile('[\w\d-]*')
 
 class TokenFormUniqueEmail(forms.Form):
     """
