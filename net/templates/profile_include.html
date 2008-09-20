@@ -2,7 +2,7 @@
                 <table class="b-personal-info">
                     <tr>
                         <td class="b-userpic">
-                            {% if profile.avatar %} <img src="{% thumbnail profile.avatar 270x270 %}" /> {% endif %}
+                            {% if profile.avatar %} <img src="{# thumbnail profile.avatar 270x270 #}" /> {% endif %}
                         </td>
                         <td>
                             <a class="edit-profile-btn" id="edit-profile-btn" href="{% url edit_user_profile %}" name="edit-profile-btn">Редактировать</a>
