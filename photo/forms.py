@@ -18,16 +18,20 @@ class AlbumForm(forms.ModelForm):
         super(AlbumForm, self).__init__(*args, **kwargs)
         self.fields['album'].choices=[(a.pk, a.title) for a in Album.objects.filter(user=self.user)]
         self.fields['album'].initial = album_id
-        self.fields['album'].required = True
+        self.fields['album'].required = False
         self.fields['title'].label = _(u'Новый альбом')
         self.fields['title'].required = False
 
-    def save(self):
+    def clean_album(self):
         if self.cleaned_data['title']:
             album = Album.objects.create(title=self.cleaned_data['title'], user=self.user)
-            return album
-        else:
-            return Album.objects.get(pk=self.cleaned_data['album'])
+            return album.pk
+        if self.cleaned_data['album']:
+            return self.cleaned_data['album']
+        raise forms.ValidationError(_('Album is required.'))
+
+    def save(self):
+        return Album.objects.get(pk=self.cleaned_data['album'])
             
 class PhotoForm(forms.ModelForm):
     class Meta:

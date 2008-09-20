@@ -1,5 +1,20 @@
-<ul>
-{% for a in object_list %}
-    <li><a href="{% url photo.views.photos username %}">{{ a.title }}ss</a></li>
-{% endfor %}
-</ul>
+{% extends "base.html" %}
+{% load i18n thumbnail %}
+            {% block content %}
+                <img src="{% thumbnail object.image 1200x800 detail,crop %}">
+
+                <div class="b-photos-list">
+                    {% for photo in object.album.photos.all %}
+                        <a href="{% url photo photo.album.user.pk,photo.album.pk,photo.pk %}">
+                            <img src="{% thumbnail photo.image 200x200 detail,crop %}"/>
+                        </a>
+                    {% endfor %}
+                </div>
+
+                <div style="clear: both"> 
+                    {% ifequal object.album.user.pk|stringformat:"s" request.user.user.pk|stringformat:"s" %}
+                        <a href="{% url create_photo %}?album_id={{ object.album.pk }}">{% trans "Добавить фото" %}</a>
+                    {% endifequal %}
+                </div>
+      
+            {% endblock content %}

@@ -3,13 +3,13 @@
             {% block content %}
                 <div class="b-photos-list">
                     {% for photo in object_list %}
-                        <a href="/i/{{ photo.image }}" class="thickbox" rel="album">
+                        <a href="{% url photo photo.album.user.pk,photo.album.pk,photo.pk %}">
                             <img src="{% thumbnail photo.image 200x200 detail,crop %}"/>
                         </a>
                     {% endfor %}
                 </div>
 
-                {% ifequal album.user.pk request.user.user.pk %}
+                {% ifequal album.user.pk|stringformat:"s" request.user.user.pk|stringformat:"s" %}
 				    <a href="{% url create_photo %}?album_id={{ album.pk }}">{% trans "Добавить фото" %}</a>
                 {% endifequal %}
       

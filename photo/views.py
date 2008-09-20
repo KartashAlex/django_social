@@ -2,7 +2,7 @@ from django.views.generic import list_detail
 from django.contrib.auth.decorators import login_required
 from decorators import render_to
 from django.core.urlresolvers import reverse
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, Http404
 from django.shortcuts import get_object_or_404
 
 from forms import AlbumForm, PhotoFormSet
@@ -19,15 +19,16 @@ def albums(request, user_id):
     return list_detail.object_list(request, **kwargs)
 
 def photos(request, user_id, album_id):
-    from forms import PhotoForm
-    form = PhotoForm()
+    try:
+        user_id = int(user_id)
+    except:
+        return Http404
     album = get_object_or_404(Album, pk=album_id, user__pk=user_id)
     kwargs = {
         'queryset': Photo.objects.filter(album=album),
         'template_name': 'photo_photos.html',
         'extra_context': {
             'username': user_id,
-            'form': form,
             'album': album,
         },
     }
@@ -49,8 +50,10 @@ def photo(request, user_id, album_id, photo_id):
 def create_photo(request):
     if request.POST:
         album_form = AlbumForm(album_id=request.REQUEST.get('album_id'), user=request.user.user, data=request.POST)
-        album_form.is_valid()
-        album = album_form.save()
+        if album_form.is_valid():
+            album = album_form.save()
+        else:
+            album = None
             
         photo_formset = PhotoFormSet(album, request.POST, request.FILES)
         if album and photo_formset.is_valid():

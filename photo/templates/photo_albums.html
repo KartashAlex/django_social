@@ -1,5 +1,22 @@
-<ul>
-{% for a in object_list %}
-    <li><a href="{% url photo.views.photos username %}">{{ a.title }}</a></li>
-{% endfor %}
-</ul>
+{% extends "base.html" %}
+{% load i18n thumbnail %}
+            {% block content %}
+                <div class="b-photos-list">
+                    <h1>{% trans "Фотографии" %}</h1>
+                    {% for album in object_list %}
+                        <a href="{% url photos album.user.pk,album.pk %}">
+                            {% if album.random_img %} 
+                                <img src="{% thumbnail album.image 200x200 detail,crop %}"/>
+                            {% else %}
+                                {{ album.title|default:"No title" }}
+                            {% endif %}
+                        </a>
+                    {% endfor %}
+                </div>
+                
+
+                {% ifequal username|stringformat:"s" request.user.user.pk|stringformat:"s" %}
+				    <a href="{% url create_photo %}">{% trans "Добавить фото" %}</a>
+                {% endifequal %}
+      
+            {% endblock content %}

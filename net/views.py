@@ -9,6 +9,7 @@ from django.views.generic import list_detail
 from django.core import serializers
 from django.forms.formsets import formset_factory
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q
 
 from net.models import User, Place, TAG_FIELDS
 from net.forms import ProfileForm, InterestsForm, PlaceForm, FieldsetFormSet
@@ -110,13 +111,15 @@ def edit_interests(request):
     }, context_instance=RequestContext(request))
 
 def user_search(request):
-    kwargs = {}
-    print request.GET
-    for key in TAG_FIELDS + ['interest', 'schools__title']:
-        if request.GET.get(key):
-            kwargs[key+'__icontains'] = request.GET.get(key)
+    query = Q()
+    for key in TAG_FIELDS + ['interest', 'first_name', 'last_name', 'username', 'email']:
+        q = request.REQUEST.get(key) or request.REQUEST.get('q')
+        if q:
+            query = query | Q(**{key+'__icontains': q})
 
-    print kwargs
-
-    users = User.objects.filter(**kwargs)
+    users = User.objects.all()
+    if query != Q():
+        users = users.filter(query)
+        
+    print users
     return list_detail.object_list(request, queryset=users, template_name='users.html')

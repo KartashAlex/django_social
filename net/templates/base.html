@@ -59,6 +59,10 @@
                 &nbsp;
             </div>
             <div class="b-content-container">
+            <form class="" action="{% url user_search %}" method="post">
+                <input type="text" name="q" value="{{ request.REQUEST.q }}" />
+                <input type="submit" value="Go" />
+            </form>
             {% block profile %}
                 {% if request.user.is_authenticated %}
                     {% with request.user.user as profile %}

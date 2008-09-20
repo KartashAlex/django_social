@@ -5,6 +5,8 @@ from django.contrib.auth.models import User as DjangoUser
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.contenttypes.models import ContentType
 
+import re
+
 from places.models import City, Country
 
 USERDATA_TYPES = (
@@ -75,7 +77,7 @@ class User(DjangoUser):
     class Admin:
         pass
         
-    def save(self):
+    def save(self, *args, **kwargs):
         if self.pk:
             for key in TAG_FIELDS:
                 data_str = set([d.strip() for d in self.__getattribute__(key).split(',')])
@@ -88,7 +90,7 @@ class User(DjangoUser):
                             data, created = UserData.objects.get_or_create(type=key, title=title)
                             self.user_data.add(data)
                         
-        super(User, self).save()
+        super(User, self).save(*args, **kwargs)
 
     def get_data(self, field):
         try:
@@ -109,6 +111,14 @@ class User(DjangoUser):
         from wall.models import Message
         user_ct = ContentType.objects.get_for_model(User)
         return Message.objects.filter(from_user=self)|Message.objects.filter(content_type=user_ct, object_id=self.pk)
+        
+    def get_name(self):
+        if self.first_name or self.last_name:
+            return u'%s %s' % (self.first_name, self.last_name)
+        try:
+            return re.findall('[^@]*', self.username)[0]
+        except IndexError:
+            return u'User %s' % self.pk
         
 class PlaceType(models.Model):
     name = models.CharField(max_length=255)
