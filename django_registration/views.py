@@ -52,7 +52,7 @@ def register(request, success_url='/accounts/register/complete/',
 def register_token(request, success_url='/accounts/register/complete/',
              form_class=TokenFormUniqueEmail, profile_callback=None,
              template_name='registration/registration_form.html'):
-    if request.user.is_authenticated() and request.user.hasattr('user'):
+    if request.user.is_authenticated() and 'user' in dir(request.user):
         return HttpResponseRedirect('/me/')
     if request.POST:
         form = form_class(request.POST)
