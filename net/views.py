@@ -113,13 +113,14 @@ def edit_interests(request):
 def user_search(request):
     query = Q()
     for key in TAG_FIELDS + ['interest', 'first_name', 'last_name', 'username', 'email']:
-        q = request.REQUEST.get(key) or request.REQUEST.get('q')
+        q = request.REQUEST.getlist(key) or request.REQUEST.getlist('q')
         if q:
-            query = query | Q(**{key+'__icontains': q})
+            for subq in q:
+                for subsubq in subq.split(' '):
+                    query = query | Q(**{key+'__icontains': subsubq})
 
     users = User.objects.all()
     if query != Q():
         users = users.filter(query)
         
-    print users
     return list_detail.object_list(request, queryset=users, template_name='users.html')
