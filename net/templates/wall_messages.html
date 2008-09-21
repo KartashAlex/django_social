@@ -1,16 +1,29 @@
+{% extends "base.html" %}
+{% load i18n thumbnail %}
             {% block content %}
-                <ul>
-                {% for msg in object_list %}
-                    <li>
-                        {{ msg.sent|date:"d.m.Y" }}
-                        {% ifequal msg.from_user user.user %}
-                            {{ msg.get_address.username }}
-                        {% else %}
-                            {{ msg.from_user.username }}
-                        {% endifequal %} 
-                        <h1>{{ msg.subject }}</h1>
-                        {{ msg.body }}
-                    </li>
-                {% endfor %}
-                </ul>
+                <div class="h-registration">
+                        <div class="b-signup">
+                            <h1>{% trans "Стена" %}</h1>
+                            <ul>
+                            {% for msg in object_list %}
+                                <li>
+                                    {{ msg.sent|date:"d.m.Y" }}
+                                    {% ifequal msg.from_user user.user %}
+                                        {% trans "Для:" %} 
+                                        <a href="{{ msg.get_address.get_absolute_url }}">
+                                            {{ msg.get_address.get_name }}
+                                        </a>
+                                    {% else %}
+                                        {% trans "От:" %} 
+                                        <a href="{{ msg.from_user.get_absolute_url }}">
+                                            {{ msg.from_user.get_name }}
+                                        </a>
+                                    {% endifequal %} 
+                                    <h1>{{ msg.subject }}</h1>
+                                    {{ msg.body }}
+                                </li>
+                            {% endfor %}
+                            </ul>
+                        </div>
+                </div>
             {% endblock content %}

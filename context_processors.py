@@ -21,12 +21,13 @@ def widgets(request, user=None):
         return {
                 'widgets': {
                     'wall': user.get_messages()[:3],
+                    'wall_count': user.get_messages().count() - 3 if user.get_messages().count() > 3 else 0,
                     'photos': Photo.objects.filter(album__user=user).order_by('-added')[:5],
                     'blog': {
                         'posts': posts.order_by('-added')[:2],
                         'ads': ads.order_by('-added')[:1],
-                        'posts_count': posts.count() if posts.count() > 2 else 0,
-                        'ads_count': ads.count() if ads.count() > 1 else 0,
+                        'posts_count': posts.count() - 2 if posts.count() > 2 else 0,
+                        'ads_count': ads.count() - 2 if ads.count() > 1 else 0,
                     }
                 }
             }

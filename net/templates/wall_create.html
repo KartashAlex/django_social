@@ -1,6 +1,13 @@
-{% load i18n %}
-                <form action="/msg/user/3/new/" method="post">
-                    {{ form.as_p }}
-                    <input type="submit" value="{% trans "send" %}"/>
-                </form>
-   
+{% extends "base.html" %}
+{% load i18n thumbnail %}
+            {% block content %}
+                <div class="h-registration">
+                        <div class="b-signup">
+                            <h1>{% trans "Сообщение на Стену" %}</h1>
+                            <form action="{% url create_pm object_id %}" method="post">
+                                {{ form.as_p }}
+                                <input type="submit" value="{% trans "send" %}"/>
+                            </form>
+                        </div>
+                    </div>
+            {% endblock content %}

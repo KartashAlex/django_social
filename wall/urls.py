@@ -6,7 +6,7 @@ urlpatterns = patterns('wall.views',
     (r'^wall/$', 'messages', {'type': 'wall'}, 'my_wall'),
     (r'^inbox/$', 'messages', {'type': 'inbox'}, 'inbox'),
     (r'^outbox/$', 'messages', {'type': 'outbox'}, 'outbox'),
-    (r'^(.+)/(\d+)/new/$', 'create_pm', {}, 'create_pm'),
+    (r'^(\d+)/new/$', 'create_pm', {}, 'create_pm'),
     (r'^msg/(\d+)/$', 'message', {}, 'message'),
 )
 

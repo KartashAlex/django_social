@@ -4,10 +4,11 @@ from django.http import Http404, HttpResponseRedirect
 from django.db.models import get_model
 from django.contrib.auth.decorators import login_required
 from decorators import render_to
+from django.core.urlresolvers import reverse
 
 from models import Message, User
 
-def messages(request, type, id=None):
+def messages(request, id=None, type='wall'):
     messages = Message.objects.all()
     user_ct = ContentType.objects.get_for_model(User)
     if type == 'outbox' and request.user.is_authenticated():
@@ -52,12 +53,9 @@ def message(request, id):
 
 @login_required
 @render_to('wall_create.html')
-def create_pm(request, type, id):
+def create_pm(request, id):
     from forms import MessageForm
-    if type == 'photo':
-        model = get_model('photo', 'Photo')
-    else:
-        model = get_model('net', 'User')
+    model = get_model('net', 'User')
         
     data = {
         'content_type': ContentType.objects.get_for_model(model).pk,
@@ -69,9 +67,10 @@ def create_pm(request, type, id):
         form = MessageForm(data=request.POST, initials=data)
         if form.is_valid():
             form.save(request.user.user)
-            return HttpResponseRedirect('/users/' + id)
+            return HttpResponseRedirect(reverse('user_profile', args=[id]))
     else:
         form = MessageForm(initials=data)
     return {
         'form': form,
+        'object_id': id,
     }

@@ -4,30 +4,27 @@
                 {% include "profile_include.html" %}
             {% endblock profile %}
             {% block content %}
-				<div class="b-block b-wall">
-					<h1>{% trans "Стена" %}</h1>
-				
-						<div class="b-message">
-							<div class="b-message-header"><img src="/i/albums/30px.jpg" style="width: 30px; height: 30px; background: #000; display: block; float: left"><h3>Иван Кузнецов:</h3></div><p>Слышишь меня -- стенка клевая</p></div>
-						<div class="b-message"><div class="b-message-header"><img src="/i/albums/30px.jpg" style="width: 30px; height: 30px; background: #000; display: block; float: left"><h3>Иван Кузнецов:</h3></div><p>Слышишь меня -- стенка клевая</p></div>
-									
-								<div class="b-message"><div class="b-message-header"><img src="/i/albums/30px.jpg" style="width: 30px; height: 30px; background: #000; display: block; float: left"><h3>Иван Кузнецов:</h3></div><p>Слышишь меня -- стенка клевая</p></div>
-			
-						<div class="b-wall-msg-form" id="wrote-message">
-							<form method="post">
-								<textarea></textarea>
-								<input type="submit" value="{% trans "Написать" %}" />
-								
-							</form>
-						</div>
-						<div class="b-do-bar">
-						<a href="#" style="margin-right: 50px;" id="wrote-message-btn">{% trans "Написать" %}</a>
-						
-				
-					<a href="#">Еще 12 сообщений</a>
-					</div>
-					
-				</div>
+                <div class="b-block b-wall">
+                <h1>{% trans "Стена" %}</h1>
+
+                {% for msg in widgets.wall %}
+                <div class="b-message">
+                    <div class="b-message-header">
+                        <img src="/i/albums/30px.jpg" style="width: 30px; height: 30px; background: #000; display: block; float: left">
+                        <h3><a href="{{ msg.from_user.get_absolute_url }}">{{ msg.from_user.get_name }}</a>:</h3>
+                    </div>
+                    <p>{{ msg.body }}</p>
+                </div>
+                {% endfor %}
+                <div class="b-do-bar">
+                    <a href="{% url create_pm profile.pk %}" style="margin-right: 50px;" id="wrote-message-btn">{% trans "Написать" %}</a>
+                    {% if widgets.wall_count %}
+                        <a href="{% url wall profile.pk %}">
+                            {% blocktrans with widgets.wall_count as count %}Еще {{ count }} сообщений{% endblocktrans %}
+                        </a>
+                    {% endif %}
+                </div>
+                </div>
 				
     			{% if widgets.photos %}
 				<div class="b-block b-photos">
@@ -59,7 +56,9 @@
 						<a href="{% url post_add %}" style="margin-right: 50px">{% trans "Написать" %}</a>
 			
 			        {% if widgets.blog.posts_count %}
-					    <a href="{% url post_list %}">Еще записей: {{ widgets.blog.posts_count }}</a>
+					    <a href="{% url post_list %}">
+					        {% blocktrans with widgets.blog.posts_count as count %}Еще записей: {{ count }}{% endblocktrans %}
+                        </a>
                     {% endif %}
 					</div>
 				</div>
