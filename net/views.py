@@ -20,7 +20,7 @@ def profile(request, id):
     
     return render_to_response('profile_t.html', {
         'profile': user,
-        'widgets': widgets(request, user),
+        'widgets': widgets(request, user)['widgets'],
     }, context_instance=RequestContext(request))
 
 @login_required

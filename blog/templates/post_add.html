@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load i18n %}
+            {% block content %}
+                <div class="h-registration">
+                        <div class="b-signup">
+                            <h1>{% trans "Добавить пост" %}</h1>
+                            <form method="post" action="{% url post_add  %}">
+                                <div class="b-fields-group main-fields">
+                                    <table>
+                                        {{ form.as_table }}
+                                    </table>
+                
+                                    <input type="submit" value="{% trans "Cоздать" %}"/>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+            {% endblock content %}

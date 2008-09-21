@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% load i18n %}
+            {% block content %}
+    <div class="h-registration">
+        <div class="b-registration">
+            <h2>{% trans "Спасибо за использование нашего сервиса." %}</h2>
+            <p class="b-recover-password"><a href="{% url auth_login %}">{% trans "Войти снова" %}</a></p>
+        </div>
+    </div>
+ {% endblock content %}

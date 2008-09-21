@@ -8,8 +8,5 @@ urlpatterns = patterns('wall.views',
     (r'^outbox/$', 'messages', {'type': 'outbox'}, 'outbox'),
     (r'^(.+)/(\d+)/new/$', 'create_pm', {}, 'create_pm'),
     (r'^msg/(\d+)/$', 'message', {}, 'message'),
-
-    (r'^blog/(\w+)/(\d+)/$', 'post', {}, 'post'),
-    (r'^blog/(\w+)/$', 'blog', {}, 'blog'),
 )
 

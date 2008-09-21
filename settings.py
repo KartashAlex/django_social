@@ -1,6 +1,5 @@
 # Django settings for rttv project.
 
-
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -82,6 +81,7 @@ OUR_APPS = (
     'places',
     'photo',
     'wall',
+    'blog',
 )
 
 INSTALLED_APPS = (
@@ -89,6 +89,7 @@ INSTALLED_APPS = (
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.admin',
+    'django.contrib.comments',
     
     'django_authopenid',
     'django_registration',

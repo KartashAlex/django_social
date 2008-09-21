@@ -1,0 +1,36 @@
+{% load i18n comments %}
+                {% if user.is_authenticated %}
+                    <h2>{% trans "Leave a comment:" %}</h2>
+                    <div class="comments-form">
+                        {% get_comment_form for object as form %}
+                        <form action="{% url comments-post-comment-next request.path %}" method="POST">
+                          {{ form.content_type }} {{ form.object_pk }} {{ form.timestamp }} {{ form.security_hash }}
+                          <p style="display:none;">
+                              {{ form.honeypot }}
+                          </p>
+                          <p {% if form.comment.errors %} class="error"{% endif %}>
+                            {% if form.comment.errors %}{{ form.comment.errors }}{% endif %}
+                            {{ form.comment.label_tag }} {{ form.comment }}
+                          </p>
+                          <p class="submit">
+                            <input type="submit" name="submit" class="submit-post" value="{% trans "Post" %}" />
+                          </p>
+                        </form>
+                    </div>
+                {% endif %}
+
+                <div class="comments">
+                    {% get_comment_list for object as comment_list %}
+                    {% with comment_list|dictsortreversed:"submit_date" as comments %}
+                        {% for comment in comments %}
+                            <div class="comment">
+                                <p>
+                                    {% trans "Author:" %} 
+                                    <a href="{{ comment.user.user.get_absolute_url }} ">{{ comment.user.user.get_name }}</a>
+                                </p>
+                                <p>{% trans "Date:" %} {{ comment.submit_date|date:"d.m.Y" }}</p>
+                                <p>{% trans "Text:" %} <br/> {{ comment.comment }}</p>
+                            </div>
+                        {% endfor %}
+                    {% endwith %}
+                </div>

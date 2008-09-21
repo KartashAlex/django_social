@@ -5,7 +5,7 @@
             {% endblock profile %}
             {% block content %}
 				<div class="b-block b-wall">
-					<h1>Стена</h1>
+					<h1>{% trans "Стена" %}</h1>
 				
 						<div class="b-message">
 							<div class="b-message-header"><img src="/i/albums/30px.jpg" style="width: 30px; height: 30px; background: #000; display: block; float: left"><h3>Иван Кузнецов:</h3></div><p>Слышишь меня -- стенка клевая</p></div>
@@ -16,18 +16,20 @@
 						<div class="b-wall-msg-form" id="wrote-message">
 							<form method="post">
 								<textarea></textarea>
-								<input type="submit" value="Написать" />
+								<input type="submit" value="{% trans "Написать" %}" />
 								
 							</form>
 						</div>
 						<div class="b-do-bar">
-						<a href="#" style="margin-right: 50px;" id="wrote-message-btn">Написать</a>
+						<a href="#" style="margin-right: 50px;" id="wrote-message-btn">{% trans "Написать" %}</a>
 						
 				
 					<a href="#">Еще 12 сообщений</a>
 					</div>
 					
 				</div>
+				
+    			{% if widgets.photos %}
 				<div class="b-block b-photos">
 					<h1>{% trans "Фотографии" %}</h1>
 					<div class="b-albums">
@@ -38,23 +40,30 @@
                     {% endfor %}				
 					</div>
 					<div class="b-do-bar">
-					<a href="{% url albums profile.pk %}">Остальные фотографии</a>
+					<a href="{% url albums profile.pk %}">{% trans "Остальные фотографии" %}</a>
 					</div>
 				</div>
-				<div class="b-block b-blog">
-					<h1>Дневник</h1>
-					<div class="b-post"><h2>Траляляля</h2>						
-						<p>Так бывает что странно делать дневники удачно...</p>
-					</div>	
-					<div class="b-post"><h2>Траляляля</h2>						
-						<p>Так бывает что странно делать дневники удачно...</p>
-					</div>	<div class="b-do-bar">
+				{% endif %}
 				
-						<a href="#" style="margin-right: 50px">Написать</a>
+				{% if widgets.blog.posts %}
+				<div class="b-block b-blog">
+					<h1>{% trans "Дневник" %}</h1>
+					{% for post in widgets.blog.posts %}
+					<div class="b-post"><h2>{{ post.subject }}</h2>						
+						<p>
+						    <a href="{{ post.get_absolute_url }}">{{ post.text|truncatewords:30 }}...</a>
+                        </p>
+					</div>	
+					{% endfor %}
+                    <div class="b-do-bar">
+						<a href="{% url post_add %}" style="margin-right: 50px">{% trans "Написать" %}</a>
 			
-					<a href="#">Еще записей: 12</a>
+			        {% if widgets.blog.posts_count %}
+					    <a href="{% url post_list %}">Еще записей: {{ widgets.blog.posts_count }}</a>
+                    {% endif %}
 					</div>
 				</div>
+                {% endif %}
 		
 				
 		

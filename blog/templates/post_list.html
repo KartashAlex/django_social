@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load i18n comments %}
+            {% block content %}
+            <ul>
+                {% for object in object_list %}
+                <li>
+                    <h1>{{ object.subject }}</h1>
+                    <h2>{{ object.get_type }}</h2>
+                    
+                    <p>{{ object.text|safe }}</p>
+                    
+                    <a href="{{ object.get_absolute_url }}">{% trans "Комментарии" %}</a>
+                </li>
+                {% endfor %}
+            </ul>
+            {% endblock content %}

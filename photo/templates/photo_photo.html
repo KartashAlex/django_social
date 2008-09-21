@@ -15,6 +15,7 @@
                     {% ifequal object.album.user.pk|stringformat:"s" request.user.user.pk|stringformat:"s" %}
                         <a href="{% url create_photo %}?album_id={{ object.album.pk }}">{% trans "Добавить фото" %}</a>
                     {% endifequal %}
+                    {% include "comments/comments_include.html" %}
                 </div>
       
             {% endblock content %}
