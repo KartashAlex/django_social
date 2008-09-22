@@ -32,6 +32,5 @@ def widgets(request, user=None):
                 }
             }
     except (ObjectDoesNotExist, AttributeError), e:
-        print e
         return {'widgets': None}
 
