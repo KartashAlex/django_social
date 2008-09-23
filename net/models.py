@@ -73,6 +73,15 @@ class User(DjangoUser):
     
     user_data = models.ManyToManyField(UserData, blank=True, null=True, editable=False)
 
+    friends = models.ManyToManyField('self', blank=True, related_name='friend_of', editable=False)
+    # CREATE TABLE "net_user_friends" (
+    # "id" integer NOT NULL PRIMARY KEY,
+    # "from_user_id" integer NOT NULL REFERENCES "net_user" ("user_ptr_id"),
+    # "to_user_id" integer NOT NULL REFERENCES "net_user" ("user_ptr_id"),
+    # UNIQUE ("from_user_id", "to_user_id")
+    # );
+
+
     objects = UserManager()
 
     class Admin:

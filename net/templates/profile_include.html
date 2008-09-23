@@ -1,11 +1,21 @@
-{% load i18n thumbnail %}
+{% load i18n thumbnail net %}
                 <table class="b-personal-info">
                     <tr>
                         <td class="b-userpic">
                             {% if profile.avatar %} <img src="{# thumbnail profile.avatar 270x270 #}" /> {% endif %}
                         </td>
                         <td>
-                            <a class="edit-profile-btn" id="edit-profile-btn" href="{% url edit_user_profile %}" name="edit-profile-btn">Редактировать</a>
+                            {% ifequal profile.pk request.user.user.pk %}
+                                <a class="edit-profile-btn" id="edit-profile-btn" href="{% url edit_user_profile %}" name="edit-profile-btn">{% trans "Редактировать" %}</a>
+                            {% else %}
+                                {% ifin profile request.user.user.friends.all %}
+                                    {% trans "Это Ваш друг." %}
+                                    <a href="{% url change_friend profile.pk 0 %}">{% trans "Удалить из друзей" %}</a>
+                                {% else %}
+                                    <a href="{% url change_friend profile.pk 1 %}">{% trans "Добавить в друзья" %}</a>
+                                {% endifin %}
+                            {% endifequal %}
+                            
                             <div class="h-userinfo">
                                 <h2 class="username">
                                     {{ profile.first_name }} {{ profile.last_name }}

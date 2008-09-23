@@ -124,3 +124,17 @@ def user_search(request):
         users = users.filter(query)
         
     return list_detail.object_list(request, queryset=users, template_name='users.html')
+
+@login_required
+def friends(request, user_id):
+    user = get_object_or_404(User, pk=user_id)
+    return list_detail.object_list(request, queryset=user.friends.all(), template_name='users.html')
+
+@login_required
+def change_friend(request, user_id, add):
+    user = get_object_or_404(User, pk=user_id)
+    if str(add) == "1":
+        request.user.user.friends.add(user)
+    else:
+        request.user.user.friends.remove(user)
+    return HttpResponseRedirect(user.get_absolute_url())
