@@ -6,9 +6,11 @@
                         </td>
                         <td>
                             {% ifequal profile.pk request.user.user.pk %}
+                                {% trans "У Вас в друзьях:" %} {{ widgets.friends.friends_count }}
+                                {% trans "Вы в друзьях у:" %} {{ widgets.friends.friends_of_count }}
                                 <a class="edit-profile-btn" id="edit-profile-btn" href="{% url edit_user_profile %}" name="edit-profile-btn">{% trans "Редактировать" %}</a>
                             {% else %}
-                                {% ifin profile request.user.user.friends.all %}
+                                {% ifin profile request.user.user.get_friends.all %}
                                     {% trans "Это Ваш друг." %}
                                     <a href="{% url change_friend profile.pk 0 %}">{% trans "Удалить из друзей" %}</a>
                                 {% else %}

@@ -18,6 +18,7 @@ def widgets(request, user=None):
         user = user or request.user.user
         posts = user.posts.filter(type='blog')
         ads = user.posts.filter(type='ads')
+        print dir(user)
         return {
                 'widgets': {
                     'wall': user.get_messages()[:3],
@@ -28,10 +29,16 @@ def widgets(request, user=None):
                         'ads': ads.order_by('-added')[:1],
                         'posts_count': posts.count() - 2 if posts.count() > 2 else 0,
                         'ads_count': ads.count() - 2 if ads.count() > 1 else 0,
-                    }
+                    },
+                    'friends': {
+                        'friends_count': user.get_friends().count(),
+                        'friends_of_count': user.get_friend_of().count(),
+                    },
                 }
             }
     except (ObjectDoesNotExist, AttributeError), e:
+        if settings.DEBUG:
+            raise
         print e
-        return {'widgets': None}
+        return {'widgets': {}}
 

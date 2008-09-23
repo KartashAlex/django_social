@@ -73,19 +73,16 @@ class User(DjangoUser):
     
     user_data = models.ManyToManyField(UserData, blank=True, null=True, editable=False)
 
-    friends = models.ManyToManyField('self', blank=True, related_name='friend_of', editable=False)
-    # CREATE TABLE "net_user_friends" (
-    # "id" integer NOT NULL PRIMARY KEY,
-    # "from_user_id" integer NOT NULL REFERENCES "net_user" ("user_ptr_id"),
-    # "to_user_id" integer NOT NULL REFERENCES "net_user" ("user_ptr_id"),
-    # UNIQUE ("from_user_id", "to_user_id")
-    # );
-
-
     objects = UserManager()
 
     class Admin:
         pass
+        
+    def get_friend_of(self):
+        return User.objects.filter(friends__friend=self)
+        
+    def get_friends(self):
+        return User.objects.filter(friend_of__friend_of=self)
         
     def save(self, *args, **kwargs):
         if self.pk:
@@ -132,6 +129,10 @@ class User(DjangoUser):
             return re.findall('[^@]*', self.username)[0]
         except IndexError:
             return u'User %s' % self.pk
+        
+class Friend(models.Model):
+    friend = models.ForeignKey(User, related_name='friend_of')
+    friend_of = models.ForeignKey(User, related_name='friends')
         
 class PlaceType(models.Model):
     name = models.CharField(max_length=255)

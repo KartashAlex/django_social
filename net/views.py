@@ -11,7 +11,7 @@ from django.forms.formsets import formset_factory
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 
-from net.models import User, Place, TAG_FIELDS
+from net.models import User, Friend, Place, TAG_FIELDS
 from net.forms import ProfileForm, InterestsForm, PlaceForm, FieldsetFormSet
 
 def profile(request, id):
@@ -128,13 +128,16 @@ def user_search(request):
 @login_required
 def friends(request, user_id):
     user = get_object_or_404(User, pk=user_id)
-    return list_detail.object_list(request, queryset=user.friends.all(), template_name='users.html')
+    return list_detail.object_list(request, queryset=user.get_friends(), template_name='users.html')
 
 @login_required
 def change_friend(request, user_id, add):
     user = get_object_or_404(User, pk=user_id)
     if str(add) == "1":
-        request.user.user.friends.add(user)
+        Friend.objects.get_or_create(friend=user, friend_of=request.user.user)
     else:
-        request.user.user.friends.remove(user)
+        try:
+            Friend.objects.get(friend=user, friend_of=request.user.user).delete()
+        except Friend.DoesNotExist:
+            pass
     return HttpResponseRedirect(user.get_absolute_url())
