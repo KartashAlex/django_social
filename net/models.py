@@ -117,10 +117,16 @@ class User(DjangoUser):
     def set_data(self, field, data):
         self.__setattr__(field, u'%s' % data)
         
-    def get_messages(self):
+    def get_all_messages(self):
         from wall.models import Message
         user_ct = ContentType.objects.get_for_model(User)
         return Message.objects.filter(from_user=self)|Message.objects.filter(content_type=user_ct, object_id=self.pk)
+        
+    def get_messages(self):
+        return self.get_all_messages().filter(private=False)
+        
+    def get_private_messages(self):
+        return self.get_all_messages().filter(private=True)
         
     def get_name(self):
         if self.first_name or self.last_name:

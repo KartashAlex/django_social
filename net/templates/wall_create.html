@@ -3,7 +3,13 @@
             {% block content %}
                 <div class="h-registration">
                         <div class="b-signup">
-                            <h1>{% trans "Сообщение на Стену" %}</h1>
+                            <h1>
+                                {% if request.GET.private %}
+                                    {% trans "Личное сообщение" %}
+                                {% else %}
+                                    {% trans "Сообщение на Стену" %}
+                                {% endif %}
+                            </h1>
                             <form action="{% url create_pm object_id %}" method="post">
                                 {{ form.as_p }}
                                 <input type="submit" value="{% trans "send" %}"/>
