@@ -39,6 +39,5 @@ def widgets(request, user=None):
     except (ObjectDoesNotExist, AttributeError), e:
         if settings.DEBUG:
             raise
-        print e
-        return {'widgets': {}}
+        return {'widgets': None}
 
