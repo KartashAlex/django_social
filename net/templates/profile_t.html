@@ -7,7 +7,7 @@
             <div class="b-block b-wall">
               <h1 class="header">{% trans "Cообщения" %}</h1>
 
-              {% for msg in widgets.wall %}
+              {% for msg in widgets.messages %}
               <div class="b-message">
                   <div class="b-message-header">
                       <img src="/i/albums/30px.jpg" style="width: 30px; height: 30px; background: #000; display: block; float: left">
@@ -28,17 +28,10 @@
              
 					{% if widgets.photos %}
 					<div class="b-block b-photos">
-						<h1 class="header">{% trans "Друзья" %}</h1>
-						<div class="b-albums">
-						{% for photo in widgets.photos %}
-							<a class="b-photo" href="{% url photos profile.pk,photo.album.pk %}">
-							    <img src="{% thumbnail photo.image 150x100 crop,detail,upscale %}"  />
-	                        </a>
-	                    {% endfor %}				
-						</div>
-						<div class="b-do-bar">
-						<a href="{% url albums profile.pk %}">{% trans "Остальные фотографии" %}</a>
-						</div>
+						<h1 class="header">{% trans "Друзья" %}	{% ifnotequal widgets.friends.friends_count  0 %} (<a href="{% url albums profile.pk %}">{{ widgets.friends.friends_count}}</a>)  {% endifnotequal %}</a></h1>
+					{% ifequal widgets.friends.friends_count  0 %}
+					{% trans "У вас нет друзей, попробуйте их найти" %}
+						{% endifequal %}
 					</div>
 					{% endif %}
     			{% if widgets.photos %}
@@ -81,10 +74,10 @@
 					  <div class="b-block b-wall">
 		                <h1 class="header">{% trans "Обьявления" %}</h1>
 
-		                {% for msg in widgets.wall %}
+		                {% for msg in widgets.messages %}
 		                <div class="b-message">
 		                    <div class="b-message-header">
-		                        <img src="/i/albums/30px.jpg" style="width: 30px; height: 30px; background: #000; display: block; float: left">
+		                        <img src="/i/albums/30px.jpg" style="width: 30px; height: 30px; background: #000; display: block; float: left">	
 		                        <h3><a href="{{ msg.from_user.get_absolute_url }}">{{ msg.from_user.get_name }}</a>:</h3>
 		                    </div>
 		                    <p>{{ msg.body }}</p>
