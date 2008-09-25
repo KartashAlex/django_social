@@ -5,7 +5,7 @@ from django.forms.extras.widgets import SelectDateWidget
 from django.utils.translation import ugettext_lazy as _
 from django.utils.safestring import mark_safe
 
-from net.models import User, Place, DATA_FIELDS
+from net.models import User, Place, NetGroup as Group, DATA_FIELDS
 
 import datetime
 
@@ -160,3 +160,7 @@ class FieldsetFormSet(forms.formsets.BaseFormSet):
         forms = u' '.join([form.as_fs() for form in self.forms])
         return mark_safe(u'\n'.join([unicode(self.management_form.as_p()), forms]))
 
+class GroupForm(forms.ModelForm):
+    class Meta:
+        model = Group
+        fields = ['name', 'description']

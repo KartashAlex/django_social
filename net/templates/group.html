@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load i18n interests net %}
+    {% block content %}
+        <h1>{{ object.name }}</h1>
+        {% ifin request.user.user object.members.all %}
+            {% trans "Вы участник этой группы" %}
+            <a href="{% url groups_enter object.pk "0" %}">{% trans "Покинуть группу" %}</a>
+        {% else %}
+            <a href="{% url groups_enter object.pk "1" %}">{% trans "Вступить в группу" %}</a>
+        {% endifin %}
+        <p>{{ object.description }}</p>
+        <div class="clear">
+            <a href="{% url groups_list %}">{% trans "Все группы" %}</a>
+        </div>
+    {% endblock content %}
+  

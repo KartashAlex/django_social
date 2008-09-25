@@ -14,5 +14,10 @@ urlpatterns = patterns('',
     
     (r'^friends/(\d+)/$', 'net.views.friends', {}, 'list_friends'),
     (r'^friends/(\d+)/(\d)$', 'net.views.change_friend', {}, 'change_friend'),
+    
+    (r'^groups/$', 'net.views.groups_list', {}, 'groups_list'),
+    (r'^groups/(\d+)/$', 'net.views.groups_profile', {}, 'groups_profile'),
+    (r'^groups/(\d+)/enter/(\d)/$', 'net.views.groups_enter', {}, 'groups_enter'),
+    (r'^groups/new/$', 'net.views.groups_create', {}, 'groups_create'),
 )
 

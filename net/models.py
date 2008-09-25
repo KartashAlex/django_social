@@ -160,3 +160,49 @@ class Place(models.Model):
     
     def __unicode__(self):
         return self.name
+
+class NetGroup(models.Model):
+    name = models.CharField(max_length=255, unique=True)
+    description = models.TextField(blank=True, null=True)
+    
+    owner = models.ForeignKey(User, related_name='owner_groups')
+    admins = models.ManyToManyField(User, related_name='admin_groups', blank=True, editable=False)
+    members = models.ManyToManyField(User, related_name='user_groups', blank=True, editable=False)
+    
+    class UserException(Exception):
+        pass
+    
+    def save(self, *args, **kwargs):
+        super(NetGroup, self).save(*args, **kwargs)
+        self.update_users()
+    
+    def add_admin(self, user):
+        self.admins.add(user)
+        self.save()
+
+    def remove_admin(self, user):
+        self.admins.remove(user)
+        self.save()
+
+    def remove_user(self, user):
+        if user == self.owner:
+            raise NetGroup.UserException('Cannot delete Owner from Group.')
+        self.members.remove(user)
+        if user in self.admins.all():
+            self.admins.remove(user)
+    
+    def add_user(self, user):
+        self.members.add(user)
+    
+    def members_count(self):
+        return self.members.all().count()
+
+    def update_users(self):
+        if not self.owner in self.admins.all():
+            self.admins.add(self.owner)
+        for admin in self.admins.all():
+            if not admin in self.members.all():
+                self.members.add(admin)
+
+    def admins_list(self):
+        return ', '.join([a.get_name() for a in self.admins.all()])

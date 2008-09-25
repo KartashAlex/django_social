@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load i18n thumbnail %}
+            {% block content %}
+                <div class="h-registration">
+                        <div class="b-signup">
+                            <h1>{% trans "Новая группа" %}</h1>
+                            <form action="{% url groups_create %}" method="post">
+                                {{ form.as_p }}
+                                <input type="submit" value="{% trans "send" %}"/>
+                            </form>
+                        </div>
+                    </div>
+            {% endblock content %}

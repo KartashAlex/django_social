@@ -91,11 +91,6 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.comments',
     
-    'django_authopenid',
-    'django_registration',
-    'django_sphinx',
-    'tagging',
-    'django_threadedcomments',
     'django_registration',
     'dbsettings',
 

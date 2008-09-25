@@ -11,8 +11,8 @@ from django.forms.formsets import formset_factory
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 
-from net.models import User, Friend, Place, TAG_FIELDS
-from net.forms import ProfileForm, InterestsForm, PlaceForm, FieldsetFormSet
+from net.models import User, Friend, Place, TAG_FIELDS, NetGroup as Group
+from net.forms import ProfileForm, InterestsForm, PlaceForm, FieldsetFormSet, GroupForm
 
 def profile(request, id):
     from context_processors import widgets
@@ -125,7 +125,6 @@ def user_search(request):
         
     return list_detail.object_list(request, queryset=users, template_name='users.html')
 
-@login_required
 def friends(request, user_id):
     user = get_object_or_404(User, pk=user_id)
     return list_detail.object_list(request, queryset=user.get_friends(), template_name='users.html')
@@ -141,3 +140,39 @@ def change_friend(request, user_id, add):
         except Friend.DoesNotExist:
             pass
     return HttpResponseRedirect(user.get_absolute_url())
+
+def groups_list(request):
+    return list_detail.object_list(request, queryset=Group.objects.all(), template_name='groups.html')
+
+def groups_profile(request, group_id):
+    return list_detail.object_detail(request, queryset=Group.objects.all(), object_id=group_id, template_name='group.html')
+    
+@login_required
+def groups_create(request):
+    if request.POST:
+        form = GroupForm(data=request.POST)
+        if form.is_valid():
+            group = form.save(commit=False)
+            group.owner = request.user.user
+            group.save()
+            
+            return HttpResponseRedirect('/me/')
+    else:
+        form = GroupForm()
+    
+    return render_to_response('group_create.html', {
+        'form': form,
+    }, context_instance=RequestContext(request))
+
+@login_required
+def groups_enter(request, group_id, enter):
+    group = get_object_or_404(Group, pk=group_id)
+    if str(enter) == "1":
+        group.add_user(request.user.user)
+    else:
+        try:
+            group.remove_user(request.user.user)
+        except Group.UserException:
+            pass
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/groups/'))
+    

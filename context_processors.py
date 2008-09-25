@@ -13,12 +13,11 @@ def common(request):
 
 def widgets(request, user=None):
     from django.db.models import ObjectDoesNotExist
-    from photo.models import Photo
+    from photo.models import Photo, User
     try:
         user = user or request.user.user
         posts = user.posts.filter(type='blog')
         ads = user.posts.filter(type='ads')
-        print dir(user)
         return {
                 'widgets': {
                     'wall': user.get_messages()[:3],
@@ -36,8 +35,6 @@ def widgets(request, user=None):
                     },
                 }
             }
-    except (ObjectDoesNotExist, AttributeError), e:
-        if settings.DEBUG:
-            raise
+    except (ObjectDoesNotExist, AttributeError, User.DoesNotExist), e:
         return {'widgets': None}
 

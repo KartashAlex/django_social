@@ -42,7 +42,7 @@
 		<div class="min-width">&nbsp;</div>
             <div class="b-head">
                 <div class="b-menu">
-                    <a href="/me/">Люди</a> <a href="#">Группы</a> <a href="#">RTTV</a>
+                    <a href="{% url my_profile %}">Люди</a> <a href="{% url groups_list %}">Группы</a> <a href="#">RTTV</a>
                 </div>
 				<form class="b-setlang" action="/i18n/setlang/" method="post">
                     <select name="language">

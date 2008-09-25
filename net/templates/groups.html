@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load i18n interests net %}
+    {% block content %}
+        <ul>
+        {% for group in object_list %}
+            <li>
+                <a href="{% url groups_profile group.pk %}">{{ group.name }}</a>
+                {% ifin request.user.user group.members.all %}
+                    {% trans "Вы участник этой группы" %}
+                    <a href="{% url groups_enter group.pk "0" %}">{% trans "Покинуть группу" %}</a>
+                {% else %}
+                    <a href="{% url groups_enter group.pk "1" %}">{% trans "Вступить в группу" %}</a>
+                {% endifin %}
+            </li>
+        {% endfor %}
+        </ul>
+        <div class="clear">
+            <a href="{% url groups_create %}">{% trans "Создать группу" %}</a>
+        </div>
+    {% endblock content %}
+  
