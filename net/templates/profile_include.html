@@ -54,6 +54,7 @@
                                                 <a href="{% url add_user_place %}">Добавить место{# trans "add place" #}</a>
                                             {% endifequal %}
                                         {% endif %}
+										<a href="/friends/2/1">Добавить в друзья</a>
                                     </div>{% if profile.interest %}
                                     <div class="b-career-info">
                                         Интересы: {% for interest in profile.get_interests %} <a href="/search/?interest={{ interest|urlencode }}">{{ interest }}</a>{% if not forloop.last %}, {% endif %} {% endfor %}
@@ -73,6 +74,7 @@
                                     </div>
                                     
                                 </div>
+
 								
                                 
                             </div>
