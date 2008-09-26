@@ -29,6 +29,7 @@ def messages(request, id=None, type='wall'):
     kwargs = {
         'queryset': messages,
         'template_name': 'wall_messages.html',
+        'paginate_by': 10,
         'extra_context': {
             'msg_type': type,
         },

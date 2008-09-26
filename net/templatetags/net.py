@@ -20,11 +20,11 @@ class IfInNode(template.Node):
             val2 = self.var2.resolve(context)
         except template.VariableDoesNotExist:
             val2 = None
-        if val1 in val2:
+        if val2 and val1 in val2:
             return self.nodelist_true.render(context)
         return self.nodelist_false.render(context)
         
-#@register.tag
+@register.tag
 def ifin(parser, token):
     bits = list(token.split_contents())
     if len(bits) != 3:
@@ -38,4 +38,14 @@ def ifin(parser, token):
     else:
         nodelist_false = template.NodeList()
     return IfInNode(bits[1], bits[2], nodelist_true, nodelist_false)
-ifin = register.tag(ifin)
+
+@register.filter
+def pagerange(range, page, width=4):
+    res = []
+    for p in range:
+        if p < width or p > len(range) - width + 1 or (p > page - width / 2 and p < page + width / 2):
+            res.append(p)
+        else:
+            res.append(None)
+    return res
+

@@ -6,6 +6,9 @@
             <li><a href="{% url user_profile user.pk %}">{{ user.get_name }}</a></li>
         {% endfor %}
         </ul>
+                            
+        {% include "paginator.html" %}
+
         <div class="clear"></div>
     {% endblock content %}
   

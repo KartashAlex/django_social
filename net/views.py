@@ -123,11 +123,11 @@ def user_search(request):
     if query != Q():
         users = users.filter(query)
         
-    return list_detail.object_list(request, queryset=users, template_name='users.html')
+    return list_detail.object_list(request, queryset=users, template_name='users.html', paginate_by=10)
 
 def friends(request, user_id):
     user = get_object_or_404(User, pk=user_id)
-    return list_detail.object_list(request, queryset=user.get_friends(), template_name='users.html')
+    return list_detail.object_list(request, queryset=user.get_friends(), template_name='users.html', paginate_by=10)
 
 @login_required
 def change_friend(request, user_id, add):
@@ -142,7 +142,7 @@ def change_friend(request, user_id, add):
     return HttpResponseRedirect(user.get_absolute_url())
 
 def groups_list(request):
-    return list_detail.object_list(request, queryset=Group.objects.all(), template_name='groups.html')
+    return list_detail.object_list(request, queryset=Group.objects.all(), template_name='groups.html', paginate_by=10)
 
 def groups_profile(request, group_id):
     return list_detail.object_detail(request, queryset=Group.objects.all(), object_id=group_id, template_name='group.html')

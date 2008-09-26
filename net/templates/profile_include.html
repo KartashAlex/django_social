@@ -2,7 +2,7 @@
                 <table class="b-personal-info">
                     <tr>
                         <td class="b-userpic">
-                            {% if profile.avatar %} <img src="{# thumbnail profile.avatar 270x270 #}" /> {% endif %}
+                            {% if profile.avatar %} <img src="{% thumbnail profile.avatar 270x270 %}" /> {% endif %}
                         </td>
                         <td>
                             {% ifequal profile.pk request.user.user.pk %}

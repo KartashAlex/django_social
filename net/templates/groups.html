@@ -17,5 +17,8 @@
         <div class="clear">
             <a href="{% url groups_create %}">{% trans "Создать группу" %}</a>
         </div>
+                            
+        {% include "paginator.html" %}
+
     {% endblock content %}
   
