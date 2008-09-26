@@ -6,7 +6,6 @@
                         </td>
                         <td>
                             {% ifequal profile.pk request.user.user.pk %}
-                           
                                 <a class="edit-profile-btn" id="edit-profile-btn" href="{% url edit_user_profile %}" name="edit-profile-btn">{% trans "Редактировать" %}</a>
                             {% else %}
                                 {% ifin profile request.user.user.get_friends.all %}
@@ -22,16 +21,18 @@
                                     {{ profile.first_name }} {{ profile.last_name }}
                                 </h2>
                                 <div style="width: 50%; float: left">
-                                    {% if profile.birthdate %}
                                     <div class="b-date-and-place">
-                                        <a href="#">{{ profile.birthdate|date:"d.m.Y" }}</a><br />
-                                        {% endif %} {% if profile.city %} <a href="#">{{ profile.city }}</a> {% endif %} {% if profile.country %} , <a href="#">{{ profile.country }}</a>
-                                    </div>{% endif %}
-                                    <div class="b-education-info">
-                                        {% if profile.university %} <a href="#">{{ profile.university }}</a> {% endif %}
+                                        {% if profile.birthdate %}
+                                            <a href="{% url user_search %}?birthdate={{ profile.birthdate }}">{{ profile.birthdate|date:"d.m.Y" }}</a><br />
+                                        {% endif %} 
+                                        {% if profile.city %} 
+                                            <a href="{% url user_search %}?birthdate={{ profile.city }}">{{ profile.city }}</a> 
+                                        {% endif %} 
+                                        {% if profile.country %} 
+                                            , <a href="{% url user_search %}?birthdate={{ profile.country }}">{{ profile.country }}</a>
+                                        {% endif %}
                                     </div>
                                     <div class="b-career-info">
-                                        
                                          {% if profile.places.all %}
                                             <div class="b-career-info">
                                             {% trans "Places" %}
@@ -42,28 +43,28 @@
                                             <ul> 
                                             {% for place in profile.places.all %}
                                                 <li>
-                                                    {{ place.type }} <a href="/search/?places__name={{ place.name|urlencode }}">{{ place.name }}</a>
+                                                    {{ place.type }} <a href="{% url user_search %}?places__name={{ place.name|urlencode }}">{{ place.name }}</a>
                                                     с: {{ place.from_date|date:"m.Y" }} по: {{ place.to_date|date:"m.Y" }} 
                                                     {% ifequal profile request.user.user %}
                                                         <a href="{% url edit_user_place place.pk %}">{% trans "edit" %}</a>
                                                     {% endifequal %}
                                                 </li>
                                             {% endfor %}
-                                        {% else %}
-                                            {% ifequal profile request.user.user %}
-                                                <a href="{% url add_user_place %}">Добавить место{# trans "add place" #}</a>
-                                            {% endifequal %}
                                         {% endif %}
-										<a href="/friends/2/1">Добавить в друзья</a>
-                                    </div>{% if profile.interest %}
+                                        {% ifequal profile request.user.user %}
+                                            <a href="{% url add_user_place %}">{% trans "Добавить место" %}</a>
+                                        {% endifequal %}
+                                    </div>
+                                    {% if profile.interest %}
                                     <div class="b-career-info">
-                                        Интересы: {% for interest in profile.get_interests %} <a href="/search/?interest={{ interest|urlencode }}">{{ interest }}</a>{% if not forloop.last %}, {% endif %} {% endfor %}
-                                    </div>{% endif %}
+                                        {% trans "Интересы:" %} {% for interest in profile.get_interests %} <a href="{% url user_search %}?interest={{ interest|urlencode }}">{{ interest }}</a>{% if not forloop.last %}, {% endif %} {% endfor %}
+                                    </div>
+                                    {% endif %}
                                 </div></div>
                                 <div style="width: 50%; float: left">
                                     {% if profile.get_contacts.phone %}
                                     <div class="b-phone-num">
-                                        Телефон: <span class="bigger">{{ profile.get_contacts.phone }}</span>
+                                        {% trans "Телефон:" %} <span class="bigger">{{ profile.get_contacts.phone }}</span>
                                     </div>{% endif %}
                                     <div class="b-im-accounts">
                                         {% if profile.get_contacts.icq %}
@@ -74,9 +75,6 @@
                                     </div>
                                     
                                 </div>
-
-								
-                                
                             </div>
                         </td>
                     </tr>

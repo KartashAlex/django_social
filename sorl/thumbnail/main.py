@@ -10,7 +10,11 @@ class DjangoThumbnail(Thumbnail):
                  quality=None, basedir=None, subdir=None, prefix=None,
                  relative_dest=None):
         if not isinstance(relative_source, types.StringTypes):
-            relative_source = relative_source.field.generate_filename(relative_source.instance, relative_source._name)
+            # relative_source = relative_source.field.generate_filename(relative_source.instance, relative_source._name)
+            new_path = relative_source.storage.path(relative_source.name).replace(os.path.abspath(settings.MEDIA_ROOT), '')
+            if new_path[0] == '/':
+                new_path = new_path[1:]
+            relative_source = new_path
                      
         # Set the absolute filename for the source file
         source = self._absolute_path(relative_source)

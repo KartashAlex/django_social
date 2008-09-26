@@ -23,6 +23,7 @@ def widgets(request, user=None):
                     'wall': user.get_messages()[:3],
                     'messages' : user.get_private_messages()[:3],
                     'wall_count': user.get_messages().count() - 3 if user.get_messages().count() > 3 else 0,
+                    'messages_count' : user.get_private_messages().count() - 3 if user.get_private_messages().count() > 3 else 0,
                     'photos': Photo.objects.filter(album__user=user).order_by('-added')[:5],
                     'blog': {
                         'posts': posts.order_by('-added')[:2],
@@ -31,6 +32,7 @@ def widgets(request, user=None):
                         'ads_count': ads.count() - 2 if ads.count() > 1 else 0,
                     },
                     'friends': {
+                        'friends_list': user.get_friends()[:5],
                         'friends_count': user.get_friends().count(),
                         'friends_of_count': user.get_friend_of().count(),
                     },
