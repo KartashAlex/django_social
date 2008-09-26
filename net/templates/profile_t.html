@@ -4,35 +4,43 @@
                 {% include "profile_include.html" %}
             {% endblock profile %}
             {% block content %}
-                <div class="b-block b-wall">
-                <h1>{% trans "Стена" %}</h1>
+            <div class="b-block b-wall">
+              <h1 class="header">{% trans "Cообщения" %}</h1>
 
-                {% for msg in widgets.wall %}
-                <div class="b-message">
-                    <div class="b-message-header">
-                        <img src="/i/albums/30px.jpg" style="width: 30px; height: 30px; background: #000; display: block; float: left">
-                        <h3><a href="{{ msg.from_user.get_absolute_url }}">{{ msg.from_user.get_name }}</a>:</h3>
-                    </div>
-                    <p>{{ msg.body }}</p>
-                </div>
-                {% endfor %}
-                <div class="b-do-bar">
-                    <a href="{% url create_pm profile.pk %}" style="margin-right: 50px;" id="wrote-message-btn">{% trans "Написать" %}</a>
-                    {% if widgets.wall_count %}
-                        <a href="{% url wall profile.pk %}">
-                            {% blocktrans with widgets.wall_count as count %}Еще {{ count }} сообщений{% endblocktrans %}
-                        </a>
-                    {% endif %}
-                </div>
-                </div>
-				
+              {% for msg in widgets.messages %}
+              <div class="b-message">
+                  <div class="b-message-header">
+                      <img src="/i/albums/30px.jpg" style="width: 30px; height: 30px; background: #000; display: block; float: left">
+                      <h3><a href="{{ msg.from_user.get_absolute_url }}">{{ msg.from_user.get_name }}</a>:</h3>
+                  </div>
+                  <p>{{ msg.body }}</p>
+              </div>
+              {% endfor %}
+              <div class="b-do-bar">
+                  <a href="{% url create_pm profile.pk %}" style="margin-right: 50px;" id="wrote-message-btn">{% trans "Написать" %}</a>
+                  {% if widgets.wall_count %}
+                      <a href="{% url wall profile.pk %}">
+                          {% blocktrans with widgets.wall_count as count %}Еще {{ count }} сообщений{% endblocktrans %}
+                      </a>
+                  {% endif %}
+              </div>
+              </div>
+             
+					{% if widgets.photos %}
+					<div class="b-block b-photos">
+						<h1 class="header">{% trans "Друзья" %}	{% ifnotequal widgets.friends.friends_count  0 %} (<a href="{% url albums profile.pk %}">{{ widgets.friends.friends_count}}</a>)  {% endifnotequal %}</a></h1>
+					{% ifequal widgets.friends.friends_count  0 %}
+					{% trans "У вас нет друзей, попробуйте их найти" %}
+						{% endifequal %}
+					</div>
+					{% endif %}
     			{% if widgets.photos %}
 				<div class="b-block b-photos">
-					<h1>{% trans "Фотографии" %}</h1>
+					<h1 class="header">{% trans "Фотографии" %}</h1>
 					<div class="b-albums">
 					{% for photo in widgets.photos %}
 						<a class="b-photo" href="{% url photos profile.pk,photo.album.pk %}">
-						    <img src="{% thumbnail photo.image 150x100 crop,detail,upscale %}" style="display:block; background: #000; width: 150px; height: 100px" />
+						    <img src="{% thumbnail photo.image 150x100 crop,detail,upscale %}"  />
                         </a>
                     {% endfor %}				
 					</div>
@@ -41,10 +49,53 @@
 					</div>
 				</div>
 				{% endif %}
-				
+				   <div class="b-block b-wall">
+	                <h1 class="header">{% trans "Стена" %}</h1>
+
+	                {% for msg in widgets.wall %}
+	                <div class="b-message">
+	                    <div class="b-message-header">
+	                        <img src="/i/albums/30px.jpg" style="width: 30px; height: 30px; background: #000; display: block; float: left">
+	                        <h3><a href="{{ msg.from_user.get_absolute_url }}">{{ msg.from_user.get_name }}</a>:</h3>
+	                    </div>
+	                    <p>{{ msg.body }}</p>
+	                </div>
+	                {% endfor %}
+	                <div class="b-do-bar">
+	                    <a href="{% url create_pm profile.pk %}" style="margin-right: 50px;" id="wrote-message-btn">{% trans "Написать" %}</a>
+	                    {% if widgets.wall_count %}
+	                        <a href="{% url wall profile.pk %}">
+	                            {% blocktrans with widgets.wall_count as count %}Еще {{ count }} сообщений{% endblocktrans %}
+	                        </a>
+	                    {% endif %}
+	                </div>
+	                </div>
+	
+					  <div class="b-block b-wall">
+		                <h1 class="header">{% trans "Обьявления" %}</h1>
+
+		                {% for msg in widgets.messages %}
+		                <div class="b-message">
+		                    <div class="b-message-header">
+		                        <img src="/i/albums/30px.jpg" style="width: 30px; height: 30px; background: #000; display: block; float: left">	
+		                        <h3><a href="{{ msg.from_user.get_absolute_url }}">{{ msg.from_user.get_name }}</a>:</h3>
+		                    </div>
+		                    <p>{{ msg.body }}</p>
+		                </div>
+		                {% endfor %}
+		                <div class="b-do-bar">
+		                    <a href="{% url create_pm profile.pk %}" style="margin-right: 50px;" id="wrote-message-btn">{% trans "Написать" %}</a>
+		                    {% if widgets.wall_count %}
+		                        <a href="{% url wall profile.pk %}">
+		                            {% blocktrans with widgets.wall_count as count %}Еще {{ count }} сообщений{% endblocktrans %}
+		                        </a>
+		                    {% endif %}
+		                </div>
+		                </div>
+	
 				{% if widgets.blog.posts %}
 				<div class="b-block b-blog">
-					<h1>{% trans "Дневник" %}</h1>
+					<h1 class="header">{% trans "Дневник" %}</h1>
 					{% for post in widgets.blog.posts %}
 					<div class="b-post"><h2>{{ post.subject }}</h2>						
 						<p>

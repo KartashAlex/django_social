@@ -44,30 +44,43 @@
                 <div class="b-menu">
                     <a href="{% url my_profile %}">Люди</a> <a href="{% url groups_list %}">Группы</a> <a href="#">RTTV</a>
                 </div>
-				<form class="b-setlang" action="/i18n/setlang/" method="post">
-                    <select name="language">
-                    {% for lang in settings.LANGUAGES %}
-                        <option value="{{ lang.0 }}" {% ifequal request.session.django_language lang.0 %} selected {% endifequal %}>
-                            {{ lang.1 }}
-                        </option>
-                    {% endfor %}
-                    </select>
-                    <input type="submit" value="Go" />
-				</form>
+				<div class="b-head-right">
+						 {% if user.is_authenticated %}
+				                <a class="b-logout-btn" href="{% url auth_logout %}">{% trans "Выйти" %}</a>
+				         {% endif %}
+							<div class="b-setlang" action="" method="post">
+
+			                    {% for lang in settings.LANGUAGES %}
+			                     	{% ifequal request.session.django_language lang.0 %}
+										<b>/{{ lang.0 }}</b>
+									{% else %}
+										<a href="/i18n/setlang/" class="lang-btn">/{{ lang.0 }}</a>
+									{% endifequal %}
+
+
+			                    {% endfor %}
+			               		и прочие <a href="#">Настройки</a>
+
+							</div>
+					
+					 <form class="b-fast-search" action="{% url user_search %}" method="post">
+			                <input type="text" name="q" value="{{ request.REQUEST.q }}" />
+			                <input type="submit" value="Искать" />
+			            </form>
+		
+				
+				 
+				
+				</div>
             </div>
             <div class="b-min-height">
                 &nbsp;
             </div>
 
             <div class="b-content-container">
-            <form class="" action="{% url user_search %}" method="post">
-                <input type="text" name="q" value="{{ request.REQUEST.q }}" />
-                <input type="submit" value="Go" />
-            </form>
+          
             
-            {% if user.is_authenticated %}
-                <a href="{% url auth_logout %}">{% trans "Выйти" %}</a>
-            {% endif %}
+           
             
             {% block profile %}
                 {% if request.user.is_authenticated %}

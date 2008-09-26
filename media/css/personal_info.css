@@ -1,6 +1,8 @@
 .b-personal-info {
     width: 100%;
-margin-bottom: 20px;
+    background: #fff;
+    margin-bottom: 20px;
+    height: 250px;
     
 }
 .b-userpic {
