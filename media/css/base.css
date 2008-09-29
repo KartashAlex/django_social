@@ -123,14 +123,12 @@ table td {
 
 
 .b-wall .b-message {
-	margin-top: 5px;
 	padding-bottom: 5px;
-
-		border-bottom: solid 1px #efefef;
+	float: left;
+    margin: 5px 0px 10px 10px;
+	border-bottom: solid 1px #efefef;
 	width: 100%;
-	margin-bottom: 10px;
 }
-
 .b-message-header {
 	height: 30px; 
 	padding-top: 5px;
@@ -142,14 +140,16 @@ table td {
 .b-photos {
 	width: 60%;
 	float: right;
-	height: 160px;
+	height: 140px;
+	
 }
 .b-photos .b-photo {
-	margin: 10px 0 0 0;
+    margin: 5px 5px 5px 10px;
 	display: block;
 	float: left;
-	margin: 5px;
+
 }
+
 .b-wall {
 	overflow: hidden;
 }
@@ -252,4 +252,25 @@ table td {
 .ui-dialog-titlebar-close {
     float: right;
     margin: 3px 10px 0 0;
+}
+.wrote-message-btn {
+    margin: 0 0 0 10px;
+    float: left;
+    padding-bottom: 10px;
+}
+
+
+
+
+.b-friends {
+  	width: 60%;
+	float: right;
+	height: 160px;
+}
+.b-friend-thumbnail {
+    margin: 5px 5px 5px 10px;
+	display: block;
+	float: left;
+	width: 100px;
+
 }

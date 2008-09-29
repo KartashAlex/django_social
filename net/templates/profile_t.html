@@ -27,20 +27,22 @@
               </div>
              
 					{% if widgets.friends.friends_count %}
-					<div class="b-block b-photos">
+					<div class="b-block b-friends">
 						<h1 class="header">{% trans "Друзья" %}	
                             {% if widgets.friends.friends_count %} 
-                                (<a href="{% url list_friends profile.pk %}">{{ widgets.friends.friends_count}}</a>)  
+                                (<a  href="{% url list_friends profile.pk %}">{{ widgets.friends.friends_count}}</a>)  
                             {% endif %}
                         </h1>
                         {% if widgets.friends.friends_count %}
                             {% for friend in widgets.friends.friends_list %}
-                                <a href="{% url user_profile friend.pk %}">
-                                    {% if friend.avatar %}
-                                    <img src="{% thumbnail friend.avatar 100x100 detail,crop %}"/>
-                                    {% endif %}
-                                    {{ friend.get_name }}
-                                </a>
+                                <div class="b-friend-thumbnail" > 
+									{% if friend.avatar %}
+										<a href="{% url user_profile friend.pk %}">
+                                    		<img src="{% thumbnail friend.avatar 100x100 detail,crop %}"/>
+                                    	</a>
+									{% endif %}
+								
+                                </div>
                             {% endfor %}
                         {% else %}
                             {% trans "У вас нет друзей, попробуйте их найти" %}
@@ -48,19 +50,20 @@
 					</div>
 					{% endif %}
 				<div class="b-block b-photos">
-					<h1 class="header">{% trans "Фотографии" %}</h1>
+					<h1 class="header">{% trans "Фотографии" %}
+						{% if widgets.photos.photos_count %} 
+                            (<a  href="{% url albums profile.pk %}">{{  widgets.photos.photos_count}}</a>)  
+                        {% endif %}</h1>
                     {% if widgets.photos %}
                         <div class="b-albums">
                         {% for photo in widgets.photos %}
                             <a class="b-photo" href="{% url photos profile.pk,photo.album.pk %}">
-                                <img src="{% thumbnail photo.image 150x100 crop,detail,upscale %}"  />
+                                <img src="{% thumbnail photo.image 120x70 crop,detail,upscale %}"  />
                             </a>
                         {% endfor %}				
                         </div>
                     {% endif %}
-					<div class="b-do-bar">
-					<a href="{% url albums profile.pk %}">{% trans "Остальные фотографии" %}</a>
-					</div>
+					
 				</div>
 				   <div class="b-block b-wall">
 	                <h1 class="header">{% trans "Стена" %}</h1>
