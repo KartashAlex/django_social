@@ -1,8 +1,13 @@
-.h-registration {
+.b-form-container {
 float: left; display: inline;
 width: 100%;
 overflow: hidden;
+background: #fff;
+margin: 0 10px 0 10px;
 }
+
+
+
   .b-registration {
 float: left; display: inline;
 margin: 135px 0 0 0px;
@@ -27,6 +32,7 @@ margin-top: 10px;
 .b-signup {
     float: left; display: inline;
     width: 600px;
+
     margin: 55px 0 0 0px;
     margin-left: -300px;
     padding: 0 50%;

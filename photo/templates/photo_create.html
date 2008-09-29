@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load i18n thumbnail %}
             {% block content %}
-                <div class="h-registration">
+                <div class="b-form-container">
                         <div class="b-signup">
                             <h1>{% trans "Добавить фотографии" %}</h1>
                             <form enctype="multipart/form-data" method="post" action="{% url create_photo  %}">

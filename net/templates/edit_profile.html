@@ -2,7 +2,7 @@
 {{ formset.management_form }} 
 {% load i18n %}
     {% block content %}
-	<div class="h-registration">
+	<div class="b-form-container">
         <div class="b-signup">
         {% if false %}<h1><a href="{% url user_profile profile.username %}">{{ profile.username }}</a></h1>{% endif %}
         
@@ -16,3 +16,4 @@
 		</div>
     {% endblock content %}
   
+	

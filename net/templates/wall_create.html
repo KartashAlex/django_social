@@ -1,8 +1,8 @@
-{% extends "base.html" %}
+
 {% load i18n thumbnail %}
-            {% block content %}
-                <div class="h-registration">
-                        <div class="b-signup">
+
+     
+                        <div class="b-message-form" id="write-wall-message">
                             <h1>
                                 {% if request.GET.private %}
                                     {% trans "Личное сообщение" %}
@@ -11,9 +11,14 @@
                                 {% endif %}
                             </h1>
                             <form action="{% url create_pm object_id %}" method="post">
-                                {{ form.as_p }}
-                                <input type="submit" value="{% trans "send" %}"/>
+                                {{ form.body }}
+                                {{ form.private }}
+                                {{ form.parent }}
+                                {{ form.content_type }}
+                                {{ form.object_id }}
+								
+                                <input type="submit" class="submit-btn" value="{% trans "send" %}"/>
                             </form>
                         </div>
-                    </div>
-            {% endblock content %}
+                 
+      

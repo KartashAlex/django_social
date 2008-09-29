@@ -232,3 +232,24 @@ table td {
     width: 60%;
     float: right;
 }
+.b-message-form {
+    width: 350px;
+    height: 300px;
+    background: #fff;
+}
+.b-message-form h1 {
+    margin: 10px 0 0 20px;
+    
+}
+.b-message-form textarea {
+    margin-left: 20px;
+    width: 400px;
+    
+}
+.b-message-form .submit-btn {
+    margin: 10px 0 0px 20px;
+}
+.ui-dialog-titlebar-close {
+    float: right;
+    margin: 3px 10px 0 0;
+}

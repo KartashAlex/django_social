@@ -17,7 +17,7 @@
               </div>
               {% endfor %}
               <div class="b-do-bar">
-                  <a href="{% url create_pm profile.pk %}?private=1" style="margin-right: 50px;" id="wrote-message-btn">{% trans "Написать" %}</a>
+                  <a href="{% url create_pm profile.pk %}?private=1" style="margin-right: 50px;" class="wrote-message-btn">{% trans "Написать" %}</a>
                   {% if widgets.wall_count %}
                       <a href="{% url wall profile.pk %}">
                           {% blocktrans with widgets.messages_count as count %}Еще {{ count }} сообщений{% endblocktrans %}
@@ -75,7 +75,7 @@
 	                </div>
 	                {% endfor %}
 	                <div class="b-do-bar">
-	                    <a href="{% url create_pm profile.pk %}" style="margin-right: 50px;" id="wrote-message-btn">{% trans "Написать" %}</a>
+	                    <a href="{% url create_pm profile.pk %}" style="margin-right: 50px;" class="wrote-message-btn">{% trans "Написать" %}</a>
 	                    {% if widgets.wall_count %}
 	                        <a href="{% url wall profile.pk %}">
 	                            {% blocktrans with widgets.wall_count as count %}Еще {{ count }} сообщений{% endblocktrans %}
@@ -97,7 +97,7 @@
 		                </div>
 		                {% endfor %}
 		                <div class="b-do-bar">
-		                    <a href="{% url post_add %}" style="margin-right: 50px;" id="wrote-message-btn">{% trans "Написать" %}</a>
+		                    <a href="{% url post_add %}" style="margin-right: 50px;" class="wrote-message-btn">{% trans "Написать" %}</a>
 		                    {% if widgets.blog.ads_count %}
 		                        <a href="{% url post_list profile.pk,"ads" %}">
 		                            {% blocktrans with widgets.blog.ads_count as count %}Еще {{ count }} сообщений{% endblocktrans %}
