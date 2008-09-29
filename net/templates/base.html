@@ -20,12 +20,12 @@
 	        {% endblock head %}
 		<script type="text/javascript">
 			$(function(){
-				$('.wrote-message-btn').click(function(){
+				$('.wrote-smth').click(function(){
 				var _t = this;
 				    
 				 $.get($(_t).attr('href'), function(data){
 					$('body').append(data);
-					$('#write-wall-message').dialog({
+					$('#write-smth').dialog({
 						width: 450, 
 						height: 240, 
 						modal: true, 

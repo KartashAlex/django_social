@@ -4,132 +4,24 @@
                 {% include "profile_include.html" %}
             {% endblock profile %}
             {% block content %}
-            <div class="b-block b-wall">
-              <h1 class="header">{% trans "Cообщения" %}</h1>
-
-              {% for msg in widgets.messages %}
-              <div class="b-message">
-                  <div class="b-message-header">
-                      <img src="/i/albums/30px.jpg" style="width: 30px; height: 30px; background: #000; display: block; float: left">
-                      <h3><a href="{{ msg.from_user.get_absolute_url }}">{{ msg.from_user.get_name }}</a>:</h3>
-                  </div>
-                  <p>{{ msg.body }}</p>
-              </div>
-              {% endfor %}
-              <div class="b-do-bar">
-                  <a href="{% url create_pm profile.pk %}?private=1" style="margin-right: 50px;" class="wrote-message-btn">{% trans "Написать" %}</a>
-                  {% if widgets.wall_count %}
-                      <a href="{% url wall profile.pk %}">
-                          {% blocktrans with widgets.messages_count as count %}Еще {{ count }} сообщений{% endblocktrans %}
-                      </a>
-                  {% endif %}
-              </div>
-              </div>
-             
-					{% if widgets.friends.friends_count %}
-					<div class="b-block b-friends">
-						<h1 class="header">{% trans "Друзья" %}	
-                            {% if widgets.friends.friends_count %} 
-                                (<a  href="{% url list_friends profile.pk %}">{{ widgets.friends.friends_count}}</a>)  
-                            {% endif %}
-                        </h1>
-                        {% if widgets.friends.friends_count %}
-                            {% for friend in widgets.friends.friends_list %}
-                                <div class="b-friend-thumbnail" > 
-									{% if friend.avatar %}
-										<a href="{% url user_profile friend.pk %}">
-                                    		<img src="{% thumbnail friend.avatar 100x100 detail,crop %}"/>
-                                    	</a>
-									{% endif %}
-								
-                                </div>
-                            {% endfor %}
-                        {% else %}
-                            {% trans "У вас нет друзей, попробуйте их найти" %}
-						{% endif %}
-					</div>
-					{% endif %}
-				<div class="b-block b-photos">
-					<h1 class="header">{% trans "Фотографии" %}
-						{% if widgets.photos.photos_count %} 
-                            (<a  href="{% url albums profile.pk %}">{{  widgets.photos.photos_count}}</a>)  
-                        {% endif %}</h1>
-                    {% if widgets.photos %}
-                        <div class="b-albums">
-                        {% for photo in widgets.photos %}
-                            <a class="b-photo" href="{% url photos profile.pk,photo.album.pk %}">
-                                <img src="{% thumbnail photo.image 120x70 crop,detail,upscale %}"  />
-                            </a>
-                        {% endfor %}				
-                        </div>
-                    {% endif %}
-					
-				</div>
-				   <div class="b-block b-wall">
-	                <h1 class="header">{% trans "Стена" %}</h1>
-
-	                {% for msg in widgets.wall %}
-	                <div class="b-message">
-	                    <div class="b-message-header">
-	                        <img src="/i/albums/30px.jpg" style="width: 30px; height: 30px; background: #000; display: block; float: left">
-	                        <h3><a href="{{ msg.from_user.get_absolute_url }}">{{ msg.from_user.get_name }}</a>:</h3>
-	                    </div>
-	                    <p>{{ msg.body }}</p>
-	                </div>
-	                {% endfor %}
-	                <div class="b-do-bar">
-	                    <a href="{% url create_pm profile.pk %}" style="margin-right: 50px;" class="wrote-message-btn">{% trans "Написать" %}</a>
-	                    {% if widgets.wall_count %}
-	                        <a href="{% url wall profile.pk %}">
-	                            {% blocktrans with widgets.wall_count as count %}Еще {{ count }} сообщений{% endblocktrans %}
-	                        </a>
-	                    {% endif %}
-	                </div>
-	                </div>
-	
-					  <div class="b-block b-wall">
-		                <h1 class="header">{% trans "Обьявления" %}</h1>
-
-		                {% for ad in widgets.blog.ads %}
-		                <div class="b-message">
-		                    <div class="b-message-header">
-		                        <img src="/i/albums/30px.jpg" style="width: 30px; height: 30px; background: #000; display: block; float: left">	
-		                        <h3><a href="{{ ad.get_absolute_url }}">{{ ad.subject }}</a>:</h3>
-		                    </div>
-		                    <p>{{ ad.text }}</p>
-		                </div>
-		                {% endfor %}
-		                <div class="b-do-bar">
-		                    <a href="{% url post_add %}" style="margin-right: 50px;" class="wrote-message-btn">{% trans "Написать" %}</a>
-		                    {% if widgets.blog.ads_count %}
-		                        <a href="{% url post_list profile.pk,"ads" %}">
-		                            {% blocktrans with widgets.blog.ads_count as count %}Еще {{ count }} сообщений{% endblocktrans %}
-		                        </a>
-		                    {% endif %}
-		                </div>
-		                </div>
-	
-				{% if widgets.blog.posts %}
-				<div class="b-block b-blog">
-					<h1 class="header">{% trans "Дневник" %}</h1>
-					{% for post in widgets.blog.posts %}
-					<div class="b-post"><h2>{{ post.subject }}</h2>						
-						<p>
-						    <a href="{{ post.get_absolute_url }}">{{ post.text|truncatewords:30 }}...</a>
-                        </p>
-					</div>	
-					{% endfor %}
-                    <div class="b-do-bar">
-						<a href="{% url post_add %}" style="margin-right: 50px">{% trans "Написать" %}</a>
 			
-			        {% if widgets.blog.posts_count %}
-					    <a href="{% url post_list %}">
-					        {% blocktrans with widgets.blog.posts_count as count %}Еще записей: {{ count }}{% endblocktrans %}
-                        </a>
-                    {% endif %}
-					</div>
-				</div>
-                {% endif %}
+
+			<div class="b-left-column">
+				{% include "messages_widget.html" %}
+				{% include "wall_widget.html" %}
+    			{% include "ads_widget.html" %}			
+			</div>
+			<div class="b-right-column">
+				{% include "friends_widget.html" %}
+				{% include "photos_widget.html" %}
+				{% include "blog_widget.html" %}
+			</div>
+
+
+
+			
+	
+				
 		
 				
 		
