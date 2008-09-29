@@ -1,0 +1,22 @@
+{% load thumbnail i18n %} 
+<div class="b-block b-wall">
+    <h1 class="header">{% trans "Обьявления" %}</h1>
+
+    {% for ad in widgets.blog.ads %}
+    <div class="b-message">
+        <div class="b-message-header">
+            <img src="/i/albums/30px.jpg" style="width: 30px; height: 30px; background: #000; display: block; float: left">	
+            <h3><a href="{{ ad.get_absolute_url }}">{{ ad.subject }}</a>:</h3>
+        </div>
+        <p>{{ ad.text }}</p>
+    </div>
+    {% endfor %}
+    <div class="b-do-bar">
+        <a href="{% url post_add %}" style="margin-right: 50px;" class="wrote-smth">{% trans "Написать" %}</a>
+        {% if widgets.blog.ads_count %}
+            <a href="{% url post_list profile.pk,"ads" %}">
+                {% blocktrans with widgets.blog.ads_count as count %}Еще {{ count }} сообщений{% endblocktrans %}
+            </a>
+        {% endif %}
+    </div>
+    </div>

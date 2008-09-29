@@ -1,0 +1,22 @@
+{% load thumbnail i18n %}
+{% if widgets.blog.posts %}
+<div class="b-block b-blog">
+	<h1 class="header">{% trans "Дневник" %}</h1>
+	{% for post in widgets.blog.posts %}
+	<div class="b-post"><h3>{{ post.subject }}</h3>						
+		<p>
+		    <a href="{{ post.get_absolute_url }}">{{ post.text|truncatewords:30 }}...</a>
+        </p>
+	</div>	
+	{% endfor %}
+    <div class="b-do-bar">
+		<a href="{% url post_add %}"   class="wrote-smth">{% trans "Написать" %}</a>
+
+    {% if widgets.blog.posts_count %}
+	    <a href="{% url post_list %}">
+	        {% blocktrans with widgets.blog.posts_count as count %}Еще записей: {{ count }}{% endblocktrans %}
+        </a>
+    {% endif %}
+	</div>
+</div>
+{% endif %}

@@ -1,0 +1,24 @@
+{% load thumbnail i18n %}
+			{% if widgets.friends.friends_count %}
+			<div class="b-block b-friends">
+				<h1 class="header">{% trans "Друзья" %}	
+                    {% if widgets.friends.friends_count %} 
+                        (<a  href="{% url list_friends profile.pk %}">{{ widgets.friends.friends_count}}</a>)  
+                    {% endif %}
+                </h1>
+                {% if widgets.friends.friends_count %}
+                    {% for friend in widgets.friends.friends_list %}
+                        <div class="b-friend-thumbnail" > 
+							{% if friend.avatar %}
+								<a href="{% url user_profile friend.pk %}">
+                            		<img src="{% thumbnail friend.avatar 100x100 detail,crop %}"/>
+                            	</a>
+							{% endif %}
+						
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    {% trans "У вас нет друзей, попробуйте их найти" %}
+				{% endif %}
+			</div>
+			{% endif %}

@@ -1,0 +1,17 @@
+{% load thumbnail i18n %}
+	<div class="b-block b-photos">
+		<h1 class="header">{% trans "Фотографии" %}
+			{% if widgets.photos.photos_count %} 
+                (<a  href="{% url albums profile.pk %}">{{  widgets.photos.photos_count}}</a>)  
+            {% endif %}</h1>
+        {% if widgets.photos %}
+            <div class="b-albums">
+            {% for photo in widgets.photos %}
+                <a class="b-photo" href="{% url photos profile.pk,photo.album.pk %}">
+                    <img src="{% thumbnail photo.image 120x70 crop,detail,upscale %}"  />
+                </a>
+            {% endfor %}				
+            </div>
+        {% endif %}
+		
+	</div>

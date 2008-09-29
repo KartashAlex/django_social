@@ -1,0 +1,23 @@
+{% load thumbnail i18n %}
+<div class="b-block b-wall">
+ <h1 class="header">{% trans "Стена" %}</h1>
+
+ {% for msg in widgets.wall %}
+ <div class="b-message">
+     <div class="b-message-header">
+         <img src="/i/albums/30px.jpg" style="width: 30px; height: 30px; background: #000; display: block; float: left">
+         <h3><a href="{{ msg.from_user.get_absolute_url }}">{{ msg.from_user.get_name }}</a>:</h3>
+     </div>
+     <p>{{ msg.body }}</p>
+ </div>
+ {% endfor %}
+ <div class="b-do-bar">
+     <a href="{% url create_pm profile.pk %}" style="margin-right: 50px;" class="wrote-smth">{% trans "Написать" %}</a>
+     {% if widgets.wall_count %}
+         <a href="{% url wall profile.pk %}">
+             {% blocktrans with widgets.wall_count as count %}Еще {{ count }} сообщений{% endblocktrans %}
+         </a>
+     {% endif %}
+ </div>
+ </div>  
+      
