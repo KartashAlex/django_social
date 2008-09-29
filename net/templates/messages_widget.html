@@ -12,7 +12,7 @@
       </div>
       {% endfor %}
       <div class="b-do-bar">
-          <a href="{% url create_pm profile.pk %}?private=1"  class="wrote-smth">{% trans "Написать" %}</a>
+          <a href="{% url create_pm profile.pk %}?private=1"  class="wrote-smth wrote-smth-btn">{% trans "Написать" %}</a>
           {% if widgets.wall_count %}
               <a href="{% url wall profile.pk %}">
                   {% blocktrans with widgets.messages_count as count %}Еще {{ count }} сообщений{% endblocktrans %}

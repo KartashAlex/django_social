@@ -37,7 +37,7 @@
                                             <div class="b-career-info">
                                             {% trans "Places" %}
                                             {% ifequal profile request.user.user %}
-                                                <a href="{% url add_user_place %}">{% trans "add" %}</a>
+                                                <a class="wrote-smth" href="{% url add_user_place %}">{% trans "add" %}</a>
                                             {% endifequal %}
                                             : 
                                             <ul> 
@@ -52,7 +52,7 @@
                                             {% endfor %}
                                         {% endif %}
                                         {% ifequal profile request.user.user %}
-                                            <a href="{% url add_user_place %}">{% trans "Добавить место" %}</a>
+                                            <a class="wrote-smth" href="{% url add_user_place %}">{% trans "Добавить место" %}</a>
                                         {% endifequal %}
                                     </div>
                                     {% if profile.interest %}

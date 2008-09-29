@@ -259,11 +259,13 @@ table td {
     margin: 3px 10px 0 0;
 }
 .wrote-smth {
+
+}
+.wrote-smth-btn {
     margin: 0 0 0 10px;
     float: left;
     padding-bottom: 10px;
 }
-
 
 
 

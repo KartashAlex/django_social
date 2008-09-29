@@ -12,7 +12,7 @@
     </div>
     {% endfor %}
     <div class="b-do-bar">
-        <a href="{% url post_add %}" style="margin-right: 50px;" class="wrote-smth">{% trans "Написать" %}</a>
+        <a href="{% url post_add %}" style="margin-right: 50px;" class="wrote-smth wrote-smth-btn">{% trans "Написать" %}</a>
         {% if widgets.blog.ads_count %}
             <a href="{% url post_list profile.pk,"ads" %}">
                 {% blocktrans with widgets.blog.ads_count as count %}Еще {{ count }} сообщений{% endblocktrans %}
