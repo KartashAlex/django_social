@@ -287,8 +287,26 @@ table td {
     float: left;
 }
 .b-right-column {
-        overflow: hidden;
+    overflow: hidden;
     width: 58%;
     margin-right: 2%;
     float: right;
+}
+.b-photo-gallery {
+    background: #fff;
+    margin: 10px;
+    display: block;
+}
+.b-photo-gallery .b-photo {
+
+    display: inline;
+}
+.b-photo-gallery .b-photo img {
+    margin: 15px 0 15px 15px;
+    border: solid 1px #f0f0f0;
+}
+.b-add-photo-block {
+    background: #fff;
+    padding: 10px;
+    margin-left: 10px;
 }

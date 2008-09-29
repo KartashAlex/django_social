@@ -1,11 +1,12 @@
 {% extends "base.html" %}
 {% load i18n thumbnail %}
             {% block content %}
-                <img src="{% thumbnail object.image 1200x800 detail,crop %}">
+ <div class="b-photo-gallery">
+                <div style="padding-left: 50%; margin-top: 20px;"><img style="display: block; margin-left: -400px" src="{% thumbnail object.image 800x600 detail,crop %}">
 
-                <div class="b-photos-list">
+               
                     {% for photo in object.album.photos.all %}
-                        <a href="{% url photo photo.album.user.pk,photo.album.pk,photo.pk %}">
+                        <a class="b-photo" href="{% url photo photo.album.user.pk,photo.album.pk,photo.pk %}">
                             <img src="{% thumbnail photo.image 200x200 detail,crop %}"/>
                         </a>
                     {% endfor %}
