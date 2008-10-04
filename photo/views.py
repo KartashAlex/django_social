@@ -12,6 +12,7 @@ def albums(request, user_id):
     kwargs = {
         'queryset': Album.objects.filter(user__pk=user_id),
         'template_name': 'photo_albums.html',
+        'paginate_by': 15,
         'extra_context': {
             'username': user_id,
         },
@@ -27,6 +28,7 @@ def photos(request, user_id, album_id):
     kwargs = {
         'queryset': Photo.objects.filter(album=album),
         'template_name': 'photo_photos.html',
+        'paginate_by': 15,
         'extra_context': {
             'username': user_id,
             'album': album,

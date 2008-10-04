@@ -14,6 +14,7 @@
                     {% endfor %}
                 </div>
                 
+                {% include "paginator.html" %}
 
                 {% ifequal username|stringformat:"s" request.user.user.pk|stringformat:"s" %}
 				    <a href="{% url create_photo %}">{% trans "Добавить фото" %}</a>
