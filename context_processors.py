@@ -20,6 +20,7 @@ def widgets(request, user=None):
         ads = user.posts.filter(type='ads')
         return {
                 'widgets': {
+                    'profile': user,
                     'wall': user.get_messages()[:3],
                     'messages' : user.get_private_messages()[:3],
                     'wall_count': user.get_messages().count() - 3 if user.get_messages().count() > 3 else 0,

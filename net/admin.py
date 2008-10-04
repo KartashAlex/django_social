@@ -1,10 +1,14 @@
 from django.contrib import admin
 
-from models import User, PlaceType, Place, NetGroup as Group
+from models import User, PlaceType, Place, NetGroup as Group, Friend
 
 class UserAdmin(admin.ModelAdmin):
-    pass
+    search_fields=['username']
 admin.site.register(User, UserAdmin)
+
+class FriendAdmin(admin.ModelAdmin):
+    raw_id_fields = ['friend', 'friend_of']
+admin.site.register(Friend, FriendAdmin)
 
 class PlaceTypeAdmin(admin.ModelAdmin):
     pass

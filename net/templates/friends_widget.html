@@ -2,8 +2,8 @@
 			{% if widgets.friends.friends_count %}
 			<div class="b-block b-friends">
 				<h1 class="header">{% trans "Друзья" %}	
-                    {% if widgets.friends.friends_count %} 
-                        (<a  href="{% url list_friends profile.pk %}">{{ widgets.friends.friends_count}}</a>)  
+                    {% if widgets.profile and widgets.friends.friends_count %} 
+                        (<a  href="{% url list_friends widgets.profile.pk %}">{{ widgets.friends.friends_count}}</a>)  
                     {% endif %}
                 </h1>
                 {% if widgets.friends.friends_count %}

@@ -4,25 +4,14 @@
                 {% include "profile_include.html" %}
             {% endblock profile %}
             {% block content %}
-			
-
-			<div class="b-left-column">
-				{% include "messages_widget.html" %}
-				{% include "wall_widget.html" %}
-    			{% include "ads_widget.html" %}			
-			</div>
-			<div class="b-right-column">
-				{% include "friends_widget.html" %}
-				{% include "photos_widget.html" %}
-				{% include "blog_widget.html" %}
-			</div>
-
-
-
-			
-	
-				
-		
-				
-		
+                <div class="b-left-column">
+                    {% include "messages_widget.html" %}
+                    {% include "wall_widget.html" %}
+                    {% include "ads_widget.html" %}			
+                </div>
+                <div class="b-right-column">
+                    {% include "friends_widget.html" %}
+                    {% include "photos_widget.html" %}
+                    {% include "blog_widget.html" %}
+                </div>
             {% endblock content %}
