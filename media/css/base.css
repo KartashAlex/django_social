@@ -219,8 +219,8 @@ table td {
 	width: 990px;
 	
 }
-.b-wall-msg-form { 
-
+.b-user-info-small {
+    color: #cecece;
 }
 .b-wall-msg-form textarea {
 	width: 95%;
@@ -286,6 +286,12 @@ table td {
     width: 38%;
     float: left;
 }
+
+.b-wide-left-column {
+    overflow: hidden;
+    width: 58%;
+    float: left;
+}
 .b-right-column {
     overflow: hidden;
     width: 58%;
@@ -301,6 +307,7 @@ table td {
 
     display: inline;
 }
+
 .b-photo-gallery .b-photo img {
     margin: 15px 0 15px 15px;
     border: solid 1px #f0f0f0;

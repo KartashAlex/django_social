@@ -3,7 +3,8 @@ float: left; display: inline;
 width: 100%;
 overflow: hidden;
 background: #fff;
-margin: 0 10px 0 10px;
+
+padding-bottom: 20px;
 }
 
 
@@ -56,6 +57,12 @@ float: left;
     float: left; display: inline;
     width: 310px;
     margin-left: 50px;
+  
+}
+.b-login-form {
+    margin-top: -410px;
+    float: left;
+    display: inline;
 }
 .b-registration-form input {
 float: left;
