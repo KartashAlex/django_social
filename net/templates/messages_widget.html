@@ -1,5 +1,7 @@
 {% load thumbnail i18n %}
 <div class="b-block b-wall">
+	{% if widgets.messages %}
+	
     <h1 class="header">{% trans "Cообщения" %}</h1>
 
     {% for msg in widgets.messages %}
@@ -23,4 +25,8 @@
             {% endif %}
         </div>
     {% endif %}
+
+{% else %}
+	<h1 class="header">У вас нет сообщений</h1>
+{% endif %}
 </div>
