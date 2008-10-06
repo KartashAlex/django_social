@@ -13,6 +13,8 @@ def messages(request, id=None, type='wall'):
     user_ct = ContentType.objects.get_for_model(User)
     if type == 'outbox' and request.user.is_authenticated():
         messages = messages.filter(from_user=request.user.user)
+    elif type == 'all' and request.user.is_authenticated():
+        messages = messages.filter(from_user=request.user.user) | messages.filter(content_type=user_ct, object_id=request.user.user.pk)
     elif type == 'inbox' and request.user.is_authenticated():
         messages = messages.filter(content_type=user_ct)
         if id:
@@ -35,22 +37,6 @@ def messages(request, id=None, type='wall'):
         },
     }
     return list_detail.object_list(request, **kwargs)
-
-def message(request, id):
-    messages = Message.objects.all()
-    user_ct = ContentType.objects.get_for_model(User)
-    if request.user.is_authenticated():
-        messages = messages.exclude(private=True, content_type=user_ct, object_id__not=request.user.user.pk)
-    else:
-        messages = messages.exclude(private=True)
-    kwargs = {
-        'queryset': messages,
-        'object_id': id,
-        'template_name': 'wall_message.html',
-        'extra_context': {
-        },
-    }
-    return list_detail.object_detail(request, **kwargs)
 
 @login_required
 @render_to('wall_create.html')

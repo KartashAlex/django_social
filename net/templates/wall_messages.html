@@ -7,7 +7,11 @@
 </div>
 <div class="b-right-column">
 			<div class="b-block b-wall" >
-				<h1 class="header">{% trans 'Inbox' %}
+				<h1 class="header">
+				    {% ifequal msg_type "outbox" %}{% trans 'Outbox' %}{% endifequal %}
+				    {% ifequal msg_type "inbox" %}{% trans 'Inbox' %}{% endifequal %}
+				    {% ifequal msg_type "all" %}{% trans 'Messages history' %}{% endifequal %}
+				    {% ifequal msg_type "wall" %}{% trans 'Wall' %}{% endifequal %}
                 </h1>
         		 {% for msg in object_list %}
                         <div class="b-message">
@@ -28,6 +32,11 @@
 			<a href="{{ msg.from_user.get_absolute_url }}">{{ msg.from_user.get_name }}</a>:</h3>
 	     </div>
 		 {{ msg.sent|date:"d.m.Y" }}
+		 {% ifequal msg.from_user user.user %}
+             <a href="{% url create_pm msg.from_user.pk %}?parent={{ msg.id }}">
+                 {% trans "Ответить" %}
+             </a>
+         {% endifequal %} 
 	     <p>{{ msg.body }}</p>
 	</div>
 	
