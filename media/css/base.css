@@ -9,7 +9,7 @@ background: #999999;
 }
 
 h1, h2, h3, h4, h5 {
-font-family: Georgia;
+
 font-weight: normal;
 }
 
@@ -332,4 +332,16 @@ table td {
     list-style: none;
     display: inline;
  
+}
+.comments-form, .comments {
+    margin: 0px 0 0 30px;
+    padding: 0 0 20px 0;
+    
+}
+.comments-form #id_comment {
+    width: 500px;
+    height: 100px;
+}
+.comments-form  .submit-post {
+    margin-top: 10px;
 }
