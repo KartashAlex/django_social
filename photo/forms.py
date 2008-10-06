@@ -36,7 +36,7 @@ class AlbumForm(forms.ModelForm):
 class PhotoForm(forms.ModelForm):
     class Meta:
         model = Photo
-        fields = ['album', 'title', 'image']
+        fields = ['album', 'image']
         
     def __init__(self, *args, **kwargs):
         self.album = None
