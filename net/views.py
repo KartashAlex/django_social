@@ -110,14 +110,21 @@ def edit_interests(request):
         'profile': request.user.user,
     }, context_instance=RequestContext(request))
 
+@login_required
 def user_search(request):
     query = Q()
-    for key in TAG_FIELDS + ['interest', 'first_name', 'last_name', 'username', 'email', 'country__pk', 'city__pk', 'birthdate']:
+    TEXT_SEARCH = TAG_FIELDS + ['interest', 'first_name', 'last_name', 'username', 'email', 'country__name', 'city__name']
+    OTHER_SEARCH = ['birthdate']
+    for key in TEXT_SEARCH + OTHER_SEARCH:
         q = request.REQUEST.getlist(key) or request.REQUEST.getlist('q')
         if q:
             for subq in q:
                 for subsubq in subq.split(' '):
-                    query = query | Q(**{key+'__icontains': subsubq})
+                    if key in TEXT_SEARCH:
+                        query = query | Q(**{key+'__icontains': subsubq})
+                    else:
+                        if request.REQUEST.getlist(key):
+                            query = query | Q(**{key: subsubq})
 
     users = User.objects.all()
     if query != Q():
@@ -125,6 +132,7 @@ def user_search(request):
         
     return list_detail.object_list(request, queryset=users, template_name='users.html', paginate_by=10)
 
+@login_required
 def friends(request, user_id):
     user = get_object_or_404(User, pk=user_id)
     return list_detail.object_list(request, queryset=user.get_friends(), template_name='users.html', paginate_by=10)
