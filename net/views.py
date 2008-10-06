@@ -112,7 +112,7 @@ def edit_interests(request):
 
 def user_search(request):
     query = Q()
-    for key in TAG_FIELDS + ['interest', 'first_name', 'last_name', 'username', 'email']:
+    for key in TAG_FIELDS + ['interest', 'first_name', 'last_name', 'username', 'email', 'country__pk', 'city__pk', 'birthdate']:
         q = request.REQUEST.getlist(key) or request.REQUEST.getlist('q')
         if q:
             for subq in q:
