@@ -1,22 +1,23 @@
 {% extends "base.html" %}
 {% load i18n thumbnail %}
             {% block content %}
- <div class="b-photo-gallery">
-                <div style="padding-left: 50%; margin-top: 20px;"><img style="display: block; margin-left: -400px" src="{% thumbnail object.image 800x600 detail,crop %}">
-
-               
+ <div class="b-photo-gallery"style="padding: 10px 0" >
+                <div style="padding-left: 50%;"><img style="display: block; margin: 10px 0 10px -400px" src="{% thumbnail object.image 800x600 detail,crop %}">
+				</div>
+				 {% include "comments/comments_include.html" %}
+				</div>
+			
+               <div class="b-photo-gallery" style="height: 230px; overflow: hidden;">
+		
                     {% for photo in object.album.photos.all %}
                         <a class="b-photo" href="{% url photo photo.album.user.pk,photo.album.pk,photo.pk %}">
                             <img src="{% thumbnail photo.image 200x200 detail,crop %}"/>
                         </a>
                     {% endfor %}
                 </div>
-
-                <div style="clear: both"> 
-                    {% ifequal object.album.user.pk|stringformat:"s" request.user.user.pk|stringformat:"s" %}
-                        <a href="{% url create_photo %}?album_id={{ object.album.pk }}">{% trans "Добавить фото" %}</a>
-                    {% endifequal %}
-                    {% include "comments/comments_include.html" %}
-                </div>
-      
+					 {% ifequal album.user.pk|stringformat:"s" request.user.user.pk|stringformat:"s" %}
+						    <a class="b-add-photo-block"  href="{% url create_photo %}?album_id={{ album.pk }}">{% trans "Добавить фото" %}</a>
+		                {% endifequal %}
+                
+              
             {% endblock content %}
