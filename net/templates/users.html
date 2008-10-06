@@ -1,14 +1,24 @@
 {% extends "base.html" %}
-{% load i18n interests %}
+{% load i18n interests thumbnail %}
     {% block content %}
-        <ul>
+        	<div class="b-wide-left-column">
         {% for user in object_list %}
-            <li><a href="{% url user_profile user.pk %}">{{ user.get_name }}</a></li>
+		
+			<div class="b-block" >
+            	<div><a style="float: left; margin: 10px" href="{% url user_profile user.pk %}"><img src="{% thumbnail user.avatar 100x100 %}" /></a>
+					<div style="margin: 20px 0 0 20px; float: left"><a href="{% url user_profile user.pk %}">{{ user.get_name }}</a>
+						<div сlass="b-user-info-small" style="color: #c0c0c0">{{ user.birthdate }}
+						{{ user.country }}
+						{{ user.city }}</div>
+					</div>
+			</div>
+			</div>
         {% endfor %}
-        </ul>
+       </div>
                             
-        {% include "paginator.html" %}
+       
 
         <div class="clear"></div>
+ {% include "paginator.html" %}
     {% endblock content %}
   

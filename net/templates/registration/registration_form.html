@@ -21,6 +21,7 @@
                 <p class="notation">Мы бережно храним ваш email в соответствии с &laquo;<a href="#">Условиями о хранении персональной информации</a>&raquo;</p>
                 </form>
             </div>
+			<div class="b-login-form">
             <form class="b-registration-form" action="{% url auth_login %}" method="post">
                 <h2>Уже зарегистрированы?</h2>
                 <fieldset><label for="username">E-mail</label><input name="username" id="username" /></fieldset>
@@ -29,7 +30,7 @@
                 <input type="submit" value="войти" class="signup-btn"/>
 <p class="b-recover-password"><a href="{% url auth_password_reset %}">{% trans "Recover password" %}</a></p>
             </form>
-            
+            </div>
         </div>
     </div>
 
