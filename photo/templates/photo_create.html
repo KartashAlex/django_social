@@ -7,18 +7,19 @@
                             <form enctype="multipart/form-data" method="post" action="{% url create_photo  %}">
                                 <div class="b-fields-group main-fields">
                              
-                                    <table>
-                                        {{ album_form.as_table }}
+                                  
+                                        {% if album_form.fields.album.choices %} Выберите  {{ album_form.album }} или {% endif %} создайте новый альбом:<fieldset>{{ album_form.title }} </fieldset>
+   										
                                         {{ photo_forms.management_form.as_table }}
+										<fieldset>выберите фотографии:</fieldset>
                                         {% for form in photo_forms.forms %}
-                                            <tr>
-                                                <td colspan="2">#{{ forloop.counter }}</td>
-                                            </tr>
-                                            {{ form.as_table }}
+											<fieldset>
+                                            {{ form.image }}
+											</fieldset>
                                         {% endfor %}
-                                    </table>
+                                   
                 
-                                    <input type="submit" value="Cоздать"/>
+                                    <input style="margin-top: 10px" type="submit" value="Загрузить"/>
                                 </div>
                             </form>
                         </div>

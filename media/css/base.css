@@ -289,6 +289,13 @@ table td {
     width: 58%;
     float: left;
 }
+.b-form-as-table {
+    margin-top: 20px;
+}
+.b-form-as-table th {
+    font-weight: normal; 
+    padding: 5px;
+}
 .b-right-column {
     overflow: hidden;
     width: 58%;
@@ -313,4 +320,16 @@ table td {
     background: #fff;
     padding: 10px;
     margin-left: 10px;
+}
+
+.paginator {
+    background: #fff;
+    margin: 10px;
+    padding: 10px;
+}
+.paginator li {
+    font-size: 1.1em;
+    list-style: none;
+    display: inline;
+ 
 }
