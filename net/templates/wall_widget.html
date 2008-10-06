@@ -22,7 +22,7 @@
  </div>
 	{% else %}
 	<h1 class="header">{% trans "Стена пуста" %}</h1>
-	<p><a href="{% url search %}">Найдите друзей, и они вам что-нибудь напишут</a> или попробуйте сами <a href="{% url create_pm profile.pk %}" style="margin-right: 50px;" class="wrote-smth wrote-smth-btn">{% trans "Написать" %}</a></p>
+	<p><a href="{% url user_search %}">Найдите друзей, и они вам что-нибудь напишут</a> или попробуйте сами <a href="{% url create_pm profile.pk %}" style="margin-right: 50px;" class="wrote-smth wrote-smth-btn">{% trans "Написать" %}</a></p>
 	{% endif %}
  </div>  
       

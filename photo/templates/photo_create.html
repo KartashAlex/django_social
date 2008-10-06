@@ -6,7 +6,6 @@
                             <h1>{% trans "Добавить фотографии" %}</h1>
                             <form enctype="multipart/form-data" method="post" action="{% url create_photo  %}">
                                 <div class="b-fields-group main-fields">
-                             
                                     <table>
                                         {{ album_form.as_table }}
                                         {{ photo_forms.management_form.as_table }}

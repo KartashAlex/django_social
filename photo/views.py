@@ -62,7 +62,7 @@ def create_photo(request):
             for form in photo_formset.forms:
                 if form.is_valid():
                     form.save()
-            return HttpResponseRedirect('/me')
+            return HttpResponseRedirect(album.get_absolute_url())
     else:
         album_form = AlbumForm(album_id=request.REQUEST.get('album_id'), user=request.user.user)
         photo_formset = PhotoFormSet()
