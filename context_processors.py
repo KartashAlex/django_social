@@ -17,7 +17,7 @@ def widgets(request, user=None):
     try:
         events_owner = request.user.user
         events = (events_owner.events_in.all() | events_owner.events_out.all()).order_by('-sent')[:10]
-    except User.DoesNotExist:
+    except (User.DoesNotExist, AttributeError):
         events = []
     
     try:
