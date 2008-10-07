@@ -2,7 +2,7 @@
 {% load i18n thumbnail %}
             {% block content %}
 <div class="b-left-column">
-			{% include "messages_widget.html" %}
+		   {% include "events_widget.html" %}
 				{% include "friends_widget.html" %}
 </div>
 <div class="b-right-column">
@@ -15,20 +15,23 @@
                 </h1>
         		 {% for msg in object_list %}
                         <div class="b-message">
-
+					
         {% include "message_header.html" %}
-        {% if msg.private %}
-        {% trans "личное сообщение" %}
-        {% else %}
-        {% trans "стена" %}
-        {% endif %}
-        {{ msg.sent|date:"d.m.Y" }}
-        {% ifequal msg.from_user user.user %}
-         <a href="{% url create_pm msg.from_user.pk %}?parent={{ msg.id }}">
+     
+
+        <p>{{ msg.body }}</p>
+        {{ msg.sent|date:"d.m.Y" }} 
+        {% ifnotequal msg.from_user user.user %}|
+        {% if msg.private %} 
+		<a class="wrote-smth" href="{% url create_pm msg.from_user.pk %}?parent={{ msg.id }}">
              {% trans "Ответить" %}
          </a>
-        {% endifequal %} 
-        <p>{{ msg.body }}</p>
+		{% else %}
+		<a class="wrote-smth" href="{% url create_pm msg.from_user.pk %}?parent={{ msg.id }}">
+             {% trans "Ответить на стене пользователя " %}
+         </a>
+		{% endif %}
+        {% endifnotequal %}
 	</div>
 	
                            

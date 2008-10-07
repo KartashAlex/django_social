@@ -3,7 +3,7 @@ height: 100%;
 
 }
 body {
-font: normal 0.8em Arial, Helvetica, Sans-Serif;
+font: normal 0.9em Arial, Helvetica, Sans-Serif;
 color: #2b2e2e;
 background: #999999;
 }
@@ -130,13 +130,17 @@ table td {
 	border-bottom: solid 1px #efefef;
 	width: 100%;
 }
+.b-wall .b-message p {
+    margin: 15px 0 10px 0;
+}
 .b-message-header {
 	height: 30px; 
 	padding-top: 5px;
+	margin-bottom: 5px;
 
 }
 .b-message-header img {
-	margin: -5px 10px 0 0;
+	margin: 5px 10px 0 0;
 }
 .b-photos {
 	width: 100%;

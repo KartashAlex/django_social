@@ -19,14 +19,14 @@ width: 310px;
 float: left; display: inline;
 padding-right: 50px;
 border-right: solid 1px #e2e2e2;
-margin-left: -361px;
+margin-left: -362px;
 }
-   .b-registration-info ul {
-list-style: none;
-margin-top: 20px;
+.b-registration-info ul {
+       list-style: none;
+     margin-top: 20px;
 }
-      .b-registration-info ul li {
-margin-top: 10px;
+.b-registration-info ul li {
+    margin-top: 10px;
 }
 
 
@@ -46,9 +46,7 @@ float: left;
     float: left; display: inline;
     text-align: right;
     width: 150px;
-
     margin-top: 1px;
-
     padding-right: 5px;
     
 }
@@ -60,7 +58,7 @@ float: left;
   
 }
 .b-login-form {
-    margin-top: -410px;
+                                  
     float: left;
     display: inline;
 }
