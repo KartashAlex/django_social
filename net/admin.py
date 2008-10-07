@@ -1,6 +1,11 @@
 from django.contrib import admin
 
-from models import User, PlaceType, Place, NetGroup as Group, Friend
+from models import User, PlaceType, Place, NetGroup as Group, Friend, Event
+
+class EventsAdmin(admin.ModelAdmin):
+    list_display = ['from_user', 'user', 'type', 'sent']
+    search_fields=['from_user__username', 'user__username']
+admin.site.register(Event, EventsAdmin)
 
 class UserAdmin(admin.ModelAdmin):
     search_fields=['username']

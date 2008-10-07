@@ -3,6 +3,7 @@
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render_to_response, get_object_or_404
+from django.contrib.contenttypes.models import ContentType
 from django.template import RequestContext
 from django.conf import settings
 from django.views.generic import list_detail

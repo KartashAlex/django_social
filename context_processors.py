@@ -15,12 +15,19 @@ def widgets(request, user=None):
     from django.db.models import ObjectDoesNotExist
     from photo.models import Photo, User
     try:
+        events_owner = request.user.user
+        events = (events_owner.events_in.all() | events_owner.events_out.all()).order_by('-sent')[:10]
+    except User.DoesNotExist:
+        events = []
+    
+    try:
         user = user or request.user.user
         posts = user.posts.filter(type='blog')
         ads = user.posts.filter(type='ads')
         return {
                 'widgets': {
                     'profile': user,
+                    'events': events,
                     'wall': user.get_messages()[:3],
                     'messages' : user.get_private_messages()[:3],
                     'wall_count': user.get_messages().count() - 3 if user.get_messages().count() > 3 else 0,

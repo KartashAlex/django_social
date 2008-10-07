@@ -5,7 +5,9 @@ from django.contrib.auth.models import User as DjangoUser
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.contenttypes.models import ContentType
 from django.core.urlresolvers import reverse
-
+from django.contrib.sites.models import Site
+from django.template.loader import render_to_string
+    
 import re
 
 from places.models import City, Country
@@ -206,3 +208,40 @@ class NetGroup(models.Model):
 
     def admins_list(self):
         return ', '.join([a.get_name() for a in self.admins.all()])
+
+
+# events processing
+
+from django.db.models import signals
+
+class EventManager(models.Manager):
+    def create_event(self, sender, user, type='event', extra={}, msg=''):
+        if not msg:
+            site = Site.objects.get_current()
+            extra.update({'site': site, 'sender': sender, 'user': user})
+            msg = render_to_string('emails/%s.txt' % (type), extra)
+
+        return self.create(from_user=sender, user=user, body=msg, type=type)
+
+class Event(models.Model):
+    from_user = models.ForeignKey(User, related_name='events_out', verbose_name=_('Generator'))
+    user = models.ForeignKey(User, related_name='events_in', verbose_name=_('Respondent'))
+    
+    body = models.TextField(_('Body'))
+    type = models.CharField(_('Type'), max_length=255, editable=False)
+    sent = models.DateTimeField(_('Sent time'), auto_now_add=True)
+    
+    objects = EventManager()
+    
+    def get_address(self):
+        return self.user
+
+def add_friend(sender, **kwargs):
+    friend, friend_of = kwargs['instance'].friend, kwargs['instance'].friend_of
+    Event.objects.create_event(friend_of, friend, 'friend_add')
+signals.post_save.connect(add_friend, sender=Friend)
+
+def delete_friend(sender, **kwargs):
+    friend, friend_of = kwargs['instance'].friend, kwargs['instance'].friend_of
+    Event.objects.create_event(friend_of, friend, 'friend_delete')
+signals.pre_delete.connect(delete_friend, sender=Friend)
