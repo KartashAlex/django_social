@@ -1,12 +1,12 @@
 {% load thumbnail i18n %}
 		
 			<div class="b-block b-friends">
-					{% if widgets.friends.friends_count %}
-				<h1 class="header">{% trans "Друзья" %}	
-                    {% if widgets.profile and widgets.friends.friends_count %} 
-                        (<a  href="{% url list_friends widgets.profile.pk %}">{{ widgets.friends.friends_count}}</a>)  
-                    {% endif %}
-                </h1>
+                {% if widgets.friends.friends_count %}
+                    <h1 class="header">{% trans "Друзья" %}	
+                        {% if widgets.profile and widgets.friends.friends_count %} 
+                            (<a  href="{% url list_friends widgets.profile.pk %}">{{ widgets.friends.friends_count}}</a>)  
+                        {% endif %}
+                    </h1>
               
                     {% for friend in widgets.friends.friends_list %}
                         <div class="b-friend-thumbnail" > 
@@ -19,11 +19,18 @@
                         </div>
                     {% endfor %}
                 {% else %}
-					{% ifequal profile.user.pk request.user.pk %}
-                    {% trans "У вас нет друзей, попробуйте их найти" %}
-					{% else %}
-					 <h2 class="header">У пользователя нет друзей, но его <a href="{% url change_friend profile.pk 1 %}">{% trans "можно добавить" %}</a></h2>
-					{% endifequal %}
+                    {% if profile %}
+                        {% ifequal profile.user.pk request.user.pk %}
+                            {% trans "У вас нет друзей, попробуйте их найти" %}
+                        {% else %}
+                            <h2 class="header">
+                                У пользователя нет друзей, но его 
+                                <a href="{% url change_friend profile.pk,1 %}">{% trans "можно добавить" %}</a>
+                            </h2>
+                        {% endifequal %}
+                    {% else %}
+                        {% trans "У вас нет друзей, попробуйте их найти" %}
+                    {% endif %}
 				{% endif %}
 				
 			</div>

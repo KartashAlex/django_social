@@ -24,9 +24,11 @@
                   {% blocktrans with widgets.messages_count as count %}Еще {{ count }} сообщений{% endblocktrans %}
                 </a>
             {% endif %}
-            <a href="{% url my_history %}">
-               {% blocktrans %}История моих сообщений{% endblocktrans %}
-            </a>
+            {% ifnotequal msg_type "all" %}
+                <a href="{% url my_history %}">
+                   {% blocktrans %}История моих сообщений{% endblocktrans %}
+                </a>
+            {% endifnotequal %}
         </div>
     {% endif %}
 
