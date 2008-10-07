@@ -46,8 +46,11 @@
 				
 					return false;
 				});
-
-
+				$('.b-setlang a').click(function(){
+					var _t = this;
+					$.post('/i18n/setlang/', {'language': $(_t).attr('rel')}, function(){window.location.reload()});
+					return false;
+				});
 		});
 		
 		 
@@ -67,13 +70,13 @@
 						 {% if user.is_authenticated %}
 				                <a class="b-logout-btn" href="{% url auth_logout %}">{% trans "Выйти" %}</a>
 				         {% endif %}
-							<div class="b-setlang" action="" method="post">
+							<div class="b-setlang" action="">
 
 			                    {% for lang in settings.LANGUAGES %}
 			                     	{% ifequal request.session.django_language lang.0 %}
 										<b>/{{ lang.0 }}</b>
 									{% else %}
-										<a href="/i18n/setlang/" class="lang-btn">/{{ lang.0 }}</a>
+										<a href="/i18n/setlang/" rel="{{ lang.0 }}" class="lang-btn">/{{ lang.0 }}</a>
 									{% endifequal %}
 
 
