@@ -113,6 +113,7 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/me/'
+LOGOUT_REDIRECT_URL = '/accounts/register/'
 ACCOUNT_ACTIVATION_DAYS = 14
 
 try:
