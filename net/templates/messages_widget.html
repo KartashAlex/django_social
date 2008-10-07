@@ -1,7 +1,8 @@
 {% load thumbnail i18n %}
+	
 <div class="b-block b-wall">
 	{% if widgets.messages %}
-	
+
     <h1 class="header">{% trans "Cообщения" %}</h1>
 
     {% for msg in widgets.messages %}
@@ -16,7 +17,7 @@
     {% if widgets.profile %}
         <div class="b-do-bar">
             {% ifnotequal widgets.profile user.user %}
-                <a href="{% url create_pm widgets.profile.pk %}?private=1"  class="wrote-smth wrote-smth-btn">{% trans "Написать" %}</a>
+                <a href="{% url create_pm widgets.profile.pk %}?private=1"  class="wrote-smth wrote-smth-btn">{% trans "Написать" %}</a>&nbsp;
             {% endifnotequal %}
             {% if widgets.wall_count %}
                 <a href="{% url wall widgets.profile.pk %}">
@@ -24,12 +25,16 @@
                 </a>
             {% endif %}
             <a href="{% url my_history %}">
-              {% blocktrans %}История моих сообщений{% endblocktrans %}
+               {% blocktrans %}История моих сообщений{% endblocktrans %}
             </a>
         </div>
     {% endif %}
 
 {% else %}
-	<h1 class="header">У вас нет сообщений</h1>
+	{% ifequal profile.user.pk request.user.pk %}
+		 	<h1 class="header">У вас нет сообщений</h1>
+	{% else %}
+	 <h1 class="header"><a href="{% url create_pm widgets.profile.pk %}?private=1"  class="wrote-smth">{% trans "Отправить личное сообщение" %}</a></h1>
+	{% endifequal %}
 {% endif %}
 </div>

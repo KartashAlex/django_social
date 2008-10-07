@@ -1,6 +1,7 @@
 {% load thumbnail i18n %}
+{% if widgets.photos %}
 	<div class="b-block b-photos">
-		{% if widgets.photos %}
+		
 		<h1 class="header">
 			{% trans "Фотографии" %}
 			{% if widgets.photos.photos_count %} 
@@ -13,8 +14,11 @@
                     <img src="{% thumbnail photo.image 120x70 crop,detail,upscale %}"  />
                 </a>
             {% endfor %}				
-            </div>
+            </div>	</div>
         {% else %}
+{% ifequal profile.user.pk request.user.pk %}
+	<div class="b-block b-photos">
 <h1 class="header"><a href="{% url create_photo %}">{% trans "Загрузите фотографии" %}</a></h1>
+</div>
+{% endifequal %}
 		{% endif %}
-	</div>

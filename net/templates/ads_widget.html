@@ -1,6 +1,7 @@
 {% load thumbnail i18n %} 
+ {% if widgets.blog.ads %} 
 <div class="b-block b-wall">
-    {% if widgets.blog.ads %} <h1 class="header">{% trans "Обьявления" %}</h1>
+   <h1 class="header">{% trans "Обьявления" %}</h1>
 
     {% for ad in widgets.blog.ads %}
     <div class="b-message">
@@ -19,10 +20,14 @@
             </a>
         {% endif %}
     </div>
-
+ </div>
 	{% else %}
+	{% ifequal profile.user.pk request.user.pk %}
+	<div class="b-block b-wall">
 	<h1 class="header">
 	У вас нет обьявлений, <a href="{% url post_add %}" class="wrote-smth">добавьте</a>
 	</h1>
+	</div>
+	{% endifequal %}
 		{% endif %}
-    </div>
+   
