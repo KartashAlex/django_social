@@ -9,7 +9,7 @@ from django.core.urlresolvers import reverse
 from models import Message, User
 
 def messages(request, id=None, type='wall'):
-    messages = Message.objects.all()
+    messages = Message.objects.all().order_by('-sent')
     user_ct = ContentType.objects.get_for_model(User)
     if type == 'outbox' and request.user.is_authenticated():
         messages = messages.filter(from_user=request.user.user)
