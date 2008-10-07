@@ -1,0 +1,7 @@
+{% load net i18n %}
+{% trans "Вас удалил из друзей" %} <a href="http://{{ site.domain }}{{ sender.get_absolute_url }}">{{ sender.get_name }}</a>. 
+{% ifin sender user.get_friends.all %}
+    {{ sender.get_name }}{% trans " не является Вашим другом." %}
+{% else %}
+    {% trans "Вы тоже можете" %} <a href="http://{{ site.domain }}{% url change_friend sender.pk,0 %}">{% trans "удалить его из друзей." %}</a>
+{% endifin %}

@@ -1,0 +1,16 @@
+{% load thumbnail i18n %}
+	
+<div class="b-block b-wall">
+{% if widgets.events %}
+    <h1 class="header">{% trans "События" %}</h1>
+
+    {% for msg in widgets.events %}
+    <div class="b-message">
+        {% include "message_header.html" %}
+        <p>{{ msg.body|safe }}</p>
+    </div>
+    {% endfor %}
+{% else %}
+    <h1 class="header">{% trans "Пока ничего не произошло." %}</h1>
+{% endif %}
+</div>

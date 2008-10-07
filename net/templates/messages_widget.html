@@ -7,11 +7,8 @@
 
     {% for msg in widgets.messages %}
     <div class="b-message">
-      <div class="b-message-header">
-          <img src="/i/albums/30px.jpg" style="width: 30px; height: 30px; background: #000; display: block; float: left">
-          <h3><a href="{{ msg.from_user.get_absolute_url }}">{{ msg.from_user.get_name }}</a>:</h3>
-      </div>
-      <p>{{ msg.body }}</p>
+        {% include "message_header.html" %}
+        <p>{{ msg.body }}</p>
     </div>
     {% endfor %}
     {% if widgets.profile %}

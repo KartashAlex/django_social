@@ -1,0 +1,18 @@
+{% load thumbnail i18n %}
+		 <div class="b-message-header">
+	         <img src="/i/albums/30px.jpg" style="width: 30px; height: 30px; background: #000; display: block; float: left">
+	         <h3>	        
+            {% ifequal msg.from_user user.user %}
+                {% trans "Для:" %} 
+                <a href="{{ msg.get_address.get_absolute_url }}">
+                    {{ msg.get_address.get_name }}
+                </a>
+            {% else %}
+                {% trans "От:" %} 
+                <a href="{{ msg.from_user.get_absolute_url }}">
+                    {{ msg.from_user.get_name }}
+                </a>
+            {% endifequal %} 
+            :
+            </h3>
+	     </div>

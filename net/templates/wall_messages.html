@@ -16,34 +16,19 @@
         		 {% for msg in object_list %}
                         <div class="b-message">
 
-		 <div class="b-message-header">
-	         <img src="/i/albums/30px.jpg" style="width: 30px; height: 30px; background: #000; display: block; float: left">
-	         <h3>	        
-            {% ifequal msg.from_user user.user %}
-                {% trans "Для:" %} 
-                <a href="{{ msg.get_address.get_absolute_url }}">
-                    {{ msg.get_address.get_name }}
-                </a>
-            {% else %}
-                {% trans "От:" %} 
-                <a href="{{ msg.from_user.get_absolute_url }}">
-                    {{ msg.from_user.get_name }}
-                </a>
-            {% endifequal %} 
-            <a href="{{ msg.from_user.get_absolute_url }}">{{ msg.from_user.get_name }}</a>:</h3>
-	     </div>
-	     {% if msg.private %}
-	        {% trans "личное сообщение" %}
-         {% else %}
-	        {% trans "стена" %}
-         {% endif %}
-		 {{ msg.sent|date:"d.m.Y" }}
-		 {% ifequal msg.from_user user.user %}
-             <a href="{% url create_pm msg.from_user.pk %}?parent={{ msg.id }}">
-                 {% trans "Ответить" %}
-             </a>
-         {% endifequal %} 
-	     <p>{{ msg.body }}</p>
+        {% include "message_header.html" %}
+        {% if msg.private %}
+        {% trans "личное сообщение" %}
+        {% else %}
+        {% trans "стена" %}
+        {% endif %}
+        {{ msg.sent|date:"d.m.Y" }}
+        {% ifequal msg.from_user user.user %}
+         <a href="{% url create_pm msg.from_user.pk %}?parent={{ msg.id }}">
+             {% trans "Ответить" %}
+         </a>
+        {% endifequal %} 
+        <p>{{ msg.body }}</p>
 	</div>
 	
                            
