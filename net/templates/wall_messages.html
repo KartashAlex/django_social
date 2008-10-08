@@ -2,11 +2,16 @@
 {% load i18n thumbnail %}
             {% block content %}
 <div class="b-left-column">
-		   {% include "events_widget.html" %}
+	
+			{% include "messages_widget.html" %}
 				{% include "friends_widget.html" %}
 </div>
 <div class="b-right-column">
 			<div class="b-block b-wall" >
+				<div class="corner-left"></div>
+				<div class="corner-right"></div>
+					<div class="corner-left bottom"></div>
+					<div class="corner-right bottom"></div>
 				<h1 class="header">
 				    {% ifequal msg_type "outbox" %}{% trans 'Outbox' %}{% endifequal %}
 				    {% ifequal msg_type "inbox" %}{% trans 'Inbox' %}{% endifequal %}

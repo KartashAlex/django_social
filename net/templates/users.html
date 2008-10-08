@@ -2,22 +2,36 @@
 {% load i18n interests thumbnail %}
     {% block content %}
         	<div class="b-wide-left-column">
+	<div class="b-block" >
+			<div class="corner-left"></div>
+			<div class="corner-right"></div>
+			<div class="corner-left bottom"></div>
+			<div class="corner-right bottom"></div>
+			<div class="b-users-list">
         {% for user in object_list %}
 		
-			<div class="b-block" >
-            	<div><a style="float: left; margin: 10px" href="{% url user_profile user.pk %}"><img src="{% thumbnail user.avatar 100x100 %}" /></a>
+			
+			
+            	<div class="b-user"><a class="medium-avatar"  href="{% url user_profile user.pk %}"><img src="{% thumbnail user.avatar 100x100 %}" /></a>
 					<div style="margin: 20px 0 0 20px; float: left"><a href="{% url user_profile user.pk %}">{{ user.get_name }}</a>
 						<div сlass="b-user-info-small" style="color: #c0c0c0">{{ user.birthdate }}
 						{{ user.country }}
 						{{ user.city }}</div>
 					</div>
 			</div>
-			</div>
+			
         {% endfor %}
+</div>
+
+</div>
        </div>
                             
        
-
+	<div class="b-left-column" style="margin-left: 20px">
+		 {% include "messages_widget.html" %}
+		{% include "friends_widget.html" %}
+		  {% include "events_widget.html" %}
+	</div>
         <div class="clear"></div>
  {% include "paginator.html" %}
     {% endblock content %}

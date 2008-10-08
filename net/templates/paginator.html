@@ -1,6 +1,12 @@
 {% load i18n net %}
 {% if page_obj.has_other_pages %}
-<ul class="paginator">
+<div class="b-block paginator">
+		<div class="corner-left"></div>
+		<div class="corner-right"></div>
+			<div class="corner-left bottom"></div>
+			<div class="corner-right bottom"></div>
+<ul>
+
     {% if page_obj.has_previous %}
     <li><a href="?page={{ page_obj.previous_page_number }}">{% trans "Предыдущая" %}</a></li>
     {% endif %}
@@ -23,5 +29,6 @@
     <li><a href="?page={{ page_obj.next_page_number }}">{% trans "Следующая" %}</a></li>
     {% endif %}
 </ul>
+</div>
 {% endif %}
 

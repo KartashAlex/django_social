@@ -317,7 +317,7 @@ table td {
 }
 
 .b-wide-left-column {
-    overflow: hidden;
+
     width: 58%;
     float: left;
 }
@@ -356,8 +356,13 @@ table td {
 
 .paginator {
     background: #fff;
-    margin: 10px;
-    padding: 10px;
+
+    height: 40px;
+    width: 90%;
+
+}
+.paginator ul {
+    margin: 8px 0 0 20px;
 }
 .paginator li {
     font-size: 1.1em;
@@ -379,4 +384,19 @@ table td {
 }
 #write-smth {
     display: none;
+}
+.b-user {
+    display: block;
+    width: 90%;
+    margin-left: 20px;
+    float: left;
+}
+.b-user .medium-avatar {
+    margin: 10px 10px 10px 0;
+    float: left;
+}
+.b-users-list {
+    margin-top: 10px;
+    float: left;
+    width: 100%;
 }

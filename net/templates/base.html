@@ -1,41 +1,47 @@
+{% load i18n %}
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-{% load i18n thumbnail %}
-    <head>
-        <title>
-            {% block "title" %}{% trans "RT TV" %}{% endblock "title" %}
-        </title>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <link rel="stylesheet" href="/i/css/base.css" type="text/css" />
-        <link rel="stylesheet" href="/i/css/head.css" type="text/css" />
-        <link rel="stylesheet" href="/i/css/registration.css" type="text/css" />
-        <link rel="stylesheet" href="/i/css/footer.css" type="text/css" />
-        <link rel="stylesheet" href="/i/css/personal_info.css" type="text/css" />
-        <link rel="stylesheet" href="/i/css/thickbox.css" type="text/css" />
-		<script type="text/javascript" src="/i/js/jquery.min.js"></script>
-		<script type="text/javascript" src="/i/js/jquery-ui.min.js"></script>
-		        <script src="/i/js/thickbox-compressed.js" type="text/javascript"></script>
-		  {% block head %}        
-	        {% endblock head %}
-		<script type="text/javascript">
+	<head>
+		<title>
+			{% block "title" %}{% trans "RT TV" %}{% endblock "title" %}
+		</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" href="/i/css/base.css" type="text/css" />
+		<link rel="stylesheet" href="/i/css/head.css" type="text/css" />
+		<link rel="stylesheet" href="/i/css/registration.css" type="text/css" />
+		<link rel="stylesheet" href="/i/css/footer.css" type="text/css" />
+		<link rel="stylesheet" href="/i/css/personal_info.css" type="text/css" />
+		<link rel="stylesheet" href="/i/css/thickbox.css" type="text/css" />
+	</head>
+	<body>
+		<p>
+			{% load i18n thumbnail %}
+		</p><script type="text/javascript" src="/i/js/jquery.min.js">
+</script><script type="text/javascript" src="/i/js/jquery-ui.min.js">
+</script><script src="/i/js/thickbox-compressed.js" type="text/javascript">
+</script>
+		<p>
+			{% block head %} {% endblock head %}
+		</p><script type="text/javascript">
+//<![CDATA[
 			$(function(){
-		
+
 				$('.wrote-smth').click(function(){
 				var _t = this;
-				    
+					
 				 $.get($(_t).attr('href'), function(data){
 					$('body').append(data);
 					$('#write-smth').dialog({
 						width: 450, 
 						height: 240, 
 						modal: true, 
-				    	overlay: { 
-				        	opacity: 0.5, 
-				        	background: "black" 
+						overlay: { 
+							opacity: 0.5, 
+							background: "black" 
 						},
 						close: function(){
-							$('#write-smth').remove();		
+							$('#write-smth').remove();      
 						}
 					});
 					$('#write-smth').show();
@@ -52,72 +58,35 @@
 					return false;
 				});
 		});
-		
+
 		 
+		//]]>
 		</script>
-              
-    </head>
-    <body>
-        <div class="b-page-container">
-		<div class="min-width">&nbsp;</div>
-            <div class="b-head">
-                <div class="b-menu">
-                    <a href="{% url my_profile %}">Люди</a> 
-                    <a href="{% url groups_list %}">Группы</a> 
-                    <a href="#">RTTV</a>
-                </div>
-				<div class="b-head-right">
-						 {% if user.is_authenticated %}
-				                <a class="b-logout-btn" href="{% url auth_logout %}">{% trans "Выйти" %}</a>
-				         {% endif %}
-							<div class="b-setlang" action="">
-
-			                    {% for lang in settings.LANGUAGES %}
-			                     	{% ifequal request.session.django_language lang.0 %}
-										<b>/{{ lang.0 }}</b>
-									{% else %}
-										<a href="/i18n/setlang/" rel="{{ lang.0 }}" class="lang-btn">/{{ lang.0 }}</a>
-									{% endifequal %}
-
-
-			                    {% endfor %}
-			               		и прочие <a href="#">Настройки</a>
-
-							</div>
-					
-					 <form class="b-fast-search" action="{% url user_search %}" method="post">
-			                <input type="text" name="q" value="{{ request.REQUEST.q }}" />
-			                <input type="submit" value="Искать" />
-			            </form>
-		
-				
-				 
-				
+		<div class="b-page-container">
+			<div class="min-width">
+				&nbsp;
+			</div>
+			<div class="b-head">
+				<div class="b-menu">
+					<a href="{% url my_profile %}">Люди</a> <a href="{% url groups_list %}">Группы</a> <a href="#">RTTV</a>
 				</div>
-            </div>
-            <div class="b-min-height">
-                &nbsp;
-            </div>
-
-            <div class="b-content-container">
-          
-            
-           
-            
-            {% block profile %}
-                {% if request.user.is_authenticated %}
-                    {% with request.user.user as profile %}
-                        {% include "profile_include.html" %}
-                    {% endwith %}
-                {% endif %}
-            {% endblock profile %}
-           
-            {% block content %}
-             
-            {% endblock content %}
-            </div>
-        
-     
-        <div class="b-footer"></div>
-    </body>
+				<div class="b-head-right">
+					{% if user.is_authenticated %} <a class="b-logout-btn" href="{% url auth_logout %}">{% trans "Выйти" %}</a> {% endif %}
+					<div class="b-setlang" action="">
+						{% for lang in settings.LANGUAGES %} {% ifequal request.session.django_language lang.0 %} <b>/{{ lang.0 }}</b> {% else %} <a href="/i18n/setlang/" rel="{{ lang.0 }}" class="lang-btn">/{{ lang.0 }}</a> {% endifequal %} {% endfor %} и прочие <a href="#">Настройки</a>
+					</div>
+					<form class="b-fast-search" action="{% url user_search %}" method="post">
+						<input type="text" name="q" value="{{ request.REQUEST.q }}" /> <input type="submit" value="Искать" />
+					</form>
+				</div>
+			</div>
+			<div class="b-min-height">
+				&nbsp;
+			</div>
+			<div class="b-content-container">
+				{% block profile %} {% if request.user.is_authenticated %} {% with request.user.user as profile %} {% include "profile_include.html" %} {% endwith %} {% endif %} {% endblock profile %} {% block content %} {% endblock content %}
+			</div>
+			<div class="b-footer"></div>
+		</div>
+	</body>
 </html>
