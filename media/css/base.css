@@ -104,14 +104,42 @@ table td {
 .b-block {
 	margin: 10px 0 0 20px;
 	width: 100%;
+	position: relative;
 	float: left;
+	border: solid 1px #707070;
 	background: #fff;
+}
+.b-block .corner-left {
+    position: absolute;
+    left: -1px;
+    top: -1px;
+    width: 15px;
+    height: 15px;
+    background: url('/i/img/corners.gif') top left no-repeat;
+}
+.b-block .corner-right {
+    position: absolute;
+    right: -1px;
+    top: -1px;
+    width: 15px;
+    height: 15px;
+    background: url('/i/img/corners.gif') -14px 0px no-repeat;
+}
+.b-block .corner-left.bottom {
+    top: auto;
+    bottom: -1px;
+      background: url('/i/img/corners.gif') 0 -13px no-repeat;
+}
+.b-block .corner-right.bottom {
+    bottom: -1px;
+        top: auto;
+              background: url('/i/img/corners.gif') -14px -13px no-repeat;
 }
 .b-block .header {
 	font-size: 1.5em;
 	float: left;
 	width: 100%;
-	margin: 10px 0 10px 10px;
+	margin: 10px 0 10px 20px;
 }
 
 .b-wall {
@@ -121,14 +149,17 @@ table td {
 	float: left;
 }
 
-
+.b-albums {
+    margin: 0 0 10px 10px;
+    float: left;
+}
 
 .b-wall .b-message {
 	padding-bottom: 5px;
 	float: left;
-    margin: 5px 0px 10px 10px;
+    margin: 5px 0px 10px 20px;
 	border-bottom: solid 1px #efefef;
-	width: 100%;
+	width: 90%;
 }
 .b-wall .b-message p {
     margin: 15px 0 10px 0;
@@ -152,9 +183,7 @@ table td {
 
 }
 
-.b-wall {
-	overflow: hidden;
-}
+
 #wrote-message {
 	display: none;
 	
@@ -263,7 +292,7 @@ table td {
 
 }
 .wrote-smth-btn {
-    margin: 0 0 0 10px;
+    margin: 0 0 0 20px;
     float: left;
     padding-bottom: 10px;
 }
@@ -276,14 +305,13 @@ table td {
 
 }
 .b-friend-thumbnail {
-    margin: 5px 5px 5px 10px;
+    margin: 5px 5px 15px 20px;
 	display: block;
 	float: left;
 	width: 100px;
 
 }
 .b-left-column {
-    overflow: hidden;
     width: 38%;
     float: left;
 }
@@ -301,9 +329,9 @@ table td {
     padding: 5px;
 }
 .b-right-column {
-    overflow: hidden;
-    width: 58%;
-    margin-right: 2%;
+
+    width: 56%;
+    margin-right: 3%;
     float: right;
 }
 .b-photo-gallery {
