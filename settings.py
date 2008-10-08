@@ -96,7 +96,7 @@ INSTALLED_APPS = (
 
     'sorl.thumbnail',
     
-    'django-granular-permissions',
+    
 ) + OUR_APPS
 
 ugettext = lambda s: s
