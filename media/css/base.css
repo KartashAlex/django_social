@@ -356,10 +356,24 @@ table td {
 
 .paginator {
     background: #fff;
-
     height: 40px;
     width: 90%;
-
+    float: left;
+}
+.b-place-form {
+    background: #fff;
+    width: 100%;
+    height: 100%;
+    margin: 20px 0 0 20px;
+}
+.b-place-form p {
+    float: left;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.b-place-form label {
+    float: left;
+    width: 100px;
 }
 .paginator ul {
     margin: 8px 0 0 20px;

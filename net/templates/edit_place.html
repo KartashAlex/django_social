@@ -1,13 +1,14 @@
 {{ formset.management_form }} 
 {% load i18n %}
     {% block content %}
-	<div class="b-message-form"  id="write-smth">
+	<div class="b-place-form"  id="write-smth">
        
             <form action="." method="post" enctype="multipart/form-data">
                 <div class="b-fields-group main-fields">
                     {{ form.as_p }}
-                    <input type="submit" value="{% trans "Save" %}"/>
+<p>    <input type="submit" value="{% trans "Save" %}"/></p>
                 </div>
+
             </form>
 	
     </div>
