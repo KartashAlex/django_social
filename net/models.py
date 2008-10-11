@@ -174,9 +174,19 @@ class NetGroup(models.Model):
     class UserException(Exception):
         pass
     
+    def __unicode__(self):
+        return self.name
+        
+    def get_absolute_url(self):
+        return reverse('groups_profile', args=[self.pk])
+    
     def save(self, *args, **kwargs):
         super(NetGroup, self).save(*args, **kwargs)
         self.update_users()
+    
+    def get_photos(self):
+        from photo.models import Photo
+        return Photo.objects.filter(album__group=self)
     
     def add_admin(self, user):
         self.admins.add(user)
@@ -187,45 +197,47 @@ class NetGroup(models.Model):
         self.save()
 
     def remove_user(self, user):
+        from signals import removed_from_group
         if user == self.owner:
             raise NetGroup.UserException('Cannot delete Owner from Group.')
         self.members.remove(user)
         if user in self.admins.all():
             self.admins.remove(user)
+        removed_from_group.send(sender=self.__class__, group=self, user=user)
     
     def add_user(self, user):
+        from signals import added_to_group
         self.members.add(user)
+        added_to_group.send(sender=self.__class__, group=self, user=user)
     
     def members_count(self):
         return self.members.all().count()
 
     def update_users(self):
         if not self.owner in self.admins.all():
-            self.admins.add(self.owner)
+            self.add_admin(self.owner)
         for admin in self.admins.all():
             if not admin in self.members.all():
-                self.members.add(admin)
+                self.add_user(admin)
 
     def admins_list(self):
         return ', '.join([a.get_name() for a in self.admins.all()])
 
-
 # events processing
 
-from django.db.models import signals
-
 class EventManager(models.Manager):
-    def create_event(self, sender, user, type='event', extra={}, msg=''):
+    def create_event(self, sender, user=None, type='event', group=None, extra={}, msg=''):
         if not msg:
             site = Site.objects.get_current()
-            extra.update({'site': site, 'sender': sender, 'user': user})
+            extra.update({'site': site, 'sender': sender, 'user': user, 'group': group})
             msg = render_to_string('emails/%s.txt' % (type), extra)
 
-        return self.create(from_user=sender, user=user, body=msg, type=type)
+        return self.create(from_user=sender, user=user, body=msg, type=type, group=group)
 
 class Event(models.Model):
     from_user = models.ForeignKey(User, related_name='events_out', verbose_name=_('Generator'))
-    user = models.ForeignKey(User, related_name='events_in', verbose_name=_('Respondent'))
+    user = models.ForeignKey(User, related_name='events_in', verbose_name=_('Respondent'), blank=True, null=True)
+    group = models.ForeignKey(NetGroup, related_name='events_in', verbose_name=_('Group'), blank=True, null=True)
     
     body = models.TextField(_('Body'))
     type = models.CharField(_('Type'), max_length=255, editable=False)
@@ -234,14 +246,5 @@ class Event(models.Model):
     objects = EventManager()
     
     def get_address(self):
-        return self.user
+        return self.user or self.group
 
-def add_friend(sender, **kwargs):
-    friend, friend_of = kwargs['instance'].friend, kwargs['instance'].friend_of
-    Event.objects.create_event(friend_of, friend, 'friend_add')
-signals.post_save.connect(add_friend, sender=Friend)
-
-def delete_friend(sender, **kwargs):
-    friend, friend_of = kwargs['instance'].friend, kwargs['instance'].friend_of
-    Event.objects.create_event(friend_of, friend, 'friend_delete')
-signals.pre_delete.connect(delete_friend, sender=Friend)

@@ -5,33 +5,45 @@ from django.contrib.contenttypes.models import ContentType
 from django.forms import formsets
 from django.utils.translation import ugettext_lazy as _
 
-from models import Album, Photo
+from models import Album, Photo, NetGroup
 
 class AlbumForm(forms.ModelForm):
     album = forms.ChoiceField()
     class Meta:
         model = Album
-        fields = ['title']
+        fields = ['title', 'group']
 
     def __init__(self, album_id=None, user=None, *args, **kwargs):
         self.user = user
         super(AlbumForm, self).__init__(*args, **kwargs)
-        self.fields['album'].choices=[(a.pk, a.title) for a in Album.objects.filter(user=self.user)]
-        self.fields['album'].initial = album_id
+        self.fields['album'].choices = [(a.pk, a.title) for a in Album.objects.filter(user=self.user, group__isnull=True)]
         self.fields['album'].required = False
         self.fields['title'].label = _(u'Новый альбом')
         self.fields['title'].required = False
+        groups_choices = [('g%s' % g.id, _(u'Группа %s') % g.name) for g in self.user.user_groups.all()]
+        self.fields['album'].choices += groups_choices
+        self.fields['album'].initial = album_id
 
     def clean_album(self):
-        if self.cleaned_data['title']:
-            album = Album.objects.create(title=self.cleaned_data['title'], user=self.user)
+        if self.data['title']:
+            album = Album.objects.create(title=self.data['title'], user=self.user)
             return album.pk
         if self.cleaned_data['album']:
             return self.cleaned_data['album']
         raise forms.ValidationError(_('Album is required.'))
 
     def save(self):
-        return Album.objects.get(pk=self.cleaned_data['album'])
+        id = self.cleaned_data['album']
+        if str(id)[0] != 'g':
+            return Album.objects.get(pk=id)
+        else:
+            group = NetGroup.objects.get(pk=int(str(id)[1:]))
+            album, created = Album.objects.get_or_create(
+                group=group, 
+                user=self.user,
+                title=group.name
+            )
+            return album
             
 class PhotoForm(forms.ModelForm):
     class Meta:

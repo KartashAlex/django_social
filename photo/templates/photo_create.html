@@ -7,9 +7,11 @@
                             <form enctype="multipart/form-data" method="post" action="{% url create_photo  %}">
                                 <div class="b-fields-group main-fields">
                                         {% if album_form.fields.album.choices %} 
-                                            Выберите  {{ album_form.album }} или 
+                                            выберите альбом или группу {{ album_form.album }} или 
                                         {% endif %} создайте новый альбом:
-                                        <fieldset>{{ album_form.title }} </fieldset>
+                                        <fieldset>
+                                            {{ album_form.title }}
+                                        </fieldset>
                                         {{ photo_forms.management_form.as_table }}
 										<fieldset>выберите фотографии:</fieldset>
                                         {% for form in photo_forms.forms %}

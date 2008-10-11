@@ -31,12 +31,13 @@ def profile(request, user_id, type, id, *args, **kwargs):
 @login_required
 def add(request, *args, **kwargs):
     if request.POST:
-        form = PostForm(request.POST)
+        form = PostForm(request.POST, user=request.user.user)
         if form.is_valid():
-            post = form.save(request.user.user)
+            post = form.save()
             return HttpResponseRedirect(post.get_absolute_url())
     else:
-        form = PostForm()
+        form = PostForm(user=request.user.user)
+    print form
     return render_to_response('post_add.html', {
             'form': form,
         }, context_instance=RequestContext(request))

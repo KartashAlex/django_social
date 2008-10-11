@@ -2,7 +2,7 @@ import os.path
 
 from django.conf import settings
 from django.shortcuts import get_object_or_404
-from net.models import User
+from net.models import User, Event
 
 def common(request):
     return {
@@ -16,7 +16,12 @@ def widgets(request, user=None):
     from photo.models import Photo, User
     try:
         events_owner = request.user.user
-        events = (events_owner.events_in.all() | events_owner.events_out.all()).order_by('-sent')[:10]
+        friends = events_owner.get_friends()
+        events = Event.objects.filter(from_user=events_owner)
+        events = events | Event.objects.filter(user=events_owner)
+        events = events | Event.objects.filter(user__in=friends)
+        events = events | Event.objects.filter(group__in=events_owner.user_groups.all())
+        events = events.order_by('-sent')[:10]
     except (User.DoesNotExist, AttributeError):
         events = []
     

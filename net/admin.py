@@ -3,12 +3,13 @@ from django.contrib import admin
 from models import User, PlaceType, Place, NetGroup as Group, Friend, Event
 
 class EventsAdmin(admin.ModelAdmin):
-    list_display = ['from_user', 'user', 'type', 'sent']
+    list_display = ['from_user', 'user', 'group', 'type', 'sent']
     search_fields=['from_user__username', 'user__username']
 admin.site.register(Event, EventsAdmin)
 
 class UserAdmin(admin.ModelAdmin):
     search_fields=['username']
+    raw_id_fields = ['country', 'city']
 admin.site.register(User, UserAdmin)
 
 class FriendAdmin(admin.ModelAdmin):

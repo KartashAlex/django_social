@@ -3,9 +3,10 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
-from net.models import User
+from net.models import User, NetGroup
 
 class Album(models.Model):
+    group = models.ForeignKey(NetGroup, related_name='albums', blank=True, null=True)
     user = models.ForeignKey(User, related_name='albums')
     title = models.CharField(max_length=255)
     
@@ -18,6 +19,11 @@ class Album(models.Model):
             return images[0]
         except IndexError:
             return None
+    
+    def add_id(self):
+        if self.group:
+            return 'g%s' % self.group.pk
+        return self.pk
     
     def __unicode__(self):
         return self.title

@@ -2,7 +2,7 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.core.urlresolvers import reverse
 
-from net.models import User
+from net.models import User, NetGroup
 
 class AdCategory(models.Model):
     name = models.CharField(_('Name'), max_length=255)
@@ -14,6 +14,7 @@ class Post(models.Model):
     )
 
     author = models.ForeignKey(User, verbose_name=_('Author'), related_name='posts')
+    group = models.ForeignKey(NetGroup, related_name='posts', blank=True, null=True)
     type = models.CharField(_('Type'), max_length=32, choices=TYPES)
     subject = models.CharField(_('Subject'), max_length=255)
     text = models.TextField()

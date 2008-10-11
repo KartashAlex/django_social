@@ -2,7 +2,9 @@
 {% load i18n thumbnail %}
             {% block content %}
 			 {% ifequal album.user.pk|stringformat:"s" request.user.user.pk|stringformat:"s" %}
-				    <a class="b-add-photo-block" href="{% url create_photo %}?album_id={{ album.pk }}">{% trans "Добавить фото" %}</a>
+				    <a class="b-add-photo-block" href="{% url create_photo %}?album_id={{ album.add_id }}">
+				        {% trans "Добавить фото" %}
+                    </a>
                 {% endifequal %}
                 <div class="b-photo-gallery">
                     {% for photo in object_list %}
