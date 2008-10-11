@@ -10,7 +10,10 @@
 
     {% for msg in widgets.events %}
     <div class="b-message">
-        {% include "message_header.html" %}
+		 <div class="b-message-header">
+	        <img src="/i/albums/30px.jpg" style="width: 30px; height: 30px; background: #000; display: block; float: left">
+        	<h3>{{ msg.sent|date:"d.m.Y H:s" }}</h3>
+	     </div>
         <p>{{ msg.body|safe }}</p>
     </div>
     {% endfor %}

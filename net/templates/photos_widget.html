@@ -13,7 +13,7 @@
         
             <div class="b-albums">
             {% for photo in widgets.photos %}
-                <a class="b-photo" href="{% url photos profile.pk,photo.album.pk %}">
+                <a class="b-photo" href="{% url photos photo.album.user.pk,photo.album.pk %}">
                     <img src="{% thumbnail photo.image 120x70 crop,detail,upscale %}"  />
                 </a>
             {% endfor %}				

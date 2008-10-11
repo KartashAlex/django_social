@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load i18n interests net %}
-    {% block content %}
+    {% block profile %}
         <h1>{{ object.name }}</h1>
         {% ifin request.user.user object.members.all %}
             {% trans "Вы участник этой группы" %}
@@ -12,5 +12,20 @@
         <div class="clear">
             <a href="{% url groups_list %}">{% trans "Все группы" %}</a>
         </div>
+    {% endblock profile %}
+    {% block content %}
+                <div class="b-left-column">
+                    {% with object.get_photos as widgets.photos %}
+                        {% include "photos_widget.html" %}
+                    {% endwith %}
+                    {% with object.posts.all as widgets.posts %}
+                        {% include "blog_widget.html" %}
+                    {% endwith %}
+                </div>
+                <div class="b-right-column">
+                    {% with object.events_in.all as widgets.events %}
+                        {% include "events_widget.html" %}
+                    {% endwith %}
+                </div>
     {% endblock content %}
   
