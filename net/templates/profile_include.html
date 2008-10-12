@@ -7,7 +7,7 @@
                         <td>
                             {% ifequal profile.pk request.user.user.pk %}
                                 <a class="edit-profile-btn" id="edit-profile-btn" href="{% url edit_user_profile %}" name="edit-profile-btn">{% trans "Редактировать" %}</a>
-                                <a href="{% url user_profile profile.pk %}">{% trans "Ссылка на мой профиль" %}</a>
+                          
                             {% else %}
                                 {% ifin profile request.user.user.get_friends.all %}
                                     {% trans "Это Ваш друг." %}

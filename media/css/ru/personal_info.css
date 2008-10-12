@@ -1,0 +1,55 @@
+.b-personal-info {
+    width: 100%;
+    background: #fff;
+    margin-bottom: 20px;
+    height: 250px;
+    
+}
+.b-userpic {
+   width: 282px;
+    padding: 20px 30px 20px 20px;
+    text-align: center;
+    color: ;
+    background: url('/i/img/avatar_bg.jpg');
+}
+
+.username { 
+
+    margin: 10px 0 0 0px;
+
+}
+.h-userinfo {
+ 
+    margin-left: 20px;
+ 
+}
+.b-date-and-place {
+    margin-top:10px;
+    font-size: 1.2em;
+    line-height: 1.2;
+
+}
+
+.b-education-info {
+    margin-top: 10px;
+}
+
+.b-career-info {
+      margin-top: 10px;  
+} 
+
+.b-phone-num {
+    
+}
+.b-im-accounts {
+    line-height: 2;
+    margin-top: 20px;
+}
+
+.edit-profile-btn {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    cursor: pointer;
+    color: #999;
+}

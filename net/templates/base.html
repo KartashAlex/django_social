@@ -7,12 +7,21 @@
 			{% block "title" %}{% trans "RT TV" %}{% endblock "title" %}
 		</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<link rel="stylesheet" href="/i/css/base.css" type="text/css" />
-		<link rel="stylesheet" href="/i/css/head.css" type="text/css" />
-		<link rel="stylesheet" href="/i/css/registration.css" type="text/css" />
-		<link rel="stylesheet" href="/i/css/footer.css" type="text/css" />
-		<link rel="stylesheet" href="/i/css/personal_info.css" type="text/css" />
-		<link rel="stylesheet" href="/i/css/thickbox.css" type="text/css" />
+		{% ifequal request.session.django_language 'ru' %}
+		<link rel="stylesheet" href="/i/css/ru/base.css" type="text/css" />
+		<link rel="stylesheet" href="/i/css/ru/head.css" type="text/css" />
+		<link rel="stylesheet" href="/i/css/ru/registration.css" type="text/css" />
+		<link rel="stylesheet" href="/i/css/ru/footer.css" type="text/css" />
+		<link rel="stylesheet" href="/i/css/ru/personal_info.css" type="text/css" />
+		<link rel="stylesheet" href="/i/css/ru/thickbox.css" type="text/css" />
+		{% else %}
+		<link rel="stylesheet" href="/i/css/ar/base.css" type="text/css" />
+		<link rel="stylesheet" href="/i/css/ar/head.css" type="text/css" />
+		<link rel="stylesheet" href="/i/css/ar/registration.css" type="text/css" />
+		<link rel="stylesheet" href="/i/css/ar/footer.css" type="text/css" />
+		<link rel="stylesheet" href="/i/css/ar/personal_info.css" type="text/css" />
+		<link rel="stylesheet" href="/i/css/ar/thickbox.css" type="text/css" />
+		{% endifequal %}
 	</head>
 	<body>
 		<p>
@@ -68,7 +77,7 @@
 			</div>
 			<div class="b-head">
 				<div class="b-menu">
-					<a href="{% url my_profile %}">Люди</a> <a href="{% url groups_list %}">Группы</a> <a href="#">RTTV</a>
+				<a href="{% url user_profile profile.pk %}">{% trans "Я" %}</a><a href="{% url my_profile %}">Люди</a> <a href="{% url groups_list %}">Группы</a> <a href="#">RTTV</a>
 				</div>
 				<div class="b-head-right">
 					{% if user.is_authenticated %} <a class="b-logout-btn" href="{% url auth_logout %}">{% trans "Выйти" %}</a> {% endif %}
