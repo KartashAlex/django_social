@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-10-13 15:16-0500\n"
+"POT-Creation-Date: 2008-10-13 16:25-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -362,7 +362,7 @@ msgstr ""
 #: django_authopenid/templates/authopenid/changeemail.html:29
 #: django_authopenid/templates/authopenid/complete.html:52
 msgid "Email"
-msgstr ""
+msgstr "البريد الإلكتروني"
 
 #: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/changeemail.html:30
 #: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/complete.html:68
@@ -1336,7 +1336,7 @@ msgstr ""
 
 #: net/templates/ads_widget.html:36
 msgid "У вас нет обьявлений,"
-msgstr ""
+msgstr "لا يوجد لديك إعلانات ،"
 
 #: net/templates/ads_widget.html:36
 #, fuzzy
@@ -1353,7 +1353,7 @@ msgstr "أنا"
 
 #: net/templates/base.html:82
 msgid "Люди"
-msgstr ""
+msgstr "الناس"
 
 #: net/templates/base.html:84
 #, fuzzy
@@ -1534,19 +1534,19 @@ msgstr "الرسالة على الحائط"
 
 #: net/templates/wall_messages.html:16
 msgid "Outbox"
-msgstr ""
+msgstr "صندوق الصادرات"
 
 #: net/templates/wall_messages.html:17
 msgid "Inbox"
-msgstr ""
+msgstr "صندوق الواردات"
 
 #: net/templates/wall_messages.html:18
 msgid "Messages history"
-msgstr ""
+msgstr "رسائل التاريخ"
 
 #: net/templates/wall_messages.html:19
 msgid "Wall"
-msgstr ""
+msgstr "جدار"
 
 #: net/templates/wall_messages.html:32
 msgid "Ответить"
@@ -1566,7 +1566,7 @@ msgstr "جدار فارغ"
 
 #: net/templates/wall_widget.html:28
 msgid "Найдите друзей, и они вам что-нибудь напишут"
-msgstr ""
+msgstr "إيجاد الأصدقاء ، ولكم شيئا لكتابة"
 
 #: net/templates/wall_widget.html:31
 msgid "попробуйте сами"
@@ -1601,7 +1601,7 @@ msgstr "اشترك الآن"
 
 #: net/templates/registration/registration_complete.html:6
 msgid "Спасибо!"
-msgstr ""
+msgstr "شكرا لك!"
 
 #: net/templates/registration/registration_complete.html:7
 msgid ""
@@ -1625,6 +1625,15 @@ msgid ""
 "                <li>&mdash;&nbsp;Размещать обьявления</li>\n"
 "                </ul>"
 msgstr ""
+"\n"
+"                <h2>RTTV هي شبكة اجتماعية جديدة حيث يمكنك</h2>\n"
+"                <ul>\n"
+"                <li>&mdash;&nbsp;التواصل مع أصدقائك</li>\n"
+"                <li>&mdash;&nbsp;إيجاد له الأصحاب ، الزملاء ، الزملاء</li>\n"
+"                <li>&mdash;&nbsp;تحميل ، عرض والتعليق على الصور</li>\n"
+"                <li>&mdash;&nbsp;المدونات</li>\n"
+"                <li>&mdash;&nbsp;بعد إعلانات</li>\n"
+"                </ul>"
 
 #: net/templates/registration/registration_form.html:18
 #, fuzzy
@@ -1639,11 +1648,11 @@ msgstr ""
 
 #: net/templates/registration/registration_form.html:27
 msgid "E-mail"
-msgstr ""
+msgstr "البريد الإلكتروني"
 
 #: net/templates/registration/registration_form.html:28
 msgid "Пароль"
-msgstr ""
+msgstr "كلمة السر"
 
 #: photo/forms.py:21
 msgid "Новый альбом"
@@ -1652,7 +1661,7 @@ msgstr "الألبوم الجديد"
 #: photo/forms.py:23
 #, python-format
 msgid "Группа %s"
-msgstr ""
+msgstr "%s لوحة"
 
 #: photo/forms.py:33
 msgid "Album is required."
@@ -1660,7 +1669,7 @@ msgstr "الألبوم هو المطلوب"
 
 #: photo/templates/album_create.html:5
 msgid "У вас еще нет ни одного альбома"
-msgstr ""
+msgstr "لم يكن لديك واحد ألبوم"
 
 #: photo/templates/album_create.html:9
 #, fuzzy
