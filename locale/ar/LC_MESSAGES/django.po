@@ -1369,7 +1369,6 @@ msgid "Настройки"
 msgstr "تفضيلات"
 
 #: net/templates/base.html:94
-#, fuzzy
 msgid "Искать"
 msgstr "البريد"
 
