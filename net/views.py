@@ -12,7 +12,7 @@ from django.forms.formsets import formset_factory
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 
-from net.models import User, Friend, Place, TAG_FIELDS, NetGroup as Group
+from net.models import User, Friend, Place, PlaceTemplate, TAG_FIELDS, NetGroup as Group, City
 from net.forms import ProfileForm, InterestsForm, PlaceForm, FieldsetFormSet, GroupForm
 
 def profile(request, id):
@@ -71,7 +71,7 @@ def add_place(request):
             form.save(user=request.user.user)
             return HttpResponseRedirect('/me/')
     else:
-        form = PlaceForm(instance=request.user.user)
+        form = PlaceForm()
      
         
     return render_to_response('edit_place.html', {
@@ -114,7 +114,7 @@ def edit_interests(request):
 @login_required
 def user_search(request):
     query = Q()
-    I18N_FIELDS = ['country__translations__name', 'city__translations__name']
+    I18N_FIELDS = ['country__translations__name', 'city__translations__name', 'places__template__translations__name']
     TEXT_SEARCH = TAG_FIELDS + I18N_FIELDS + ['interest', 'first_name', 'last_name', 'username', 'email']
     for f in I18N_FIELDS:
         for l in settings.LANGUAGES:
@@ -137,9 +137,9 @@ def user_search(request):
                             query = query | Q(**{key: subsubq})
 
     users = User.objects.all()
-    print query.children
     if query and query.children:
         users = users.filter(query)
+    users = users.distinct()
         
     return list_detail.object_list(request, queryset=users, template_name='users.html', paginate_by=10)
 
@@ -195,3 +195,21 @@ def groups_enter(request, group_id, enter):
             pass
     return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/groups/'))
     
+def json(lst, fields):
+    s1 = []
+    for l in lst:
+        s = u'{'
+        s0 = []
+        for k in fields:
+            s0.append(u'"%s": "%s"' % (k, l.__getattribute__(k)))
+        s += u'%s}' % u','.join(s0)
+        s1.append(s)
+    return u'[%s]' % ',\n'.join(s1)
+    
+def ajax_cities(request, country_id):
+    cities = City.objects.filter(country__pk=country_id)[:20]
+    return HttpResponse(json(cities, ['id', 'name']), mimetype="text/javascript")
+
+def ajax_places(request):
+    places = PlaceTemplate.objects.filter(translations__name__startswith=request.GET.get('q', ''))[:20]
+    return HttpResponse(json(places, ['name']), mimetype="text/javascript")

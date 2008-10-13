@@ -5,7 +5,7 @@ from django.forms.extras.widgets import SelectDateWidget
 from django.utils.translation import ugettext_lazy as _
 from django.utils.safestring import mark_safe
 
-from net.models import User, Place, NetGroup as Group, DATA_FIELDS
+from net.models import User, Place, NetGroup as Group, DATA_FIELDS, PlaceTemplate
 
 import datetime
 
@@ -38,9 +38,11 @@ class DataFieldsForm(forms.ModelForm):
         return self._html_output(u'<fieldset>%(label)s %(field)s%(help_text)s</fieldset>', u'%s', '</fieldset>', u' %s', True)
 
 class PlaceForm(DataFieldsForm):
+    title = forms.CharField(max_length=255)
+    
     class Meta:
         model = Place
-        exclude = ['user', 'address', 'map_link',]
+        exclude = ['user', 'template']
         
     def __init__(self, *args, **kwargs):
         super(PlaceForm, self).__init__(*args, **kwargs)
@@ -48,10 +50,18 @@ class PlaceForm(DataFieldsForm):
         self.fields['from_date'].widget = SelectDateWidget(years=range(year, year-100, -1))
         self.fields['to_date'].widget = SelectDateWidget(years=range(year, year-100, -1))
         
+        try:
+            self.fields['title'].initial = self.instance.template.name
+        except:
+            pass
+
     def save(self, user, *args, **kwargs):
-        super(PlaceForm, self).save(commit=False, *args, **kwargs)
+        kwargs.update({"commit":False})
+        super(PlaceForm, self).save(*args, **kwargs)
+        self.instance.template = PlaceTemplate.objects.get(translations__name=self.cleaned_data['title'])
         self.instance.user = user
         self.instance.save()
+        return self.instance
         
 class ProfileForm(DataFieldsForm):
     password1 = forms.CharField(widget=forms.PasswordInput, required=False)
