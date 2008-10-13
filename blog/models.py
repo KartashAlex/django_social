@@ -2,10 +2,13 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.core.urlresolvers import reverse
 
+import multilingual
+
 from net.models import User, NetGroup
 
 class AdCategory(models.Model):
-    name = models.CharField(_('Name'), max_length=255)
+    class Translation(multilingual.Translation):
+        name = models.CharField(_('Name'), max_length=255)
 
 class Post(models.Model):
     TYPES = (

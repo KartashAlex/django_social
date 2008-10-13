@@ -10,6 +10,8 @@ from django.template.loader import render_to_string
     
 import re
 
+import multilingual
+
 from places.models import City, Country
 
 USERDATA_TYPES = (
@@ -143,7 +145,8 @@ class Friend(models.Model):
     friend_of = models.ForeignKey(User, related_name='friends')
         
 class PlaceType(models.Model):
-    name = models.CharField(max_length=255)
+    class Translation(multilingual.Translation):
+        name = models.CharField(_('Name'), max_length=255)
      
     def __unicode__(self):
         return self.name

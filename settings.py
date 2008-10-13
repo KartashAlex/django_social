@@ -71,6 +71,8 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 
     "context_processors.common",
     "context_processors.widgets",
+    
+    "multilingual.context_processors.multilingual",
 )
 
 OUR_APPS = (
@@ -96,7 +98,8 @@ INSTALLED_APPS = (
 
     'sorl.thumbnail',
     
-    
+    'south',
+    'multilingual',
 ) + OUR_APPS
 
 ugettext = lambda s: s
@@ -107,6 +110,7 @@ LANGUAGES = (
     ('en', ugettext('English')),
     ('ar', ugettext('Arabic')),
 )
+DEFAULT_LANGUAGE = 1
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
