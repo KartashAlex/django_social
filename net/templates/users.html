@@ -9,14 +9,15 @@
 			<div class="corner-right bottom"></div>
 			<div class="b-users-list">
         {% for user in object_list %}
-		
-			
-			
-            	<div class="b-user"><a class="medium-avatar"  href="{% url user_profile user.pk %}"><img src="{% thumbnail user.avatar 100x100 %}" /></a>
-					<div style="margin: 20px 0 0 20px; float: left"><a href="{% url user_profile user.pk %}">{{ user.get_name }}</a>
-						<div сlass="b-user-info-small" style="color: #c0c0c0">{{ user.birthdate }}
-						{{ user.country }}
-						{{ user.city }}</div>
+            	<div class="b-user"><a class="medium-avatar"  href="{% url user_profile user.pk %}">
+            	    <img src="{% thumbnail user.avatar 100x100 %}" /></a>
+					<div style="margin: 20px 0 0 20px; float: left">
+					    <a href="{% url user_profile user.pk %}">{{ user.get_name }}</a>
+						<div сlass="b-user-info-small" style="color: #c0c0c0">
+						    {{ user.birthdate|date:"d.m.Y" }}
+						    {{ user.country }}
+						    {{ user.city }}
+                        </div>
 					</div>
 			</div>
 			
