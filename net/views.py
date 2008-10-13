@@ -114,7 +114,7 @@ def edit_interests(request):
 @login_required
 def user_search(request):
     query = Q()
-    I18N_FIELDS = ['country__name', 'city__name']
+    I18N_FIELDS = ['country__translations__name', 'city__translations__name']
     TEXT_SEARCH = TAG_FIELDS + I18N_FIELDS + ['interest', 'first_name', 'last_name', 'username', 'email']
     for f in I18N_FIELDS:
         for l in settings.LANGUAGES:
@@ -129,7 +129,7 @@ def user_search(request):
                     print key, I18N_FIELDS
                     if key in I18N_FIELDS:
                         for l in settings.LANGUAGES:
-                            query = query | Q(**{key+'_%s__icontains' % l[0]: subsubq})
+                            query = query | Q(**{key+'__icontains': subsubq})
                     elif key in TEXT_SEARCH:
                             query = query | Q(**{key+'__icontains': subsubq})
                     else:
