@@ -16,10 +16,10 @@ padding: 0 50%;
 }
   .b-registration-info {
 width: 310px;
-float: left; display: inline;
-padding-right: 50px;
-border-right: solid 1px #e2e2e2;
-margin-left: -362px;
+float: right; display: inline;
+padding-left: 50px;
+border-left: solid 1px #e2e2e2;
+
 }
 .b-registration-info ul {
        list-style: none;
@@ -43,7 +43,7 @@ margin-left: -362px;
 float: right;
 }
 .b-signup label {
-    float:  t; display: inline;
+    float:  right; display: inline;
     text-align: right;
     width: 150px;
     margin-top: 1px;
@@ -58,7 +58,7 @@ float: right;
   
 }
 .b-login-form {
-                                  
+                  margin-left: -400px;                
     float: left;
     display: inline;
 }
@@ -67,7 +67,7 @@ float: left;
 }
   
   .b-registration-form label {
-float: left; display: inline;
+float: right; display: inline;
 text-align: right;
 width: 50px;
 
