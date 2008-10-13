@@ -71,7 +71,7 @@ def add_place(request):
             form.save(user=request.user.user)
             return HttpResponseRedirect('/me/')
     else:
-        form = PlaceForm(instance=request.user.user)
+        form = PlaceForm()
      
         
     return render_to_response('edit_place.html', {
@@ -114,7 +114,7 @@ def edit_interests(request):
 @login_required
 def user_search(request):
     query = Q()
-    I18N_FIELDS = ['country__translations__name', 'city__translations__name']
+    I18N_FIELDS = ['country__translations__name', 'city__translations__name', 'places__template__translations__name']
     TEXT_SEARCH = TAG_FIELDS + I18N_FIELDS + ['interest', 'first_name', 'last_name', 'username', 'email']
     for f in I18N_FIELDS:
         for l in settings.LANGUAGES:
@@ -137,9 +137,9 @@ def user_search(request):
                             query = query | Q(**{key: subsubq})
 
     users = User.objects.all()
-    print query.children
     if query and query.children:
         users = users.filter(query)
+    users = users.distinct()
         
     return list_detail.object_list(request, queryset=users, template_name='users.html', paginate_by=10)
 

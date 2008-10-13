@@ -149,7 +149,7 @@ class PlaceType(models.Model):
         name = models.CharField(_('Name'), max_length=255)
      
     def __unicode__(self):
-        return self.name
+        return self.name_ru
      
 class PlaceTemplate(models.Model):
     type = models.ForeignKey(PlaceType)
@@ -161,6 +161,9 @@ class PlaceTemplate(models.Model):
         name = models.CharField(_('Name'), max_length=255)
         address = models.TextField(blank=True, null=True)
 
+     
+    def __unicode__(self):
+        return self.name_ru
 class Place(models.Model):
     user = models.ForeignKey(User, related_name='places')
     template = models.ForeignKey(PlaceTemplate, related_name='places')
@@ -168,9 +171,6 @@ class Place(models.Model):
     from_date = models.DateField(blank=True, null=True)
     to_date = models.DateField(blank=True, null=True)
     
-    def __unicode__(self):
-        return self.name
-
 class NetGroup(models.Model):
     name = models.CharField(max_length=255, unique=True)
     description = models.TextField(blank=True, null=True)

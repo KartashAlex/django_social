@@ -50,16 +50,18 @@ class PlaceForm(DataFieldsForm):
         self.fields['from_date'].widget = SelectDateWidget(years=range(year, year-100, -1))
         self.fields['to_date'].widget = SelectDateWidget(years=range(year, year-100, -1))
         
-        if self.instance:
+        try:
             self.fields['title'].initial = self.instance.template.name
+        except:
+            pass
 
     def save(self, user, *args, **kwargs):
         kwargs.update({"commit":False})
-        place = super(PlaceForm, self).save(*args, **kwargs)
-        place.template = PlaceTemplate.objects.get(translations__name=self.cleaned_data['title'])
-        place.user = user
-        place.save()
-        return place
+        super(PlaceForm, self).save(*args, **kwargs)
+        self.instance.template = PlaceTemplate.objects.get(translations__name=self.cleaned_data['title'])
+        self.instance.user = user
+        self.instance.save()
+        return self.instance
         
 class ProfileForm(DataFieldsForm):
     password1 = forms.CharField(widget=forms.PasswordInput, required=False)
