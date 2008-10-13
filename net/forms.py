@@ -5,7 +5,7 @@ from django.forms.extras.widgets import SelectDateWidget
 from django.utils.translation import ugettext_lazy as _
 from django.utils.safestring import mark_safe
 
-from net.models import User, Place, NetGroup as Group, DATA_FIELDS
+from net.models import User, Place, NetGroup as Group, DATA_FIELDS, PlaceTemplate
 
 import datetime
 
@@ -50,11 +50,16 @@ class PlaceForm(DataFieldsForm):
         self.fields['from_date'].widget = SelectDateWidget(years=range(year, year-100, -1))
         self.fields['to_date'].widget = SelectDateWidget(years=range(year, year-100, -1))
         
+        if self.instance:
+            self.fields['title'].initial = self.instance.template.name
+
     def save(self, user, *args, **kwargs):
-        place = super(PlaceForm, self).save(commit=False, *args, **kwargs)
+        kwargs.update({"commit":False})
+        place = super(PlaceForm, self).save(*args, **kwargs)
         place.template = PlaceTemplate.objects.get(translations__name=self.cleaned_data['title'])
         place.user = user
         place.save()
+        return place
         
 class ProfileForm(DataFieldsForm):
     password1 = forms.CharField(widget=forms.PasswordInput, required=False)
