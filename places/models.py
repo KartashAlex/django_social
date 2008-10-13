@@ -15,4 +15,4 @@ class City(models.Model):
         ordering = ('country__name', 'name')
     
     def __unicode__(self):
-        return u'%s - %s' % (self.country.name, self.name)
+        return self.name
