@@ -5,7 +5,7 @@
     <div class="b-form-container">
         <div class="b-registration">
             
-            <div class="b-registration-info">
+            <div class="b-registration-info">{% blocktrans %}
                 <h2>RTTV Social это новая социальная сеть где вы можете</h2>
                 <ul>
                 <li>&mdash;&nbsp;Общаться с друзьями</li>
@@ -13,21 +13,21 @@
                 <li>&mdash;&nbsp;Загружать, показывать и комментровать фотографии</li>
                 <li>&mdash;&nbsp;Вести дневник</li>
                 <li>&mdash;&nbsp;Размещать обьявления</li>
-                </ul>
+                </ul>{% endblocktrans %}
                 <form class="b-signup-form" action="{% url registration_register %}" method="post">
-                <h3 class="header">Зарегистрироваться:</h3>
+                <h3 class="header">{% trans "Зарегистрироваться:" %}</h3>
                 <fieldset>{{ form.as_p }}</fieldset>
                  <input type="submit" value="Зарегистрироваться" class="signin-btn"/>
-                <p class="notation">Мы бережно храним ваш email в соответствии с &laquo;<a href="#">Условиями о хранении персональной информации</a>&raquo;</p>
+                <p class="notation">{% blocktrans %}Мы бережно храним ваш email в соответствии с &laquo;<a href="#">Условиями о хранении персональной информации</a>&raquo;{% endblocktrans %}</p>
                 </form>
             </div>
 			<div class="b-login-form">
             <form class="b-registration-form" action="{% url auth_login %}" method="post">
-                <h2>Уже зарегистрированы?</h2>
-                <fieldset><label for="username">E-mail</label><input name="username" id="username" /></fieldset>
-                <fieldset><label for="password">Пароль</label><input name="password" id="password" type="password" /></fieldset>
+                <h2>{% blocktrans %}Уже зарегистрированы?{% endblocktrans %}</h2>
+                <fieldset><label for="username">{% trans "E-mail" %}</label><input name="username" id="username" /></fieldset>
+                <fieldset><label for="password">{% trans "Пароль" %}</label><input name="password" id="password" type="password" /></fieldset>
                 <input type="hidden" name="next" />
-                <input type="submit" value="войти" class="signup-btn"/>
+                <input type="submit" value="{% trans "войти" %}" class="signup-btn"/>
 <p class="b-recover-password"><a href="{% url auth_password_reset %}">{% trans "Recover password" %}</a></p>
             </form>
             </div>

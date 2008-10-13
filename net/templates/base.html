@@ -79,9 +79,9 @@
 				<div class="b-menu">
 				{% if request.user.is_authenticated %}
 				<a href="{% url user_profile request.user.user.pk %}">{% trans "Я" %}</a>
-				    <a href="{% url my_profile %}">Люди</a> 
+				    <a href="{% url my_profile %}">{% trans "Люди" %}</a> 
 			
-				<a href="{% url groups_list %}">Группы</a> 
+				<a href="{% url groups_list %}">{% trans "Группы" %}</a> 
 					{% endif %}
 				<a href="#">RTTV</a>
 				</div>

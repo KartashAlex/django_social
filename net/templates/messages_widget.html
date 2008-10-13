@@ -42,7 +42,7 @@
             {% endifnotequal %}
             {% if widgets.wall_count %}
                 <a href="{% url wall widgets.profile.pk %}">
-                  {% blocktrans with widgets.messages_count as count %}Еще {{ count }} сообщений{% endblocktrans %}
+                  {% blocktrans with widgets.messages_count as count %} Еще {{ count }} сообщений {% endblocktrans %}
                 </a>
             {% endif %}
             {% ifnotequal msg_type "all" %}
@@ -55,7 +55,7 @@
 
 {% else %}
 	{% ifequal profile.user.pk request.user.pk %}
-		 	<h1 class="header">У вас нет сообщений</h1>
+		 	<h1 class="header">{% trans "У вас нет сообщений" %}</h1>
 	{% else %}
 	 <h1 class="header"><a href="{% url create_pm widgets.profile.pk %}?private=1"  class="wrote-smth">{% trans "Отправить личное сообщение" %}</a></h1>
 	{% endifequal %}

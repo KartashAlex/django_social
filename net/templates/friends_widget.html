@@ -28,7 +28,7 @@
                             <h3 class="header">{% trans "У вас нет друзей, попробуйте их найти" %}</h3>
                         {% else %}
                             <h2 class="header">
-                                У пользователя нет друзей, но его 
+                                {% trans "У пользователя нет друзей, но его" %} 
                                 <a href="{% url change_friend profile.pk,1 %}">{% trans "можно добавить" %}</a>
                             </h2>
                         {% endifequal %}
