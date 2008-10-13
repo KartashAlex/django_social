@@ -114,21 +114,31 @@ def edit_interests(request):
 @login_required
 def user_search(request):
     query = Q()
-    TEXT_SEARCH = TAG_FIELDS + ['interest', 'first_name', 'last_name', 'username', 'email', 'country__name', 'city__name']
+    I18N_FIELDS = ['country__name', 'city__name']
+    TEXT_SEARCH = TAG_FIELDS + I18N_FIELDS + ['interest', 'first_name', 'last_name', 'username', 'email']
+    for f in I18N_FIELDS:
+        for l in settings.LANGUAGES:
+            TEXT_SEARCH += ['%s_%s' % (f, l[0])]
     OTHER_SEARCH = ['birthdate']
     for key in TEXT_SEARCH + OTHER_SEARCH:
         q = request.REQUEST.getlist(key) or request.REQUEST.getlist('q')
-        if q:
+        print q
+        if q and q != '' and q != [] and q != ['']:
             for subq in q:
                 for subsubq in subq.split(' '):
-                    if key in TEXT_SEARCH:
-                        query = query | Q(**{key+'__icontains': subsubq})
+                    print key, I18N_FIELDS
+                    if key in I18N_FIELDS:
+                        for l in settings.LANGUAGES:
+                            query = query | Q(**{key+'_%s__icontains' % l[0]: subsubq})
+                    elif key in TEXT_SEARCH:
+                            query = query | Q(**{key+'__icontains': subsubq})
                     else:
                         if request.REQUEST.getlist(key):
                             query = query | Q(**{key: subsubq})
 
     users = User.objects.all()
-    if query != Q():
+    print query.children
+    if query and query.children:
         users = users.filter(query)
         
     return list_detail.object_list(request, queryset=users, template_name='users.html', paginate_by=10)
