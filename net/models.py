@@ -150,15 +150,20 @@ class PlaceType(models.Model):
      
     def __unicode__(self):
         return self.name
+     
+class PlaceTemplate(models.Model):
+    type = models.ForeignKey(PlaceType)
                
+    city = models.ForeignKey(City, blank=True, null=True)
+    map_link = models.URLField(blank=True, null=True)
+    
+    class Translation(multilingual.Translation):
+        name = models.CharField(_('Name'), max_length=255)
+        address = models.TextField(blank=True, null=True)
+
 class Place(models.Model):
     user = models.ForeignKey(User, related_name='places')
-    type = models.ForeignKey(PlaceType)
-    
-    name = models.CharField(max_length=255)
-    city = models.ForeignKey(City, blank=True, null=True)
-    address = models.TextField(blank=True, null=True)
-    map_link = models.URLField(blank=True, null=True)
+    template = models.ForeignKey(PlaceTemplate, related_name='places')
     
     from_date = models.DateField(blank=True, null=True)
     to_date = models.DateField(blank=True, null=True)

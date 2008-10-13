@@ -38,9 +38,11 @@ class DataFieldsForm(forms.ModelForm):
         return self._html_output(u'<fieldset>%(label)s %(field)s%(help_text)s</fieldset>', u'%s', '</fieldset>', u' %s', True)
 
 class PlaceForm(DataFieldsForm):
+    title = forms.CharField(max_length=255)
+    
     class Meta:
         model = Place
-        exclude = ['user', 'address', 'map_link',]
+        exclude = ['user', 'template']
         
     def __init__(self, *args, **kwargs):
         super(PlaceForm, self).__init__(*args, **kwargs)
@@ -49,9 +51,10 @@ class PlaceForm(DataFieldsForm):
         self.fields['to_date'].widget = SelectDateWidget(years=range(year, year-100, -1))
         
     def save(self, user, *args, **kwargs):
-        super(PlaceForm, self).save(commit=False, *args, **kwargs)
-        self.instance.user = user
-        self.instance.save()
+        place = super(PlaceForm, self).save(commit=False, *args, **kwargs)
+        place.template = PlaceTemplate.objects.get(translations__name=self.cleaned_data['title'])
+        place.user = user
+        place.save()
         
 class ProfileForm(DataFieldsForm):
     password1 = forms.CharField(widget=forms.PasswordInput, required=False)

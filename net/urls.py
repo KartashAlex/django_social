@@ -19,5 +19,8 @@ urlpatterns = patterns('',
     (r'^groups/(\d+)/$', 'net.views.groups_profile', {}, 'groups_profile'),
     (r'^groups/(\d+)/enter/(\d)/$', 'net.views.groups_enter', {}, 'groups_enter'),
     (r'^groups/new/$', 'net.views.groups_create', {}, 'groups_create'),
+
+    (r'^cities/(\d+)/$', 'net.views.ajax_cities', {}, 'ajax_cities'),
+    (r'^places/template/$', 'net.views.ajax_places', {}, 'ajax_places'),
 )
 
