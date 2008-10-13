@@ -1,0 +1,14 @@
+[
+{"pk":1, "model":"net.placetype", "fields": {}},
+{"pk":1, "model":"net.placetypetranslation", "fields": {"language_id": 1, "name": "Школа", "master": 1}},
+{"pk":2, "model":"net.placetype", "fields": {}},
+{"pk":2, "model":"net.placetypetranslation", "fields": {"language_id": 1, "name": "Университет", "master": 2}},
+{"pk":3, "model":"net.placetype", "fields": {}},
+{"pk":3, "model":"net.placetypetranslation", "fields": {"language_id": 1, "name": "Военная часть", "master": 3}},
+{"pk":4, "model":"net.placetype", "fields": {}},
+{"pk":4, "model":"net.placetypetranslation", "fields": {"language_id": 1, "name": "Отдых", "master": 4}},
+{"pk":5, "model":"net.placetype", "fields": {}},
+{"pk":5, "model":"net.placetypetranslation", "fields": {"language_id": 1, "name": "Дом", "master": 5}},
+{"pk":6, "model":"net.placetype", "fields": {}},
+{"pk":6, "model":"net.placetypetranslation", "fields": {"language_id": 1, "name": "Работа", "master": 6}}
+]

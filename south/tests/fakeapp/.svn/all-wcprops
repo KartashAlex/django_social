@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/south/!svn/ver/69/trunk/tests/fakeapp
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/south/!svn/ver/54/trunk/tests/fakeapp/__init__.py
+END
+models.py
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/south/!svn/ver/54/trunk/tests/fakeapp/models.py
+END

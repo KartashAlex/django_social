@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 36
+/svn/!svn/ver/140/trunk/multilingual
+END
+manager.py
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/123/trunk/multilingual/manager.py
+END
+middleware.py
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/97/trunk/multilingual/middleware.py
+END
+translation.py
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/140/trunk/multilingual/translation.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/139/trunk/multilingual/__init__.py
+END
+exceptions.py
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/23/trunk/multilingual/exceptions.py
+END
+models.py
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/31/trunk/multilingual/models.py
+END
+query.py
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/137/trunk/multilingual/query.py
+END
+languages.py
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/130/trunk/multilingual/languages.py
+END
+fields.py
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/137/trunk/multilingual/fields.py
+END
+context_processors.py
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/79/trunk/multilingual/context_processors.py
+END

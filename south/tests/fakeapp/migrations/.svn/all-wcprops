@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/south/!svn/ver/69/trunk/tests/fakeapp/migrations
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/south/!svn/ver/54/trunk/tests/fakeapp/migrations/__init__.py
+END
+0001_spam.py
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/south/!svn/ver/54/trunk/tests/fakeapp/migrations/0001_spam.py
+END
+0002_eggs.py
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/south/!svn/ver/69/trunk/tests/fakeapp/migrations/0002_eggs.py
+END
