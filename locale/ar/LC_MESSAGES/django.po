@@ -1333,7 +1333,7 @@ msgstr "البريد"
 #: net/templates/wall_widget.html:20
 #, python-format
 msgid "Еще %(count)s сообщений"
-msgstr "المزيد من التقاري"
+msgstr ""
 
 #: net/templates/base.html:7
 msgid "RT TV"
