@@ -6,6 +6,7 @@ body {
 font: normal 0.9em Arial, Helvetica, Sans-Serif;
 color: #2b2e2e;
 background: #999999;
+direction: rtl;
 }
 
 h1, h2, h3, h4, h5 {
@@ -137,9 +138,9 @@ table td {
 }
 .b-block .header {
 	font-size: 1.5em;
-	float: left;
+	float: right;
 	width: 100%;
-	margin: 10px 0 10px 20px;
+	margin: 10px 20px 10px 0px;
 }
 
 .b-wall {
@@ -147,13 +148,8 @@ table td {
     float: right;
 	margin-left: 20px;
 	float: left;
-	
 }
 
-.b-wall p {
-    float: left;
-    margin-left: 20px;
-}
 
 .b-albums {
     margin: 0 0 10px 10px;
@@ -299,7 +295,7 @@ table td {
 }
 .wrote-smth-btn {
     margin: 0 0 0 20px;
-    float: left;
+    float: right;
     padding-bottom: 10px;
 }
 
@@ -338,7 +334,7 @@ table td {
 
     width: 56%;
     margin-right: 3%;
-    float: right;
+    float: left;
 }
 .b-photo-gallery {
     background: #fff;
@@ -351,12 +347,13 @@ table td {
 }
 
 .b-photo-gallery .b-photo img {
-    margin: 15px 0 15px 15px;
+    margin: 15px 15px 15px 0;
     border: solid 1px #f0f0f0;
 }
 .b-add-photo-block {
     background: #fff;
     padding: 10px;
+    float: right;
     margin-left: 10px;
 }
 

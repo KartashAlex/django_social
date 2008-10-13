@@ -21,6 +21,10 @@
         {% else %}
 {% ifequal profile.user.pk request.user.pk %}
 	<div class="b-block b-photos">
+			<div class="corner-left"></div>
+			<div class="corner-right"></div>
+				<div class="corner-left bottom"></div>
+				<div class="corner-right bottom"></div>
 <h1 class="header"><a href="{% url create_photo %}">{% trans "Загрузите фотографии" %}</a></h1>
 </div>
 {% endifequal %}

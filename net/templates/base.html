@@ -4,10 +4,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<title>
-			{% block "title" %}{% trans "RT TV" %}{% endblock "title" %}
+			{{request.session.django_language}} {% block "title" %}{% trans "RT TV" %}{% endblock "title" %}
 		</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		{% ifequal request.session.django_language 'ru' %}
+		{% ifnotequal request.session.django_language 'ar' %}
 		<link rel="stylesheet" href="/i/css/ru/base.css" type="text/css" />
 		<link rel="stylesheet" href="/i/css/ru/head.css" type="text/css" />
 		<link rel="stylesheet" href="/i/css/ru/registration.css" type="text/css" />
@@ -21,7 +21,7 @@
 		<link rel="stylesheet" href="/i/css/ar/footer.css" type="text/css" />
 		<link rel="stylesheet" href="/i/css/ar/personal_info.css" type="text/css" />
 		<link rel="stylesheet" href="/i/css/ar/thickbox.css" type="text/css" />
-		{% endifequal %}
+		{% endifnotequal %}
 	</head>
 	<body>
 		<p>
@@ -78,10 +78,12 @@
 			<div class="b-head">
 				<div class="b-menu">
 				{% if request.user.is_authenticated %}
-				    <a href="{% url user_profile request.user.user.pk %}">{% trans "Я" %}</a>
+				<a href="{% url user_profile request.user.user.pk %}">{% trans "Я" %}</a>
 				    <a href="{% url my_profile %}">Люди</a> 
-				{% endif %}
-				<a href="{% url groups_list %}">Группы</a> <a href="#">RTTV</a>
+			
+				<a href="{% url groups_list %}">Группы</a> 
+					{% endif %}
+				<a href="#">RTTV</a>
 				</div>
 				<div class="b-head-right">
 					{% if user.is_authenticated %} <a class="b-logout-btn" href="{% url auth_logout %}">{% trans "Выйти" %}</a> {% endif %}
