@@ -72,6 +72,7 @@ class ProfileForm(DataFieldsForm):
         ] + DATA_FIELDS.keys()
 
     def __init__(self, *args, **kwargs):
+
         super(ProfileForm, self).__init__(*args, **kwargs)
         
         self.fields['birthdate'].widget = SelectDateWidget(years=range(year, year-100, -1))
