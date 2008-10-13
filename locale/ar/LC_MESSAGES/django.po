@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-10-13 16:25-0500\n"
+"POT-Creation-Date: 2008-10-13 17:10-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1364,6 +1364,15 @@ msgstr "جميع المجموعات"
 msgid "Выйти"
 msgstr "خروج"
 
+#: net/templates/base.html:91
+msgid "Настройки"
+msgstr "تفضيلات"
+
+#: net/templates/base.html:94
+#, fuzzy
+msgid "Искать"
+msgstr "البريد"
+
 #: net/templates/blog_widget.html:4
 msgid "Дневник"
 msgstr "المفكرة"
@@ -1576,6 +1585,17 @@ msgstr "جرب بنفسك"
 msgid "Написать на стене пользователя"
 msgstr "الكتابة على الجدار للمستخدم"
 
+#: net/templates/registration/activation.html:40
+#, fuzzy
+msgid "Зарегистрироваться"
+msgstr "سجلت بالفعل؟"
+
+#: net/templates/registration/activation.html:41
+msgid ""
+"Мы бережно храним ваш email в соответствии с &laquo;<a href=\"#\">Условиями "
+"о хранении персональной информации</a>&raquo; "
+msgstr ""
+
 #: net/templates/registration/login.html:7
 #: net/templates/registration/registration_form.html:26
 msgid "Уже зарегистрированы?"
@@ -1636,7 +1656,6 @@ msgstr ""
 "                </ul>"
 
 #: net/templates/registration/registration_form.html:18
-#, fuzzy
 msgid "Зарегистрироваться:"
 msgstr "سجلت بالفعل؟"
 

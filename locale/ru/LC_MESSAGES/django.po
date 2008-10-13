@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-10-13 16:25-0500\n"
+"POT-Creation-Date: 2008-10-13 17:10-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1363,6 +1363,14 @@ msgstr ""
 msgid "Выйти"
 msgstr ""
 
+#: net/templates/base.html:91
+msgid "Настройки"
+msgstr ""
+
+#: net/templates/base.html:94
+msgid "Искать"
+msgstr ""
+
 #: net/templates/blog_widget.html:4
 msgid "Дневник"
 msgstr ""
@@ -1572,6 +1580,16 @@ msgstr ""
 
 #: net/templates/wall_widget.html:35
 msgid "Написать на стене пользователя"
+msgstr ""
+
+#: net/templates/registration/activation.html:40
+msgid "Зарегистрироваться"
+msgstr ""
+
+#: net/templates/registration/activation.html:41
+msgid ""
+"Мы бережно храним ваш email в соответствии с &laquo;<a href=\"#\">Условиями "
+"о хранении персональной информации</a>&raquo; "
 msgstr ""
 
 #: net/templates/registration/login.html:7

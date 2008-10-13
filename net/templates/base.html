@@ -88,10 +88,10 @@
 				<div class="b-head-right">
 					{% if user.is_authenticated %} <a class="b-logout-btn" href="{% url auth_logout %}">{% trans "Выйти" %}</a> {% endif %}
 					<div class="b-setlang" action="">
-						{% for lang in settings.LANGUAGES %} {% ifequal request.session.django_language lang.0 %} <b>/{{ lang.0 }}</b> {% else %} <a href="/i18n/setlang/" rel="{{ lang.0 }}" class="lang-btn">/{{ lang.0 }}</a> {% endifequal %} {% endfor %} и прочие <a href="#">Настройки</a>
+						{% for lang in settings.LANGUAGES %} {% ifequal request.session.django_language lang.0 %} <b>/{{ lang.0 }}</b> {% else %} <a href="/i18n/setlang/" rel="{{ lang.0 }}" class="lang-btn">/{{ lang.0 }}</a> {% endifequal %} {% endfor %} <br/><a href="#">{% trans "Настройки" %}</a>
 					</div>
 					<form class="b-fast-search" action="{% url user_search %}" method="post">
-						<input type="text" name="q" value="{{ request.REQUEST.q }}" /> <input type="submit" value="Искать" />
+						<input type="text" name="q" value="{{ request.REQUEST.q }}" /> <input type="submit" value="{% trans "Искать" %}" />
 					</form>
 				</div>
 			</div>
