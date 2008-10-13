@@ -1,9 +1,12 @@
 {% extends "base.html" %}
 {% load thumbnail i18n %}
+
             {% block profile %}
                 {% include "profile_include.html" %}
             {% endblock profile %}
             {% block content %}
+
+	{% ifequal request.session.django_language 'ru' %}
                 <div class="b-left-column">
                     {% include "messages_widget.html" %}
                     {% include "wall_widget.html" %}
@@ -16,4 +19,18 @@
                     {% include "blog_widget.html" %}
                     {% include "events_widget.html" %}
                 </div>
+{% else %}
+ <div class="b-right-column">
+        {% include "friends_widget.html" %}
+        {% include "photos_widget.html" %}
+        {% include "blog_widget.html" %}
+        {% include "events_widget.html" %}
+    </div>
+	     <div class="b-left-column">
+                {% include "messages_widget.html" %}
+                {% include "wall_widget.html" %}
+                {% include "ads_widget.html" %}			
+             
+            </div>
+				{% endifequal %}
             {% endblock content %}

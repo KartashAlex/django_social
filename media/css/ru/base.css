@@ -147,6 +147,12 @@ table td {
     float: right;
 	margin-left: 20px;
 	float: left;
+	
+}
+
+.b-wall p {
+    float: left;
+    margin-left: 20px;
 }
 
 .b-albums {

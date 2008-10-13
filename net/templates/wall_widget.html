@@ -1,5 +1,5 @@
 {% load thumbnail i18n %}
-<div class="b-block b-wall">
+<div class="b-block 	">
 		<div class="corner-left"></div>
 		<div class="corner-right"></div>
 			<div class="corner-left bottom"></div>
@@ -24,10 +24,10 @@
 	{% else %}
 	{% ifequal profile.user.pk request.user.pk %}
 	<h1 class="header">{% trans "Стена пуста" %}</h1>
-	<p>
+	<p class="wrote-smth wrote-smth-btn">
 	    <a href="{% url user_search %}">Найдите друзей, и они вам что-нибудь напишут</a> 
 	    или  
-	    <a href="{% url create_pm profile.pk %}" style="margin-right: 50px;" class="wrote-smth wrote-smth-btn">
+	    <a href="{% url create_pm profile.pk %}" >
 	    {% trans "попробуйте сами" %}
         </a>
     </p>

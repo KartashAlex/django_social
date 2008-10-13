@@ -8,13 +8,81 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-08-23 19:18+0400\n"
+"POT-Creation-Date: 2008-10-13 19:45+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: settings.py:109
+msgid "Russian"
+msgstr ""
+
+#: settings.py:110
+msgid "English"
+msgstr ""
+
+#: settings.py:111
+msgid "Arabic"
+msgstr ""
+
+#: blog/forms.py:14
+msgid "None"
+msgstr ""
+
+#: blog/models.py:11 net/models.py:149 places/models.py:8 places/models.py:16
+msgid "Name"
+msgstr ""
+
+#: blog/models.py:15
+msgid "Blog post"
+msgstr ""
+
+#: blog/models.py:16
+msgid "Advertisement"
+msgstr ""
+
+#: blog/models.py:19
+msgid "Author"
+msgstr ""
+
+#: blog/models.py:21 net/models.py:246
+msgid "Type"
+msgstr ""
+
+#: blog/models.py:22
+msgid "Subject"
+msgstr ""
+
+#: blog/models.py:25
+msgid "Ad category"
+msgstr ""
+
+#: blog/templates/post_add.html:5
+msgid "Добавить пост"
+msgstr "أضف بوست"
+
+#: blog/templates/post_add.html:8
+msgid "Cоздать"
+msgstr "خلق"
+
+#: blog/templates/post_list.html:12
+msgid "Комментарии"
+msgstr "تعليقات"
+
+#: blog/templates/comments/comments_include.html:5
+msgid "Оставьте комментарий:"
+msgstr "ترك تعليق :"
+
+#: blog/templates/comments/comments_include.html:17
+msgid "Post"
+msgstr ""
+
+#: blog/templates/comments/comments_include.html:24
+msgid "Уже прокомментировали:"
+msgstr "سبق أن علق :"
 
 #: contrib/django-authopenid-0.9.4/django_authopenid/forms.py:67
 #: contrib/django-authopenid-0.9.4/django_authopenid/views.py:104
@@ -372,9 +440,9 @@ msgstr ""
 
 #: contrib/django-authopenid-0.9.4/django_authopenid/templates/authopenid/changepw.html:26
 #: contrib/django-authopenid-0.9.4/djauthaupenid_example/templates/authopenid/changepw.html:26
+#: dbsettings/templates/dbsettings/app_settings.html:7
+#: dbsettings/templates/dbsettings/site_settings.html:7
 #: django_authopenid/templates/authopenid/changepw.html:26
-#: django_dbsettings/templates/dbsettings/app_settings.html:7
-#: django_dbsettings/templates/dbsettings/site_settings.html:7
 msgid "Change password"
 msgstr ""
 
@@ -715,7 +783,7 @@ msgstr ""
 #: contrib/django_threadedcomments/threadedcomments/models.py:147
 #: contrib/django_threadedcomments/threadedcomments/models.py:261
 #: django_threadedcomments/models.py:147 django_threadedcomments/models.py:261
-#: wall/models.py:18
+#: wall/models.py:17
 msgid "object ID"
 msgstr ""
 
@@ -766,8 +834,8 @@ msgid "Threaded Comments"
 msgstr ""
 
 #: contrib/django_threadedcomments/threadedcomments/models.py:268
-#: contrib/tagging-trunk/tagging/models.py:464 django_tagging/models.py:464
-#: django_threadedcomments/models.py:268
+#: contrib/tagging-trunk/tagging/models.py:464
+#: django_threadedcomments/models.py:268 tagging/models.py:445
 msgid "name"
 msgstr ""
 
@@ -791,56 +859,56 @@ msgstr ""
 msgid "Free Threaded Comments"
 msgstr ""
 
-#: contrib/registration/forms.py:38 django_registration/forms.py:119
+#: contrib/registration/forms.py:38 django_registration/forms.py:120
 msgid "username"
 msgstr ""
 
-#: contrib/registration/forms.py:41 django_registration/forms.py:29
-#: django_registration/forms.py:122
+#: contrib/registration/forms.py:41 django_registration/forms.py:30
+#: django_registration/forms.py:123
 msgid "email address"
 msgstr ""
 
-#: contrib/registration/forms.py:43 django_registration/forms.py:51
-#: django_registration/forms.py:124
+#: contrib/registration/forms.py:43 django_registration/forms.py:52
+#: django_registration/forms.py:125
 msgid "password"
 msgstr ""
 
-#: contrib/registration/forms.py:45 django_registration/forms.py:53
-#: django_registration/forms.py:126
+#: contrib/registration/forms.py:45 django_registration/forms.py:54
+#: django_registration/forms.py:127
 msgid "password (again)"
 msgstr ""
 
-#: contrib/registration/forms.py:54 django_registration/forms.py:65
-#: django_registration/forms.py:135
+#: contrib/registration/forms.py:54 django_registration/forms.py:66
+#: django_registration/forms.py:136
 msgid "Usernames can only contain letters, numbers and underscores"
 msgstr ""
 
-#: contrib/registration/forms.py:59 django_registration/forms.py:70
-#: django_registration/forms.py:140
+#: contrib/registration/forms.py:59 django_registration/forms.py:71
+#: django_registration/forms.py:141
 msgid "This username is already taken. Please choose another."
 msgstr ""
 
-#: contrib/registration/forms.py:71 django_registration/forms.py:82
-#: django_registration/forms.py:152
+#: contrib/registration/forms.py:71 django_registration/forms.py:83
+#: django_registration/forms.py:153
 msgid "You must type the same password each time"
 msgstr ""
 
-#: contrib/registration/forms.py:100 django_registration/forms.py:181
+#: contrib/registration/forms.py:100 django_registration/forms.py:182
 msgid "I have read and agree to the Terms of Service"
 msgstr ""
 
-#: contrib/registration/forms.py:109 django_registration/forms.py:190
+#: contrib/registration/forms.py:109 django_registration/forms.py:191
 msgid "You must agree to the terms to register"
 msgstr ""
 
-#: contrib/registration/forms.py:128 django_registration/forms.py:43
-#: django_registration/forms.py:209
+#: contrib/registration/forms.py:128 django_registration/forms.py:44
+#: django_registration/forms.py:210
 msgid ""
 "This email address is already in use. Please supply a different email "
 "address."
 msgstr ""
 
-#: contrib/registration/forms.py:153 django_registration/forms.py:234
+#: contrib/registration/forms.py:153 django_registration/forms.py:235
 msgid ""
 "Registration using free email addresses is prohibited. Please supply a "
 "different email address."
@@ -865,118 +933,115 @@ msgstr ""
 msgid "registration profiles"
 msgstr ""
 
-#: contrib/tagging-trunk/tagging/__init__.py:22 django_tagging/__init__.py:22
+#: contrib/tagging-trunk/tagging/__init__.py:22 tagging/__init__.py:22
 #, python-format
 msgid "The model %s has already been registered."
 msgstr ""
 
-#: contrib/tagging-trunk/tagging/fields.py:72 django_tagging/fields.py:72
+#: contrib/tagging-trunk/tagging/fields.py:72 tagging/fields.py:69
 #, python-format
 msgid "%s can only be set on instances."
 msgstr ""
 
 #: contrib/tagging-trunk/tagging/forms.py:22
-#: contrib/tagging-trunk/tagging/validators.py:19 django_tagging/forms.py:22
-#: django_tagging/validators.py:19
+#: contrib/tagging-trunk/tagging/validators.py:19 tagging/validators.py:19
 #, python-format
 msgid "Each tag may be no more than %s characters long."
 msgstr ""
 
-#: contrib/tagging-trunk/tagging/models.py:62 django_tagging/models.py:62
+#: contrib/tagging-trunk/tagging/models.py:62 tagging/models.py:58
 #, python-format
 msgid "No tags were given: \"%s\"."
 msgstr ""
 
-#: contrib/tagging-trunk/tagging/models.py:64 django_tagging/models.py:64
+#: contrib/tagging-trunk/tagging/models.py:64 tagging/models.py:60
 #, python-format
 msgid "Multiple tags were given: \"%s\"."
 msgstr ""
 
 #: contrib/tagging-trunk/tagging/models.py:470
-#: contrib/tagging-trunk/tagging/models.py:483 django_tagging/models.py:470
-#: django_tagging/models.py:483
+#: contrib/tagging-trunk/tagging/models.py:483 tagging/models.py:451
+#: tagging/models.py:461
 msgid "tag"
 msgstr ""
 
-#: contrib/tagging-trunk/tagging/models.py:471 django_tagging/models.py:471
+#: contrib/tagging-trunk/tagging/models.py:471 tagging/models.py:452
 msgid "tags"
 msgstr ""
 
-#: contrib/tagging-trunk/tagging/models.py:484 django_tagging/models.py:484
+#: contrib/tagging-trunk/tagging/models.py:484 tagging/models.py:462
 msgid "content type"
 msgstr ""
 
-#: contrib/tagging-trunk/tagging/models.py:485 django_tagging/models.py:485
+#: contrib/tagging-trunk/tagging/models.py:485 tagging/models.py:463
 msgid "object id"
 msgstr ""
 
-#: contrib/tagging-trunk/tagging/models.py:493 django_tagging/models.py:493
+#: contrib/tagging-trunk/tagging/models.py:493 tagging/models.py:471
 msgid "tagged item"
 msgstr ""
 
-#: contrib/tagging-trunk/tagging/models.py:494 django_tagging/models.py:494
+#: contrib/tagging-trunk/tagging/models.py:494 tagging/models.py:472
 msgid "tagged items"
 msgstr ""
 
-#: contrib/tagging-trunk/tagging/utils.py:187 django_tagging/utils.py:187
+#: contrib/tagging-trunk/tagging/utils.py:187 tagging/utils.py:189
 msgid ""
 "If a list or tuple of tags is provided, they must all be tag names, Tag "
 "objects or Tag ids."
 msgstr ""
 
-#: contrib/tagging-trunk/tagging/utils.py:189 django_tagging/utils.py:189
+#: contrib/tagging-trunk/tagging/utils.py:189 tagging/utils.py:191
 msgid "The tag input given was invalid."
 msgstr ""
 
-#: contrib/tagging-trunk/tagging/utils.py:234 django_tagging/utils.py:234
+#: contrib/tagging-trunk/tagging/utils.py:234 tagging/utils.py:236
 #, python-format
 msgid "Invalid distribution algorithm specified: %s."
 msgstr ""
 
-#: contrib/tagging-trunk/tagging/validators.py:27
-#: django_tagging/validators.py:27
+#: contrib/tagging-trunk/tagging/validators.py:27 tagging/validators.py:28
 msgid "Multiple tags were given."
 msgstr ""
 
-#: contrib/tagging-trunk/tagging/validators.py:30
-#: django_tagging/validators.py:30
+#: contrib/tagging-trunk/tagging/validators.py:30 tagging/validators.py:31
 #, python-format
 msgid "A tag may be no more than %s characters long."
 msgstr ""
 
-#: contrib/tagging-trunk/tagging/views.py:33 django_tagging/views.py:33
+#: contrib/tagging-trunk/tagging/views.py:33 tagging/views.py:33
 msgid "tagged_object_list must be called with a queryset or a model."
 msgstr ""
 
-#: contrib/tagging-trunk/tagging/views.py:39 django_tagging/views.py:39
+#: contrib/tagging-trunk/tagging/views.py:39 tagging/views.py:39
 msgid "tagged_object_list must be called with a tag."
 msgstr ""
 
-#: contrib/tagging-trunk/tagging/views.py:43 django_tagging/views.py:43
+#: contrib/tagging-trunk/tagging/views.py:43 tagging/views.py:43
 #, python-format
 msgid "No Tag found matching \"%s\"."
 msgstr ""
 
 #: contrib/tagging-trunk/tagging/templatetags/tagging_tags.py:19
-#: django_tagging/templatetags/tagging_tags.py:19
+#: tagging/templatetags/tagging_tags.py:19
 #, python-format
 msgid "tags_for_model tag was given an invalid model: %s"
 msgstr ""
 
 #: contrib/tagging-trunk/tagging/templatetags/tagging_tags.py:32
-#: django_tagging/templatetags/tagging_tags.py:32
+#: tagging/templatetags/tagging_tags.py:32
 #, python-format
 msgid "tag_cloud_for_model tag was given an invalid model: %s"
 msgstr ""
 
 #: contrib/tagging-trunk/tagging/templatetags/tagging_tags.py:56
-#: django_tagging/templatetags/tagging_tags.py:56
+#: tagging/templatetags/tagging_tags.py:56
 #, python-format
 msgid "tagged_objects tag was given an invalid model: %s"
 msgstr ""
 
 #: contrib/tagging-trunk/tagging/templatetags/tagging_tags.py:89
-#: django_tagging/templatetags/tagging_tags.py:89
+#: tagging/templatetags/tagging_tags.py:89
 #, python-format
 msgid "%s tag requires either three or five arguments"
 msgstr ""
@@ -984,256 +1049,548 @@ msgstr ""
 #: contrib/tagging-trunk/tagging/templatetags/tagging_tags.py:91
 #: contrib/tagging-trunk/tagging/templatetags/tagging_tags.py:143
 #: contrib/tagging-trunk/tagging/templatetags/tagging_tags.py:198
-#: django_tagging/templatetags/tagging_tags.py:91
-#: django_tagging/templatetags/tagging_tags.py:143
-#: django_tagging/templatetags/tagging_tags.py:198
+#: tagging/templatetags/tagging_tags.py:91
+#: tagging/templatetags/tagging_tags.py:143
+#: tagging/templatetags/tagging_tags.py:198
 #, python-format
 msgid "second argument to %s tag must be 'as'"
 msgstr ""
 
 #: contrib/tagging-trunk/tagging/templatetags/tagging_tags.py:94
 #: contrib/tagging-trunk/tagging/templatetags/tagging_tags.py:147
-#: django_tagging/templatetags/tagging_tags.py:94
-#: django_tagging/templatetags/tagging_tags.py:147
+#: tagging/templatetags/tagging_tags.py:94
+#: tagging/templatetags/tagging_tags.py:147
 #, python-format
 msgid "if given, fourth argument to %s tag must be 'with'"
 msgstr ""
 
 #: contrib/tagging-trunk/tagging/templatetags/tagging_tags.py:96
-#: django_tagging/templatetags/tagging_tags.py:96
+#: tagging/templatetags/tagging_tags.py:96
 #, python-format
 msgid "if given, fifth argument to %s tag must be 'counts'"
 msgstr ""
 
 #: contrib/tagging-trunk/tagging/templatetags/tagging_tags.py:141
-#: django_tagging/templatetags/tagging_tags.py:141
+#: tagging/templatetags/tagging_tags.py:141
 #, python-format
 msgid "%s tag requires either three or between five and seven arguments"
 msgstr ""
 
 #: contrib/tagging-trunk/tagging/templatetags/tagging_tags.py:155
-#: django_tagging/templatetags/tagging_tags.py:155
+#: tagging/templatetags/tagging_tags.py:155
 #, python-format
 msgid "%(tag)s tag's '%(option)s' option was not a valid integer: '%(value)s'"
 msgstr ""
 
 #: contrib/tagging-trunk/tagging/templatetags/tagging_tags.py:164
-#: django_tagging/templatetags/tagging_tags.py:164
+#: tagging/templatetags/tagging_tags.py:164
 #, python-format
 msgid "%(tag)s tag's '%(option)s' option was not a valid choice: '%(value)s'"
 msgstr ""
 
 #: contrib/tagging-trunk/tagging/templatetags/tagging_tags.py:170
-#: django_tagging/templatetags/tagging_tags.py:170
+#: tagging/templatetags/tagging_tags.py:170
 #, python-format
 msgid "%(tag)s tag was given an invalid option: '%(option)s'"
 msgstr ""
 
 #: contrib/tagging-trunk/tagging/templatetags/tagging_tags.py:175
-#: django_tagging/templatetags/tagging_tags.py:175
+#: tagging/templatetags/tagging_tags.py:175
 #, python-format
 msgid "%(tag)s tag was given a badly formatted option: '%(option)s'"
 msgstr ""
 
 #: contrib/tagging-trunk/tagging/templatetags/tagging_tags.py:196
-#: django_tagging/templatetags/tagging_tags.py:196
+#: tagging/templatetags/tagging_tags.py:196
 #, python-format
 msgid "%s tag requires exactly three arguments"
 msgstr ""
 
 #: contrib/tagging-trunk/tagging/templatetags/tagging_tags.py:221
-#: django_tagging/templatetags/tagging_tags.py:221
+#: tagging/templatetags/tagging_tags.py:221
 #, python-format
 msgid "%s tag requires exactly five arguments"
 msgstr ""
 
 #: contrib/tagging-trunk/tagging/templatetags/tagging_tags.py:223
-#: django_tagging/templatetags/tagging_tags.py:223
+#: tagging/templatetags/tagging_tags.py:223
 #, python-format
 msgid "second argument to %s tag must be 'in'"
 msgstr ""
 
 #: contrib/tagging-trunk/tagging/templatetags/tagging_tags.py:225
-#: django_tagging/templatetags/tagging_tags.py:225
+#: tagging/templatetags/tagging_tags.py:225
 #, python-format
 msgid "fourth argument to %s tag must be 'as'"
 msgstr ""
 
-#: django_dbsettings/templates/dbsettings/app_settings.html:7
-#: django_dbsettings/templates/dbsettings/site_settings.html:7
+#: dbsettings/templates/dbsettings/app_settings.html:7
+#: dbsettings/templates/dbsettings/site_settings.html:7
 msgid "Documentation"
 msgstr ""
 
-#: django_dbsettings/templates/dbsettings/app_settings.html:7
-#: django_dbsettings/templates/dbsettings/site_settings.html:7
+#: dbsettings/templates/dbsettings/app_settings.html:7
+#: dbsettings/templates/dbsettings/site_settings.html:7
 msgid "Log out"
 msgstr ""
 
-#: django_dbsettings/templates/dbsettings/app_settings.html:10
-#: django_dbsettings/templates/dbsettings/site_settings.html:10
+#: dbsettings/templates/dbsettings/app_settings.html:10
+#: dbsettings/templates/dbsettings/site_settings.html:10
 msgid "Home"
 msgstr ""
 
-#: django_dbsettings/templates/dbsettings/app_settings.html:11
-#: django_dbsettings/templates/dbsettings/site_settings.html:11
+#: dbsettings/templates/dbsettings/app_settings.html:11
+#: dbsettings/templates/dbsettings/site_settings.html:11
 msgid "Edit Settings"
 msgstr ""
 
-#: django_dbsettings/templates/dbsettings/app_settings.html:18
-#: django_dbsettings/templates/dbsettings/site_settings.html:18
+#: dbsettings/templates/dbsettings/app_settings.html:18
+#: dbsettings/templates/dbsettings/site_settings.html:18
 msgid "Please correct the error below."
 msgid_plural "Please correct the errors below."
 msgstr[0] ""
 msgstr[1] ""
 
-#: django_dbsettings/templates/dbsettings/app_settings.html:26
+#: dbsettings/templates/dbsettings/app_settings.html:26
 #, python-format
 msgid "Settings included in the %(name)s class."
 msgstr ""
 
-#: django_dbsettings/templates/dbsettings/app_settings.html:27
-#: django_dbsettings/templates/dbsettings/site_settings.html:27
-#: django_dbsettings/templates/dbsettings/site_settings.html:32
+#: dbsettings/templates/dbsettings/app_settings.html:27
+#: dbsettings/templates/dbsettings/site_settings.html:27
+#: dbsettings/templates/dbsettings/site_settings.html:32
 #, python-format
 msgid "%(name)s"
 msgstr ""
 
-#: django_dbsettings/templates/dbsettings/app_settings.html:50
-#: django_dbsettings/templates/dbsettings/site_settings.html:65
+#: dbsettings/templates/dbsettings/app_settings.html:50
+#: dbsettings/templates/dbsettings/site_settings.html:65
 msgid "You don't have permission to edit values."
 msgstr ""
 
-#: django_dbsettings/templates/dbsettings/site_settings.html:26
+#: dbsettings/templates/dbsettings/site_settings.html:26
 #, python-format
 msgid "Models available in the %(name)s application."
 msgstr ""
 
-#: net/forms.py:84
-msgid "Password must be longer than 6 letters"
+#: multilingual/flatpages/admin.py:8
+msgid "Advanced options"
+msgstr ""
+
+#: multilingual/flatpages/models.py:9
+msgid "URL"
+msgstr ""
+
+#: multilingual/flatpages/models.py:10
+msgid ""
+"Example: '/about/contact/'. Make sure to have leading and trailing slashes."
+msgstr ""
+
+#: multilingual/flatpages/models.py:11
+msgid "enable comments"
+msgstr ""
+
+#: multilingual/flatpages/models.py:12
+msgid "template name"
+msgstr ""
+
+#: multilingual/flatpages/models.py:13
+msgid ""
+"Example: 'flatpages/contact_page.html'. If this isn't provided, the system "
+"will use 'flatpages/default.html'."
+msgstr ""
+
+#: multilingual/flatpages/models.py:14
+msgid "registration required"
+msgstr ""
+
+#: multilingual/flatpages/models.py:14
+msgid "If this is checked, only logged-in users will be able to view the page."
+msgstr ""
+
+#: multilingual/flatpages/models.py:33
+msgid "title"
+msgstr ""
+
+#: multilingual/flatpages/models.py:34
+msgid "content"
+msgstr ""
+
+#: multilingual/flatpages/models.py:38
+msgid "multilingual flat page"
+msgstr ""
+
+#: multilingual/flatpages/models.py:39
+msgid "multilingual flat pages"
 msgstr ""
 
 #: net/forms.py:85
+msgid "Password must be longer than 6 letters"
+msgstr ""
+
+#: net/forms.py:86
 msgid "Passwords do not match"
 msgstr ""
 
-#: net/models.py:11
+#: net/models.py:18
 msgid "Interest"
 msgstr ""
 
-#: net/models.py:12
+#: net/models.py:19
 msgid "Writer"
 msgstr ""
 
-#: net/models.py:13
+#: net/models.py:20
 msgid "Site"
 msgstr ""
 
-#: net/models.py:14
+#: net/models.py:21
 msgid "Other favorite"
 msgstr ""
 
-#: net/models.py:31
+#: net/models.py:38
 msgid "Male"
 msgstr ""
 
-#: net/models.py:32
+#: net/models.py:39
 msgid "Female"
 msgstr ""
 
-#: net/models.py:51
+#: net/models.py:58
 msgid "Avatar"
 msgstr ""
 
-#: net/models.py:52
+#: net/models.py:59
 msgid "Country"
 msgstr ""
 
-#: net/models.py:53
+#: net/models.py:60
 msgid "City"
 msgstr ""
 
-#: net/models.py:54
+#: net/models.py:61
 msgid "Birthdate"
 msgstr ""
 
-#: net/models.py:55
+#: net/models.py:62
 msgid "Gender"
 msgstr ""
 
-#: net/models.py:56
+#: net/models.py:63
 msgid "About me"
 msgstr ""
 
-#: net/models.py:60
+#: net/models.py:67
 msgid "Other contacts"
 msgstr ""
 
-#: net/models.py:64
+#: net/models.py:71
 msgid "Favorite interests"
 msgstr ""
 
-#: net/models.py:65
+#: net/models.py:72
 msgid "Favorite writers"
 msgstr ""
 
-#: net/models.py:66
+#: net/models.py:73
 msgid "Favorite sites"
 msgstr ""
 
-#: net/models.py:67
+#: net/models.py:74
 msgid "Other favorites"
+msgstr ""
+
+#: net/models.py:241
+msgid "Generator"
+msgstr ""
+
+#: net/models.py:242
+msgid "Respondent"
+msgstr ""
+
+#: net/models.py:243
+msgid "Group"
+msgstr ""
+
+#: net/models.py:245 wall/models.py:10
+msgid "Body"
+msgstr ""
+
+#: net/models.py:247 wall/models.py:13
+msgid "Sent time"
+msgstr ""
+
+#: net/templates/ads_widget.html:8
+msgid "Обьявления"
+msgstr "إعلانات"
+
+#: net/templates/ads_widget.html:20 net/templates/blog_widget.html:13
+#: net/templates/messages_widget.html:41 net/templates/wall_widget.html:17
+msgid "Написать"
+msgstr "البريد"
+
+#: net/templates/ads_widget.html:23 net/templates/messages_widget.html:45
+#: net/templates/wall_widget.html:20
+#, python-format
+msgid "Еще %(count)s сообщений"
 msgstr ""
 
 #: net/templates/base.html:7
 msgid "RT TV"
+msgstr "RT TV"
+
+#: net/templates/base.html:81
+msgid "Я"
+msgstr "أنا"
+
+#: net/templates/base.html:89
+msgid "Выйти"
+msgstr "خروج"
+
+#: net/templates/blog_widget.html:4
+msgid "Дневник"
+msgstr "المفكرة"
+
+#: net/templates/blog_widget.html:17
+#, python-format
+msgid "Еще записей: %(count)s"
+msgstr "أكثر السجلات  %(count)s:"
+
+#: net/templates/edit_place.html:9 net/templates/edit_profile.html:14
+msgid "Save"
 msgstr ""
 
-#: net/templates/edit_profile.html:7
-msgid "save"
+#: net/templates/events_widget.html:9
+msgid "События"
+msgstr "الأحداث"
+
+#: net/templates/events_widget.html:21
+msgid "Пока ничего не произошло."
+msgstr "حتى الآن لم يحدث شيء."
+
+#: net/templates/friends_widget.html:9
+msgid "Друзья"
+msgstr "أصدقاء"
+
+#: net/templates/friends_widget.html:28 net/templates/friends_widget.html:36
+msgid "У вас нет друзей, попробуйте их найти"
+msgstr "ليس لديك أصدقاء ، في محاولة للعثور عليهم"
+
+#: net/templates/friends_widget.html:32
+msgid "можно добавить"
+msgstr "يمكنك إضافة"
+
+#: net/templates/group.html:6 net/templates/groups.html:9
+msgid "Вы участник этой группы"
 msgstr ""
 
-#: net/templates/index.html:4
-msgid "News"
+#: net/templates/group.html:7 net/templates/groups.html:10
+msgid "Покинуть группу"
+msgstr "ترك مجموعة"
+
+#: net/templates/group.html:9 net/templates/groups.html:12
+msgid "Вступить в группу"
+msgstr "الانضمام إلى مجموعة"
+
+#: net/templates/group.html:13
+msgid "Все группы"
+msgstr "جميع المجموعات"
+
+#: net/templates/group_create.html:6
+msgid "Новая группа"
+msgstr "مجموعة جديدة"
+
+#: net/templates/group_create.html:9 net/templates/wall_create.html:21
+msgid "send"
 msgstr ""
 
-#: net/templates/profile_t.html:64
+#: net/templates/groups.html:18
+msgid "Создать группу"
+msgstr "إنشاء مجموعة"
+
+#: net/templates/message_header.html:5
+msgid "личное сообщение"
+msgstr "رسالة خاصة"
+
+#: net/templates/message_header.html:7
+msgid "запись на стену"
+msgstr "الكتابة على الجدار"
+
+#: net/templates/message_header.html:11 net/templates/messages_widget.html:23
+msgid "Для:"
+msgstr "ل:"
+
+#: net/templates/message_header.html:16 net/templates/messages_widget.html:28
+msgid "От:"
+msgstr "من :"
+
+#: net/templates/messages_widget.html:10
+msgid "Cообщения"
+msgstr "أخبار"
+
+#: net/templates/messages_widget.html:50
+msgid "История моих сообщений"
+msgstr "تاريخ بلادي رسائل"
+
+#: net/templates/messages_widget.html:60
+msgid "Отправить личное сообщение"
+msgstr "إرسال رسالة خاصة"
+
+#: net/templates/paginator.html:11
+msgid "Предыдущая"
+msgstr "السابق"
+
+#: net/templates/paginator.html:29
+msgid "Следующая"
+msgstr "التالي"
+
+#: net/templates/photos_widget.html:9 photo/templates/photo_albums.html:5
+msgid "Фотографии"
+msgstr "صور"
+
+#: net/templates/photos_widget.html:28
+msgid "Загрузите фотографии"
+msgstr "احصل على الصورة"
+
+#: net/templates/profile_include.html:9
+msgid "Редактировать"
+msgstr "تحرير"
+
+#: net/templates/profile_include.html:13
+msgid "Это Ваш друг."
+msgstr "هذا هو صديقك."
+
+#: net/templates/profile_include.html:14
+msgid "Удалить из друзей"
+msgstr "إزالة من أصدقاء"
+
+#: net/templates/profile_include.html:16
+msgid "Добавить в друзья"
+msgstr "أضف إلى الأصدقاء"
+
+#: net/templates/profile_include.html:39
+msgid "Places"
+msgstr ""
+
+#: net/templates/profile_include.html:41
+msgid "add"
+msgstr ""
+
+#: net/templates/profile_include.html:50
+msgid "edit"
+msgstr ""
+
+#: net/templates/profile_include.html:56
+msgid "Добавить место"
+msgstr "إضافة "
+
+#: net/templates/profile_include.html:61
+msgid "Интересы:"
+msgstr "المصالح"
+
+#: net/templates/profile_include.html:68
+msgid "Телефон:"
+msgstr "هاتف"
+
+#: net/templates/wall_create.html:9
+msgid "رسالة شخصية"
+msgstr ""
+
+#: net/templates/wall_create.html:11
+msgid "Сообщение на Стену"
+msgstr "الرسالة على الحائط"
+
+#: net/templates/wall_messages.html:16
+msgid "Outbox"
+msgstr ""
+
+#: net/templates/wall_messages.html:17
+msgid "Inbox"
+msgstr ""
+
+#: net/templates/wall_messages.html:18
+msgid "Messages history"
+msgstr ""
+
+#: net/templates/wall_messages.html:19
 msgid "Wall"
 msgstr ""
 
-#: net/templates/profile_t.html:65
-msgid "Leave a message"
-msgstr ""
+#: net/templates/wall_messages.html:32
+msgid "Ответить"
+msgstr "يرد"
 
-#: net/templates/profile_t.html:81
-msgid "Albums"
-msgstr ""
+#: net/templates/wall_messages.html:36
+msgid "Ответить на стене пользователя "
+msgstr "وردا على الحائط للمستخدم"
 
-#: net/templates/register.html:52 net/templates/registration/login.html:36
-#: net/templates/registration/register.html:51
-#: net/templates/registration/registration_form.html:52
+#: net/templates/wall_widget.html:8
+msgid "Стена"
+msgstr "جدار"
+
+#: net/templates/wall_widget.html:26
+msgid "Стена пуста"
+msgstr "جدار فارغ"
+
+#: net/templates/wall_widget.html:31
+msgid "попробуйте сами"
+msgstr "جرب بنفسك"
+
+#: net/templates/wall_widget.html:35
+msgid "Написать на стене пользователя"
+msgstr "الكتابة على الجدار للمستخدم"
+
+#: net/templates/registration/login.html:7
+msgid "Уже зарегистрированы?"
+msgstr "سجلت بالفعل؟"
+
+#: net/templates/registration/login.html:12
+msgid "войти"
+msgstr "يذهب"
+
+#: net/templates/registration/login.html:14
+#: net/templates/registration/registration_form.html:31
 msgid "Recover password"
+msgstr "استعادة كلمة المرور"
+
+#: net/templates/registration/logout.html:6
+msgid "Спасибо за использование нашего сервиса."
+msgstr "شكرا لاستخدام خدماتنا."
+
+#: net/templates/registration/logout.html:7
+msgid "Войти снова"
+msgstr "اشترك الآن"
+
+#: photo/forms.py:21
+msgid "Новый альбом"
+msgstr "الألبوم الجديد"
+
+#: photo/forms.py:23
+#, python-format
+msgid "Группа %s"
 msgstr ""
+
+#: photo/forms.py:33
+msgid "Album is required."
+msgstr ""
+
+#: photo/templates/photo_albums.html:20 photo/templates/photo_photo.html:19
+#: photo/templates/photo_photos.html:6
+msgid "Добавить фото"
+msgstr "أضف صورة"
+
+#: photo/templates/photo_create.html:6
+msgid "Добавить фотографии"
+msgstr "أضف صور"
 
 #: wall/models.py:8
 msgid "From"
 msgstr ""
 
-#: wall/models.py:10
-msgid "Subject"
-msgstr ""
-
-#: wall/models.py:11
-msgid "Body"
-msgstr ""
-
-#: wall/models.py:13
+#: wall/models.py:12
 msgid "Private"
 msgstr ""
 
-#: wall/models.py:14
-msgid "Sent time"
-msgstr ""
-
-#: wall/models.py:16
+#: wall/models.py:15
 msgid "Parent"
 msgstr ""

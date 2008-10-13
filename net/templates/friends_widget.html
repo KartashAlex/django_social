@@ -25,7 +25,7 @@
                 {% else %}
                     {% if profile %}
                         {% ifequal profile.user.pk request.user.pk %}
-                            {% trans "У вас нет друзей, попробуйте их найти" %}
+                            <h3 class="header">{% trans "У вас нет друзей, попробуйте их найти" %}</h3>
                         {% else %}
                             <h2 class="header">
                                 У пользователя нет друзей, но его 
@@ -33,7 +33,9 @@
                             </h2>
                         {% endifequal %}
                     {% else %}
+					<h2 class="header">
                         {% trans "У вас нет друзей, попробуйте их найти" %}
+						</h2>
                     {% endif %}
 				{% endif %}
 				
