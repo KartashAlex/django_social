@@ -33,7 +33,7 @@
 				<div class="corner-left bottom"></div>
 				<div class="corner-right bottom"></div>
 	<h1 class="header">
-	У вас нет обьявлений, <a href="{% url post_add %}" class="wrote-smth">добавьте</a>
+	{% trans "У вас нет обьявлений," %} <a href="{% url post_add %}" class="wrote-smth">{% trans "добавьте" %}</a>
 	</h1>
 	</div>
 	{% endifequal %}

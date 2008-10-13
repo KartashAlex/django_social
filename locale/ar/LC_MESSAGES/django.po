@@ -1234,91 +1234,91 @@ msgstr ""
 
 #: net/models.py:18
 msgid "Interest"
-msgstr ""
+msgstr "مصلحة"
 
 #: net/models.py:19
 msgid "Writer"
-msgstr ""
+msgstr "الكاتب"
 
 #: net/models.py:20
 msgid "Site"
-msgstr ""
+msgstr "الموقع"
 
 #: net/models.py:21
 msgid "Other favorite"
-msgstr ""
+msgstr "أخرى المفضل"
 
 #: net/models.py:38
 msgid "Male"
-msgstr ""
+msgstr "مالي"
 
 #: net/models.py:39
 msgid "Female"
-msgstr ""
+msgstr "أنثى"
 
 #: net/models.py:58
 msgid "Avatar"
-msgstr ""
+msgstr "تجسد الآلهة"
 
 #: net/models.py:59
 msgid "Country"
-msgstr ""
+msgstr "قطر"
 
 #: net/models.py:60
 msgid "City"
-msgstr ""
+msgstr "مدينة"
 
 #: net/models.py:61
 msgid "Birthdate"
-msgstr ""
+msgstr "تاريخ الميلاد"
 
 #: net/models.py:62
 msgid "Gender"
-msgstr ""
+msgstr "النوع"
 
 #: net/models.py:63
 msgid "About me"
-msgstr ""
+msgstr "عني"
 
 #: net/models.py:67
 msgid "Other contacts"
-msgstr ""
+msgstr "الاتصالات الأخرى"
 
 #: net/models.py:71
 msgid "Favorite interests"
-msgstr ""
+msgstr "مصالح المفضل"
 
 #: net/models.py:72
 msgid "Favorite writers"
-msgstr ""
+msgstr "الكتاب المفضل"
 
 #: net/models.py:73
 msgid "Favorite sites"
-msgstr ""
+msgstr "المواقع المفضلة"
 
 #: net/models.py:74
 msgid "Other favorites"
-msgstr ""
+msgstr "الأخرى المفضلة"
 
 #: net/models.py:241
 msgid "Generator"
-msgstr ""
+msgstr "المولد"
 
 #: net/models.py:242
 msgid "Respondent"
-msgstr ""
+msgstr "المدعى عليه"
 
 #: net/models.py:243
 msgid "Group"
-msgstr ""
+msgstr "المجموعة"
 
 #: net/models.py:245 wall/models.py:10
 msgid "Body"
-msgstr ""
+msgstr "جسم"
 
 #: net/models.py:247 wall/models.py:13
 msgid "Sent time"
-msgstr ""
+msgstr "أرسلت الوقت"
 
 #: net/templates/ads_widget.html:8
 msgid "Обьявления"
@@ -1333,7 +1333,7 @@ msgstr "البريد"
 #: net/templates/wall_widget.html:20
 #, python-format
 msgid "Еще %(count)s сообщений"
-msgstr ""
+msgstr "المزيد من التقاري"
 
 #: net/templates/base.html:7
 msgid "RT TV"
@@ -1358,7 +1358,7 @@ msgstr "أكثر السجلات  %(count)s:"
 
 #: net/templates/edit_place.html:9 net/templates/edit_profile.html:14
 msgid "Save"
-msgstr ""
+msgstr "حفظ"
 
 #: net/templates/events_widget.html:9
 msgid "События"
@@ -1382,7 +1382,7 @@ msgstr "يمكنك إضافة"
 
 #: net/templates/group.html:6 net/templates/groups.html:9
 msgid "Вы участник этой группы"
-msgstr ""
+msgstr "انت طرف في هذه المجموعة"
 
 #: net/templates/group.html:7 net/templates/groups.html:10
 msgid "Покинуть группу"
@@ -1402,7 +1402,7 @@ msgstr "مجموعة جديدة"
 
 #: net/templates/group_create.html:9 net/templates/wall_create.html:21
 msgid "send"
-msgstr ""
+msgstr "يرسل"
 
 #: net/templates/groups.html:18
 msgid "Создать группу"
@@ -1470,15 +1470,15 @@ msgstr "أضف إلى الأصدقاء"
 
 #: net/templates/profile_include.html:39
 msgid "Places"
-msgstr ""
+msgstr "الأماكن"
 
 #: net/templates/profile_include.html:41
 msgid "add"
-msgstr ""
+msgstr "إضافة"
 
 #: net/templates/profile_include.html:50
 msgid "edit"
-msgstr ""
+msgstr "تحرير"
 
 #: net/templates/profile_include.html:56
 msgid "Добавить место"
@@ -1572,7 +1572,7 @@ msgstr ""
 
 #: photo/forms.py:33
 msgid "Album is required."
-msgstr ""
+msgstr "الألبوم هو المطلوب"
 
 #: photo/templates/photo_albums.html:20 photo/templates/photo_photo.html:19
 #: photo/templates/photo_photos.html:6
@@ -1585,12 +1585,12 @@ msgstr "أضف صور"
 
 #: wall/models.py:8
 msgid "From"
-msgstr ""
+msgstr "من"
 
 #: wall/models.py:12
 msgid "Private"
-msgstr ""
+msgstr "الخاصة"
 
 #: wall/models.py:15
 msgid "Parent"
-msgstr ""
+msgstr "الوالدين"

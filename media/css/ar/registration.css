@@ -43,7 +43,7 @@ margin-left: -362px;
 float: right;
 }
 .b-signup label {
-    float: right; display: inline;
+    float:  t; display: inline;
     text-align: right;
     width: 150px;
     margin-top: 1px;

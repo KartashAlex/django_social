@@ -24,7 +24,7 @@
 	{% else %}
 	{% ifequal profile.user.pk request.user.pk %}
 	<h1 class="header">{% trans "Стена пуста" %}</h1>
-	<p class="wrote-smth wrote-smth-btn">
+	<p class="wrote-smth wrote-smth-btn"п>
 	    <a href="{% url user_search %}">Найдите друзей, и они вам что-нибудь напишут</a> 
 	    или  
 	    <a href="{% url create_pm profile.pk %}" >
