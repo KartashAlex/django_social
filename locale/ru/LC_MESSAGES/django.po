@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-10-13 19:45+0400\n"
+"POT-Creation-Date: 2008-10-13 17:10-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -64,7 +64,7 @@ msgstr ""
 msgid "Добавить пост"
 msgstr ""
 
-#: blog/templates/post_add.html:8
+#: blog/templates/post_add.html:8 photo/templates/album_create.html:11
 msgid "Cоздать"
 msgstr ""
 
@@ -1330,10 +1330,17 @@ msgstr ""
 msgid "Написать"
 msgstr ""
 
-#: net/templates/ads_widget.html:23 net/templates/messages_widget.html:45
-#: net/templates/wall_widget.html:20
+#: net/templates/ads_widget.html:23 net/templates/wall_widget.html:20
 #, python-format
 msgid "Еще %(count)s сообщений"
+msgstr ""
+
+#: net/templates/ads_widget.html:36
+msgid "У вас нет обьявлений,"
+msgstr ""
+
+#: net/templates/ads_widget.html:36
+msgid "добавьте"
 msgstr ""
 
 #: net/templates/base.html:7
@@ -1344,8 +1351,24 @@ msgstr ""
 msgid "Я"
 msgstr ""
 
+#: net/templates/base.html:82
+msgid "Люди"
+msgstr ""
+
+#: net/templates/base.html:84
+msgid "Группы"
+msgstr ""
+
 #: net/templates/base.html:89
 msgid "Выйти"
+msgstr ""
+
+#: net/templates/base.html:91
+msgid "Настройки"
+msgstr ""
+
+#: net/templates/base.html:94
+msgid "Искать"
 msgstr ""
 
 #: net/templates/blog_widget.html:4
@@ -1373,8 +1396,12 @@ msgstr ""
 msgid "Друзья"
 msgstr ""
 
-#: net/templates/friends_widget.html:28 net/templates/friends_widget.html:36
+#: net/templates/friends_widget.html:28 net/templates/friends_widget.html:37
 msgid "У вас нет друзей, попробуйте их найти"
+msgstr ""
+
+#: net/templates/friends_widget.html:31
+msgid "У пользователя нет друзей, но его"
 msgstr ""
 
 #: net/templates/friends_widget.html:32
@@ -1430,8 +1457,17 @@ msgstr ""
 msgid "Cообщения"
 msgstr ""
 
+#: net/templates/messages_widget.html:45
+#, python-format
+msgid " Еще %(count)s сообщений "
+msgstr ""
+
 #: net/templates/messages_widget.html:50
 msgid "История моих сообщений"
+msgstr ""
+
+#: net/templates/messages_widget.html:58
+msgid "У вас нет сообщений"
 msgstr ""
 
 #: net/templates/messages_widget.html:60
@@ -1534,6 +1570,10 @@ msgstr ""
 msgid "Стена пуста"
 msgstr ""
 
+#: net/templates/wall_widget.html:28
+msgid "Найдите друзей, и они вам что-нибудь напишут"
+msgstr ""
+
 #: net/templates/wall_widget.html:31
 msgid "попробуйте сами"
 msgstr ""
@@ -1542,11 +1582,23 @@ msgstr ""
 msgid "Написать на стене пользователя"
 msgstr ""
 
+#: net/templates/registration/activation.html:40
+msgid "Зарегистрироваться"
+msgstr ""
+
+#: net/templates/registration/activation.html:41
+msgid ""
+"Мы бережно храним ваш email в соответствии с &laquo;<a href=\"#\">Условиями "
+"о хранении персональной информации</a>&raquo; "
+msgstr ""
+
 #: net/templates/registration/login.html:7
+#: net/templates/registration/registration_form.html:26
 msgid "Уже зарегистрированы?"
 msgstr ""
 
 #: net/templates/registration/login.html:12
+#: net/templates/registration/registration_form.html:30
 msgid "войти"
 msgstr ""
 
@@ -1563,6 +1615,51 @@ msgstr ""
 msgid "Войти снова"
 msgstr ""
 
+#: net/templates/registration/registration_complete.html:6
+msgid "Спасибо!"
+msgstr ""
+
+#: net/templates/registration/registration_complete.html:7
+msgid ""
+"На ваш email придет письмо со ссылкой, перейдя по которой вы сможете "
+"продолжить регистрацию. Если письмо все-таки е пришло, попробуйте ввести "
+"email еще раз или написать в нашу службу поддержки"
+msgstr ""
+
+#: net/templates/registration/registration_form.html:8
+msgid ""
+"\n"
+"                <h2>RTTV Social это новая социальная сеть где вы можете</"
+"h2>\n"
+"                <ul>\n"
+"                <li>&mdash;&nbsp;Общаться с друзьями</li>\n"
+"                <li>&mdash;&nbsp;Находить своих старых знакомых, "
+"одноклассников, коллег</li>\n"
+"                <li>&mdash;&nbsp;Загружать, показывать и комментровать "
+"фотографии</li>\n"
+"                <li>&mdash;&nbsp;Вести дневник</li>\n"
+"                <li>&mdash;&nbsp;Размещать обьявления</li>\n"
+"                </ul>"
+msgstr ""
+
+#: net/templates/registration/registration_form.html:18
+msgid "Зарегистрироваться:"
+msgstr ""
+
+#: net/templates/registration/registration_form.html:21
+msgid ""
+"Мы бережно храним ваш email в соответствии с &laquo;<a href=\"#\">Условиями "
+"о хранении персональной информации</a>&raquo;"
+msgstr ""
+
+#: net/templates/registration/registration_form.html:27
+msgid "E-mail"
+msgstr ""
+
+#: net/templates/registration/registration_form.html:28
+msgid "Пароль"
+msgstr ""
+
 #: photo/forms.py:21
 msgid "Новый альбом"
 msgstr ""
@@ -1576,6 +1673,14 @@ msgstr ""
 msgid "Album is required."
 msgstr ""
 
+#: photo/templates/album_create.html:5
+msgid "У вас еще нет ни одного альбома"
+msgstr ""
+
+#: photo/templates/album_create.html:9
+msgid "Название:"
+msgstr ""
+
 #: photo/templates/photo_albums.html:20 photo/templates/photo_photo.html:19
 #: photo/templates/photo_photos.html:6
 msgid "Добавить фото"
@@ -1583,6 +1688,22 @@ msgstr ""
 
 #: photo/templates/photo_create.html:6
 msgid "Добавить фотографии"
+msgstr ""
+
+#: photo/templates/photo_create.html:10
+msgid "выберите альбом или группу"
+msgstr ""
+
+#: photo/templates/photo_create.html:11
+msgid "создайте новый альбом:"
+msgstr ""
+
+#: photo/templates/photo_create.html:16
+msgid "выберите фотографии:"
+msgstr ""
+
+#: photo/templates/photo_create.html:24
+msgid "Загрузить"
 msgstr ""
 
 #: wall/models.py:8

@@ -6,8 +6,8 @@
             <form class="b-registration-form" action="{% url auth_login %}" method="post">
                 <h2>{% trans "Уже зарегистрированы?" %}</h2>
                 {{ form.username.errors|join:", " }}
-                <fieldset><label for="username">E-mail</label>{{ form.username }}</fieldset>
-                <fieldset><label for="password">Пароль</label>{{ form.password }}</fieldset>
+                <fieldset><label for="username">{% trans "E-mail" %}</label>{{ form.username }}</fieldset>
+                <fieldset><label for="password">{% trans "Пароль" %}</label>{{ form.password }}</fieldset>
                 {{ form.next }}
                 <input type="submit" value="{% trans "войти" %}" class="signup-btn"/>
             </form>

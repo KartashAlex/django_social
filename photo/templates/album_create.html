@@ -1,64 +1,14 @@
 {% extends "base.html" %}
             {% block content %}
-			<table class="b-personal-info">
-				                    <tbody><tr>
-				                        <td class="b-userpic">
-				                             <img src="/i/avatars/2008/09/IMGP0011_jpg_270x270_q85.jpg"/> 
-				                        </td>
-				                        <td>
-				                            <a name="edit-profile-btn" href="/profile/" id="edit-profile-btn" class="edit-profile-btn">Редактировать</a>
-				                            <div class="h-userinfo">
-				                                <h2 class="username">
-				                                    Иван Кузнецов
-				                                </h2>
-				                                <div style="width: 50%; float: left;">
-
-				                                    <div class="b-date-and-place">
-				                                        <a href="#">01.01.2008</a><br/>
-
-				                                    <div class="b-education-info">
-
-				                                    </div>
-				                                    <div class="b-career-info">
-
-
-
-				                                                <a href="/profile/place/">add place</a>
-
-
-				                                    </div>
-				                                    <div class="b-career-info">
-				                                        Интересы:  <a href="/search/?interest=%D0%A2%D0%B5%D1%81%D1%82">Тест</a>,   <a href="/search/?interest=%D1%82%D0%B5%D1%81%D1%822">тест2</a>,   <a href="/search/?interest=%D1%82%D0%B5%D1%81%D1%823">тест3</a> 
-				                                    </div>
-				                                </div></div>
-				                                <div style="width: 50%; float: left;">
-
-				                                    <div class="b-phone-num">
-				                                        Телефон: <span class="bigger">2989999</span>
-				                                    </div>
-				                                    <div class="b-im-accounts">
-
-				                                        ICQ: <a href="#">247090900</a><br/>
-
-
-
-				                                    </div>
-
-				                                </div>
-
-				                            </div>
-				                        </td>
-				                    </tr>
-				                </tbody></table>
 								<div class="b-form-container">
 								        <div class="b-signup" style="margin-top: 20px;">
-									<h1>У вас еще нет ни одного альбома</h1>
+									<h1>{% trans "У вас еще нет ни одного альбома" %}</h1>
 								            <form enctype="multipart/form-data" method="post" action="{% url create_photo album.user.pk,album.pk %}">
 								                <div class="b-fields-group main-fields">
 								              
-								<fieldset><label for="id_title">Название:</label> <input type="text" maxlength="255" name="title" id="id_title"/></fieldset>
+								<fieldset><label for="id_title">{% trans "Название:" %}</label> <input type="text" maxlength="255" name="title" id="id_title"/></fieldset>
 								
-								                    <input type="submit" value="Cоздать"/>
+								                    <input type="submit" value="{% trans "Cоздать" %}"/>
 								                </div>
 								            </form>
 										</div>
