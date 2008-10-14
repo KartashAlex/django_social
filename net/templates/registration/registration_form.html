@@ -17,7 +17,7 @@
                 <form class="b-signup-form" action="{% url registration_register %}" method="post">
                 <h3 class="header">{% trans "Зарегистрироваться:" %}</h3>
                 <fieldset>{{ form.as_p }}</fieldset>
-                 <input type="submit" value="Зарегистрироваться" class="signin-btn"/>
+                 <input type="submit" value="{% trans "Зарегистрироваться" %}" class="signin-btn"/>
                 <p class="notation">{% blocktrans %}Мы бережно храним ваш email в соответствии с &laquo;<a href="#">Условиями о хранении персональной информации</a>&raquo;{% endblocktrans %}</p>
                 </form>
             </div>

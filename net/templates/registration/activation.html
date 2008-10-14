@@ -42,7 +42,7 @@
                 </form>
             </div>
             <form class="b-registration-form" action="{% url auth_login %}" method="post">
-                <h2>Уже зарегистрированы?</h2>
+                <h2>{% trans "Уже зарегистрированы? "}</h2>
                 <fieldset><label for="login">E-mail</label><input name="login" id="login" /></fieldset>
                 <fieldset><label for="password">Пароль</label><input name="password" id="password" /></fieldset>
                 <input type="submit" value="войти" class="signup-btn"/>
