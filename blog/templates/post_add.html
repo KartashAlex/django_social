@@ -1,7 +1,7 @@
 
 {% load i18n %}
             {% block content %}
-                <div class="b-message-form" id="write-smth">
+                <div class="b-place-form" style="height: 400px" id="write-smth">
                         <h1>{% trans "Добавить пост" %}</h1>
                         <form method="post" action="{% url post_add  %}">
                             {{ form.as_p }}
