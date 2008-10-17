@@ -45,13 +45,13 @@ def add(request, *args, **kwargs):
 @login_required
 def add_an_ad(request, *args, **kwargs):
     if request.POST:
-        form = PostForm(request.POST, user=request.user.user)
+        form = PostForm(request.POST, user=request.user.user, type="Advertisement")
         if form.is_valid():
             post = form.save()
             return HttpResponseRedirect(post.get_absolute_url())
     else:
         form = PostForm(user=request.user.user, type="Advertisement")
     print form
-    return render_to_response('poast_add.html', {
+    return render_to_response('ad_add.html', {
             'form': form,
         }, context_instance=RequestContext(request))

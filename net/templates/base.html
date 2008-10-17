@@ -38,7 +38,6 @@
 
 				$('.wrote-smth').click(function(){
 				var _t = this;
-					
 				 $.get($(_t).attr('href'), function(data){
 					$('body').append(data);
 					$('#write-smth').dialog({
