@@ -38,6 +38,8 @@
 		  {% include "events_widget.html" %}
 	</div>
         <div class="clear"></div>
+	{% if objects_list %}
  {% include "paginator.html" %}
+{% endif %}
     {% endblock content %}
   

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-10-17 05:33-0500\n"
+"POT-Creation-Date: 2008-10-19 14:49-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -37,31 +37,32 @@ msgstr ""
 msgid "Name"
 msgstr ""
 
-#: blog/models.py:15
+#: blog/models.py:14
+#, python-format
+msgid "Category %s"
+msgstr ""
+
+#: blog/models.py:18
 msgid "Blog post"
 msgstr ""
 
-#: blog/models.py:16
+#: blog/models.py:19
 msgid "Advertisement"
 msgstr ""
 
-#: blog/models.py:19
+#: blog/models.py:22
 msgid "Author"
 msgstr ""
 
-#: blog/models.py:21 net/models.py:251
+#: blog/models.py:24 net/models.py:252
 msgid "Type"
 msgstr ""
 
-#: blog/models.py:22
+#: blog/models.py:25
 msgid "Subject"
 msgstr ""
 
-#: blog/models.py:23
-msgid "Text"
-msgstr ""
-
-#: blog/models.py:25
+#: blog/models.py:28
 msgid "Ad category"
 msgstr ""
 
@@ -1199,23 +1200,33 @@ msgstr "المواقع المفضلة"
 msgid "Other favorites"
 msgstr "الأخرى المفضلة"
 
-#: net/models.py:246
+#: net/models.py:166
+#, fuzzy, python-format
+msgid "Place %s"
+msgstr "الأماكن"
+
+#: net/models.py:187
+#, fuzzy, python-format
+msgid "Group %s"
+msgstr "المجموعة"
+
+#: net/models.py:247
 msgid "Generator"
 msgstr "المولد"
 
-#: net/models.py:247
+#: net/models.py:248
 msgid "Respondent"
 msgstr "المدعى عليه"
 
-#: net/models.py:248
+#: net/models.py:249
 msgid "Group"
 msgstr "المجموعة"
 
-#: net/models.py:250 wall/models.py:10
+#: net/models.py:251 wall/models.py:10
 msgid "Body"
 msgstr "جسم"
 
-#: net/models.py:252 wall/models.py:13
+#: net/models.py:253 wall/models.py:13
 msgid "Sent time"
 msgstr "أرسلت الوقت"
 
@@ -1233,11 +1244,11 @@ msgstr "البريد"
 msgid "Еще %(count)s сообщений"
 msgstr ""
 
-#: net/templates/ads_widget.html:36
+#: net/templates/ads_widget.html:37
 msgid "У вас нет обьявлений,"
 msgstr "لا يوجد لديك إعلانات ،"
 
-#: net/templates/ads_widget.html:36
+#: net/templates/ads_widget.html:37
 #, fuzzy
 msgid "добавьте"
 msgstr "أضف صورة"
@@ -1308,15 +1319,15 @@ msgstr ""
 msgid "можно добавить"
 msgstr "يمكنك إضافة"
 
-#: net/templates/group.html:6 net/templates/groups.html:9
+#: net/templates/group.html:6 net/templates/groups.html:24
 msgid "Вы участник этой группы"
 msgstr "انت طرف في هذه المجموعة"
 
-#: net/templates/group.html:7 net/templates/groups.html:10
+#: net/templates/group.html:7 net/templates/groups.html:25
 msgid "Покинуть группу"
 msgstr "ترك مجموعة"
 
-#: net/templates/group.html:9 net/templates/groups.html:12
+#: net/templates/group.html:9 net/templates/groups.html:27
 msgid "Вступить в группу"
 msgstr "الانضمام إلى مجموعة"
 
@@ -1324,17 +1335,21 @@ msgstr "الانضمام إلى مجموعة"
 msgid "Все группы"
 msgstr "جميع المجموعات"
 
-#: net/templates/group_create.html:6
+#: net/templates/group_create.html:5
 msgid "Новая группа"
 msgstr "مجموعة جديدة"
 
-#: net/templates/group_create.html:9 net/templates/wall_create.html:21
+#: net/templates/group_create.html:8 net/templates/wall_create.html:23
 msgid "send"
 msgstr "يرسل"
 
-#: net/templates/groups.html:18
+#: net/templates/groups.html:7
 msgid "Создать группу"
 msgstr "إنشاء مجموعة"
+
+#: net/templates/groups.html:38
+msgid "К сожалению нет групп по вашему поисковому запросу"
+msgstr ""
 
 #: net/templates/message_header.html:5
 msgid "личное сообщение"
@@ -1430,12 +1445,16 @@ msgstr "المصالح"
 msgid "Телефон:"
 msgstr "هاتف"
 
-#: net/templates/wall_create.html:9
+#: net/templates/users.html:27
+msgid "К сожалению нет пользователей по вашему поисковому запросу"
+msgstr ""
+
+#: net/templates/wall_create.html:11
 #, fuzzy
 msgid "Личное сообщение"
 msgstr "رسالة خاصة"
 
-#: net/templates/wall_create.html:11
+#: net/templates/wall_create.html:13
 msgid "Сообщение на Стену"
 msgstr "الرسالة على الحائط"
 
@@ -1471,15 +1490,15 @@ msgstr "جدار"
 msgid "Стена пуста"
 msgstr "جدار فارغ"
 
-#: net/templates/wall_widget.html:28
+#: net/templates/wall_widget.html:29
 msgid "Найдите друзей, и они вам что-нибудь напишут"
 msgstr "إيجاد الأصدقاء ، ولكم شيئا لكتابة"
 
-#: net/templates/wall_widget.html:31
+#: net/templates/wall_widget.html:33
 msgid "попробуйте сами"
 msgstr "جرب بنفسك"
 
-#: net/templates/wall_widget.html:35
+#: net/templates/wall_widget.html:37
 msgid "Написать на стене пользователя"
 msgstr "الكتابة على الجدار للمستخدم"
 
