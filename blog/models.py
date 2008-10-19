@@ -9,6 +9,9 @@ from net.models import User, NetGroup
 class AdCategory(models.Model):
     class Translation(multilingual.Translation):
         name = models.CharField(_('Name'), max_length=255)
+        
+    def __unicode__(self):
+        return self.name or _(u'Category %s') % self.pk
 
 class Post(models.Model):
     TYPES = (
@@ -25,7 +28,7 @@ class Post(models.Model):
     ad_cat = models.ForeignKey(AdCategory, verbose_name=_('Ad category'), null=True, blank=True)
     
     def get_absolute_url(self):
-        return reverse('post_profile', args=[self.author.pk, self.type, self.pk])
+        return reverse('post_profile', args=[self.author.pk, self.get_type(), self.pk])
 
     def get_type(self):
         return [t[1] for t in self.TYPES if t[0] == self.type][0] 

@@ -15,12 +15,13 @@ def widgets(request, user=None):
     from django.db.models import ObjectDoesNotExist
     from photo.models import Photo, User
     try:
-        events_owner = request.user.user
+        events_owner = user or request.user.user
         friends = events_owner.get_friends()
         events = Event.objects.filter(from_user=events_owner)
         events = events | Event.objects.filter(user=events_owner)
         events = events | Event.objects.filter(user__in=friends)
         events = events | Event.objects.filter(group__in=events_owner.user_groups.all())
+        
         events = events.order_by('-sent')[:10]
     except (User.DoesNotExist, AttributeError):
         events = []

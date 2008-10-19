@@ -13,11 +13,13 @@ class PostForm(forms.ModelForm):
         try:
             self.type = kwargs.pop('type')
         except:
-            self.type = "Blog post"
+            self.type = "blog"
         super(PostForm, self).__init__(*args, **kwargs)
         self.fields['group'].choices = [('', _('None'))] + [(g.id, g.name) for g in self.user.user_groups.all()]
         if not self.fields['group'].choices:
             self.fields['group'].widget = forms.HiddenInput()
+        if self.type == "blog":
+            self.fields['ad_cat'].widget = forms.HiddenInput()
 
     def save(self):
         post = super(PostForm, self).save(commit=False)
