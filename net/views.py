@@ -116,22 +116,14 @@ def user_search(request):
     query = Q()
     I18N_FIELDS = ['country__translations__name', 'city__translations__name', 'places__template__translations__name']
     TEXT_SEARCH = TAG_FIELDS + I18N_FIELDS + ['interest', 'first_name', 'last_name', 'username', 'email']
-    for f in I18N_FIELDS:
-        for l in settings.LANGUAGES:
-            TEXT_SEARCH += ['%s_%s' % (f, l[0])]
     OTHER_SEARCH = ['birthdate']
     for key in TEXT_SEARCH + OTHER_SEARCH:
         q = request.REQUEST.getlist(key) or request.REQUEST.getlist('q')
-        print q
         if q and q != '' and q != [] and q != ['']:
             for subq in q:
                 for subsubq in subq.split(' '):
-                    print key, I18N_FIELDS
-                    if key in I18N_FIELDS:
-                        for l in settings.LANGUAGES:
-                            query = query | Q(**{key+'__icontains': subsubq})
-                    elif key in TEXT_SEARCH:
-                            query = query | Q(**{key+'__icontains': subsubq})
+                    if key in TEXT_SEARCH:
+                        query = query | Q(**{key+'__icontains': subsubq})
                     else:
                         if request.REQUEST.getlist(key):
                             query = query | Q(**{key: subsubq})
