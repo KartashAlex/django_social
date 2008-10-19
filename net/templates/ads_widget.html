@@ -17,7 +17,7 @@
     </div>
     {% endfor %}
     <div class="b-do-bar">
-        <a href="{% url post_add %}" style="margin-right: 50px;" class="wrote-smth wrote-smth-btn">{% trans "Написать" %}</a>
+        <a href="{% url post_add "ads" %}" style="margin-right: 50px;" class="wrote-smth wrote-smth-btn">{% trans "Написать" %}</a>
         {% if widgets.blog.ads_count %}
             <a href="{% url post_list profile.pk,"ads" %}">
                 {% blocktrans with widgets.blog.ads_count as count %}Еще {{ count }} сообщений{% endblocktrans %}
@@ -33,7 +33,7 @@
 				<div class="corner-left bottom"></div>
 				<div class="corner-right bottom"></div>
 	<h1 class="header">
-	{% trans "У вас нет обьявлений," %} <a href="{% url post_add %}" class="wrote-smth">{% trans "добавьте" %}</a>
+	{% trans "У вас нет обьявлений," %} <a href="{% url post_add "ads" %}" class="wrote-smth">{% trans "добавьте" %}</a>
 	</h1>
 	</div>
 	{% endifequal %}

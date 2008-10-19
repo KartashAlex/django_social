@@ -163,7 +163,8 @@ class PlaceTemplate(models.Model):
 
      
     def __unicode__(self):
-        return self.name_ru
+        return self.name or _(u'Place %s') % self.pk
+    
 class Place(models.Model):
     user = models.ForeignKey(User, related_name='places')
     template = models.ForeignKey(PlaceTemplate, related_name='places')
@@ -183,7 +184,7 @@ class NetGroup(models.Model):
         pass
     
     def __unicode__(self):
-        return self.name
+        return self.name or _(u'Group %s') % self.pk
         
     def get_absolute_url(self):
         return reverse('groups_profile', args=[self.pk])
