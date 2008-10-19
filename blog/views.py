@@ -29,15 +29,15 @@ def profile(request, user_id, type, id, *args, **kwargs):
     return list_detail.object_detail(request, *args, **kwargs)
 
 @login_required
-def add(request, *args, **kwargs):
+def add(request, type="blog", *args, **kwargs):
     if request.POST:
-        form = PostForm(request.POST, user=request.user.user)
+        form = PostForm(request.POST, user=request.user.user, type=type)
         if form.is_valid():
             post = form.save()
             return HttpResponseRedirect(post.get_absolute_url())
     else:
-        form = PostForm(user=request.user.user)
-    print form
+        form = PostForm(user=request.user.user, type=type)
     return render_to_response('post_add.html', {
             'form': form,
+            'type': type,
         }, context_instance=RequestContext(request))
