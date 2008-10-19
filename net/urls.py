@@ -18,6 +18,7 @@ urlpatterns = patterns('',
     (r'^groups/$', 'net.views.groups_list', {}, 'groups_list'),
     (r'^groups/(\d+)/$', 'net.views.groups_profile', {}, 'groups_profile'),
     (r'^groups/(\d+)/enter/(\d)/$', 'net.views.groups_enter', {}, 'groups_enter'),
+    (r'^groups/(\d+)/invite/$', 'net.views.groups_invite', {}, 'groups_invite'),
     (r'^groups/new/$', 'net.views.groups_create', {}, 'groups_create'),
     (r'^groups/my/$', 'net.views.groups_list', {'my': True}, 'my_groups_list'),
 

@@ -18,7 +18,8 @@
             <a href="{% url groups_create %}">{% trans "Создать группу" %}</a>
             <a href="{% url my_groups_list %}">{% trans "Мои группы" %}</a>
             <form class="b-fast-search" action="{% url groups_list %}" method="get">
-                <input type="text" name="q" value="{{ request.REQUEST.q }}" /> <input type="submit" value="{% trans "Искать" %}" />
+                <input type="text" name="q" value="{{ request.REQUEST.q }}" /> 
+                <input type="submit" value="{% trans "Искать" %}" />
             </form>
         </div>
                             

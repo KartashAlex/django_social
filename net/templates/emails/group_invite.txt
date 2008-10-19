@@ -1,0 +1,8 @@
+{% load i18n %}
+<a href="http://{{ site.domain }}{{ sender.get_absolute_url }}">{{ sender.get_name }}</a>
+{% trans "пригласил" %}
+<a href="http://{{ site.domain }}{{ user.get_absolute_url }}">{{ user.get_name }}</a>
+{% trans "в группу" %}
+<a href="http://{{ site.domain }}{{ group.get_absolute_url }}">{{ group.name }}</a>. 
+{% trans "Пройдя по ссылке, Вы сможете узнать больше об этой группе и, при желании, вступить в нее." %}
+

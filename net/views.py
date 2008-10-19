@@ -12,7 +12,7 @@ from django.forms.formsets import formset_factory
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 
-from net.models import User, Friend, Place, PlaceTemplate, TAG_FIELDS, NetGroup as Group, City
+from net.models import User, Friend, Place, PlaceTemplate, TAG_FIELDS, NetGroup as Group, City, Event
 from net.forms import ProfileForm, InterestsForm, PlaceForm, FieldsetFormSet, GroupForm
 
 def profile(request, id):
@@ -213,6 +213,13 @@ def groups_enter(request, group_id, enter):
                 raise
             else:
                 pass
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/groups/'))
+    
+@login_required
+def groups_invite(request, group_id):
+    group = get_object_or_404(Group, pk=group_id)
+    user = get_object_or_404(User, pk=request.REQUEST.get('user'))
+    Event.objects.create_event(request.user.user, user=user, type='group_invite', group=group)
     return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/groups/'))
     
 def json(lst, fields):
