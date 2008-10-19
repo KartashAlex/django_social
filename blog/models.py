@@ -20,7 +20,7 @@ class Post(models.Model):
     group = models.ForeignKey(NetGroup, related_name='posts', blank=True, null=True)
     type = models.CharField(_('Type'), max_length=32, choices=TYPES)
     subject = models.CharField(_('Subject'), max_length=255)
-    text = models.TextField()
+    text = models.TextField(_('Text'))
     added = models.DateTimeField(auto_now_add=True, blank=True)
     ad_cat = models.ForeignKey(AdCategory, verbose_name=_('Ad category'), null=True, blank=True)
     
