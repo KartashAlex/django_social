@@ -152,8 +152,15 @@ def change_friend(request, user_id, add):
             pass
     return HttpResponseRedirect(user.get_absolute_url())
 
-def groups_list(request):
-    return list_detail.object_list(request, queryset=Group.objects.all(), template_name='groups.html', paginate_by=10)
+@login_required
+def groups_list(request, my=False):
+    groups = Group.objects.all()
+    if my:
+        try:
+            groups = groups.filter(members=request.user.user)
+        except:
+            pass
+    return list_detail.object_list(request, queryset=groups, template_name='groups.html', paginate_by=10)
 
 def groups_profile(request, group_id):
     return list_detail.object_detail(request, queryset=Group.objects.all(), object_id=group_id, template_name='group.html')
@@ -184,7 +191,10 @@ def groups_enter(request, group_id, enter):
         try:
             group.remove_user(request.user.user)
         except Group.UserException:
-            pass
+            if settings.DEBUG:
+                raise
+            else:
+                pass
     return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/groups/'))
     
 def json(lst, fields):
