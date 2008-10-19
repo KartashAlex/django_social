@@ -12,7 +12,7 @@ from django.forms.formsets import formset_factory
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 
-from net.models import User, Friend, Place, PlaceTemplate, TAG_FIELDS, NetGroup as Group, City
+from net.models import User, Friend, Place, PlaceTemplate, TAG_FIELDS, NetGroup as Group, City, Event
 from net.forms import ProfileForm, InterestsForm, PlaceForm, FieldsetFormSet, GroupForm
 
 def profile(request, id):
@@ -160,8 +160,26 @@ def groups_list(request, my=False):
             groups = groups.filter(members=request.user.user)
         except:
             pass
+
+    query = Q()
+    TEXT_SEARCH = ['name', 'description', 'posts__subject', 'posts__text', 'albums__photos__title', 'albums__title']
+    OTHER_SEARCH = []
+    for key in TEXT_SEARCH + OTHER_SEARCH:
+        q = request.REQUEST.getlist(key) or request.REQUEST.getlist('q')
+        if q and q != '' and q != [] and q != ['']:
+            for subq in q:
+                for subsubq in subq.split(' '):
+                    if key in TEXT_SEARCH:
+                        query = query | Q(**{key+'__icontains': subsubq})
+                    else:
+                        if request.REQUEST.getlist(key):
+                            query = query | Q(**{key: subsubq})
+    if query and query.children:
+        groups = groups.filter(query)
+
     return list_detail.object_list(request, queryset=groups, template_name='groups.html', paginate_by=10)
 
+@login_required
 def groups_profile(request, group_id):
     return list_detail.object_detail(request, queryset=Group.objects.all(), object_id=group_id, template_name='group.html')
     
@@ -195,6 +213,13 @@ def groups_enter(request, group_id, enter):
                 raise
             else:
                 pass
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/groups/'))
+    
+@login_required
+def groups_invite(request, group_id):
+    group = get_object_or_404(Group, pk=group_id)
+    user = get_object_or_404(User, pk=request.REQUEST.get('user'))
+    Event.objects.create_event(request.user.user, user=user, type='group_invite', group=group)
     return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/groups/'))
     
 def json(lst, fields):
