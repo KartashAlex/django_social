@@ -1,4 +1,5 @@
 {% load i18n thumbnail net %}
+
                 <table class="b-personal-info">
                     <tr>
                         <td class="b-userpic">
@@ -7,7 +8,7 @@
                         <td>
                             {% ifequal profile.pk request.user.user.pk %}
                                 <a class="edit-profile-btn" id="edit-profile-btn" href="{% url edit_user_profile %}" name="edit-profile-btn">{% trans "Редактировать" %}</a>
-                          
+                       
                             {% else %}
                                 {% ifin profile request.user.user.get_friends.all %}
                                     {% trans "Это Ваш друг." %}

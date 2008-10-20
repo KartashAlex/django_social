@@ -98,7 +98,7 @@
 				&nbsp;
 			</div>
 			<div class="b-content-container">
-				{% block profile %} {% if request.user.is_authenticated %} {% with request.user.user as profile %} {% include "profile_include.html" %} {% endwith %} {% endif %} {% endblock profile %} {% block content %} {% endblock content %}
+				{% block profile %} {% if request.user.user %} {% with request.user.user as profile %} {% include "profile_include.html" %} {% endwith %} {% endif %} {% endblock profile %} {% block content %} {% endblock content %}
 			</div>
 			<div class="b-footer"></div>
 		</div>
