@@ -1,7 +1,8 @@
 {% extends "base.html" %}
 {% load i18n interests net %}
+	{% block content %}
 
- 
+        <a class="wrote-smth b-add-photo-block" style="margin-left: 40px" href="{% url groups_create %}">{% trans "Создать группу" %}</a>
   
 		<div class="b-wide-left-column">
 		<div class="b-block" >
@@ -42,9 +43,7 @@
 			  {% include "events_widget.html" %}
 		</div>
 	        <div class="clear"></div>
-		{% if objects_list %}
 	 {% include "paginator.html" %}
-	{% endif %}
-
+{% include "paginator.html" %}
 {% endblock content %}
 
