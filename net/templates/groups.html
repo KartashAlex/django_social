@@ -20,9 +20,9 @@
 					<div сlass="b-user-info-small" style="color: #c0c0c0">
 						 {% ifin request.user.user group.members.all %}
 			                    {% trans "Вы участник этой группы" %}
-			                    <a href="{% url groups_enter group.pk "0" %}">{% trans "Покинуть группу" %}</a>
+			                    <a href="{% url groups_enter group.pk,0 %}">{% trans "Покинуть группу" %}</a>
 			             {% else %}
-			                    <a href="{% url groups_enter group.pk "1" %}">{% trans "Вступить в группу" %}</a>
+			                    <a href="{% url groups_enter group.pk,1 %}">{% trans "Вступить в группу" %}</a>
 			             {% endifin %}
                     </div>
 				</div>
