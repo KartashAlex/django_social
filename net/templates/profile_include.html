@@ -12,9 +12,9 @@
                             {% else %}
                                 {% ifin profile request.user.user.get_friends.all %}
                                     {% trans "Это Ваш друг." %}
-                                    <a href="{% url change_friend profile.pk, 0 %}">{% trans "Удалить из друзей" %}</a>
+                                    <a href="{% url change_friend profile.pk,0 %}">{% trans "Удалить из друзей" %}</a>
                                 {% else %}
-                                    <a href="{% url change_friend profile.pk, 1 %}">{% trans "Добавить в друзья" %}</a>
+                                    <a href="{% url change_friend profile.pk,1 %}">{% trans "Добавить в друзья" %}</a>
                                 {% endifin %}
                             {% endifequal %}
                             
