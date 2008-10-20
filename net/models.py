@@ -175,6 +175,7 @@ class Place(models.Model):
 class NetGroup(models.Model):
     name = models.CharField(max_length=255, unique=True)
     description = models.TextField(blank=True, null=True)
+    interest = models.TextField(_('Favorite interests'), blank=True, default='')
     
     owner = models.ForeignKey(User, related_name='owner_groups')
     admins = models.ManyToManyField(User, related_name='admin_groups', blank=True, editable=False)
@@ -189,6 +190,9 @@ class NetGroup(models.Model):
     def get_absolute_url(self):
         return reverse('groups_profile', args=[self.pk])
     
+    def get_interests(self):
+        return [interest.strip() for interest in self.interest.split(',')]
+
     def save(self, *args, **kwargs):
         super(NetGroup, self).save(*args, **kwargs)
         self.update_users()

@@ -162,7 +162,7 @@ def groups_list(request, my=False):
             pass
 
     query = Q()
-    TEXT_SEARCH = ['name', 'description', 'posts__subject', 'posts__text', 'albums__photos__title', 'albums__title']
+    TEXT_SEARCH = ['name', 'description', 'posts__subject', 'posts__text', 'albums__photos__title', 'albums__title', 'interest']
     OTHER_SEARCH = []
     for key in TEXT_SEARCH + OTHER_SEARCH:
         q = request.REQUEST.getlist(key) or request.REQUEST.getlist('q')

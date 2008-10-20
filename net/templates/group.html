@@ -16,6 +16,11 @@
         {% else %}
             <a href="{% url groups_enter object.pk "1" %}">{% trans "Вступить в группу" %}</a>
         {% endifin %}
+        {% if object.interest %}
+        <div class="b-career-info">
+            {% trans "Интересы:" %} {% for interest in object.get_interests %} <a href="{% url groups_list %}?interest={{ interest|urlencode }}">{{ interest }}</a>{% if not forloop.last %}, {% endif %} {% endfor %}
+        </div>
+        {% endif %}
         <p>{{ object.description }}</p>
         <div class="clear">
             <a href="{% url groups_list %}">{% trans "Все группы" %}</a>
