@@ -12,11 +12,11 @@
 		<div class="corner-right bottom"></div>
 		<div class="b-users-list">
 				
-		{% if objects_list %}
+{% if object_list %}
     {% for group in object_list %}
         	<div class="b-user">
 				<div style="margin: 20px 0 0 20px; float: left">
-				    <a href="{% url user_profile user.pk %}">{{ group.get_name }}</a>
+				    <a href="{% url groups_profile group.pk %}">{{ group.name }}</a>
 					<div сlass="b-user-info-small" style="color: #c0c0c0">
 						 {% ifin request.user.user group.members.all %}
 			                    {% trans "Вы участник этой группы" %}
@@ -27,10 +27,6 @@
                     </div>
 				</div>
 		</div>
-
-                          
-        
-		
     {% endfor %}
 {% else %}
 	<p class="wrote-smth-btn">{% trans "К сожалению нет групп по вашему поисковому запросу" %}</p>
