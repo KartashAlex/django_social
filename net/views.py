@@ -192,7 +192,7 @@ def groups_create(request):
             group.owner = request.user.user
             group.save()
             
-            return HttpResponseRedirect('/me/')
+            return HttpResponseRedirect(group.get_absolute_url())
     else:
         form = GroupForm()
     
