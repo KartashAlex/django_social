@@ -262,11 +262,14 @@ class Event(models.Model):
         return self.user or self.group
         
     def get_body(self, user):
-        if self.user.pk == user.pk:
+        print self.user.pk, user.pk
+        if user.is_authenticated():
             site = Site.objects.get_current()
-            extra.update({'site': site, 'sender': self.from_user, 'user': self.user, 'group': self.group})
-            return render_to_string('emails/my/%s.txt' % (self.type), extra)
-        else:
-            return self.body
+            extra = {'site': site, 'sender': self.from_user, 'user': self.user, 'group': self.group}
+            if self.user.pk == user.pk:
+                return render_to_string('emails/to_me/%s.txt' % (self.type), extra)
+            elif self.from_user.pk == user.pk:
+                return render_to_string('emails/my/%s.txt' % (self.type), extra)
+        return self.body
             
 

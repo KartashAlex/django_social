@@ -1,5 +1,5 @@
 {% load i18n %}
-{% trans "Вы пригласили" %}
+{% trans "Вас пригласил" %}
 <a href="http://{{ site.domain }}{{ user.get_absolute_url }}">{{ user.get_name }}</a>
 {% trans "в группу" %}
 <a href="http://{{ site.domain }}{{ group.get_absolute_url }}">{{ group.name }}</a>. 
