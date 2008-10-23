@@ -9,7 +9,7 @@ class Country(models.Model):
     
     def __unicode__(self):
         return self.name
-
+        
 class City(models.Model):
     country = models.ForeignKey(Country)
     class Translation(multilingual.Translation):

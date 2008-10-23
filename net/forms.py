@@ -5,7 +5,7 @@ from django.forms.extras.widgets import SelectDateWidget
 from django.utils.translation import ugettext_lazy as _
 from django.utils.safestring import mark_safe
 
-from net.models import User, Place, NetGroup as Group, DATA_FIELDS, PlaceTemplate
+from net.models import User, Place, NetGroup as Group, DATA_FIELDS, PlaceTemplate, Country, City, PlaceType
 
 import datetime
 
@@ -38,6 +38,10 @@ class DataFieldsForm(forms.ModelForm):
         return self._html_output(u'<fieldset>%(label)s %(field)s%(help_text)s</fieldset>', u'%s', '</fieldset>', u' %s', True)
 
 class PlaceForm(DataFieldsForm):
+    country = forms.ChoiceField(choices=[(c.pk, c.name) for c in Country.objects.all()])
+    type = forms.ChoiceField(choices=[(t.pk, t.name) for t in PlaceType.objects.all()])
+    
+    city = forms.CharField(max_length=255)
     title = forms.CharField(max_length=255)
     
     class Meta:
@@ -58,7 +62,12 @@ class PlaceForm(DataFieldsForm):
     def save(self, user, *args, **kwargs):
         kwargs.update({"commit":False})
         super(PlaceForm, self).save(*args, **kwargs)
-        self.instance.template = PlaceTemplate.objects.get(translations__name=self.cleaned_data['title'])
+        city, created = City.objects.get_or_create(name=self.cleaned_data['city'], country__pk=self.cleaned_data['country'])
+        self.instance.template, created = PlaceTemplate.objects.get_or_create(
+            name=self.cleaned_data['title'],
+            city=city,
+            type=PlaceType.objects.get(pk=self.cleaned_data['type'])
+        )
         self.instance.user = user
         self.instance.save()
         return self.instance
