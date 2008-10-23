@@ -39,7 +39,8 @@ class DataFieldsForm(forms.ModelForm):
 
 class SearchForm(forms.ModelForm):
     place = forms.CharField(max_length=255)
-    age = forms.IntegerField()
+    age_from = forms.IntegerField()
+    age_to = forms.IntegerField()
     
     class Meta:
         model = User
@@ -59,8 +60,10 @@ class SearchForm(forms.ModelForm):
                 result['first_name__icontains'] = self.cleaned_data['first_name']
             if self.cleaned_data['last_name']:
                 result['first_name__icontains'] = self.cleaned_data['last_name']
-            if self.cleaned_data['age']:
-                result['birthdate__lte'] = datetime.datetime.now() - 366 * datetime.timedelta(self.cleaned_data['age'])
+            if self.cleaned_data['age_from']:
+                result['birthdate__lte'] = datetime.datetime.now() - 366 * datetime.timedelta(self.cleaned_data['age_from'])
+            if self.cleaned_data['age_to']:
+                result['birthdate__gte'] = datetime.datetime.now() - 366 * datetime.timedelta(self.cleaned_data['age_to'])
             return result
         else:
             return {}
