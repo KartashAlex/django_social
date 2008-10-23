@@ -37,6 +37,38 @@ class DataFieldsForm(forms.ModelForm):
         "Returns this form rendered as HTML <fieldset>s."
         return self._html_output(u'<fieldset>%(label)s %(field)s%(help_text)s</fieldset>', u'%s', '</fieldset>', u' %s', True)
 
+class SearchForm(forms.ModelForm):
+    place = forms.CharField(max_length=255)
+    age = forms.IntegerField()
+    
+    class Meta:
+        model = User
+        fields = ['first_name', 'last_name']
+
+    def __init__(self, *args, **kwargs):
+        super(SearchForm, self).__init__(*args, **kwargs)
+        for k in self.fields.keys():
+            self.fields[k].required = False
+
+    def get_query(self):
+        if self.is_valid():
+            result = {}
+            if self.cleaned_data['place']:
+                result['places__template__translations__name__icontains'] = self.cleaned_data['place']
+            if self.cleaned_data['first_name']:
+                result['first_name__icontains'] = self.cleaned_data['first_name']
+            if self.cleaned_data['last_name']:
+                result['first_name__icontains'] = self.cleaned_data['last_name']
+            if self.cleaned_data['age']:
+                result['birthdate__lte'] = datetime.datetime.now() - 366 * datetime.timedelta(self.cleaned_data['age'])
+            return result
+        else:
+            return {}
+        
+    def as_fs(self):
+        "Returns this form rendered as HTML <fieldset>s."
+        return self._html_output(u'<fieldset>%(label)s %(field)s%(help_text)s</fieldset>', u'%s', '</fieldset>', u' %s', True)
+        
 class PlaceForm(DataFieldsForm):
     country = forms.ChoiceField(choices=[(c.pk, c.name) for c in Country.objects.all()])
     type = forms.ChoiceField(choices=[(t.pk, t.name) for t in PlaceType.objects.all()])
