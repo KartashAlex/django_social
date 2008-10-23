@@ -240,7 +240,7 @@ def ajax_cities(request, country_id):
 def ajax_places(request):
     places = PlaceTemplate.objects.all()
     if request.GET.get('q'):
-        places = places.filter(translations__name__startswith=request.GET.get('q'))
+        places = places.filter(translations__name__istartswith=request.GET.get('q'))
     if request.GET.get('city'):
         places = places.filter(city__pk=request.GET.get('city'))
     
