@@ -1,6 +1,6 @@
 {% load net i18n %}
-<a href="http://{{ site.domain }}{{ sender.get_absolute_url }}">{{ sender.get_name }}</a>
-{% trans "добавил в друзья" %} <a href="http://{{ site.domain }}{{ user.get_absolute_url }}">{{ user.get_name }}</a>. 
+{% trans "Вас добавил в друзья" %} 
+<a href="http://{{ site.domain }}{{ sender.get_absolute_url }}">{{ sender.get_name }}</a>. 
 {% ifin sender user.get_friends.all %}
     {% trans "Вы тоже можете" %} <a href="http://{{ site.domain }}{% url change_friend sender.pk,1 %}">{% trans "добавить его в друзья." %}</a>
 {% else %}
