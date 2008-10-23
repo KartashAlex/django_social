@@ -13,7 +13,7 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 
 from net.models import User, Friend, Place, PlaceTemplate, TAG_FIELDS, NetGroup as Group, City, Event
-from net.forms import ProfileForm, InterestsForm, PlaceForm, FieldsetFormSet, GroupForm
+from net.forms import ProfileForm, InterestsForm, PlaceForm, FieldsetFormSet, GroupForm, SearchForm
 
 def profile(request, id):
     from context_processors import widgets
@@ -132,8 +132,19 @@ def user_search(request):
     if query and query.children:
         users = users.filter(query)
     users = users.distinct()
+    
+    if request.POST:
+        form = SearchForm(request.POST)
+        qdict = form.get_query()
+        if qdict:
+            users = users.filter(**qdict)
+    else:
+        form = SearchForm()
         
-    return list_detail.object_list(request, queryset=users, template_name='users.html', paginate_by=10)
+    return list_detail.object_list(request, 
+        queryset=users, template_name='users.html', 
+        paginate_by=10, extra_context={'form': form}
+    )
 
 @login_required
 def friends(request, user_id):

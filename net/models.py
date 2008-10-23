@@ -262,7 +262,6 @@ class Event(models.Model):
         return self.user or self.group
         
     def get_body(self, user):
-        print self.user.pk, user.pk
         if user.is_authenticated():
             site = Site.objects.get_current()
             extra = {'site': site, 'sender': self.from_user, 'user': self.user, 'group': self.group}
