@@ -1,2 +1,4 @@
 {% load net i18n %}
-{% trans "You has joined group" %} <a href="http://{{ site.domain }}{{ group.get_absolute_url }}">{{ group.name }}</a>. 
+<a href="http://{{ site.domain }}{{ user.get_absolute_url }}">{{ user.get_name }}</a>
+{% trans "вступил в группу" %} 
+<a href="http://{{ site.domain }}{{ group.get_absolute_url }}">{{ group.name }}</a>. 

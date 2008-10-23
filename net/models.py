@@ -260,4 +260,13 @@ class Event(models.Model):
     
     def get_address(self):
         return self.user or self.group
+        
+    def get_body(self, user):
+        if self.user.pk == user.pk:
+            site = Site.objects.get_current()
+            extra.update({'site': site, 'sender': self.from_user, 'user': self.user, 'group': self.group})
+            return render_to_string('emails/my/%s.txt' % (self.type), extra)
+        else:
+            return self.body
+            
 

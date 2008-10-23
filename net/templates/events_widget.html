@@ -1,4 +1,4 @@
-{% load thumbnail i18n %}
+{% load thumbnail i18n method %}
 	
 <div class="b-block b-wall">
 		<div class="corner-left"></div>
@@ -14,7 +14,11 @@
 	        <img src="/i/albums/30px.jpg" style="width: 30px; height: 30px; background: #000; display: block; float: left">
         	<h3>{{ msg.sent|date:"d.m.Y H:s" }}</h3>
 	     </div>
-        <p>{{ msg.body|safe }}</p>
+        <p>
+        {% autoescape off %}    
+            {% method msg get_body request.user %}
+        {% endautoescape off %}    
+        </p>
     </div>
     {% endfor %}
 {% else %}
