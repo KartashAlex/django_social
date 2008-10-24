@@ -96,7 +96,8 @@ class PlaceForm(DataFieldsForm):
     def save(self, user, *args, **kwargs):
         kwargs.update({"commit":False})
         super(PlaceForm, self).save(*args, **kwargs)
-        city, created = City.objects.get_or_create(name=self.cleaned_data['city'], country__pk=self.cleaned_data['country'])
+        country = Country.objects.get(pk=self.cleaned_data['country'])
+        city, created = City.objects.get_or_create(name=self.cleaned_data['city'], country=country)
         self.instance.template, created = PlaceTemplate.objects.get_or_create(
             name=self.cleaned_data['title'],
             city=city,
