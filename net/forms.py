@@ -74,9 +74,8 @@ class SearchForm(forms.ModelForm):
         
 class PlaceForm(DataFieldsForm):
     country = forms.ChoiceField(choices=[(c.pk, c.name) for c in Country.objects.all()])
+    city = forms.ChoiceField(choices=[])
     type = forms.ChoiceField(choices=[(t.pk, t.name) for t in PlaceType.objects.all()])
-    
-    city = forms.CharField(max_length=255)
     title = forms.CharField(max_length=255)
     
     class Meta:
