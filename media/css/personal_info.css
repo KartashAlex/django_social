@@ -9,7 +9,7 @@
    width: 282px;
     padding: 20px 30px 20px 20px;
     text-align: center;
-    background: url('/i/img/avatar_bg.jpg');
+    background: url('/i/img/avatar_bg.jpg') top left no-repeat;
 }
 
 .username { 

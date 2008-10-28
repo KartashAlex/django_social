@@ -22,7 +22,7 @@
     
 }
 .b-setlang {
-	width: 150px; float: left; 
+	width: 150px; float: left; display: inline; 
 	margin-right: 20px;
 	margin-top: -5px;
 	font-size: 0.9em;
@@ -35,13 +35,13 @@
     width: 100%;
 }
 .b-head-right .b-logout-btn {
-    float: left;
+    float: left; display: inline;
     color: #fff;
     margin-left: 10px;
    
 }
 .b-fast-search {
-    float: left; 
+    float: left; display: inline; 
     
 }
 .b-setlang b {

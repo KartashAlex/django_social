@@ -1,5 +1,5 @@
 .b-form-container {
-float: left; display: inline;
+float: left; display: inline; display: inline;
 width: 100%;
 overflow: hidden;
 background: #fff;
@@ -10,7 +10,7 @@ padding-bottom: 20px;
 
 
   .b-registration {
-float: left; display: inline;
+float: left; display: inline; display: inline;
 margin: 135px 0 0 0px;
 padding: 0 50%;
 }
@@ -31,7 +31,7 @@ border-left: solid 1px #e2e2e2;
 
 
 .b-signup {
-    float: left; display: inline;
+    float: left; display: inline; display: inline;
     width: 600px;
 
     margin: 55px 0 0 0px;
@@ -52,18 +52,18 @@ float: right;
 }
 
 .b-registration-form {
-    float: left; display: inline;
+    float: left; display: inline; display: inline;
     width: 310px;
     margin-left: 50px;
   
 }
 .b-login-form {
                   margin-left: -400px;                
-    float: left;
+    float: left; display: inline;
     display: inline;
 }
 .b-registration-form input {
-float: left;
+float: left; display: inline;
 }
   
   .b-registration-form label {
@@ -110,7 +110,7 @@ margin: 10px 0 0 5px;
 }
 
 .b-fields-group {
-    float: left;
+    float: left; display: inline;
     margin-bottom: 20px;
 }
 .b-signup .signup-btn {

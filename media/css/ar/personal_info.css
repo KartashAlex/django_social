@@ -10,7 +10,7 @@
     padding: 20px 20px 20px 30px;
     text-align: center;
 
-    background: url('/i/img/avatar_bg.jpg') no-repeat;
+    background: url('/i/img/avatar_bg.jpg') top left no-repeat;
 }
 
 .username { 

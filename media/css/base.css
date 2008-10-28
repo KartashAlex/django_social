@@ -48,7 +48,7 @@ border: 0;
   
 .b-page-container {
 position: relative;
-float: left; display: inline;
+float: left; display: inline; display: inline;
 min-height: 100%;
 height: 100%;
 width: 100%;
@@ -62,7 +62,7 @@ height: auto;
 height: auto;
 }
                 	.b-content-container {
-float: left; display: inline;
+float: left; display: inline; display: inline;
 position: relative;
 width: 100%;
 
@@ -74,11 +74,11 @@ h1 {
 	font-size: 1.5em;
 }
                 	.license {
-float: left; display: inline;
+float: left; display: inline; display: inline;
 }
                 	.b-min-height {
 width: 990px;
-float: left; display: inline;
+float: left; display: inline; display: inline;
 height: 0px;
 overflow: hidden;
 }
@@ -98,14 +98,14 @@ table td {
   font-size: 1.1em; 
 }
 .b-recover-password {
-	float: left;
+	float: left; display: inline;
 	margin: 22px 0 0 35px;
 }
 .b-block {
 	margin: 10px 0 0 20px;
 	width: 100%;
 	position: relative;
-	float: left;
+	float: left; display: inline;
 	border: solid 1px #707070;
 	background: #fff;
 }
@@ -113,6 +113,7 @@ table td {
     position: absolute;
     left: -1px;
     top: -1px;
+    zoom: 1;
     width: 15px;
     height: 15px;
     background: url('/i/img/corners.gif') top left no-repeat;
@@ -121,6 +122,7 @@ table td {
     position: absolute;
     right: -1px;
     top: -1px;
+     zoom: 1;
     width: 15px;
     height: 15px;
     background: url('/i/img/corners.gif') -14px 0px no-repeat;
@@ -137,7 +139,7 @@ table td {
 }
 .b-block .header {
 	font-size: 1.5em;
-	float: left;
+	float: left; display: inline;
 	width: 100%;
 	margin: 10px 0 10px 20px;
 }
@@ -146,17 +148,17 @@ table td {
     
     float: right;
 	margin-left: 20px;
-	float: left;
+	float: left; display: inline;
 }
 
 .b-albums {
     margin: 0 0 10px 10px;
-    float: left;
+    float: left; display: inline;
 }
 
 .b-wall .b-message {
 	padding-bottom: 5px;
-	float: left;
+	float: left; display: inline;
     margin: 5px 0px 10px 20px;
 	border-bottom: solid 1px #efefef;
 	width: 90%;
@@ -179,7 +181,7 @@ table td {
 .b-photos .b-photo {
     margin: 5px 5px 5px 10px;
 	display: block;
-	float: left;
+	float: left; display: inline;
 
 }
 
@@ -238,7 +240,7 @@ table td {
 
 .b-post {
 	margin: 10px 0 15px 0;
-	float: left;
+	float: left; display: inline;
 	width: 40%;
 	margin: 0 0 10px 10px;
 	
@@ -293,7 +295,7 @@ table td {
 }
 .wrote-smth-btn {
     margin: 0 0 0 20px;
-    float: left;
+    float: left; display: inline;
     padding-bottom: 10px;
 }
 
@@ -307,19 +309,19 @@ table td {
 .b-friend-thumbnail {
     margin: 5px 5px 15px 20px;
 	display: block;
-	float: left;
+	float: left; display: inline;
 	width: 100px;
 
 }
 .b-left-column {
     width: 38%;
-    float: left;
+    float: left; display: inline;
 }
 
 .b-wide-left-column {
 
     width: 58%;
-    float: left;
+    float: left; display: inline;
 }
 .b-form-as-table {
     margin-top: 20px;
@@ -358,7 +360,7 @@ table td {
     background: #fff;
     height: 40px;
     width: 90%;
-    float: left;
+    float: left; display: inline;
 }
 .b-place-form {
     background: #fff;
@@ -367,12 +369,12 @@ table td {
     margin: 20px 0 0 20px;
 }
 .b-place-form p {
-    float: left;
+    float: left; display: inline;
     width: 100%;
     margin-bottom: 10px;
 }
 .b-place-form label {
-    float: left;
+    float: left; display: inline;
     width: 100px;
 }
 .paginator ul {
@@ -403,14 +405,14 @@ table td {
     display: block;
     width: 90%;
     margin-left: 20px;
-    float: left;
+    float: left; display: inline;
 }
 .b-user .medium-avatar {
     margin: 10px 10px 10px 0;
-    float: left;
+    float: left; display: inline;
 }
 .b-users-list {
     margin-top: 10px;
-    float: left;
+    float: left; display: inline;
     width: 100%;
 }

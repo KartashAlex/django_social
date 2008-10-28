@@ -33,25 +33,29 @@
                             
        
 	<div class="b-left-column" style="margin-left: 20px">
+			<div class="b-block b-friends">
+				<div class="corner-left"></div>
+				<div class="corner-right"></div>
+					<div class="corner-left bottom"></div>
+					<div class="corner-right bottom"></div>
+		<form action="{% url user_search %}" class="b-place-form" style="width: auto; padding-bottom: 20px" method="post">
+		    {{ form.as_p }}
+		    <input type="submit" value="{% trans "Найти" %}"/>
+		</form></div>
 		 {% include "messages_widget.html" %}
 		{% include "friends_widget.html" %}
 		  {% include "events_widget.html" %}
 	</div>
+
         <div class="clear"></div>
 	{% if object_list %}
  {% include "paginator.html" %}
 {% endif %}
+
+
+
+
+
     {% endblock content %}
   
-    {% block profile %}
-<table class="b-personal-info">
-    <tr>
-        <td>
-            <form action="{% url user_search %}" method="post">
-                {{ form.as_fs }}
-                <input type="submit"/>
-            </form>
-        </td>
-    </tr>
-</table>
-    {% endblock profile %}
+   
