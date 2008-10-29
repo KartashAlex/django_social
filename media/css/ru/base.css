@@ -104,66 +104,69 @@ table td {
 .b-block {
 	margin: 10px 0 0 20px;
 	width: 100%;
+	padding: 15px 0;
 	position: relative;
-	top: 0;
-	float: left; display: inline;
-
-	zoom: 1;
-	height: auto;
 	border: solid 1px #707070;
 	background: #fff;
 }
+
+
 .b-block .corner-left {
-    position: absolute;
-    left: -1px;
-    top: -1px;
-   
-    display: block;
-    z-index:10;
-    margin: 0;
-    padding: 0;
-    width: 15px;
-    height: 15px;
-    background: url('/i/img/corners.gif') top left no-repeat;
-     float: left; display: inline;
+  top: -1px;
+  left: -1px;
+  position: absolute;
+  width: 15px;
+  height: 16px;
+  display: block;
+  background: url('/i/img/corners.gif') no-repeat;
 }
-.b-block .corner-right {
+
+.b-block .corner-right{
     position: absolute;
+
     right: -1px;
     top: -1px;
+    left: auto;
+    position: absolute;
     width: 15px;
-    height: 15px;
-    background: url('/i/img/corners.gif') -14px 0px no-repeat;
+    height: 16px;
+    display: block;
+    background: url('/i/img/corners.gif') -13px 0px no-repeat;
 }
-.b-block .corner-left.bottom {
+
+.b-block .corner-left-bottom {
     top: auto;
-    bottom: -1px;
-      background: url('/i/img/corners.gif') 0 -13px no-repeat;
+    left: -1px;
+    bottom: -2px;
+   
+    position: absolute;
+    width: 15px;
+    height: 16px;
+    display: block;
+    background: url('/i/img/corners.gif') 0px -13px no-repeat !important;
 }
-.b-block .corner-right.bottom {
-    bottom: -1px;
-        top: auto;
-              background: url('/i/img/corners.gif') -14px -13px no-repeat;
+
+.b-block .corner-right-bottom {
+    bottom: -2px;
+ 
+    top: auto;
+
+    right: -1px;
+    position: absolute;
+    width: 15px;
+    height: 16px;
+    display: block;
+    background: url('/i/img/corners.gif') -14px -13px no-repeat !important;
 }
+
 .b-block .header {
 	font-size: 1.5em;
-	float: left; display: inline;
-	width: 100%;
-	margin: 10px 0 10px 20px;
-}
-
-.b-wall {
-    
-    float: right;
-	margin-left: 20px;
-	float: left; display: inline;
-	
-}
-
-.b-wall p {
-    float: left; display: inline;
     margin-left: 20px;
+
+
 }
+
+
 
 .b-albums {
     margin: 0 0 10px 10px;
@@ -180,29 +183,31 @@ table td {
 .b-wall .b-message p {
     margin: 15px 0 10px 0;
 }
+
 .b-message-header {
 	height: 30px; 
 	padding-top: 5px;
 	margin-bottom: 5px;
 
 }
+
 .b-message-header img {
 	margin: 5px 10px 0 0;
 }
+
 .b-photos {
 	width: 100%;
 }
+
 .b-photos .b-photo {
     margin: 5px 5px 5px 10px;
 	display: block;
 	float: left; display: inline;
-
 }
 
 
 #wrote-message {
 	display: none;
-	
 }
 
 
@@ -221,33 +226,37 @@ table td {
 #album {
 	display: none;
 }
+
 #add-photos-form {
 	display: none;
 }
+
 .b-album-photos {
 	height: 170px;
-
-
 }
+
 .b-photos-list {
 	position: relative;
 	height: 140px;
 }
+
 .b-add-photos {
 	display: block;
-
 	width: 300px;
 	background: #efefef;
 	position: absolute;
 	padding: 5px;
 }
+
 .b-add-photos p {
 	margin: 5px 0 5px 0;
 }
+
 .b-add-photos p label {
 
 	display: block;
 }
+
 #create-album {
 	display: none;
 }
@@ -309,8 +318,8 @@ table td {
 }
 .wrote-smth-btn {
     margin: 0 0 0 20px;
-    float: left; display: inline;
-    padding-bottom: 10px;
+    display: block;
+   
 }
 
 
@@ -359,7 +368,6 @@ table td {
     display: block;
 }
 .b-photo-gallery .b-photo {
-
     display: inline;
 }
 
@@ -407,6 +415,7 @@ table td {
     margin: 0px 0 0 30px;
     padding: 0 0 20px 0;
     
+    
 }
 .comments-form #id_comment {
     width: 500px;
@@ -418,6 +427,7 @@ table td {
 #write-smth {
     display: none;
 }
+
 .b-user {
     display: block;
     width: 90%;
@@ -429,7 +439,5 @@ table td {
     float: left; display: inline;
 }
 .b-users-list {
-    margin-top: 10px;
-    float: left; display: inline;
     width: 100%;
 }

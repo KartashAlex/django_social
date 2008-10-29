@@ -1,6 +1,5 @@
 .b-head {
     background: url('/i/img/head_bg.gif') repeat-x;
-
     display: block;
     width: 100%;
     position: relative;
@@ -30,7 +29,7 @@
 
 .b-head-right {
     margin-top: -30px;
-    float: left; display: inline;
+    float: left;
     width: 100%;
 }
 .b-head-right .b-logout-btn {

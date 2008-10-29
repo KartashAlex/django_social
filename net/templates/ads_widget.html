@@ -1,10 +1,10 @@
 {% load thumbnail i18n %} 
  {% if widgets.blog.ads %} 
-<div class="b-block b-wall">
-				<div class="corner-left"></div>
-				<div class="corner-right"></div>
-					<div class="corner-left bottom"></div>
-					<div class="corner-right bottom"></div>
+<div class="b-block">
+				<div class="corner corner-left"></div>
+				<div class="corner corner-right"></div>
+					<div class="corner corner-left-bottom"></div>
+					<div class="corner corner-right-bottom"></div>
    <h1 class="header">{% trans "Обьявления" %}</h1>
 
     {% for ad in widgets.blog.ads %}
@@ -28,10 +28,10 @@
 	{% else %}
 	{% ifequal profile.user.pk request.user.pk %}
 	<div class="b-block b-wall">
-			<div class="corner-left"></div>
-			<div class="corner-right"></div>
-				<div class="corner-left bottom"></div>
-				<div class="corner-right bottom"></div>
+			<div class="corner corner-left"></div>
+			<div class="corner corner-right"></div>
+				<div class="corner corner-left-bottom"></div>
+				<div class="corner corner-right-bottom"></div>
 	<h1 class="header">
 
 	{% trans "У вас нет обьявлений," %} <a href="{% url post_add "ads" %}" class="wrote-smth">{% trans "добавьте" %}</a>

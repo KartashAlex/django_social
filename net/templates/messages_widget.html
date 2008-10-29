@@ -1,20 +1,20 @@
 {% load thumbnail i18n %}
 	
-<div class="b-block b-wall">
-		<div class="corner-left"></div>
-		<div class="corner-right"></div>
-			<div class="corner-left bottom"></div>
-			<div class="corner-right bottom"></div>
+<div class="b-block ">
+		<div class="corner corner-left"></div>
+		<div class="corner corner-right"></div>
+			<div class="corner corner-left-bottom"></div>
+			<div class="corner corner-right-bottom"></div>
 	{% if widgets.messages %}
 
     <h1 class="header">{% trans "Cообщения" %}</h1>
 
     {% for msg in widgets.messages %}
     <div class="b-message">
-					<div class="corner-left"></div>
-					<div class="corner-right"></div>
-						<div class="corner-left bottom"></div>
-						<div class="corner-right bottom"></div>
+					<div class="corner corner-left"></div>
+					<div class="corner corner-right"></div>
+						<div class="corner corner-left-bottom"></div>
+						<div class="corner corner-right-bottom"></div>
         	 <div class="b-message-header">
 		         <img src="/i/albums/30px.jpg" style="width: 30px; height: 30px; background: #000; display: block; float: left">
 							        
