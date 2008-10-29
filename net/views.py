@@ -250,9 +250,9 @@ def ajax_cities(request, country_id):
 
 def ajax_places(request):
     places = PlaceTemplate.objects.all()
-    if request.GET.get('q'):
-        places = places.filter(translations__name__istartswith=request.GET.get('q'))
-    if request.GET.get('city'):
-        places = places.filter(city__pk=request.GET.get('city'))
+    if request.POST.get('text'):
+        places = places.filter(translations__name__istartswith=request.POST.get('q'))
+    if request.POST.get('city'):
+        places = places.filter(city__pk=request.POST.get('city'))
     
     return HttpResponse(json(places[:20], ['name']), mimetype="text/javascript")

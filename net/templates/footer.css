@@ -5,7 +5,7 @@
             padding: 20px 0;
             height: 60px;
             margin-top: 20px;
-            float: left; display: inline;
+            float: left; display: inline; display: inline;
             margin-top: 20px;
             font-size: 0.9em;
 left:0;
@@ -13,20 +13,20 @@ left:0;
         }
         .b-copy {
             margin-left: 28px;
-            float: left; display: inline;
+            float: left; display: inline; display: inline;
             width: 33%;
             
         }
     
         .copy-link {
-            float: left; display: inline;
+            float: left; display: inline; display: inline;
             clear: both;
             background: url('../images/pro_logo.png') top left no-repeat;
 
             padding: 3px 0 5px 40px;
         }
         .license {
-            float: left; display: inline;
+            float: left; display: inline; display: inline;
             clear: both;
             width: 100%;
         }
@@ -34,7 +34,7 @@ left:0;
    
         }
         .b-orange, .b-lime, .b-counters {
-            float: left; display: inline;
+            float: left; display: inline; display: inline;
         }
         .b-orange {
             width: 22%;
@@ -47,6 +47,6 @@ left:0;
             background: url('../images/lime_logo.png') top left no-repeat;
         }
           .b-lime div, .b-orange div {
-              float: left; display: inline;
+              float: left; display: inline; display: inline;
               margin-left: 90px;
           }

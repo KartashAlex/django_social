@@ -74,9 +74,8 @@ class SearchForm(forms.ModelForm):
         
 class PlaceForm(DataFieldsForm):
     country = forms.ChoiceField(choices=[(c.pk, c.name) for c in Country.objects.all()])
+    city = forms.ChoiceField(choices=[])
     type = forms.ChoiceField(choices=[(t.pk, t.name) for t in PlaceType.objects.all()])
-    
-    city = forms.CharField(max_length=255)
     title = forms.CharField(max_length=255)
     
     class Meta:
@@ -123,14 +122,13 @@ class ProfileForm(DataFieldsForm):
             'date_joined', 'last_login', 'politics', 
             'about', 'writer', 
             'professional', 'contacts', 'site',
-            'private',
+            'private'
         ] + DATA_FIELDS.keys()
 
     def __init__(self, *args, **kwargs):
-
         super(ProfileForm, self).__init__(*args, **kwargs)
-        
         self.fields['birthdate'].widget = SelectDateWidget(years=range(year, year-100, -1))
+        self.fields['city'].choices = []
         
     def clean_password1(self):
         if self.data.get('password1') and self.data.get('password2'):

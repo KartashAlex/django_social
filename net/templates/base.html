@@ -21,55 +21,23 @@
 		<link rel="stylesheet" href="/i/css/ar/footer.css" type="text/css" />
 		<link rel="stylesheet" href="/i/css/ar/personal_info.css" type="text/css" />
 		<link rel="stylesheet" href="/i/css/ar/thickbox.css" type="text/css" />
+		
 		{% endifnotequal %}
+		<script type="text/javascript" src="/i/js/jquery.min.js"></script>
+		<script type="text/javascript" src="/i/js/jquery-ui.min.js"></script>
+		<script src="/i/js/thickbox-compressed.js" type="text/javascript"></script>
+		<script src="/i/js/jquery.autocomplete.js" type="text/javascript"></script>
+		<script src="/i/js/app.js" type="text/javascript"></script>
 	</head>
 	<body>
 		<p>
 			{% load i18n thumbnail %}
-		</p><script type="text/javascript" src="/i/js/jquery.min.js">
-</script><script type="text/javascript" src="/i/js/jquery-ui.min.js">
-</script><script src="/i/js/thickbox-compressed.js" type="text/javascript">
-</script>
+		</p>
+
 		<p>
 			{% block head %} {% endblock head %}
-		</p><script type="text/javascript">
-//<![CDATA[
-			$(function(){
+		</p>
 
-				$('.wrote-smth').click(function(){
-				var _t = this;
-				 $.get($(_t).attr('href'), function(data){
-					$('body').append(data);
-					$('#write-smth').dialog({
-						width: 450, 
-						height:	$('#write-smth').height(), 
-						modal: true, 
-						overlay: { 
-							opacity: 0.5, 
-							background: "black" 
-						},
-						close: function(){
-							$('#write-smth').remove();      
-						}
-					});
-					$('#write-smth').show();
-				});
-				
-			
-			
-				
-					return false;
-				});
-				$('.b-setlang a').click(function(){
-					var _t = this;
-					$.post('/i18n/setlang/', {'language': $(_t).attr('rel')}, function(){window.location.reload()});
-					return false;
-				});
-		});
-
-		 
-		//]]>
-		</script>
 		<div class="b-page-container">
 			<div class="min-width">
 				&nbsp;
@@ -86,11 +54,13 @@
 				</div>
 				<div class="b-head-right">
 					{% if user.is_authenticated %} <a class="b-logout-btn" href="{% url auth_logout %}">{% trans "Выйти" %}</a> {% endif %}
-					<div class="b-setlang" action="">
+					<div class="b-setlang">
 						{% for lang in settings.LANGUAGES %} {% ifequal request.session.django_language lang.0 %} <b>/{{ lang.0 }}</b> {% else %} <a href="/i18n/setlang/" rel="{{ lang.0 }}" class="lang-btn">/{{ lang.0 }}</a> {% endifequal %} {% endfor %} <br/><a href="#">{% trans "Настройки" %}</a>
 					</div>
 					<form class="b-fast-search" action="{% url user_search %}" method="post">
+					<fieldset>
 						<input type="text" name="q" value="{{ request.REQUEST.q }}" /> <input type="submit" value="{% trans "Искать" %}" />
+						</fieldset>
 					</form>
 				</div>
 			</div>

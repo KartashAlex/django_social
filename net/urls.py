@@ -25,4 +25,3 @@ urlpatterns = patterns('',
     (r'^cities/(\d+)/$', 'net.views.ajax_cities', {}, 'ajax_cities'),
     (r'^places/template/$', 'net.views.ajax_places', {}, 'ajax_places'),
 )
-
