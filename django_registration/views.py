@@ -12,7 +12,7 @@ from django.template import RequestContext
 from django_registration.forms import RegistrationForm, RegisterForm, TokenFormUniqueEmail, RegistrationFormUniqueEmail
 from django_registration.models import RegistrationProfile, Token
 
-from django.contrib.auth.models import User as OurUser
+from net.models import User as OurUser
 from django.contrib.auth import login
 
 def activate(request, activation_key, template_name='registration/activate.html'):
