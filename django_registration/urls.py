@@ -37,11 +37,18 @@ urlpatterns = patterns('',
                        url(r'^password/change/done/$',
                            auth_views.password_change_done,
                            name='auth_password_change_done'),
+                           
                        url(r'^password/reset/$',
                            auth_views.password_reset,
                            name='auth_password_reset'),
+                           
+                       url(r'^reset/(?P<uidb36>[0-9A-Za-z]+)-(?P<token>.+)/$', 
+                           'django.contrib.auth.views.password_reset_confirm', 
+                           name='password_reset_confirm'),
+                        
                        url(r'^password/reset/done/$',
                            auth_views.password_reset_done,
+                           {'template_name': 'registration/reset_done.html'},
                            name='auth_password_reset_done'),
                        url(r'^register/$',
                            register_token,
