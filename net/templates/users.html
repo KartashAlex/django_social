@@ -8,8 +8,8 @@
 			<div class="corner corner-left-bottom"></div>
 			<div class="corner corner-right-bottom"></div>
 			<div class="b-users-list">
-						{% if object_list %}
-        {% for user in object_list %}
+            {% if object_list %}
+                {% for user in object_list %}
             	<div class="b-user"><a class="medium-avatar"  href="{% url user_profile user.pk %}">
             	    <img src="{% thumbnail user.avatar 100x100 %}" /></a>
 					<div style="margin: 20px 0 0 20px; float: left">
@@ -20,12 +20,12 @@
 						    {{ user.city }}
                         </div>
 					</div>
-			</div>
-			
-        {% endfor %}
+                </div>
+                {% endfor %}
 		{% else %}
 				<p class="wrote-smth-btn">{% trans "К сожалению нет пользователей по вашему поисковому запросу" %}</p>
 		{% endif %}
+		<div style="clear: both"></div>
 </div>
 
 </div>

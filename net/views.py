@@ -115,7 +115,7 @@ def edit_interests(request):
 def user_search(request):
     query = Q()
     I18N_FIELDS = [
-        'country__translations__name', 'city__translations__name',
+        'country__pk', 'city__pk',
         'places__template__translations__name', 'places__template__city__country__translations__name',
         'places__template__city__translations__name',
     ]

@@ -440,4 +440,5 @@ table td {
 }
 .b-users-list {
     width: 100%;
+    display: block;
 }

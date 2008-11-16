@@ -5,7 +5,7 @@
         <div class="b-registration">
             <form class="b-registration-form" action="{% url auth_login %}" method="post">
                 <h2>{% trans "Уже зарегистрированы?" %}</h2>
-                {{ form.username.errors|join:", " }}
+                {{ form.errors.values|join:""|safe }}
                 <fieldset><label for="username">{% trans "E-mail" %}</label>{{ form.username }}</fieldset>
                 <fieldset><label for="password">{% trans "Пароль" %}</label>{{ form.password }}</fieldset>
                 {{ form.next }}
