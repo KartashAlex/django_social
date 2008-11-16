@@ -45,7 +45,12 @@
                                             <ul> 
                                             {% for place in profile.places.all %}
                                                 <li>
-                                                    {{ place.template.type }} <a href="{% url user_search %}?places__template__translations__name={{ place.template.name|urlencode }}">{{ place.template.name }}</a>
+                                                    {{ place.template.type }}
+                                                    <a href="{% url user_search %}?places__template__translations__name={{ place.template.name|urlencode }}">{{ place.template.name }}</a>
+                                                    (
+                                                        <a href="{% url user_search %}?places__template__city__translations__name={{ place.template.city.name|urlencode }}">{{ place.template.city.name }}</a>,
+                                                        <a href="{% url user_search %}?places__template__city__country__translations__name={{ place.template.city.country.name|urlencode }}">{{ place.template.city.country.name }}</a>
+                                                    )
                                                     с: {{ place.from_date|date:"m.Y" }} по: {{ place.to_date|date:"m.Y" }} 
                                                     {% ifequal profile request.user.user %}
                                                         <a href="{% url edit_user_place place.pk %}">{% trans "edit" %}</a>

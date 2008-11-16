@@ -114,7 +114,11 @@ def edit_interests(request):
 @login_required
 def user_search(request):
     query = Q()
-    I18N_FIELDS = ['country__translations__name', 'city__translations__name', 'places__template__translations__name']
+    I18N_FIELDS = [
+        'country__translations__name', 'city__translations__name',
+        'places__template__translations__name', 'places__template__city__country__translations__name',
+        'places__template__city__translations__name',
+    ]
     TEXT_SEARCH = TAG_FIELDS + I18N_FIELDS + ['interest', 'first_name', 'last_name', 'username', 'email']
     OTHER_SEARCH = ['birthdate']
     for key in TEXT_SEARCH + OTHER_SEARCH:

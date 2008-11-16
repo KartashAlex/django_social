@@ -74,7 +74,7 @@ class SearchForm(forms.ModelForm):
         
 class PlaceForm(DataFieldsForm):
     country = forms.ChoiceField(choices=[(c.pk, c.name) for c in Country.objects.all()])
-    city = forms.ChoiceField(choices=[])
+    city = forms.ChoiceField(choices=[(c.pk, c.name) for c in City.objects.all()])
     type = forms.ChoiceField(choices=[(t.pk, t.name) for t in PlaceType.objects.all()])
     title = forms.CharField(max_length=255)
     
@@ -82,6 +82,14 @@ class PlaceForm(DataFieldsForm):
         model = Place
         exclude = ['user', 'template']
         
+    def as_p(self, *args, **kwargs):
+        self.fields['city'].choices = []
+        return super(PlaceForm, self).as_p(*args, **kwargs)
+
+    def is_valid(self, *args, **kwargs):
+        self.fields['city'].choices = [(c.pk, c.name) for c in City.objects.all()]
+        return super(PlaceForm, self).is_valid(*args, **kwargs)
+
     def __init__(self, *args, **kwargs):
         super(PlaceForm, self).__init__(*args, **kwargs)
         
@@ -97,7 +105,7 @@ class PlaceForm(DataFieldsForm):
         kwargs.update({"commit":False})
         super(PlaceForm, self).save(*args, **kwargs)
         country = Country.objects.get(pk=self.cleaned_data['country'])
-        city, created = City.objects.get_or_create(name=self.cleaned_data['city'], country=country)
+        city, created = City.objects.get_or_create(pk=self.cleaned_data['city'], country=country)
         self.instance.template, created = PlaceTemplate.objects.get_or_create(
             name=self.cleaned_data['title'],
             city=city,

@@ -18,7 +18,7 @@
 			});
 			$('#write-smth').show();
 			geoController();
-			$('select#id_type').attr('disabled', 'disabled');
+			// $('select#id_type').attr('disabled', 'disabled');
 			
 			$('select#id_city').change(function(){
 				$('select#id_type').removeAttr('disabled');
@@ -40,7 +40,7 @@
 			return false;
 		});
 		var geoController = function(){
-			$('#id_city').attr('disabled', 'disabled');
+			// $('#id_city').attr('disabled', 'disabled');
 			$('#id_country').change(function(){
 				$('#id_city').removeAttr('disabled');
 				$.getJSON('/cities/' + $(this).val() + '/', function(data){
