@@ -86,7 +86,7 @@ OUR_APPS = (
     'blog',
 )
 
-INSTALLED_APPS = (
+INSTALLED_APPS = OUR_APPS + (
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -100,7 +100,7 @@ INSTALLED_APPS = (
     
     'south',
     'multilingual',
-) + OUR_APPS
+)
 
 ugettext = lambda s: s
 
