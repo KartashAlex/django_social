@@ -74,7 +74,7 @@ class SearchForm(forms.ModelForm):
         
 class PlaceForm(DataFieldsForm):
     country = forms.ChoiceField(choices=[(c.pk, c.name) for c in Country.objects.all()])
-    city = forms.ChoiceField(choices=[(c.pk, c.name) for c in City.objects.all()])
+    city = forms.ChoiceField(choices=[])
     type = forms.ChoiceField(choices=[(t.pk, t.name) for t in PlaceType.objects.all()])
     title = forms.CharField(max_length=255)
     
@@ -83,7 +83,6 @@ class PlaceForm(DataFieldsForm):
         exclude = ['user', 'template']
         
     def as_p(self, *args, **kwargs):
-        self.fields['city'].choices = []
         return super(PlaceForm, self).as_p(*args, **kwargs)
 
     def is_valid(self, *args, **kwargs):
@@ -98,6 +97,10 @@ class PlaceForm(DataFieldsForm):
         
         try:
             self.fields['title'].initial = self.instance.template.name
+            self.fields['country'].initial = self.instance.template.city.country.pk
+            if self.fields['country'].initial:
+                self.fields['city'].choices = [(c.pk, c.name) for c in City.objects.filter(country__pk=self.instance.template.city.country.pk)]
+                self.fields['city'].initial = self.instance.template.city.pk
         except:
             pass
 

@@ -1,3 +1,18 @@
+function geoController(){
+    // $('#id_city').attr('disabled', 'disabled');
+    $('#id_country').change(function(){
+        $('#id_city').removeAttr('disabled');
+        $.getJSON('/cities/' + $(this).val() + '/', function(data){
+            $('#id_city').empty();
+            options = '';
+            $(data).each(function(){
+                options += '<option value="' + this.id + '">' + this.name + '</option>'
+            });
+            $('#id_city').append(options)
+        });
+    });
+}
+
 	$(function(){
 
 		$('.wrote-smth').click(function(){
@@ -39,19 +54,4 @@
 			$.post('/i18n/setlang/', {'language': $(_t).attr('rel')}, function(){window.location.reload()});
 			return false;
 		});
-		var geoController = function(){
-			// $('#id_city').attr('disabled', 'disabled');
-			$('#id_country').change(function(){
-				$('#id_city').removeAttr('disabled');
-				$.getJSON('/cities/' + $(this).val() + '/', function(data){
-					$('#id_city').empty();
-					options = '';
-					$(data).each(function(){
-						options += '<option value="' + this.id + '">' + this.name + '</option>'
-					});
-					$('#id_city').append(options)
-				});
-			});
-		}
-		
 });

@@ -73,8 +73,12 @@ def add_place(request):
     else:
         form = PlaceForm()
      
+    if request.GET.get('ajax'):
+        tpl = 'edit_place_ajax.html'
+    else:
+        tpl = 'edit_place.html'
         
-    return render_to_response('edit_place.html', {
+    return render_to_response(tpl, {
         'form': form,
         'profile': request.user.user,
     }, context_instance=RequestContext(request))
@@ -90,8 +94,12 @@ def edit_place(request, id):
     else:
         form = PlaceForm(instance=place)
      
+    if request.GET.get('ajax'):
+        tpl = 'edit_place_ajax.html'
+    else:
+        tpl = 'edit_place.html'
         
-    return render_to_response('edit_place.html', {
+    return render_to_response(tpl, {
         'form': form,
         'profile': request.user.user,
     }, context_instance=RequestContext(request))
