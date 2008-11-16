@@ -124,7 +124,7 @@ table td {
 .b-block .corner-right{
     position: absolute;
 
-    right: -1px;
+    right: -1px !important;
     top: -2px;
     left: auto;
     position: absolute;
@@ -132,12 +132,14 @@ table td {
     height: 16px;
     display: block;
     background: url('/i/img/corners.gif') -15px 0px no-repeat;
+    right: -2px;
 }
 
 .b-block .corner-left-bottom {
     top: auto;
     left: -2px;
-    bottom: -2px;
+    bottom: -2px !important;
+    bottom: -3px;
    
     position: absolute;
     width: 15px;
@@ -147,11 +149,11 @@ table td {
 }
 
 .b-block .corner-right-bottom {
-    bottom: -2px;
- 
+    bottom: -2px !important;
+    bottom: -3px;
     top: auto;
-
-    right: -1px;
+    right: -1px !important;
+    right: -2px;
     position: absolute;
     width: 15px;
     height: 16px;
