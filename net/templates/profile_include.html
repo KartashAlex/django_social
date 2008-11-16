@@ -30,8 +30,11 @@
                                         {% if profile.city %} 
                                             <a href="{% url user_search %}?city__pk={{ profile.city.pk }}">{{ profile.city.name }}</a>
                                         {% endif %} 
+                                        {% if profile.country and profile.city %} 
+                                            ,
+                                        {% endif %} 
                                         {% if profile.country %} 
-                                            , <a href="{% url user_search %}?country__pk={{ profile.country.pk }}">{{ profile.country.name }}</a>
+                                            <a href="{% url user_search %}?country__pk={{ profile.country.pk }}">{{ profile.country.name }}</a>
                                         {% endif %}
                                     </div>
                                     <div class="b-career-info">
