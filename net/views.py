@@ -73,8 +73,12 @@ def add_place(request):
     else:
         form = PlaceForm()
      
+    if request.GET.get('ajax'):
+        tpl = 'edit_place_ajax.html'
+    else:
+        tpl = 'edit_place.html'
         
-    return render_to_response('edit_place.html', {
+    return render_to_response(tpl, {
         'form': form,
         'profile': request.user.user,
     }, context_instance=RequestContext(request))
@@ -90,8 +94,12 @@ def edit_place(request, id):
     else:
         form = PlaceForm(instance=place)
      
+    if request.GET.get('ajax'):
+        tpl = 'edit_place_ajax.html'
+    else:
+        tpl = 'edit_place.html'
         
-    return render_to_response('edit_place.html', {
+    return render_to_response(tpl, {
         'form': form,
         'profile': request.user.user,
     }, context_instance=RequestContext(request))
@@ -114,7 +122,11 @@ def edit_interests(request):
 @login_required
 def user_search(request):
     query = Q()
-    I18N_FIELDS = ['country__translations__name', 'city__translations__name', 'places__template__translations__name']
+    I18N_FIELDS = [
+        'country__pk', 'city__pk',
+        'places__template__translations__name', 'places__template__city__country__translations__name',
+        'places__template__city__translations__name',
+    ]
     TEXT_SEARCH = TAG_FIELDS + I18N_FIELDS + ['interest', 'first_name', 'last_name', 'username', 'email']
     OTHER_SEARCH = ['birthdate']
     for key in TEXT_SEARCH + OTHER_SEARCH:

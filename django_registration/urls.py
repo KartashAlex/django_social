@@ -10,10 +10,9 @@ from django.conf import settings
 
 from django.conf.urls.defaults import *
 from django.views.generic.simple import direct_to_template
-from django.contrib.auth import views as auth_views
+import django.contrib.auth.views
 
 from django_registration.views import activate_token, register_token
-
 
 urlpatterns = patterns('',
                        # Activation keys get matched by \w+ instead of the more specific
@@ -24,22 +23,22 @@ urlpatterns = patterns('',
                            activate_token,
                            name='registration_activate'),
                        url(r'^login/$',
-                           auth_views.login,
+                           'django.contrib.auth.views.login',
                            {'template_name': 'registration/login.html'},
                            name='auth_login'),
                        url(r'^logout/$',
-                           auth_views.logout,
+                           'django.contrib.auth.views.logout',
                            {'template_name': 'registration/logout.html', 'next_page': settings.LOGOUT_REDIRECT_URL},
                            name='auth_logout'),
                        url(r'^password/change/$',
-                           auth_views.password_change,
+                           'django.contrib.auth.views.password_change',
                            name='auth_password_change'),
                        url(r'^password/change/done/$',
-                           auth_views.password_change_done,
+                           'django.contrib.auth.views.password_change_done',
                            name='auth_password_change_done'),
                            
                        url(r'^password/reset/$',
-                           auth_views.password_reset,
+                           'django.contrib.auth.views.password_reset',
                            name='auth_password_reset'),
                            
                        url(r'^reset/(?P<uidb36>[0-9A-Za-z]+)-(?P<token>.+)/$', 
@@ -47,9 +46,15 @@ urlpatterns = patterns('',
                            name='password_reset_confirm'),
                         
                        url(r'^password/reset/done/$',
-                           auth_views.password_reset_done,
+                           'django.contrib.auth.views.password_reset_done',
                            {'template_name': 'registration/reset_done.html'},
                            name='auth_password_reset_done'),
+
+                       url(r'^password/reset/complete/$',
+                           'django.contrib.auth.views.password_reset_complete',
+                           {'template_name': 'registration/reset_complete.html'},
+                           name='auth_password_reset_complete'),
+
                        url(r'^register/$',
                            register_token,
                            name='registration_register'),

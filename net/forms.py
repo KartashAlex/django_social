@@ -82,6 +82,13 @@ class PlaceForm(DataFieldsForm):
         model = Place
         exclude = ['user', 'template']
         
+    def as_p(self, *args, **kwargs):
+        return super(PlaceForm, self).as_p(*args, **kwargs)
+
+    def is_valid(self, *args, **kwargs):
+        self.fields['city'].choices = [(c.pk, c.name) for c in City.objects.all()]
+        return super(PlaceForm, self).is_valid(*args, **kwargs)
+
     def __init__(self, *args, **kwargs):
         super(PlaceForm, self).__init__(*args, **kwargs)
         
@@ -90,6 +97,10 @@ class PlaceForm(DataFieldsForm):
         
         try:
             self.fields['title'].initial = self.instance.template.name
+            self.fields['country'].initial = self.instance.template.city.country.pk
+            if self.fields['country'].initial:
+                self.fields['city'].choices = [(c.pk, c.name) for c in City.objects.filter(country__pk=self.instance.template.city.country.pk)]
+                self.fields['city'].initial = self.instance.template.city.pk
         except:
             pass
 
@@ -97,7 +108,7 @@ class PlaceForm(DataFieldsForm):
         kwargs.update({"commit":False})
         super(PlaceForm, self).save(*args, **kwargs)
         country = Country.objects.get(pk=self.cleaned_data['country'])
-        city, created = City.objects.get_or_create(name=self.cleaned_data['city'], country=country)
+        city, created = City.objects.get_or_create(pk=self.cleaned_data['city'], country=country)
         self.instance.template, created = PlaceTemplate.objects.get_or_create(
             name=self.cleaned_data['title'],
             city=city,
