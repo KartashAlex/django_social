@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% load i18n %}
+            {% block content %}
+    <div class="b-form-container">
+        <div class="b-registration" style="width: 500px; margin-left: -250px; margin-bottom: 200px">
+            <h2>{% trans "Проверьте электронную почту" %}</h2>
+            <p>{% blocktrans %}На ваш email придет письмо со ссылкой, перейдя по которой вы сможете изменить пароль. Если письмо все-таки е пришло, попробуйте ввести email еще раз или написать в нашу службу поддержки{% endblocktrans %}</p>
+        </div>
+    </div>
+  {% endblock content %}
