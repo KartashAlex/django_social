@@ -85,6 +85,15 @@ OUR_APPS = (
     'wall',
     'blog',
 )
+DATABASE_OPTIONS = {
+   'use_unicode': True, 
+   'charset': 'utf8',
+   "init_command": "set names utf8",
+   "init_command": "SET character_set_database=utf8",
+   "init_command":  "SET character_set_client=utf8"
+}
+
+
 
 INSTALLED_APPS = OUR_APPS + (
     'django.contrib.auth',
