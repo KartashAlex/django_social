@@ -30,7 +30,7 @@
 					                <input type="submit" value="{% trans "Пригласить" %}" />
 					            </form>
 					        {% else %}
-					            <a href="{% url groups_enter object.pk, 1 %}">{% trans "Вступить в группу" %}</a>
+					            <a href="{% url groups_enter object.pk,1 %}">{% trans "Вступить в группу" %}</a>
 					        {% endifin %}
 					
                             {% if profile.interest %}
