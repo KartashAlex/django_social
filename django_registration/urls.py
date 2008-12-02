@@ -52,7 +52,7 @@ urlpatterns = patterns('',
 
                        url(r'^password/reset/complete/$',
                            'django.contrib.auth.views.password_reset_complete',
-                           {'template_name': 'registration/reset_complete.html'},
+                           {'template_name': 'registration/password_reset_complete.html'},
                            name='auth_password_reset_complete'),
 
                        url(r'^register/$',
