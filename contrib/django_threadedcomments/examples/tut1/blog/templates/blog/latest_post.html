@@ -51,7 +51,7 @@ a { color: #CC6633; font-size: 80%; }
     <h3>Comments on This Post:</h3>
     {% get_free_threaded_comment_tree for post as tree %}
     {% for comment in tree %}
-        <div style="margin-left: {{ comment.depth }}em;" class="comment">
+        <div style="margin-right: {{ comment.depth }}em;" class="comment">
             <a href="{{ comment.website }}">{{ comment.name }}</a> said:<br/>
             {% auto_transform_markup comment %}
             <a id="c{{ comment.id }}" href="javascript:show_reply_form('c{{ comment.id }}','{% get_free_comment_url post comment %}','{{ comment.name }}')">Reply</a>

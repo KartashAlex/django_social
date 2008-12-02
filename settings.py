@@ -34,7 +34,7 @@ USE_I18N = True
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
 # trailing slash.
 # Examples: "http://foo.com/media/", "/media/".
-ADMIN_MEDIA_PREFIX = '/media/admin/'
+ADMIN_MEDIA_PREFIX = '/i/admin/'
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = 'ch8^i(5nr6yl0!x7c&k+_*%=va$xdd+3e-==ga*24%8_r6vsd3'

@@ -12,7 +12,7 @@ left:0;
             
         }
         .b-copy {
-            margin-left: 28px;
+            margin-right: 28px;
             float: left; display: inline; display: inline;
             width: 33%;
             
@@ -48,5 +48,5 @@ left:0;
         }
           .b-lime div, .b-orange div {
               float: left; display: inline; display: inline;
-              margin-left: 90px;
+              margin-right: 90px;
           }

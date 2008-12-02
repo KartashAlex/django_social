@@ -59,7 +59,7 @@ class ThreadedCommentManager(models.Manager):
         The following is a (VERY) simple example of how the depth property might be used in a template:
         
             {% for comment in comment_tree %}
-                <p style="margin-left: {{ comment.depth }}em">{{ comment.comment }}</p>
+                <p style="margin-right: {{ comment.depth }}em">{{ comment.comment }}</p>
             {% endfor %}
         """
         content_type = ContentType.objects.get_for_model(content_object)

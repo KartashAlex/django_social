@@ -162,7 +162,7 @@ Now with that said, let's begin to create our template.  We'll start like so::
         <h3>Comments on This Post:</h3>
         {% get_free_threaded_comment_tree for post as tree %}
         {% for comment in tree %}
-            <div style="margin-left: {{ comment.depth }}em;" class="comment">
+            <div style="margin-right: {{ comment.depth }}em;" class="comment">
                 <a href="{{ comment.website }}">{{ comment.name }}</a> said:<br/>
                 {% auto_transform_markup comment %}
             </div>

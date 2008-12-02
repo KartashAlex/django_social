@@ -164,7 +164,7 @@ table td {
 
 .b-block .header {
 	font-size: 1.5em;
-    margin-left: 20px;
+    margin-right: 20px;
 
 
 }
@@ -305,7 +305,7 @@ table td {
     
 }
 .b-message-form textarea {
-    margin-left: 20px;
+    margin-right: 20px;
     width: 400px;
     
 }
@@ -381,7 +381,7 @@ table td {
 .b-add-photo-block {
     background: #fff;
     padding: 10px;
-    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .paginator {
@@ -434,7 +434,7 @@ table td {
 .b-user {
     display: block;
     width: 90%;
-    margin-left: 20px;
+    margin-right: 20px;
     float: right; display: inline;
 }
 .b-user .medium-avatar {
