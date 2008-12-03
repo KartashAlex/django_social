@@ -10,7 +10,6 @@
                     {% ifequal profile.pk request.user.user.pk %}
                         <a class="edit-profile-btn" id="edit-profile-btn" href="{% url edit_user_profile %}" name="edit-profile-btn">{% trans "Редактировать" %}</a>
                   
-                    
                     {% endifequal %}
                     
                     <div class="h-userinfo">
