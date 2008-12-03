@@ -28,7 +28,7 @@ class Post(models.Model):
     ad_cat = models.ForeignKey(AdCategory, verbose_name=_('Ad category'), null=True, blank=True)
     
     def get_absolute_url(self):
-        return reverse('post_profile', args=[self.author.pk, self.type(), self.pk])
+        return reverse('post_profile', args=self.author.pk, self.type(), self.pk)
 
     def get_type(self):
         return [t[1] for t in self.TYPES if t[0] == self.type][0] 
