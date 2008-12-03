@@ -10,7 +10,7 @@
     color: #fff;
 }
 .b-menu {
-    margin-right: 320px;
+    margin-left: 320px;
 }
 .b-menu a {
     
@@ -21,7 +21,7 @@
 }
 .b-setlang {
 	width: 150px; float: right; 
-	margin-right: 20px;
+	margin-left: 20px;
 	margin-top: -5px;
 	font-size: 0.9em;
 	color: #000;

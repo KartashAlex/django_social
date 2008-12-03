@@ -19,7 +19,7 @@ width: 310px;
 float: left; display: inline; display: inline;
 padding-right: 50px;
 border-right: solid 1px #e2e2e2;
-margin-right: -362px;
+margin-left: -362px;
 }
 .b-registration-info ul {
        list-style: none;
@@ -35,7 +35,7 @@ margin-right: -362px;
     width: 600px;
 
     margin: 55px 0 0 0px;
-    margin-right: -300px;
+    margin-left: -300px;
     padding: 0 50%;
 } 
 
@@ -54,7 +54,7 @@ float: left; display: inline;
 .b-registration-form {
     float: left; display: inline; display: inline;
     width: 310px;
-    margin-right: 50px;
+    margin-left: 50px;
   
 }
 .b-login-form {
@@ -114,5 +114,5 @@ margin: 10px 0 0 5px;
     margin-bottom: 20px;
 }
 .b-signup .signup-btn {
-    margin-right: 0;
+    margin-left: 0;
 }
