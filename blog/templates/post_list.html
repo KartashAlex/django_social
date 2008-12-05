@@ -1,6 +1,12 @@
 {% extends "base.html" %}
 {% load i18n comments %}
             {% block content %}
+            <div class="b-wide-left-column">
+                <div class="b-block">
+                    	<div class="corner corner-left"></div>
+				<div class="corner corner-right"></div>
+					<div class="corner corner-left-bottom"></div>
+					<div class="corner corner-right-bottom"></div>
             <ul>
                 {% for object in object_list %}
                 <li>
@@ -13,4 +19,7 @@
                 </li>
                 {% endfor %}
             </ul>
+                </div>
+                </div>
+        
             {% endblock content %}
