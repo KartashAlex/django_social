@@ -1,10 +1,31 @@
 {% extends "base.html" %}
 {% load i18n comments %}
-            {% block content %}
-                <h1>{{ object.subject }}</h1>
-                <h2>{{ object.get_type }}</h2>
-                
-                <p>{{ object.text|safe }}</p>
-                
-                {% include "comments/comments_include.html" %}
-            {% endblock content %}
+{% block content %}
+<div class="b-wide-left-column">
+    <div class="b-block">
+        <div class="corner corner-left"></div>
+        <div class="corner corner-right"></div>
+        <div class="corner corner-left-bottom"></div>
+        <div class="corner corner-right-bottom"></div>
+        <h3 class="header">
+            {% ifequal object.get_type 'Advertisment' %}{% trans 'Обьявление' %}{% endifequal %}
+            {% ifequal object.get_type 'Blog Post' %}{% trans 'Пост' %}{% endifequal %}
+        </h3>
+
+        <h1 class="header">{{ object.subject }}</h1>
+
+
+        <p class="inner-text">{{ object.text|safe }}</p>
+
+        {% include "comments/comments_include.html" %}
+    </div>
+</div>
+
+		<div class="b-left-column" style="margin-right: 20px">
+			 {% include "messages_widget.html" %}
+			{% include "friends_widget.html" %}
+			  {% include "events_widget.html" %}
+		</div>
+	        <div class="clear"></div>
+{% include "paginator.html" %}
+{% endblock content %}

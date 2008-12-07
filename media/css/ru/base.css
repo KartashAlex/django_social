@@ -173,16 +173,18 @@ table td {
 .b-albums {
     margin: 0 0 10px 10px;
     float: left; display: inline;
+    height: 90px;
+    overflow: hidden;
 }
 
-.b-wall .b-message {
+ .b-message {
 	padding-bottom: 5px;
 	float: left; display: inline;
     margin: 5px 0px 10px 20px;
 	border-bottom: solid 1px #efefef;
 	width: 90%;
 }
-.b-wall .b-message p {
+.b-message p {
     margin: 15px 0 10px 0;
 }
 
@@ -199,10 +201,13 @@ table td {
 
 .b-photos {
 	width: 100%;
+	display: block;
+    height: 115px;
 }
 
 .b-photos .b-photo {
     margin: 5px 5px 5px 10px;
+
 	display: block;
 	float: left; display: inline;
 }
@@ -414,7 +419,7 @@ table td {
  
 }
 .comments-form, .comments {
-    margin: 0px 0 0 30px;
+    margin: 0px 0 0 20px;
     padding: 0 0 20px 0;
     
     
@@ -443,4 +448,7 @@ table td {
 .b-users-list {
     width: 100%;
     display: block;
+}
+.inner-text {
+    margin-left: 20px;
 }

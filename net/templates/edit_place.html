@@ -1,9 +1,9 @@
-{% extends "base.html" %}
+
 {% load i18n %}
-            {% block content %}
+
 {{ formset.management_form }}
-    <div class="b-form-container">
-        <div style="margin: 0 auto; width: 50%">
+    <div id="write-smth" style="height: 270px;" class="b-place-form">
+
             <form action="{% url add_user_place %}" method="post" enctype="multipart/form-data">
                 <div class="b-fields-group main-fields">
                     {{ form.as_p }}
@@ -13,9 +13,9 @@
 <p>    <input type="submit" value="{% trans "Save" %}"/></p>
                 </div>
             </form>
-        </div>
+     
     </div>
     <script>
         geoController();
     </script>
- {% endblock content %}
+

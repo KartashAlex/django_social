@@ -415,7 +415,7 @@ table td {
  
 }
 .comments-form, .comments {
-    margin: 0px 0 0 30px;
+    margin: 0px 0 0 20px;
     padding: 0 0 20px 0;
     
     
@@ -444,4 +444,8 @@ table td {
 .b-users-list {
     width: 100%;
     display: block;
+}
+
+.inner-text {
+    margin-right: 20px;
 }

@@ -40,11 +40,7 @@
                                     <div class="b-career-info">
                                          {% if profile.places.all %}
                                             <div class="b-career-info">
-                                            {% trans "Places" %}
-                                            {% ifequal profile request.user.user %}
-                                                <a class="wrote-smth" href="{% url add_user_place %}">{% trans "add" %}</a>
-                                            {% endifequal %}
-                                            : 
+                                            {% trans "Места" %}: 
                                             <ul> 
                                             {% for place in profile.places.all %}
                                                 <li>
@@ -54,15 +50,16 @@
                                                         <a href="{% url user_search %}?places__template__city__translations__name={{ place.template.city.name|urlencode }}">{{ place.template.city.name }}</a>,
                                                         <a href="{% url user_search %}?places__template__city__country__translations__name={{ place.template.city.country.name|urlencode }}">{{ place.template.city.country.name }}</a>
                                                     )
-                                                    с: {{ place.from_date|date:"m.Y" }} по: {{ place.to_date|date:"m.Y" }} 
+                                                    с {{ place.from_date|date:"m.Y" }} по {{ place.to_date|date:"m.Y" }} 
                                                     {% ifequal profile request.user.user %}
-                                                        <a href="{% url edit_user_place place.pk %}">{% trans "edit" %}</a>
+                                                        <a class="wrote-smth" href="{% url edit_user_place place.pk %}">{% trans "ред." %}</a>
                                                     {% endifequal %}
                                                 </li>
+                                                </ul>
                                             {% endfor %}
                                         {% endif %}
                                         {% ifequal profile request.user.user %}
-                                            <a class="wrote-smth" href="{% url add_user_place %}?ajax=1">{% trans "Добавить место" %}</a>
+                                            <a class="wrote-smth" style="margin-top: 5px; display: block" href="{% url add_user_place %}?ajax=1">{% trans "Добавить" %}</a>
                                         {% endifequal %}
                                     </div>
                                     {% if profile.interest %}

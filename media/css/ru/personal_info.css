@@ -36,7 +36,13 @@
 
 .b-career-info {
       margin-top: 10px;  
-} 
+}
+
+.b-career-info ul {
+    list-style: none;
+    display: block;
+}
+
 
 .b-phone-num {
     
