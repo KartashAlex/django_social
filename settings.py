@@ -51,8 +51,9 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.middleware.doc.XViewMiddleware',
-
-  	"django.middleware.locale.LocaleMiddleware",
+    "net.middleware.LoginRedirectMiddleware",
+    "django.contrib.flatpages.middleware.FlatpageFallbackMiddleware",
+    "django.middleware.locale.LocaleMiddleware",
 )
 
 ROOT_URLCONF = 'urls'
