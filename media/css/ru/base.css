@@ -179,7 +179,7 @@ table td {
 
  .b-message {
 	padding-bottom: 5px;
-	float: left; display: inline;
+	display: block;
     margin: 5px 0px 10px 20px;
 	border-bottom: solid 1px #efefef;
 	width: 90%;
