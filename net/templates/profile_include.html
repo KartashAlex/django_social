@@ -3,9 +3,9 @@
                 <table class="b-personal-info">
                     <tr>
                         <td class="b-userpic">
-                            {% if profile.avatar %} <img src="{% thumbnail profile.avatar 310x220 %}" alt="userpic" /> {% endif %}
+                            {% if profile.avatar %} <img src="{% thumbnail profile.avatar 310x220 crop,detail %}" alt="userpic" /> {% endif %}
                         </td>
-                        <td>
+                        <td style="width: 100%;">
                             {% ifequal profile.pk request.user.user.pk %}
                                 <a class="edit-profile-btn" id="edit-profile-btn" href="{% url edit_user_profile %}" name="edit-profile-btn">{% trans "Редактировать" %}</a>
                        

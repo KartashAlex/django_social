@@ -2,6 +2,7 @@
     background: url('/i/img/head_bg.gif') repeat-x;
     display: block;
     width: 100%;
+    z-index: 100;
     position: relative;
     overflow: hidden;
     height: 40px;
