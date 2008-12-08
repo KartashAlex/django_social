@@ -1,2 +1,1 @@
 {% load net i18n %}
-{% trans "Вы удалены из группы" %} <a href="http://{{ site.domain }}{{ group.get_absolute_url }}">{{ group.name }}</a>. 
