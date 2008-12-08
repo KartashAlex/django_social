@@ -442,6 +442,7 @@ table td {
     display: block;
     width: 90%;
     margin-left: 20px;
+    height: 80px;
     display: block;
 }
 .b-user .medium-avatar {
@@ -457,4 +458,8 @@ table td {
 }
 .b-user-content {
 margin: 20px 0 0 20px;
+}
+
+li {
+  list-style: none; 
 }

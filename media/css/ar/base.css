@@ -434,6 +434,7 @@ table td {
 .b-user {
     display: block;
     width: 90%;
+    height: 80px;
     margin-right: 20px;
     float: right; display: inline;
 }
@@ -448,4 +449,8 @@ table td {
 
 .inner-text {
     margin-right: 20px;
+}
+
+li {
+    list-style: none; 
 }

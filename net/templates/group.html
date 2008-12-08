@@ -6,7 +6,7 @@
                 <td class="b-userpic">
                     {% if profile.avatar %} <img src="#" /> {% endif %}
                 </td>
-                <td>
+                <td style="width: 100%;">
                     {% ifequal profile.pk request.user.user.pk %}
                         <a class="edit-profile-btn" id="edit-profile-btn" href="{% url edit_user_profile %}" name="edit-profile-btn">{% trans "Редактировать" %}</a>
                   
@@ -20,7 +20,7 @@
               		        {% ifin request.user.user object.members.all %}
 					            {% trans "Вы участник этой группы" %}
 					            <a href="{% url groups_enter object.pk,0 %}">{% trans "Покинуть группу" %}</a>
-					            <form action="{% url groups_invite object.pk %}" method="post">
+					            <form style="margin-top: 20px;" action="{% url groups_invite object.pk %}" method="post">
 					                <select name="user">
 					                {% for f in request.user.user.friends.all %}
 					                    <option value="{{ f.friend.pk }}">{{ f.friend.get_name }}</option>
