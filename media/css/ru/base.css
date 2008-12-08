@@ -442,7 +442,7 @@ table td {
     display: block;
     width: 90%;
     margin-left: 20px;
-    float: left; display: inline;
+    display: block;
 }
 .b-user .medium-avatar {
     margin: 10px 10px 10px 0;
@@ -454,4 +454,7 @@ table td {
 }
 .inner-text {
     margin-left: 20px;
+}
+.b-user-content {
+margin: 20px 0 0 20px;
 }

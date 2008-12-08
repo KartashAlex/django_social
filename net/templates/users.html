@@ -12,7 +12,7 @@
                 {% for user in object_list %}
             	<div class="b-user"><a class="medium-avatar"  href="{% url user_profile user.pk %}">
             	    <img src="{% thumbnail user.avatar 100x100 %}" /></a>
-					<div style="margin: 20px 0 0 20px; float: left">
+					<div class="b-user-content">
 					    <a href="{% url user_profile user.pk %}">{{ user.get_name }}</a>
 						<div сlass="b-user-info-small" style="color: #c0c0c0">
 						    {{ user.birthdate|date:"d.m.Y" }}
