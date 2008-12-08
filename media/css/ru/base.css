@@ -173,7 +173,7 @@ table td {
 .b-albums {
     margin: 0 0 10px 10px;
     float: left; display: inline;
-    height: 90px;
+    height: 130px;
     overflow: hidden;
 }
 
@@ -202,11 +202,11 @@ table td {
 .b-photos {
 	width: 100%;
 	display: block;
-    height: 115px;
+    height: 150px;
 }
 
 .b-photos .b-photo {
-    margin: 5px 5px 5px 10px;
+    margin: 5px 5px 50px 10px;
 
 	display: block;
 	float: left; display: inline;
@@ -333,11 +333,12 @@ table td {
 
 .b-friends {
   	width: 100%;
+   height: 150px;
 
 
 }
 .b-friend-thumbnail {
-    margin: 5px 5px 15px 20px;
+    margin: 5px 5px 50px 10px;
 	display: block;
 	float: left; display: inline;
 	width: 100px;
@@ -349,9 +350,11 @@ table td {
 }
 
 .b-wide-left-column {
-
     width: 58%;
-    float: left; display: inline;
+    #width: 54%;
+    margin-right: 2%;
+    float: left;
+    display: inline;
 }
 .b-form-as-table {
     margin-top: 20px;

@@ -11,7 +11,7 @@
                             (<a  href="{% url list_friends widgets.profile.pk %}">{{ widgets.friends.friends_count}}</a>)  
                         {% endif %}
                     </h1>
-              
+                                   <div class="b-albums">
                     {% for friend in widgets.friends.friends_list %}
                         <div class="b-friend-thumbnail" > 
 							{% if friend.avatar %}
@@ -21,7 +21,9 @@
 							{% endif %}
 						
                         </div>
+
                     {% endfor %}
+                                       </div>
                 {% else %}
                     {% if profile %}
                         {% ifequal profile.user.pk request.user.pk %}
