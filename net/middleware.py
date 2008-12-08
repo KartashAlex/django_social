@@ -12,6 +12,9 @@ class LoginRedirectMiddleware:
         if request.path == '/accounts/login/' or \
            request.path == '/accounts/logout/' or \
            request.path.startswith('/accounts/activate/') or \
+           request.path.startswith('/i/css') or \
+           request.path.startswith('/i/js') or \          
+           request.path.startswith('/img') or \
            request.path.startswith('/accounts/password/reset/') or \
            request.path.startswith('/accounts/reset/') or \
            request.path.startswith('/accounts/register/'):
