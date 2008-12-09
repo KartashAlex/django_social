@@ -257,7 +257,7 @@ def json(lst, fields):
     return u'[%s]' % ',\n'.join(s1)
     
 def ajax_cities(request, country_id):
-    cities = City.objects.filter(country__pk=country_id)[:20]
+    cities = City.objects.filter(country__pk=country_id)
     return HttpResponse(json(cities, ['id', 'name']), mimetype="text/javascript")
 
 def ajax_places(request):
