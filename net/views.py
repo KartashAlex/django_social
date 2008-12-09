@@ -226,17 +226,15 @@ def groups_create(request):
 @login_required
 def groups_enter(request, group_id, enter):
     group = get_object_or_404(Group, pk=group_id)
+    url = request.META.get('HTTP_REFERER', '/groups/')
     if str(enter) == "1":
         group.add_user(request.user.user)
     else:
         try:
             group.remove_user(request.user.user)
         except Group.UserException:
-            if settings.DEBUG:
-                raise
-            else:
-                pass
-    return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/groups/'))
+            url = url + '?error=your_group'
+    return HttpResponseRedirect(url)
     
 @login_required
 def groups_invite(request, group_id):
