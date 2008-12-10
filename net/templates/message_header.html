@@ -1,6 +1,6 @@
 {% load thumbnail i18n %}
 		 <div class="b-message-header">
-	         <img src="/i/albums/30px.jpg" style="width: 30px; height: 30px; background: #000; display: block; float: left">
+	         <img src="{% thumbnail profile.avatar 30x30 crop,detail %}" style="width: 30px; height: 30px; background: #000; display: block; float: left">
 						   {% if msg.private %}
 					        {% trans "личное сообщение" %}
 					        {% else %}

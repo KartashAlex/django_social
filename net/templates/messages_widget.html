@@ -16,7 +16,7 @@
 						<div class="corner corner-left-bottom"></div>
 						<div class="corner corner-right-bottom"></div>
         	 <div class="b-message-header">
-		         <img src="/i/albums/30px.jpg" style="width: 30px; height: 30px; background: #000; display: block; float: left">
+		         <img src="{% thumbnail profile.avatar 310x220 crop,detail %}" style="width: 30px; height: 30px; background: #000; display: block; float: left">
 							        
 		<h3>	        
 	            {% ifequal msg.from_user user.user %}
