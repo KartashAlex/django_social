@@ -11,7 +11,7 @@
     {% for msg in widgets.events %}
     <div class="b-message">
 		 <div class="b-message-header">
-	        <img src="{% thumbnail profile.avatar 30x30 crop,detail %}" style="width: 30px; height: 30px; background: #000; display: block; float: left">
+	        {% if profile.avatar %}<img src="{% thumbnail profile.avatar 30x30 crop,detail %}" />{% endif %}
         	<h3>{{ msg.sent|date:"d.m.Y H:s" }}</h3>
 	     </div>
         <p>
