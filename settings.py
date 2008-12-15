@@ -107,6 +107,7 @@ INSTALLED_APPS = OUR_APPS + (
     'dbsettings',
 
     'sorl.thumbnail',
+    'test_utils',
     
     'south',
     'multilingual',
