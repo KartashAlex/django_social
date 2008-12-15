@@ -196,6 +196,7 @@ table td {
 
 .b-message-header img {
 	margin: 5px 10px 0 0;
+    float: left;
 }
 
 .b-photos {
