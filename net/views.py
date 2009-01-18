@@ -36,6 +36,7 @@ def my_profile(request):
     }, context_instance=RequestContext(request))
     
 def get_dict(qs):
+    'возвращает объект dict из объекта queryset'
     result = []
     for item in qs:
         item_dict = {}
@@ -85,6 +86,7 @@ def add_place(request):
     
 @login_required
 def edit_place(request, id):
+    'Редактирование мест'
     place = get_object_or_404(Place, pk=id, user=request.user.user)
     if request.POST:
         form = PlaceForm(data=request.POST, files=request.FILES, instance=place)
@@ -106,6 +108,7 @@ def edit_place(request, id):
 
 @login_required
 def edit_interests(request):
+    'Редактирование интересов'
     if request.POST:
         form = InterestsForm(data=request.POST, files=request.FILES, instance=request.user.user)
         if form.is_valid():
@@ -121,6 +124,7 @@ def edit_interests(request):
 
 @login_required
 def user_search(request):
+    'Поиск пользователя'
     query = Q()
     I18N_FIELDS = [
         'country__pk', 'city__pk',
@@ -160,11 +164,13 @@ def user_search(request):
 
 @login_required
 def friends(request, user_id):
+    'Cтраница друзей пользователя'
     user = get_object_or_404(User, pk=user_id)
     return list_detail.object_list(request, queryset=user.get_friends(), template_name='users.html', paginate_by=10)
 
 @login_required
 def change_friend(request, user_id, add):
+    'метод меняющий отношения с пользователем'
     user = get_object_or_404(User, pk=user_id)
     if str(add) == "1":
         Friend.objects.get_or_create(friend=user, friend_of=request.user.user)
@@ -177,6 +183,7 @@ def change_friend(request, user_id, add):
 
 @login_required
 def groups_list(request, my=False):
+    'Список групп пользователя'
     groups = Group.objects.all()
     if my:
         try:
@@ -204,10 +211,12 @@ def groups_list(request, my=False):
 
 @login_required
 def groups_profile(request, group_id):
+    'Профайл группы'
     return list_detail.object_detail(request, queryset=Group.objects.all(), object_id=group_id, template_name='group.html')
     
 @login_required
 def groups_create(request):
+    'Страница создания группы'
     if request.POST:
         form = GroupForm(data=request.POST)
         if form.is_valid():
@@ -225,6 +234,7 @@ def groups_create(request):
 
 @login_required
 def groups_enter(request, group_id, enter):
+    'Войти в группу'
     group = get_object_or_404(Group, pk=group_id)
     url = request.META.get('HTTP_REFERER', '/groups/')
     if str(enter) == "1":
@@ -238,12 +248,14 @@ def groups_enter(request, group_id, enter):
     
 @login_required
 def groups_invite(request, group_id):
+    'Приглашения в группу'
     group = get_object_or_404(Group, pk=group_id)
     user = get_object_or_404(User, pk=request.REQUEST.get('user'))
     Event.objects.create_event(request.user.user, user=user, type='group_invite', group=group)
     return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/groups/'))
     
 def json(lst, fields):
+    'Метод возвращающий json из обычного списка'
     s1 = []
     for l in lst:
         s = u'{'
@@ -255,10 +267,12 @@ def json(lst, fields):
     return u'[%s]' % ',\n'.join(s1)
     
 def ajax_cities(request, country_id):
+    'Список городов в json'
     cities = City.objects.filter(country__pk=country_id)
     return HttpResponse(json(cities, ['id', 'name']), mimetype="text/javascript")
 
 def ajax_places(request):
+    'Список мест в json'
     places = PlaceTemplate.objects.all()
     if request.POST.get('text'):
         places = places.filter(translations__name__istartswith=request.POST.get('q'))

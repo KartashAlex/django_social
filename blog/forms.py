@@ -4,6 +4,7 @@ from django.utils.translation import ugettext_lazy as _
 from models import Post
 
 class PostForm(forms.ModelForm):
+    'Форма добавления поста/обьявления в блог'
     class Meta:
         model = Post
         exclude = ['author', 'type']

@@ -12,23 +12,27 @@ import re
 from models import Friend, Event, NetGroup
 
 def add_friend(sender, **kwargs):
+    'Cигнал посылаемый после добавления друга'
     friend, friend_of = kwargs['instance'].friend, kwargs['instance'].friend_of
     Event.objects.create_event(sender=friend_of, user=friend, type='friend_add')
 signals.post_save.connect(add_friend, sender=Friend)
 
 def delete_friend(sender, **kwargs):
+    'Cигнал посылаемый после удаления друга'
     friend, friend_of = kwargs['instance'].friend, kwargs['instance'].friend_of
     Event.objects.create_event(sender=friend_of, user=friend, type='friend_delete')
 signals.pre_delete.connect(delete_friend, sender=Friend)
 
 added_to_group = signals.Signal(providing_args=["group", "user"])
 def add_to_group(sender, **kwargs):
+    'Cигнал посылаемый после добавления в группу'
     group, user = kwargs['group'], kwargs['user']
     Event.objects.create_event(sender=user, user=user, type='group_add', group=group)
 added_to_group.connect(add_to_group, sender=NetGroup)
 
 removed_from_group = signals.Signal(providing_args=["group", "user"])
 def remove_from_group(sender, **kwargs):
+    'Cигнал посылаемый после выхода из группы'
     group, user = kwargs['group'], kwargs['user']
     Event.objects.create_event(sender=user, user=user, type='group_delete', group=group)
 removed_from_group.connect(remove_from_group, sender=NetGroup)

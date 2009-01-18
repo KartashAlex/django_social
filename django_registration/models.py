@@ -18,8 +18,11 @@ from net.models import User as OurUser
 
 SHA1_RE = re.compile('^[a-f0-9]{40}$')
 
+#Класс отвечающий за создание ключей
 class TokenManager(models.Manager):
+    "Класс отвечающий за управление ключами регистрации"
     def activate(self, activation_key, **user_data):
+        "Метод активирующий аккаунт по ключу"
         if SHA1_RE.search(activation_key):
             try:
                 token = self.get(activation_key=activation_key)
@@ -28,8 +31,10 @@ class TokenManager(models.Manager):
             if not token.expired():
                 user = token.create_user(**user_data)
                 return user
-    
+
+
     def create_token(self, email, send_email=True, profile_callback=None):
+        "Метод генерирующий ключ и отсылающий его пользователю"
         salt = sha.new(str(random.random())).hexdigest()[:5]
         activation_key = sha.new(salt+email).hexdigest()
         token = Token.objects.create(email=email, activation_key=activation_key)
@@ -51,6 +56,7 @@ class TokenManager(models.Manager):
         return token
 
 class Token(models.Model):
+    "класс ключа"
     email = models.EmailField()
     activation_key = models.CharField(_('activation key'), max_length=40)
     date = models.DateTimeField(auto_now_add=True)
@@ -69,11 +75,13 @@ class Token(models.Model):
         return u"Registration token for %s" % self.email
     
     def expired(self):
+        "проверяет не устарел ли ключ"
         expiration_date = datetime.timedelta(days=settings.ACCOUNT_ACTIVATION_DAYS)
         return self.date + expiration_date <= datetime.datetime.now()
     expired.boolean = True
 
     def create_user(self, send_email=True, profile_callback=None, **user_data):
+        "создает пользователя со статусом неактивен"
         new_user, created = OurUser.objects.get_or_create(username=self.email)
         if created:
             new_user.email=self.email
@@ -96,6 +104,7 @@ class Token(models.Model):
         return user
         
 class RegistrationManager(models.Manager):
+    
     def activate_user(self, activation_key):
         """
         Validates an activation key and activates the corresponding

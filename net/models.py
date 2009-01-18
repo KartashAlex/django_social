@@ -48,11 +48,13 @@ DjangoUser._meta.get_field('username').validator_list = []
 DjangoUser._meta.get_field('username').help_text = ''
 
 class UserManager(models.Manager):
+    'Менеджер пользователей'
     def search(self, field, value):
+        'Поиск пользователей'
         return self.filter(**{field + '__icontains': value})
 
 class User(DjangoUser):
-    
+    'Класс наследник от пользователя django, содержит дополнительные поля для профиля пользователя '
     # Common information
     
     avatar = models.ImageField(_('Avatar'), upload_to='avatars/%Y/%m/', blank=True, null=True)
@@ -83,9 +85,11 @@ class User(DjangoUser):
         pass
         
     def get_friend_of(self):
+        'Возвращает список людей у которых я в друзьях'
         return User.objects.filter(friends__friend=self)
         
     def get_friends(self):
+        'Возвращает список друзей пользователя'
         return User.objects.filter(friend_of__friend_of=self)
         
     def save(self, *args, **kwargs):
@@ -104,35 +108,43 @@ class User(DjangoUser):
         super(User, self).save(*args, **kwargs)
 
     def get_absolute_url(self):
+        'Возвращает абсолютную ссылку на профиль'
         return reverse('user_profile', args=[self.pk,])
 
     def get_data(self, field):
+        'Возвращает данные о пользователя'
         try:
             return eval(self.__getattribute__(field))
         except (ValueError, SyntaxError):
             return {}
             
     def get_contacts(self):
+        'Возвращает контактные данные'
         return self.get_data('contacts')
         
     def get_interests(self):
+        'Возвращает интересы пользователя'
         return [interest.strip() for interest in self.interest.split(',')]
 
     def set_data(self, field, data):
         self.__setattr__(field, u'%s' % data)
         
     def get_all_messages(self):
+        'Возвращает все сообщения пользователя'
         from wall.models import Message
         user_ct = ContentType.objects.get_for_model(User)
         return Message.objects.filter(from_user=self)|Message.objects.filter(content_type=user_ct, object_id=self.pk)
         
     def get_messages(self):
+        'Возвращает сообщения на стенку'
         return self.get_all_messages().filter(private=False)
         
     def get_private_messages(self):
+        'Возвращает личные сообщения'
         return self.get_all_messages().filter(private=True)
         
     def get_name(self):
+        'Возвращает имя пользователя'
         if self.first_name or self.last_name:
             return u'%s %s' % (self.first_name, self.last_name)
         try:
@@ -145,6 +157,7 @@ class Friend(models.Model):
     friend_of = models.ForeignKey(User, related_name='friends')
         
 class PlaceType(models.Model):
+    'Тип места -- университет/школа/etc'
     class Translation(multilingual.Translation):
         name = models.CharField(_('Name'), max_length=255)
      
@@ -166,6 +179,7 @@ class PlaceTemplate(models.Model):
         return self.name or _(u'Place %s') % self.pk
     
 class Place(models.Model):
+    'Модель мест -- университетов, городов, школ, мест работы и так далее'
     user = models.ForeignKey(User, related_name='places')
     template = models.ForeignKey(PlaceTemplate, related_name='places')
     
@@ -173,6 +187,7 @@ class Place(models.Model):
     to_date = models.DateField(blank=True, null=True)
     
 class NetGroup(models.Model):
+    'Модель группы'
     name = models.CharField(max_length=255, unique=True)
     description = models.TextField(blank=True, null=True)
     interest = models.TextField(_('Favorite interests'), blank=True, default='')

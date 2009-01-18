@@ -8,6 +8,7 @@ from models import Post
 from forms import PostForm
 
 def list(request, user_id, type, *args, **kwargs):
+    'метод выводит посты блога'
     kwargs.update({
         'queryset': Post.objects.filter(type=type, author__pk=user_id).order_by('-added'),
         'template_name': 'post_list.html',
@@ -18,6 +19,7 @@ def list(request, user_id, type, *args, **kwargs):
     return list_detail.object_list(request, *args, **kwargs)
 
 def profile(request, user_id, type, id, *args, **kwargs):
+    'метод выводит блок блога в профиле'
     kwargs.update({
         'queryset': Post.objects.filter(type=type, author__pk=user_id),
         'object_id': id,
@@ -30,6 +32,7 @@ def profile(request, user_id, type, id, *args, **kwargs):
 
 @login_required
 def add(request, type="blog", *args, **kwargs):
+    'метод добавления поста в блог'
     if request.POST:
         form = PostForm(request.POST, user=request.user.user, type=type)
         if form.is_valid():

@@ -9,6 +9,7 @@ from django.core.urlresolvers import reverse
 from models import Message, User
 
 def messages(request, id=None, type='wall'):
+    'Возвращает список сообщений на стену'
     messages = Message.objects.all().order_by('-sent')
     user_ct = ContentType.objects.get_for_model(User)
     if type == 'outbox' and request.user.is_authenticated():

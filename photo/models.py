@@ -5,7 +5,7 @@ from django.utils.translation import ugettext_lazy as _
 
 from net.models import User, NetGroup
 
-class Album(models.Model):
+class Album(models.Model):   
     group = models.ForeignKey(NetGroup, related_name='albums', blank=True, null=True)
     user = models.ForeignKey(User, related_name='albums')
     title = models.CharField(max_length=255)

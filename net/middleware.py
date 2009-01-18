@@ -15,6 +15,7 @@ class LoginRedirectMiddleware:
            request.path.startswith('/i/css/') or \
            request.path.startswith('/i/js/') or \
            request.path.startswith('/img/') or \
+           request.path.startswith('/admin/') or \
            request.path.startswith('/accounts/password/reset/') or \
            request.path.startswith('/accounts/reset/') or \
            request.path.startswith('/accounts/register/'):

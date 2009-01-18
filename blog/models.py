@@ -7,6 +7,7 @@ import multilingual
 from net.models import User, NetGroup
 
 class AdCategory(models.Model):
+    'Модель категорий обьявлений'
     class Translation(multilingual.Translation):
         name = models.CharField(_('Name'), max_length=255)
         
@@ -14,6 +15,7 @@ class AdCategory(models.Model):
         return self.name or _(u'Category %s') % self.pk
 
 class Post(models.Model):
+    'Модель поста в блог. Обьявление это тоже пост в блог, поэтому модель у них одна'
     TYPES = (
         ('blog', _('Blog post')),
         ('ads', _('Advertisement')),
