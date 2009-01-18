@@ -1,3 +1,5 @@
+# -*- coding: UTF-8 -*-
+
 from django.views.generic import list_detail, create_update
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required

@@ -72,7 +72,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 
     "context_processors.common",
     "context_processors.widgets",
-    
+
     "multilingual.context_processors.multilingual",
 )
 

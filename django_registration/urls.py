@@ -1,3 +1,5 @@
+# -*- coding: UTF-8 -*-
+
 """
 URLConf for Django user registration.
 

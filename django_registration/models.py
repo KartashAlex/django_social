@@ -1,3 +1,5 @@
+# -*- coding: UTF-8 -*-
+
 """
 A model (``RegistrationProfile``) for storing user-registration data,
 and an associated custom manager (``RegistrationManager``).
